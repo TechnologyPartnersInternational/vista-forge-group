@@ -2,7 +2,6 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { environmentSubServices } from "@/data/services";
 import { ArrowLeft, ArrowRight, CheckCircle2, Leaf } from "lucide-react";
-import HowWeWork from "@/components/HowWeWork";
 import environmentHero from "@/assets/environment-hero.jpg";
 import envPlanning from "@/assets/env-planning.jpg";
 import envMonitoring from "@/assets/env-monitoring.jpg";
@@ -133,7 +132,7 @@ const EnvironmentDetail = () => {
         );
       })}
 
-      <HowWeWork />
+      
 
       {/* Standards & accreditations */}
       <section className="bg-mist">
