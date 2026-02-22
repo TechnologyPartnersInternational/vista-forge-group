@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { services } from "@/data/services";
+import TPILogo from "@/components/TPILogo";
 
 const navItems = [
   { label: "What We Do", path: "/what-we-do", hasMega: true },
@@ -23,11 +24,8 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <nav className="container-narrow flex items-center justify-between h-16 md:h-20 px-6 lg:px-12">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="flex flex-col leading-tight">
-            <span className="text-xl font-bold tracking-tight text-primary">TPI Group</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Technology Partners International</span>
-          </div>
+        <Link to="/" className="shrink-0">
+          <TPILogo className="h-10 w-auto" variant="dark" />
         </Link>
 
         {/* Desktop Nav */}

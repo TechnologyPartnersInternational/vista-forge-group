@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
 import { MapPin, Phone, Mail } from "lucide-react";
+import TPILogo from "@/components/TPILogo";
 
 const Footer = () => {
   return (
@@ -10,8 +11,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <div className="text-xl font-bold tracking-tight">TPI Group</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-silver">Technology Partners International</div>
+              <TPILogo className="h-10 w-auto" variant="light" />
             </div>
             <p className="text-sm text-silver leading-relaxed">
               Since 1992, delivering integrated environmental, laboratory, engineering, and digital solutions across West Africa.
