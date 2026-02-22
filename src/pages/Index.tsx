@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { services, industries } from "@/data/services";
@@ -5,7 +6,44 @@ import { projects } from "@/data/projects";
 import { insights } from "@/data/insights";
 import { ArrowRight, MapPin, Shield, Users, Calendar, FlaskConical, ChevronRight } from "lucide-react";
 import heroImage from "@/assets/hero-african-landscape.jpg";
+import heroRiverDelta from "@/assets/hero-river-delta.jpg";
+import heroEngineers from "@/assets/hero-engineers-pipeline.jpg";
+import heroLaboratory from "@/assets/hero-laboratory.jpg";
+import heroSavannah from "@/assets/hero-savannah-sunset.jpg";
 import coastlineImage from "@/assets/african-coastline.jpg";
+
+const heroSlides = [
+  {
+    image: heroImage,
+    subtitle: "Environment · Laboratory · Engineering · Digital",
+    title: "Trusted technical partners for Africa's most complex challenges",
+    description: "Since 1992, TPI Group has delivered integrated environmental, laboratory, engineering, and digital solutions to the continent's leading operators and institutions.",
+  },
+  {
+    image: heroRiverDelta,
+    subtitle: "Environmental Stewardship",
+    title: "Protecting Africa's ecosystems with science-driven solutions",
+    description: "From baseline assessments to remediation, we safeguard critical natural resources across West Africa's most sensitive environments.",
+  },
+  {
+    image: heroEngineers,
+    subtitle: "Engineering & Asset Integrity",
+    title: "Building and sustaining critical infrastructure across the continent",
+    description: "Our multidisciplinary engineering teams deliver EPC solutions, asset integrity management, and pipeline services to international standards.",
+  },
+  {
+    image: heroLaboratory,
+    subtitle: "Accredited Laboratory Services",
+    title: "Precision analysis powering confident decisions",
+    description: "ISO 17025-accredited laboratories delivering reliable environmental, petroleum, and industrial testing with rapid turnaround.",
+  },
+  {
+    image: heroSavannah,
+    subtitle: "Three Decades of Impact",
+    title: "Shaping sustainable futures across West Africa since 1992",
+    description: "Over 500 projects delivered for the continent's leading operators — from oil & gas majors to government institutions and multilateral agencies.",
+  },
+];
 
 const stats = [
   { icon: Calendar, value: "Since 1992", label: "Established" },
@@ -24,25 +62,65 @@ const processSteps = [
 const Index = () => {
   const featuredInsight = insights.find((i) => i.featured);
   const recentInsights = insights.filter((i) => !i.featured).slice(0, 3);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goToSlide = useCallback((index: number) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentSlide(index);
+    setTimeout(() => setIsTransitioning(false), 800);
+  }, [isTransitioning]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToSlide((currentSlide + 1) % heroSlides.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [currentSlide, goToSlide]);
+
+  const slide = heroSlides[currentSlide];
 
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center">
-        <img src={heroImage} alt="African savannah landscape" className="absolute inset-0 w-full h-full object-cover" />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background images */}
+        {heroSlides.map((s, i) => (
+          <img
+            key={i}
+            src={s.image}
+            alt=""
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+              i === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
         <div className="hero-overlay absolute inset-0" />
+
         <div className="relative z-10 container-narrow section-padding">
           <div className="max-w-3xl">
-            <p className="text-silver text-sm font-semibold uppercase tracking-[0.2em] mb-4 animate-fade-up">
-              Environment · Laboratory · Engineering · Digital
+            <p
+              key={`sub-${currentSlide}`}
+              className="text-silver text-sm font-semibold uppercase tracking-[0.2em] mb-4 animate-fade-in"
+            >
+              {slide.subtitle}
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-[1.08] mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-              Trusted technical partners for Africa's most complex challenges
+            <h1
+              key={`title-${currentSlide}`}
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-[1.08] mb-6 animate-fade-in"
+              style={{ animationDelay: "0.1s" }}
+            >
+              {slide.title}
             </h1>
-            <p className="text-lg md:text-xl text-silver leading-relaxed max-w-2xl mb-10 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              Since 1992, TPI Group has delivered integrated environmental, laboratory, engineering, and digital solutions to the continent's leading operators and institutions.
+            <p
+              key={`desc-${currentSlide}`}
+              className="text-lg md:text-xl text-silver leading-relaxed max-w-2xl mb-10 animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
+            >
+              {slide.description}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold rounded-md bg-primary-foreground text-primary hover:opacity-90 transition-opacity">
                 Request a Proposal
                 <ArrowRight className="w-4 h-4" />
@@ -51,6 +129,20 @@ const Index = () => {
                 Explore Capabilities
               </Link>
             </div>
+          </div>
+
+          {/* Slide indicators */}
+          <div className="flex items-center gap-3 mt-12">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToSlide(i)}
+                className={`h-1 rounded-full transition-all duration-500 ${
+                  i === currentSlide ? "w-10 bg-primary-foreground" : "w-4 bg-primary-foreground/30 hover:bg-primary-foreground/50"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
