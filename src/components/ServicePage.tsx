@@ -1,7 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
-import HowWeWork from "@/components/HowWeWork";
 import type { LucideIcon } from "lucide-react";
 
 export interface ServiceSection {
@@ -125,8 +124,6 @@ const ServicePage = ({
           </section>
         );
       })}
-
-      <HowWeWork />
 
       {/* CTA */}
       <section className="bg-card">

@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import HowWeWork from "@/components/HowWeWork";
 import engineersImage from "@/assets/engineers-fieldwork.jpg";
 
 const WhatWeDo = () => {
@@ -45,6 +46,8 @@ const WhatWeDo = () => {
           </div>
         </div>
       </section>
+
+      <HowWeWork />
 
       {/* CTA */}
       <section className="navy-gradient">
