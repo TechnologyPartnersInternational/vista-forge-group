@@ -1,11 +1,11 @@
-import tpiLogo from "@/assets/tpi-logo.png";
+import tpiLogo from "@/assets/tpi-logo-full.png";
 
 interface TPILogoProps {
   className?: string;
   variant?: "light" | "dark";
 }
 
-const TPILogo = ({ className = "h-10 w-auto", variant = "dark" }: TPILogoProps) => {
+const TPILogo = ({ className = "h-12 w-auto", variant = "dark" }: TPILogoProps) => {
   return (
     <img
       src={tpiLogo}
