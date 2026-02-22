@@ -12,6 +12,15 @@ import heroEngineers from "@/assets/hero-engineers-pipeline.jpg";
 import heroLaboratory from "@/assets/hero-laboratory.jpg";
 import heroSavannah from "@/assets/hero-savannah-sunset.jpg";
 import coastlineImage from "@/assets/african-coastline.jpg";
+import projectRemediation from "@/assets/project-remediation.jpg";
+import projectLng from "@/assets/project-lng.jpg";
+import projectLab from "@/assets/project-lab.jpg";
+
+const projectImages: Record<string, string> = {
+  "niger-delta-remediation": projectRemediation,
+  "lng-terminal-eia": projectLng,
+  "industrial-lab-network": projectLab,
+};
 
 const heroSlides = [
   {
@@ -192,18 +201,27 @@ const Index = () => {
               <Link
                 key={p.id}
                 to={`/projects/${p.id}`}
-                className="group bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-8 hover:bg-primary-foreground/10 transition-colors"
+                className="group bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg overflow-hidden hover:bg-primary-foreground/10 transition-colors"
               >
-                <div className="text-xs font-medium text-silver mb-3">{p.service} · {p.industry}</div>
-                <h3 className="text-lg font-semibold text-primary-foreground mb-3 group-hover:text-gold transition-colors">{p.title}</h3>
-                <p className="text-sm text-silver leading-relaxed mb-6 line-clamp-3">{p.problem}</p>
-                <div className="grid grid-cols-2 gap-4">
-                  {p.metrics.slice(0, 2).map((m) => (
-                    <div key={m.label}>
-                      <div className="text-2xl font-bold text-primary-foreground">{m.value}</div>
-                      <div className="text-xs text-silver">{m.label}</div>
-                    </div>
-                  ))}
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={projectImages[p.id]}
+                    alt={p.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="text-xs font-medium text-silver mb-3">{p.service} · {p.industry}</div>
+                  <h3 className="text-lg font-semibold text-primary-foreground mb-3 group-hover:text-gold transition-colors">{p.title}</h3>
+                  <p className="text-sm text-silver leading-relaxed mb-6 line-clamp-3">{p.problem}</p>
+                  <div className="grid grid-cols-2 gap-4">
+                    {p.metrics.slice(0, 2).map((m) => (
+                      <div key={m.label}>
+                        <div className="text-2xl font-bold text-primary-foreground">{m.value}</div>
+                        <div className="text-xs text-silver">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </Link>
             ))}
