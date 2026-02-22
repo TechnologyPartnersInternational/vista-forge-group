@@ -269,12 +269,6 @@ export const services = [
     ],
     hasDetailedPage: true,
   },
-      "Environmental Impact Assessment (EIA) Training",
-      "Waste Management & Handling Certification",
-      "Oil Spill Response Training",
-      "Regulatory Compliance Workshops",
-    ],
-  },
 ];
 
 export const industries = [
