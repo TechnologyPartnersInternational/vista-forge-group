@@ -60,7 +60,7 @@ const HowWeWork = () => {
           {/* Connecting line (desktop) */}
           <div className="hidden md:block absolute top-[60px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-primary/0 via-primary/60 to-primary/0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 items-stretch">
             {steps.map((step) => {
               const Icon = step.icon;
               return (
@@ -76,12 +76,12 @@ const HowWeWork = () => {
                     </div>
                   </div>
 
-                  {/* Content card */}
-                  <div className="bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-xl p-6 w-full group-hover:border-primary/30 transition-colors">
+                  {/* Content card — flex-1 ensures equal height */}
+                  <div className="bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-xl p-6 w-full flex-1 flex flex-col group-hover:border-primary/30 transition-colors">
                     <h3 className="text-xl font-bold text-primary-foreground mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-silver leading-relaxed">
+                    <p className="text-sm text-silver leading-relaxed flex-1">
                       {step.desc}
                     </p>
                   </div>
