@@ -9,7 +9,7 @@ const sections: ServiceSection[] = [
   {
     id: "security-software",
     title: "Security & Software Solutions",
-    description: "TPI Group delivers leading environmental data management services, combining innovative reporting platforms, automation, and secure software systems to streamline operations. Built on integrity and scalability, our systems reduce manual effort, enhance regulatory reporting, and support informed decision-making — locally and sustainably.",
+    description: "TPI Group delivers leading environmental data management services, combining innovative reporting platforms, automation, and secure software systems to streamline operations. Built on integrity and scalability, our systems reduce manual effort, enhance regulatory reporting, and support informed decision-making, locally and sustainably.",
     highlights: [
       "Secure environmental software platforms",
       "Automated compliance reporting",
@@ -60,7 +60,7 @@ const DigitalDetail = () => (
     heroImage={digitalHero}
     heroIcon={Monitor}
     introHeading="Smart data. Better decisions."
-    introText="TPI's Digital Solutions team builds custom platforms for real-time environmental monitoring, regulatory reporting, and operational intelligence. We help clients collect, manage, and analyse environmental data with clarity and efficiency — driving performance, transparency, and environmental impact."
+    introText="TPI's Digital Solutions team builds custom platforms for real-time environmental monitoring, regulatory reporting, and operational intelligence. We help clients collect, manage, and analyse environmental data with clarity and efficiency, driving performance, transparency, and environmental impact."
     sections={sections}
     ctaHeading="Ready to digitise your operations?"
     ctaText="From IoT sensor networks to automated reporting platforms, our digital team builds solutions tailored to your environmental and operational needs."

@@ -12,7 +12,7 @@ const Projects = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-silver mb-3">Our Work</p>
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Projects & Case Studies</h1>
             <p className="text-lg text-silver leading-relaxed">
-              Evidence of impact — selected projects demonstrating our integrated approach to complex challenges.
+              Evidence of impact: selected projects demonstrating our integrated approach to complex challenges.
             </p>
           </div>
         </div>

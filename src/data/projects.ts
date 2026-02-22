@@ -35,7 +35,7 @@ export const projects: Project[] = [
   },
   {
     id: "lng-terminal-eia",
-    title: "LNG Terminal Expansion — Environmental & Social Impact Assessment",
+    title: "LNG Terminal Expansion: Environmental & Social Impact Assessment",
     client: "West African LNG Consortium",
     service: "Environment",
     industry: "Oil & Gas",
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     location: "Multi-State, Nigeria",
     year: "2024",
     heroImage: "",
-    problem: "The client's existing laboratory network lacked ISO accreditation, had outdated equipment, and experienced average sample turnaround times of 21 days — impeding enforcement of environmental regulations across six states.",
+    problem: "The client's existing laboratory network lacked ISO accreditation, had outdated equipment, and experienced average sample turnaround times of 21 days, impeding enforcement of environmental regulations across six states.",
     approach: "TPI designed and project-managed the renovation of three laboratories, specifying modern analytical instrumentation (ICP-MS, GC-MS, IC), implementing a Laboratory Information Management System (LIMS), and delivering an 18-month staff competency programme aligned with ISO 17025 requirements.",
     result: "All three laboratories achieved ISO 17025 accreditation. Average turnaround time dropped from 21 days to 5 days. Analytical capacity increased by 300%, directly supporting the agency's enforcement and compliance monitoring activities.",
     metrics: [

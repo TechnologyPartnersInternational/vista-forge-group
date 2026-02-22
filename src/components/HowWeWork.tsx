@@ -5,7 +5,7 @@ const steps = [
   {
     num: "01",
     title: "Align",
-    desc: "We clarify objectives, success criteria, stakeholders, constraints, and timelines—then define the right scope and governance.",
+    desc: "We clarify objectives, success criteria, stakeholders, constraints, and timelines, then define the right scope and governance.",
     icon: Target,
   },
   {
@@ -17,7 +17,7 @@ const steps = [
   {
     num: "03",
     title: "Deliver",
-    desc: "We execute with discipline—field teams, labs, engineers, and digital teams working as one to produce high-quality outputs.",
+    desc: "We execute with discipline: field teams, labs, engineers, and digital teams working as one to produce high-quality outputs.",
     icon: Rocket,
   },
   {

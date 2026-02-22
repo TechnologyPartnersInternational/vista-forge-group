@@ -75,7 +75,7 @@ const TrainingDetail = () => (
     heroImage={trainingHero}
     heroIcon={GraduationCap}
     introHeading="Building capability, driving excellence"
-    introText="TPI Academy delivers training programmes that combine classroom instruction with hands-on field and laboratory exercises. Whether you need ESG reporting skills, laboratory quality systems, or HSE awareness — our expert trainers help your team develop practical, industry-recognised competencies."
+    introText="TPI Academy delivers training programmes that combine classroom instruction with hands-on field and laboratory exercises. Whether you need ESG reporting skills, laboratory quality systems, or HSE awareness, our expert trainers help your team develop practical, industry-recognised competencies."
     sections={sections}
     ctaHeading="Invest in your team's development"
     ctaText="From standard accredited courses to fully customised corporate programmes, TPI Academy builds the capabilities your organisation needs."

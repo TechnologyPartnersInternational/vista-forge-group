@@ -42,7 +42,7 @@ const heroSlides = [
     image: heroSavannah,
     subtitle: "Three Decades of Impact",
     title: "Shaping sustainable futures across West Africa since 1992",
-    description: "Over 500 projects delivered for the continent's leading operators — from oil & gas majors to government institutions and multilateral agencies.",
+    description: "Over 500 projects delivered for the continent's leading operators, from oil & gas majors to government institutions and multilateral agencies.",
   },
 ];
 

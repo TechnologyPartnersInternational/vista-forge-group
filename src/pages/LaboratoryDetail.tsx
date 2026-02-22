@@ -56,7 +56,7 @@ const sections: ServiceSection[] = [
   {
     id: "petroleum-testing",
     title: "Production Chemistry & Petroleum Testing",
-    description: "We specialise in production chemistry, petroleum product testing, and crude oil assay. Our services include process optimisation, scale-up support, and comprehensive testing — from gasoline and diesel to lubricants and additives. We offer flash point, pour point, viscosity, API gravity, sulphur content, distillation, and corrosion testing.",
+    description: "We specialise in production chemistry, petroleum product testing, and crude oil assay. Our services include process optimisation, scale-up support, and comprehensive testing, from gasoline and diesel to lubricants and additives. We offer flash point, pour point, viscosity, API gravity, sulphur content, distillation, and corrosion testing.",
     highlights: [
       "Process optimisation & troubleshooting",
       "Flash point, pour point & viscosity testing",
@@ -71,7 +71,7 @@ const sections: ServiceSection[] = [
   {
     id: "fingerprinting",
     title: "Geochemical Fingerprinting",
-    description: "Crude oil fingerprinting provides critical information about the source and characteristics of crude oil. By analysing biomarkers including hopanes, steranes, isotope ratios, saturated hydrocarbons, and asphaltenes, we determine geological origin, history, quality, and refining potential — enabling informed business decisions.",
+    description: "Crude oil fingerprinting provides critical information about the source and characteristics of crude oil. By analysing biomarkers including hopanes, steranes, isotope ratios, saturated hydrocarbons, and asphaltenes, we determine geological origin, history, quality, and refining potential, enabling informed business decisions.",
     highlights: [
       "Hopane & sterane biomarker analysis",
       "Isotope ratio determination",

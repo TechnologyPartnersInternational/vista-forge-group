@@ -47,7 +47,7 @@ const EnvironmentDetail = () => {
                 Environment
               </h1>
               <p className="text-lg md:text-xl text-silver leading-relaxed max-w-3xl">
-                Decades of experience delivering environmental solutions that are feasible for our clients and sustainable for our future — across 10 specialist disciplines.
+                Decades of experience delivering environmental solutions that are feasible for our clients and sustainable for our future, across 10 specialist disciplines.
               </p>
             </div>
           </div>

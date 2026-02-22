@@ -13,7 +13,7 @@ export const environmentSubServices: EnvironmentSubService[] = [
   {
     id: "environmental-planning",
     title: "Environmental Planning & Management",
-    shortDesc: "Risk identification and mitigation across the full project lifecycle — from feasibility through decommissioning.",
+    shortDesc: "Risk identification and mitigation across the full project lifecycle, from feasibility through decommissioning.",
     fullDesc: "Projects are exposed to risks with potential for value erosion, litigation, and damage to natural resources. TPI delivers sustainable value through rigorous risk identification and mitigation, guaranteeing accelerated permit turnaround, investor confidence, and budget adherence. With over 30 years of experience across Africa, we partner with clients to deliver sustainable outcomes across oil and non-oil sectors.",
     highlights: [
       "Environmental, Social & Health Impact Assessments (ESHIA)",
@@ -207,7 +207,7 @@ export const services = [
     slug: "waste-management",
     icon: Trash2,
     shortDesc: "End-to-end waste management solutions from audit to treatment, disposal, and circular recovery.",
-    fullDesc: "TPI is your trusted partner in waste management for the mining and oil & gas industry. We provide integrated solid waste management systems, incineration, thermal desorption, and policy formulation — all designed to be economical, effective, and compliant.",
+    fullDesc: "TPI is your trusted partner in waste management for the mining and oil & gas industry. We provide integrated solid waste management systems, incineration, thermal desorption, and policy formulation, all designed to be economical, effective, and compliant.",
     capabilities: [
       "Integrated Solid Waste Management (ISWM)",
       "Incineration Systems",
