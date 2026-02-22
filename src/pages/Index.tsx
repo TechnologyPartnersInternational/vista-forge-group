@@ -213,7 +213,7 @@ const Index = () => {
                 <div className="p-8">
                   <div className="text-xs font-medium text-silver mb-3">{p.service} · {p.industry}</div>
                   <h3 className="text-lg font-semibold text-primary-foreground mb-3 group-hover:text-gold transition-colors">{p.title}</h3>
-                  <p className="text-sm text-silver leading-relaxed line-clamp-3">{p.problem}</p>
+                  <p className="text-sm text-silver leading-relaxed">{p.summary}</p>
                 </div>
               </Link>
             ))}
