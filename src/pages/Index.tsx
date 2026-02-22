@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { industries } from "@/data/services";
 import { projects } from "@/data/projects";
 import { insights } from "@/data/insights";
 import { ArrowRight, MapPin, Shield, Users, Calendar, FlaskConical } from "lucide-react";
@@ -221,27 +220,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Industries */}
-      <section className="bg-card">
-        <div className="container-narrow section-padding">
-          <div className="max-w-2xl mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3">Industries</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Deep sector expertise</h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {industries.map((ind) => (
-              <Link
-                key={ind.id}
-                to={`/industries#${ind.id}`}
-                className="group p-6 rounded-lg border border-border hover:border-primary/30 hover:bg-mist transition-all"
-              >
-                <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{ind.title}</h3>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Insights */}
       <section className="bg-mist">

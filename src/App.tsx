@@ -13,7 +13,7 @@ import WasteManagementDetail from "./pages/WasteManagementDetail";
 import EngineeringDetail from "./pages/EngineeringDetail";
 import DigitalDetail from "./pages/DigitalDetail";
 import TrainingDetail from "./pages/TrainingDetail";
-import Industries from "./pages/Industries";
+
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Insights from "./pages/Insights";
@@ -39,7 +39,7 @@ const App = () => (
           <Route path="/what-we-do/digital-solutions" element={<DigitalDetail />} />
           <Route path="/what-we-do/training" element={<TrainingDetail />} />
           <Route path="/what-we-do/:slug" element={<ServiceDetail />} />
-          <Route path="/industries" element={<Industries />} />
+          
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/insights" element={<Insights />} />
