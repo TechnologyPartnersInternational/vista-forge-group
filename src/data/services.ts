@@ -1,4 +1,166 @@
-import { Leaf, FlaskConical, Trash2, Wrench, Monitor, GraduationCap } from "lucide-react";
+import { Leaf, FlaskConical, Trash2, Wrench, Monitor, GraduationCap, TreePine, ShieldCheck, Microscope, CloudSun, Users, Wind, Droplets, Mountain, Map } from "lucide-react";
+
+export interface EnvironmentSubService {
+  id: string;
+  title: string;
+  shortDesc: string;
+  fullDesc: string;
+  highlights: string[];
+  icon: typeof Leaf;
+}
+
+export const environmentSubServices: EnvironmentSubService[] = [
+  {
+    id: "environmental-planning",
+    title: "Environmental Planning & Management",
+    shortDesc: "Risk identification and mitigation across the full project lifecycle — from feasibility through decommissioning.",
+    fullDesc: "Projects are exposed to risks with potential for value erosion, litigation, and damage to natural resources. TPI delivers sustainable value through rigorous risk identification and mitigation, guaranteeing accelerated permit turnaround, investor confidence, and budget adherence. With over 30 years of experience across Africa, we partner with clients to deliver sustainable outcomes across oil and non-oil sectors.",
+    highlights: [
+      "Environmental, Social & Health Impact Assessments (ESHIA)",
+      "Environmental Management Plans (EMP) & Audits",
+      "IFC/World Bank Performance Standards compliance",
+      "Stakeholder mapping & management",
+      "Regulatory permitting & approvals",
+      "Environmental risk modelling",
+    ],
+    icon: TreePine,
+  },
+  {
+    id: "compliance-monitoring",
+    title: "Environmental Compliance Monitoring",
+    shortDesc: "Proactive, turnkey monitoring solutions ensuring continuous regulatory compliance for industrial operations.",
+    fullDesc: "Routine environmental monitoring is critical for ensuring the safety and compliance of industrial operations. Our service includes collection and analysis of samples from air, water, and soil to detect harmful pollutants. We leverage technology and data analytics to provide business insights, encourage standardisation, and deliver end-to-end management of environmental risks.",
+    highlights: [
+      "Air, water & soil sample collection and analysis",
+      "Continuous and periodic monitoring programmes",
+      "Data analytics and business intelligence reporting",
+      "Compliance audit and gap assessment",
+      "Emergency response integration",
+      "Customised monitoring for any scale of operation",
+    ],
+    icon: ShieldCheck,
+  },
+  {
+    id: "site-assessment",
+    title: "Environmental Site Assessment & Characterisation",
+    shortDesc: "Phase I/II assessments and transaction screening to identify and mitigate environmental risks in investments.",
+    fullDesc: "In asset portfolio decisions, mergers, and acquisitions, ESG exposures can erode investment value. TPI is a regional leader offering comprehensive Environmental Site Assessment and Characterisation services using cutting-edge technologies for soil, groundwater, air quality, and hazardous materials assessments.",
+    highlights: [
+      "Phase I & Phase II Environmental Site Assessments",
+      "Transaction screening assessments",
+      "Soil & groundwater sampling and analysis",
+      "Hazardous materials assessments",
+      "Contamination risk evaluation",
+      "Detailed reporting with remediation recommendations",
+    ],
+    icon: Microscope,
+  },
+  {
+    id: "climate-sustainability",
+    title: "Climate Change, Sustainability & GHG Reporting",
+    shortDesc: "ESG advisory, carbon footprint reduction, and GHG reporting aligned to international standards.",
+    fullDesc: "As the world focuses on sustainability, companies face pressure to reduce environmental impact. TPI provides expertise in ESG advisory, helping clients navigate environmental and social challenges with proven solutions that deliver improved sustainability outcomes and reduced environmental impacts while maintaining strong business growth.",
+    highlights: [
+      "GHG inventory & reporting (GHG Protocol, ISO 14064)",
+      "ESG risk assessment & training",
+      "Carbon footprint reduction strategies",
+      "Sustainability strategy development",
+      "Climate risk scenario analysis",
+      "Renewable energy project advisory",
+    ],
+    icon: CloudSun,
+  },
+  {
+    id: "health-social",
+    title: "Health, Social Engagement & Resettlement",
+    shortDesc: "Social impact assessment, stakeholder engagement, and resettlement planning guided by UN SDGs.",
+    fullDesc: "Development projects can impact local communities in numerous ways. TPI helps clients drive transformational social and health impacts based on the UN Sustainable Development Goals. Our regional network of specialists combines data analytics with deep local ecosystem understanding across West and Central Africa.",
+    highlights: [
+      "Social Impact Assessments (SIA)",
+      "Resettlement Action Plans (RAP)",
+      "Environmental Social Management Frameworks (ESMF)",
+      "Stakeholder engagement & community relations",
+      "Health impact studies",
+      "Livelihood restoration programmes",
+    ],
+    icon: Users,
+  },
+  {
+    id: "air-quality",
+    title: "Air Quality & Acoustics",
+    shortDesc: "Comprehensive ambient, indoor, and stack emission monitoring with advanced modelling services.",
+    fullDesc: "We offer a wide array of air quality and acoustic measurement services for ambient/outdoor and indoor locations. Our experience spans compliance monitoring and environmental assessments using hand-held meters, continuous monitoring systems, passive monitors, and IoT-based active monitors.",
+    highlights: [
+      "Ambient air quality monitoring (O₃, NOₓ, SO₂, CO, PM2.5, PM10)",
+      "Indoor air quality monitoring & certification",
+      "Stack emission monitoring (CEMS)",
+      "Noise & vibration assessment (BS 4142)",
+      "Fate & transport contaminant modelling",
+      "IoT-based continuous air quality systems",
+    ],
+    icon: Wind,
+  },
+  {
+    id: "remediation",
+    title: "Clean-Up & Remediation Services",
+    shortDesc: "Innovative spill control, site remediation, and restoration for contaminated sites across the oil & gas and mining sectors.",
+    fullDesc: "TPI offers innovative and cost-effective clean-up, spill control, and remediation of hazardous contamination sites. Our remediation methods employ techniques and materials that pose no negative environmental impact, developed with combined knowledge of the contaminated site, pollutant identification, and characterisation.",
+    highlights: [
+      "Site assessment & contaminant evaluation",
+      "Remediation planning & design",
+      "In-situ & ex-situ remediation",
+      "Spill response & containment",
+      "Post-remediation monitoring",
+      "Regulatory compliance management",
+    ],
+    icon: Droplets,
+  },
+  {
+    id: "hydrology",
+    title: "Hydrological & Hydrogeological Services",
+    shortDesc: "Water resource assessments, groundwater modelling, and aquifer testing for sustainable water management.",
+    fullDesc: "Our team of experienced professionals provides expert solutions for all water-related needs. We use state-of-the-art tools and techniques to collect and analyse data, working closely with regulatory agencies to ensure compliance with applicable laws and regulations.",
+    highlights: [
+      "Water resources assessments & modelling",
+      "Groundwater assessments & modelling",
+      "Surface water recharge analyses",
+      "Aquifer testing & monitoring",
+      "Water quality assessments",
+      "Flood risk assessment",
+    ],
+    icon: Droplets,
+  },
+  {
+    id: "geophysical",
+    title: "Geophysical & Geotechnical Services",
+    shortDesc: "Subsurface investigation using seismic, electromagnetic, and GPR techniques for infrastructure and energy projects.",
+    fullDesc: "TPI and its consultants have over 20 years of experience in delivering geophysical and geotechnical consulting solutions. Our team provides technical advice backed by science and data, using state-of-the-art tools for earth-related investigations.",
+    highlights: [
+      "Seismic, electromagnetic & GPR surveys",
+      "Geotechnical investigations & testing",
+      "Bathymetry survey",
+      "Soil & rock mechanics analysis",
+      "Slope stability analysis",
+      "Foundation design advisory",
+    ],
+    icon: Mountain,
+  },
+  {
+    id: "gis",
+    title: "Geographic Information System (GIS) Services",
+    shortDesc: "Spatial data analysis, custom mapping, and GIS applications for location-based decision making.",
+    fullDesc: "GIS is a systematic tool for acquiring and managing critical spatial data for informed business decisions. TPI provides cutting-edge GIS and remote sensing services across industries including oil & gas, telecommunications, engineering planning, risk management, and site suitability analysis.",
+    highlights: [
+      "Spatial data analysis & modelling",
+      "GIS database development",
+      "Custom mapping & visualisation",
+      "Web mapping & GIS applications",
+      "Pipeline route determination",
+      "Site suitability analysis",
+    ],
+    icon: Map,
+  },
+];
 
 export const services = [
   {
@@ -7,15 +169,20 @@ export const services = [
     slug: "environment",
     icon: Leaf,
     shortDesc: "Environmental impact assessments, remediation, and compliance across Africa's most demanding sectors.",
-    fullDesc: "TPI delivers comprehensive environmental consulting services including Environmental Impact Assessments (EIA), Environmental Audits, Contaminated Land Assessment and Remediation, Biodiversity Studies, and Air Quality Monitoring. Our multidisciplinary team supports clients from early-stage planning through decommissioning, ensuring regulatory compliance and environmental stewardship.",
+    fullDesc: "TPI Group has decades of experience providing environmental solutions that are both feasible for our clients and sustainable for our future. Our fully integrated range of environmental and engineering services allows us to quickly and cost-effectively address our public and private clients' environmental issues across 10 specialist disciplines.",
     capabilities: [
       "Environmental & Social Impact Assessment (ESIA)",
-      "Contaminated Land Assessment & Remediation",
-      "Air Quality & Emissions Monitoring",
-      "Biodiversity & Ecological Surveys",
-      "Environmental Compliance Auditing",
-      "Decommissioning & Restoration Planning",
+      "Environmental Compliance Monitoring (ECM)",
+      "Environmental Site Assessment & Characterisation",
+      "Climate Change, Sustainability & GHG Reporting",
+      "Health, Social Engagement & Resettlement",
+      "Air Quality & Acoustics",
+      "Clean-Up & Remediation Services",
+      "Hydrological & Hydrogeological Services",
+      "Geophysical & Geotechnical Services",
+      "GIS Services",
     ],
+    hasDetailedPage: true,
   },
   {
     id: "laboratory",
