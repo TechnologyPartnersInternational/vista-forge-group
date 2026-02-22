@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { services, industries } from "@/data/services";
+import { industries } from "@/data/services";
 import { projects } from "@/data/projects";
 import { insights } from "@/data/insights";
-import { ArrowRight, MapPin, Shield, Users, Calendar, FlaskConical, ChevronRight } from "lucide-react";
+import { ArrowRight, MapPin, Shield, Users, Calendar, FlaskConical } from "lucide-react";
 import heroImage from "@/assets/hero-african-landscape.jpg";
 import heroRiverDelta from "@/assets/hero-river-delta.jpg";
 import heroEngineers from "@/assets/hero-engineers-pipeline.jpg";
@@ -52,12 +52,6 @@ const stats = [
   { icon: Users, value: "500+", label: "Projects Delivered" },
 ];
 
-const processSteps = [
-  { step: "01", title: "Assess", desc: "We begin with rigorous baseline assessments to understand the challenge, regulatory context, and stakeholder landscape." },
-  { step: "02", title: "Measure", desc: "Our accredited laboratories and field teams collect precise, defensible data using international standard methods." },
-  { step: "03", title: "Interpret", desc: "Multidisciplinary experts analyse data, model scenarios, and develop evidence-based recommendations." },
-  { step: "04", title: "Act", desc: "We deliver practical solutions — from remediation and engineering to digital platforms and training — and monitor outcomes." },
-];
 
 const Index = () => {
   const featuredInsight = insights.find((i) => i.featured);
@@ -176,63 +170,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Capabilities Grid */}
-      <section className="bg-mist">
-        <div className="container-narrow section-padding">
-          <div className="max-w-2xl mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3">What We Do</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Integrated capabilities, one trusted partner</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Six interconnected service lines delivering end-to-end solutions for environmental, industrial, and infrastructure challenges.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s) => (
-              <Link
-                key={s.id}
-                to={`/what-we-do/${s.slug}`}
-                className="group bg-card rounded-lg p-8 card-hover border border-border"
-              >
-                <s.icon className="w-8 h-8 text-primary mb-5" />
-                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{s.shortDesc}</p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-                  Learn more <ChevronRight className="w-3.5 h-3.5" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work */}
-      <section className="bg-card">
-        <div className="container-narrow section-padding">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3">Our Approach</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How We Work</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              A rigorous, evidence-based methodology refined over three decades of project delivery across West Africa.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((p, i) => (
-              <div key={p.step} className="relative">
-                <div className="text-5xl font-black text-mist mb-4">{p.step}</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-                {i < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 right-0 translate-x-1/2">
-                    <ArrowRight className="w-5 h-5 text-silver" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Featured Case Studies */}
       <section className="navy-gradient">
