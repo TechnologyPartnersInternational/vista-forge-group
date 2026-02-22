@@ -9,7 +9,7 @@ const sections: ServiceSection[] = [
   {
     id: "iswm",
     title: "Integrated Solid Waste Management",
-    description: "We provide an Integrated Solid Waste Management (ISWM) system designed to be both economical and effective. Our strategic approach covers all sources and aspects including waste generation, segregation, transfer, sorting, treatment, recovery, and disposal — with emphasis on maximising resource use efficiency and achieving zero-waste-to-landfill targets.",
+    description: "We provide an Integrated Solid Waste Management (ISWM) system designed to be both economical and effective. Our strategic approach covers all sources and aspects including waste generation, segregation, transfer, sorting, treatment, recovery, and disposal, with emphasis on maximising resource use efficiency and achieving zero-waste-to-landfill targets.",
     highlights: [
       "Waste audits & characterisation",
       "Segregation & sorting systems",
@@ -24,7 +24,7 @@ const sections: ServiceSection[] = [
   {
     id: "incineration",
     title: "Incineration Systems",
-    description: "We have extensive experience designing and implementing safe and effective incineration systems for a variety of waste streams. Incineration is a thermal treatment technology that destroys a wide range of waste types — including medical waste, industrial process waste, organic waste, chemical waste, and municipal solid waste — ensuring compliant and efficient disposal.",
+    description: "We have extensive experience designing and implementing safe and effective incineration systems for a variety of waste streams. Incineration is a thermal treatment technology that destroys a wide range of waste types, including medical waste, industrial process waste, organic waste, chemical waste, and municipal solid waste, ensuring compliant and efficient disposal.",
     highlights: [
       "Medical & clinical waste incineration",
       "Industrial process waste treatment",
@@ -39,7 +39,7 @@ const sections: ServiceSection[] = [
   {
     id: "thermal-desorption",
     title: "Thermal Desorption",
-    description: "We manage hazardous waste using thermal desorption techniques, which use heat to separate contaminants from waste materials. Our facility houses modern thermal desorption units capable of treating contaminated soil, sludge, spent catalysts, asbestos, and PCB-contaminated materials — all in compliance with applicable environmental regulations.",
+    description: "We manage hazardous waste using thermal desorption techniques, which use heat to separate contaminants from waste materials. Our facility houses modern thermal desorption units capable of treating contaminated soil, sludge, spent catalysts, asbestos, and PCB-contaminated materials, all in compliance with applicable environmental regulations.",
     highlights: [
       "Contaminated soil treatment",
       "Sludge & slurry processing",
@@ -54,7 +54,7 @@ const sections: ServiceSection[] = [
   {
     id: "policy",
     title: "Policy Formulation & Compliance",
-    description: "Our team is well-versed in the latest regulations and guidelines related to waste management in the mining and oil & gas industry. We help clients develop policies and procedures that ensure compliance and protect the environment — from waste management plans and permitting to regulatory approvals and ongoing compliance monitoring.",
+    description: "Our team is well-versed in the latest regulations and guidelines related to waste management in the mining and oil & gas industry. We help clients develop policies and procedures that ensure compliance and protect the environment, from waste management plans and permitting to regulatory approvals and ongoing compliance monitoring.",
     highlights: [
       "Waste management plan development",
       "Regulatory permitting & approvals",
@@ -71,7 +71,7 @@ const sections: ServiceSection[] = [
 const WasteManagementDetail = () => (
   <ServicePage
     title="Waste Management"
-    subtitle="Trusted partner for integrated waste management solutions across the mining and oil & gas industry — from audit to treatment, disposal, and circular recovery."
+    subtitle="Trusted partner for integrated waste management solutions across the mining and oil & gas industry, from audit to treatment, disposal, and circular recovery."
     heroImage={wasteHero}
     heroIcon={Trash2}
     introHeading="Economical. Effective. Compliant."
