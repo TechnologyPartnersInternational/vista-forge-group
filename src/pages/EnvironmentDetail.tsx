@@ -2,19 +2,32 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { environmentSubServices } from "@/data/services";
 import { ArrowLeft, ArrowRight, CheckCircle2, Leaf } from "lucide-react";
-import { useState } from "react";
 import environmentHero from "@/assets/environment-hero.jpg";
+import envPlanning from "@/assets/env-planning.jpg";
+import envMonitoring from "@/assets/env-monitoring.jpg";
+import envSiteAssessment from "@/assets/env-site-assessment.jpg";
+import envClimate from "@/assets/env-climate.jpg";
+import envSocial from "@/assets/env-social.jpg";
+import envAirQuality from "@/assets/env-air-quality.jpg";
+import envRemediation from "@/assets/env-remediation.jpg";
+import envHydrology from "@/assets/env-hydrology.jpg";
+import envGeophysical from "@/assets/env-geophysical.jpg";
+import envGis from "@/assets/env-gis.jpg";
 
-const stats = [
-  { value: "30+", label: "Years of Experience" },
-  { value: "10", label: "Specialist Disciplines" },
-  { value: "200+", label: "Projects Delivered" },
-  { value: "5", label: "Regional Offices" },
-];
+const subServiceImages: Record<string, string> = {
+  "environmental-planning": envPlanning,
+  "compliance-monitoring": envMonitoring,
+  "site-assessment": envSiteAssessment,
+  "climate-sustainability": envClimate,
+  "health-social": envSocial,
+  "air-quality": envAirQuality,
+  "remediation": envRemediation,
+  "hydrology": envHydrology,
+  "geophysical": envGeophysical,
+  "gis": envGis,
+};
 
 const EnvironmentDetail = () => {
-  const [expandedService, setExpandedService] = useState<string | null>(null);
-
   return (
     <Layout>
       {/* Hero */}
@@ -41,20 +54,6 @@ const EnvironmentDetail = () => {
         </div>
       </section>
 
-      {/* Stats strip */}
-      <section className="bg-card border-b border-border">
-        <div className="container-narrow py-10 px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
-                <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Intro */}
       <section className="bg-mist">
         <div className="container-narrow section-padding">
@@ -70,73 +69,68 @@ const EnvironmentDetail = () => {
         </div>
       </section>
 
-      {/* Sub-services grid */}
-      <section className="bg-card">
-        <div className="container-narrow section-padding">
-          <div className="max-w-2xl mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3">Our Disciplines</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              10 specialist environmental disciplines
-            </h2>
-          </div>
+      {/* Sub-services — alternating image-rich sections */}
+      {environmentSubServices.map((sub, index) => {
+        const isEven = index % 2 === 0;
+        const image = subServiceImages[sub.id];
 
-          <div className="space-y-4">
-            {environmentSubServices.map((sub) => {
-              const isExpanded = expandedService === sub.id;
-              return (
-                <div
-                  key={sub.id}
-                  className={`rounded-lg border transition-all duration-300 ${
-                    isExpanded ? "border-primary/30 bg-mist shadow-lg" : "border-border bg-card hover:border-primary/20"
-                  }`}
-                >
-                  <button
-                    onClick={() => setExpandedService(isExpanded ? null : sub.id)}
-                    className="w-full flex items-start gap-4 p-6 md:p-8 text-left"
-                  >
-                    <div className={`flex items-center justify-center w-10 h-10 rounded-lg shrink-0 transition-colors ${
-                      isExpanded ? "bg-primary text-primary-foreground" : "bg-mist text-primary"
-                    }`}>
-                      <sub.icon className="w-5 h-5" />
+        return (
+          <section
+            key={sub.id}
+            id={sub.id}
+            className={index % 4 < 2 ? "bg-card" : "bg-mist"}
+          >
+            <div className="container-narrow section-padding">
+              <div className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-10 lg:gap-16 items-center`}>
+                {/* Image */}
+                <div className="w-full lg:w-1/2">
+                  <div className="relative rounded-xl overflow-hidden shadow-lg aspect-[4/3]">
+                    <img
+                      src={image}
+                      alt={sub.title}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Number badge */}
+                    <div className="absolute top-4 left-4 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                      {String(index + 1).padStart(2, "0")}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className={`text-lg font-semibold transition-colors ${
-                        isExpanded ? "text-primary" : "text-foreground"
-                      }`}>
-                        {sub.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{sub.shortDesc}</p>
-                    </div>
-                    <div className={`shrink-0 mt-1 transition-transform duration-300 ${isExpanded ? "rotate-45" : ""}`}>
-                      <span className="text-xl text-muted-foreground">+</span>
-                    </div>
-                  </button>
-
-                  {isExpanded && (
-                    <div className="px-6 md:px-8 pb-8 animate-fade-in">
-                      <div className="pl-14">
-                        <div className="border-t border-border pt-6">
-                          <p className="text-sm text-foreground leading-relaxed mb-6">
-                            {sub.fullDesc}
-                          </p>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {sub.highlights.map((h) => (
-                              <div key={h} className="flex items-start gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                                <span className="text-sm text-foreground">{h}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+
+                {/* Content */}
+                <div className="w-full lg:w-1/2">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                      <sub.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{sub.title}</h3>
+                  </div>
+
+                  <p className="text-muted-foreground leading-relaxed mb-6 text-base">
+                    {sub.fullDesc}
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    {sub.highlights.map((h) => (
+                      <div key={h} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{h}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                  >
+                    Discuss your {sub.title.toLowerCase()} needs <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })}
 
       {/* Approach methodology */}
       <section className="navy-gradient">
