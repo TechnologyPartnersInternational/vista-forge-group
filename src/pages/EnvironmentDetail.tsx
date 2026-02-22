@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { environmentSubServices } from "@/data/services";
 import { ArrowLeft, ArrowRight, CheckCircle2, Leaf } from "lucide-react";
+import HowWeWork from "@/components/HowWeWork";
 import environmentHero from "@/assets/environment-hero.jpg";
 import envPlanning from "@/assets/env-planning.jpg";
 import envMonitoring from "@/assets/env-monitoring.jpg";
@@ -132,35 +133,7 @@ const EnvironmentDetail = () => {
         );
       })}
 
-      {/* Approach methodology */}
-      <section className="navy-gradient">
-        <div className="container-narrow section-padding">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-silver mb-3">Our Approach</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              How we deliver environmental value
-            </h2>
-            <p className="text-silver leading-relaxed">
-              A rigorous, evidence-based methodology applied across every environmental discipline.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Assess", desc: "Baseline studies, risk reviews, and regulatory context mapping to understand the full scope of environmental challenges." },
-              { step: "02", title: "Measure", desc: "Precise data collection using accredited methods, IoT sensor networks, and field sampling across air, water, and soil." },
-              { step: "03", title: "Interpret", desc: "Multidisciplinary expert analysis, fate & transport modelling, and scenario planning to guide decision-making." },
-              { step: "04", title: "Act", desc: "Practical remediation, compliance programmes, and monitoring systems delivered to international standards." },
-            ].map((p) => (
-              <div key={p.step}>
-                <div className="text-5xl font-black text-primary-foreground/10 mb-3">{p.step}</div>
-                <h3 className="text-lg font-bold text-primary-foreground mb-2">{p.title}</h3>
-                <p className="text-sm text-silver leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowWeWork />
 
       {/* Standards & accreditations */}
       <section className="bg-mist">
