@@ -213,15 +213,7 @@ const Index = () => {
                 <div className="p-8">
                   <div className="text-xs font-medium text-silver mb-3">{p.service} · {p.industry}</div>
                   <h3 className="text-lg font-semibold text-primary-foreground mb-3 group-hover:text-gold transition-colors">{p.title}</h3>
-                  <p className="text-sm text-silver leading-relaxed mb-6 line-clamp-3">{p.problem}</p>
-                  <div className="grid grid-cols-2 gap-4">
-                    {p.metrics.slice(0, 2).map((m) => (
-                      <div key={m.label}>
-                        <div className="text-2xl font-bold text-primary-foreground">{m.value}</div>
-                        <div className="text-xs text-silver">{m.label}</div>
-                      </div>
-                    ))}
-                  </div>
+                  <p className="text-sm text-silver leading-relaxed line-clamp-3">{p.problem}</p>
                 </div>
               </Link>
             ))}
