@@ -5,6 +5,7 @@ import { industries } from "@/data/services";
 import { projects } from "@/data/projects";
 import { insights } from "@/data/insights";
 import { ArrowRight, MapPin, Shield, Users, Calendar, FlaskConical } from "lucide-react";
+import HowWeWork from "@/components/HowWeWork";
 import heroImage from "@/assets/hero-african-landscape.jpg";
 import heroRiverDelta from "@/assets/hero-river-delta.jpg";
 import heroEngineers from "@/assets/hero-engineers-pipeline.jpg";
@@ -169,6 +170,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <HowWeWork />
 
 
       {/* Featured Case Studies */}
