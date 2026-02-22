@@ -6,7 +6,7 @@ import TPILogo from "@/components/TPILogo";
 
 const navItems = [
   { label: "What We Do", path: "/what-we-do", hasMega: true },
-  { label: "Industries", path: "/industries" },
+  
   { label: "Projects", path: "/projects" },
   { label: "Insights", path: "/insights" },
   { label: "Company", path: "/company" },
