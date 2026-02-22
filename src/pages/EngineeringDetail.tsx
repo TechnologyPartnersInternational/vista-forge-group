@@ -1,5 +1,5 @@
 import ServicePage, { ServiceSection } from "@/components/ServicePage";
-import { Wrench, PenTool, ShoppingCart, Shield, Search, PipelineIcon, ClipboardList } from "lucide-react";
+import { Wrench, PenTool, ShoppingCart, Shield, Search, Cable, ClipboardList } from "lucide-react";
 import engineeringHero from "@/assets/engineering-hero.jpg";
 import engDesign from "@/assets/eng-design.jpg";
 import engProcurement from "@/assets/eng-procurement.jpg";
@@ -64,7 +64,7 @@ const sections: ServiceSection[] = [
       "Pipeline integrity management systems",
     ],
     image: engIntegrity,
-    icon: PipelineIcon,
+    icon: Cable,
   },
   {
     id: "project-management",
