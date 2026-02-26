@@ -101,8 +101,8 @@ const Index = () => {
         ))}
         <div className="hero-overlay absolute inset-0" />
 
-        <div className="relative z-10 container-narrow section-padding pl-6 md:pl-12 lg:pl-20 xl:pl-32">
-          <div className="max-w-3xl ml-0">
+        <div className="relative z-10 w-full section-padding">
+          <div className="max-w-3xl">
             <p
               key={`sub-${currentSlide}`}
               className="text-silver text-sm font-semibold uppercase tracking-[0.2em] mb-4 animate-fade-in"

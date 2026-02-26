@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <nav className="container-narrow flex items-center justify-between h-16 md:h-20 px-6 lg:px-12">
+      <nav className="flex items-center justify-between h-16 md:h-20 px-6 lg:px-12">
         {/* Logo */}
         <Link to="/" className="shrink-0">
           <TPILogo className="h-10 w-auto" variant="dark" />
