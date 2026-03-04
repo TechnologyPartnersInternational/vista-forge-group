@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { services } from "@/data/services";
-import TPILogo from "@/components/TPILogo";
-import NavPicture from "../../assets/General Pictures/NavPicture.png";
+import TPILogo from "@/assets/GeneralPictures/MainLogo.png";
+import NavPicture from "@/assets/GeneralPictures/NavPicture.png";
 
 const navItems = [
   { label: "What We Do", path: "/what-we-do", hasMega: true },
@@ -33,7 +33,7 @@ const Navbar = () => {
       <nav className="flex items-center justify-between h-16 md:h-20 px-6 lg:px-12">
         {/* Logo */}
         <Link to="/" className="shrink-0">
-          <TPILogo className="h-10 w-auto" variant="dark" />
+          <img src={TPILogo} alt="" className="h-14 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
