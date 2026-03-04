@@ -16,7 +16,7 @@ const projectImages: Record<string, string> = {
 
 const FeaturedProjects = () => {
   return (
-    <section className="bg-white py-24 border-b border-border overflow-hidden">
+    <section className="bg-white py-24 overflow-hidden">
       <div className="px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
           <motion.div 
