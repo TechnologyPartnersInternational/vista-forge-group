@@ -1,4 +1,9 @@
 export type MediaType = 'image' | 'video';
+import Carousel1 from "../assets/CarouselImages/Carousel1.mp4";
+import Carousel2 from "../assets/CarouselImages/Carousel2.jpg";
+import Carousel3 from "../assets/CarouselImages/Carousel3.jpg";
+import Carousel4 from "../assets/CarouselImages/Carousel4.jpg";
+import Carousel5 from "../assets/CarouselImages/Carousel5.jpg";
 
 export interface CarouselSlide {
   id: string;
@@ -15,47 +20,52 @@ export const carouselData: CarouselSlide[] = [
   {
     id: "slide-1",
     slideNumber: "01 / 05",
-    navTitle: "Sustainability is our business",
-    heading: "Accelerating\ndecarbonization",
-    subheading: "Corporate sustainability, net zero & climate change",
-    mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000", // African landscape/forest aerial
+    navTitle: "Environmental & Engineering Leadership",
+    heading: "Engineering Sustainable\nIndustrial Futures",
+    subheading:
+      "30+ years delivering Environmental, ESG, and Regulatory Solutions across Sub-Saharan Africa",
+    mediaType: "video",
+    mediaUrl: Carousel1,
+    duration: 6000
   },
   {
     id: "slide-2",
     slideNumber: "02 / 05",
-    navTitle: "2026 Annual Trends",
-    heading: "Pioneering\nenvironmental standards",
-    subheading: "Industry-leading monitoring and compliance",
+    navTitle: "Oilfield & Waste Solutions",
+    heading: "Advanced Solids Control\n& Waste Management",
+    subheading:
+      "Turn-key drilling waste reduction, cuttings recovery, and on-site declassification systems",
     mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1531266752426-aad472b7bbf4?auto=format&fit=crop&q=80&w=2000", // Industrial / Engineering
+    mediaUrl: Carousel2,
   },
   {
     id: "slide-3",
     slideNumber: "03 / 05",
-    navTitle: "Climate & net zero",
-    heading: "Protecting native\nbiodiversity",
-    subheading: "Ecosystem restoration and environmental planning",
-    mediaType: "video",
-    mediaUrl: "https://videos.pexels.com/video-files/855323/855323-hd_1920_1080_24fps.mp4", // Aerial forest / nature video
-    duration: 6000,
+    navTitle: "Environmental Monitoring & Compliance",
+    heading: "Precision Monitoring.\nRegulatory Confidence.",
+    subheading:
+      "Air, water, soil, ESG reporting, impact assessments, and compliance aligned with IFC & World Bank standards",
+    mediaType: "image",
+    mediaUrl: Carousel3,
   },
   {
     id: "slide-4",
     slideNumber: "04 / 05",
-    navTitle: "Renewable Energy",
-    heading: "Empowering communities\nthrough energy",
-    subheading: "Integrating sustainability with structural integrity",
+    navTitle: "Laboratory & Water Innovation",
+    heading: "Data-Driven Laboratory\n& Water Treatment Systems",
+    subheading:
+      "ASTM & USEPA compliant testing, mobile labs, and chemical-free electrochemical water treatment technology",
     mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=2000", // Wind turbines / renewable energy
+    mediaUrl: Carousel4,
   },
   {
     id: "slide-5",
     slideNumber: "05 / 05",
-    navTitle: "Sustainability Report 2025",
-    heading: "Partner with us to\nDeliver a better world",
-    subheading: "Nigeria's trusted environmental consultancy firm",
+    navTitle: "EPC, Asset Integrity & Digital",
+    heading: "Protecting Critical Assets.\nPowering Digital Insight.",
+    subheading:
+      "Asset integrity, corrosion management, advanced NDT, GIS, and environmental data intelligence",
     mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1611270418597-a6cbf224c2ed?auto=format&fit=crop&q=80&w=2000", // Nigerian/African operations context
+    mediaUrl: Carousel5,
   }
 ];

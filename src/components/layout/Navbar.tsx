@@ -16,9 +16,16 @@ const navItems = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname.startsWith(path);
+
+  const toggleCategory = (categoryId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setExpandedCategories(prev => ({ ...prev, [categoryId]: !prev[categoryId] }));
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card backdrop-blur-md border-b border-gray-200">
@@ -106,34 +113,51 @@ const Navbar = () => {
           {/* Right Side: Services Grid */}
           <div className="w-full md:w-[75%] p-6 bg-card overflow-y-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10">
-              {services.map((category) => (
-                <div key={category.id} className="flex flex-col space-y-3">
-                  <Link 
-                    to={`/what-we-do/${category.slug}`} 
-                    onClick={() => setMegaOpen(false)}
-                    className="text-sm font-bold text-foreground mb-1 hover:text-primary transition-colors uppercase tracking-wider"
-                  >
-                    {category.title}
-                  </Link>
-                  <ul className="space-y-2">
-                    {category.subServices.map((sub, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5">
-                        <svg className="w-3.5 h-3.5 text-primary shrink-0 mt-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                        <Link
-                          to={`/what-we-do/${sub.slug}`}
-                          onClick={() => setMegaOpen(false)}
-                          className="text-sm text-foreground hover:text-primary relative inline-block group"
-                        >
-                          {sub.title}
-                          <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {services.map((category) => {
+                const isExpanded = expandedCategories[category.id];
+                const displaySubServices = isExpanded ? category.subServices : category.subServices.slice(0, 5);
+                const hasMore = category.subServices.length > 5;
+
+                return (
+                  <div key={category.id} className="flex flex-col space-y-3">
+                    <Link 
+                      to={`/what-we-do/${category.slug}`} 
+                      onClick={() => setMegaOpen(false)}
+                      className="text-sm font-bold text-foreground mb-1 hover:text-primary transition-colors uppercase tracking-wider"
+                    >
+                      {category.title}
+                    </Link>
+                    <ul className="space-y-2">
+                      {displaySubServices.map((sub, idx) => (
+                        <li key={idx} className="flex items-start gap-1.5">
+                          <svg className="w-3.5 h-3.5 text-primary shrink-0 mt-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <Link
+                            to={`/what-we-do/${sub.slug}`}
+                            onClick={() => setMegaOpen(false)}
+                            className="text-sm text-foreground hover:text-primary relative inline-block group"
+                          >
+                            {sub.title}
+                            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+                          </Link>
+                        </li>
+                      ))}
+                      {hasMore && (
+                        <li>
+                          <button
+                            onClick={(e) => toggleCategory(category.id, e)}
+                            className="text-xs font-semibold text-primary hover:text-primary/80 mt-1 flex items-center gap-1 transition-colors"
+                          >
+                            {isExpanded ? "Show Less" : "Show More"}
+                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
+                          </button>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
