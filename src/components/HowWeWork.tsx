@@ -1,5 +1,6 @@
 import { Target, Compass, Rocket, ShieldCheck } from "lucide-react";
-import howWeWorkBg from "@/assets/how-we-work-bg.jpg";
+// Replaced broken import with dummy image
+const howWeWorkBg = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const steps = [
   {

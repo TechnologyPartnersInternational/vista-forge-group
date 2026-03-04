@@ -1,9 +1,13 @@
 import ServicePage, { ServiceSection } from "@/components/ServicePage";
 import { Wrench, PenTool, ShoppingCart, Shield, Search, Cable, ClipboardList } from "lucide-react";
-import engineeringHero from "@/assets/engineering-hero.jpg";
-import engDesign from "@/assets/eng-design.jpg";
-import engProcurement from "@/assets/eng-procurement.jpg";
-import engIntegrity from "@/assets/eng-integrity.jpg";
+// Replaced broken import with dummy image
+const engineeringHero = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const engDesign = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const engProcurement = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const engIntegrity = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const sections: ServiceSection[] = [
   {

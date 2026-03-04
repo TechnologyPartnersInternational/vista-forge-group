@@ -1,9 +1,13 @@
 import ServicePage, { ServiceSection } from "@/components/ServicePage";
 import { Trash2, Recycle, Flame, Thermometer, FileText, Drum, Truck } from "lucide-react";
-import wasteHero from "@/assets/waste-hero.jpg";
-import wasteIswm from "@/assets/waste-iswm.jpg";
-import wasteIncinerator from "@/assets/waste-incinerator.jpg";
-import wasteThermal from "@/assets/waste-thermal.jpg";
+// Replaced broken import with dummy image
+const wasteHero = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const wasteIswm = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const wasteIncinerator = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const wasteThermal = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const sections: ServiceSection[] = [
   {

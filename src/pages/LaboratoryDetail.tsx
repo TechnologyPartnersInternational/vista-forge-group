@@ -1,11 +1,17 @@
 import ServicePage, { ServiceSection } from "@/components/ServicePage";
 import { FlaskConical, Beaker, Truck, Bug, Fuel, Fingerprint } from "lucide-react";
-import labHero from "@/assets/lab-hero.jpg";
-import labGeneral from "@/assets/lab-general.jpg";
-import labMobile from "@/assets/lab-mobile.jpg";
-import labEcotox from "@/assets/lab-ecotox.jpg";
-import labPetroleum from "@/assets/lab-petroleum.jpg";
-import labFingerprint from "@/assets/lab-fingerprint.jpg";
+// Replaced broken import with dummy image
+const labHero = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const labGeneral = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const labMobile = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const labEcotox = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const labPetroleum = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const labFingerprint = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const sections: ServiceSection[] = [
   {

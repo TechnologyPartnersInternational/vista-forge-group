@@ -5,10 +5,15 @@ import { insights } from "@/data/insights";
 import { ArrowRight, MapPin, Shield, Users, Calendar, FlaskConical } from "lucide-react";
 import HowWeWork from "@/components/HowWeWork";
 import HeroCarousel from "@/components/HeroCarousel";
-import coastlineImage from "@/assets/african-coastline.jpg";
-import projectRemediation from "@/assets/project-remediation.jpg";
-import projectLng from "@/assets/project-lng.jpg";
-import projectLab from "@/assets/project-lab.jpg";
+import ClientLogos from "@/components/ClientLogos";
+// Replaced broken import with dummy image
+const coastlineImage = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const projectRemediation = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const projectLng = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const projectLab = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const projectImages: Record<string, string> = {
   "niger-delta-remediation": projectRemediation,
@@ -49,16 +54,6 @@ const Index = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Client Logos Placeholder */}
-          <div className="mt-12 pt-8 border-t border-border">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider text-center mb-6">Trusted by leading organisations</p>
-            <div className="flex items-center justify-center gap-12 opacity-40 flex-wrap">
-              {["Shell", "TotalEnergies", "NNPC", "Chevron", "NLNG", "Dangote"].map((name) => (
-                <span key={name} className="text-sm font-semibold text-muted-foreground tracking-wide">{name}</span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -208,6 +203,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Partners Section */}
+      <ClientLogos />
     </Layout>
   );
 };

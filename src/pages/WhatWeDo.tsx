@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { services } from "@/data/services";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import HowWeWork from "@/components/HowWeWork";
-import engineersImage from "@/assets/engineers-fieldwork.jpg";
+// Replaced broken import with dummy image
+const engineersImage = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const WhatWeDo = () => {
   return (

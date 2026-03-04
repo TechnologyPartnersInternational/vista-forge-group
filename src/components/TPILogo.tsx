@@ -1,4 +1,5 @@
-import tpiLogo from "@/assets/tpi-logo-full.png";
+// Replaced broken import with dummy image
+const tpiLogo = "https://placehold.co/400x100/1e3a8a/ffffff?text=TPI+Logo";;
 
 interface TPILogoProps {
   className?: string;

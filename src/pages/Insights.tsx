@@ -2,7 +2,8 @@ import Layout from "@/components/layout/Layout";
 import { insights } from "@/data/insights";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import coastlineImage from "@/assets/african-coastline.jpg";
+// Replaced broken import with dummy image
+const coastlineImage = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const Insights = () => {
   const featured = insights.find((i) => i.featured);

@@ -1,9 +1,13 @@
 import ServicePage, { ServiceSection } from "@/components/ServicePage";
 import { Monitor, ShieldCheck, Database, Wifi, BarChart3 } from "lucide-react";
-import digitalHero from "@/assets/digital-hero.jpg";
-import digitalSoftware from "@/assets/digital-software.jpg";
-import digitalData from "@/assets/digital-data.jpg";
-import digitalIot from "@/assets/digital-iot.jpg";
+// Replaced broken import with dummy image
+const digitalHero = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const digitalSoftware = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const digitalData = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const digitalIot = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const sections: ServiceSection[] = [
   {

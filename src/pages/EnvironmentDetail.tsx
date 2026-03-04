@@ -2,17 +2,28 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { environmentSubServices } from "@/data/services";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
-import environmentHero from "@/assets/environment-hero.jpg";
-import envPlanning from "@/assets/env-planning.jpg";
-import envMonitoring from "@/assets/env-monitoring.jpg";
-import envSiteAssessment from "@/assets/env-site-assessment.jpg";
-import envClimate from "@/assets/env-climate.jpg";
-import envSocial from "@/assets/env-social.jpg";
-import envAirQuality from "@/assets/env-air-quality.jpg";
-import envRemediation from "@/assets/env-remediation.jpg";
-import envHydrology from "@/assets/env-hydrology.jpg";
-import envGeophysical from "@/assets/env-geophysical.jpg";
-import envGis from "@/assets/env-gis.jpg";
+// Replaced broken import with dummy image
+const environmentHero = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envPlanning = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envMonitoring = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envSiteAssessment = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envClimate = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envSocial = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envAirQuality = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envRemediation = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envHydrology = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envGeophysical = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const envGis = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const subServiceImages: Record<string, string> = {
   "environmental-planning": envPlanning,

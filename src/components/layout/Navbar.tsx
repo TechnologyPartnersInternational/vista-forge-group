@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { services } from "@/data/services";
 import TPILogo from "@/components/TPILogo";
+import NavPicture from "../../assets/General Pictures/NavPicture.png";
 
 const navItems = [
   { label: "What We Do", path: "/what-we-do", hasMega: true },
@@ -89,7 +90,7 @@ const Navbar = () => {
           {/* Left Side: Image and Text */}
           <div className="hidden md:flex flex-col w-[25%] relative bg-black overflow-hidden shrink-0">
             <img 
-              src="/refinery-background.png" 
+              src={NavPicture} 
               alt="TPI Operations" 
               className="absolute w-full h-full object-cover opacity-[0.4]"
             />

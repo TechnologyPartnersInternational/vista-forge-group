@@ -2,7 +2,8 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { leadership, locations } from "@/data/team";
 import { Shield, Award, MapPin, ArrowRight, Users, Briefcase } from "lucide-react";
-import labImage from "@/assets/laboratory-work.jpg";
+// Replaced broken import with dummy image
+const labImage = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const Company = () => {
   return (

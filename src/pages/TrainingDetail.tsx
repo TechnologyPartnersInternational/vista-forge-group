@@ -1,9 +1,13 @@
 import ServicePage, { ServiceSection } from "@/components/ServicePage";
 import { GraduationCap, Leaf, FlaskConical, ShieldCheck, Settings } from "lucide-react";
-import trainingHero from "@/assets/training-hero.jpg";
-import trainingEsg from "@/assets/training-esg.jpg";
-import trainingLab from "@/assets/training-lab.jpg";
-import trainingHse from "@/assets/training-hse.jpg";
+// Replaced broken import with dummy image
+const trainingHero = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const trainingEsg = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const trainingLab = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+// Replaced broken import with dummy image
+const trainingHse = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
 
 const sections: ServiceSection[] = [
   {
