@@ -53,14 +53,14 @@ const HowWeWork = () => {
 
   return (
     <section className="bg-white relative overflow-hidden" ref={containerRef}>
-      <div className="px-6 pt-12">
+      <div className="px-4 md:px-12 pt-12">
         
         {/* Header */}
         <div className="w-full mb-16 md:mb-24 flex flex-col items-center justify-center">
           <p className="text-[16px] font-semibold text-primary uppercase tracking-[0.3em] mb-4">
             Our Methodology
           </p>
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold font-serif text-foreground mb-6 leading-[1.1]">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold font-serif text-foreground mb-6 leading-[1.1] text-center">
             How We Deliver Excellence
           </h2>
           <p className="text-lg leading-relaxed max-w-4xl text-center">
