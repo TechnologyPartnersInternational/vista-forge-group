@@ -61,7 +61,11 @@ const HeroCarousel = () => {
             <img
               src={s.mediaUrl}
               alt={s.heading}
-              className="w-full h-full object-cover"
+              style={{ 
+                transitionDuration: "15s",
+                transform: i === currentSlide ? "scale(1.15)" : "scale(1)"
+              }}
+              className="w-full h-full object-cover will-change-transform transition-transform ease-out"
             />
           )}
           {/* Subtle gradient overlay to ensure text readability */}

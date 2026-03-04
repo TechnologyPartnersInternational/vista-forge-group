@@ -17,6 +17,7 @@ const navItems = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [mobileMegaOpen, setMobileMegaOpen] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
   const location = useLocation();
 
@@ -170,17 +171,31 @@ const Navbar = () => {
           <div className="px-6 py-4 space-y-1">
             {navItems.map((item) => (
               <div key={item.path}>
-                 <Link
-                  to={item.path}
-                  onClick={() => !item.hasMega && setMobileOpen(false)}
-                  className={`block px-4 py-3 text-sm font-medium rounded-md transition-colors
-                    ${isActive(item.path) ? "bg-muted text-primary" : "text-foreground hover:bg-muted hover:text-primary"}`}
-                >
-                  {item.label}
-                </Link>
+                <div className="flex items-center justify-between">
+                  <Link
+                    to={item.path}
+                    onClick={() => !item.hasMega && setMobileOpen(false)}
+                    className={`block flex-1 px-4 py-3 text-sm font-medium rounded-md transition-colors
+                      ${isActive(item.path) ? "bg-muted text-primary" : "text-foreground hover:bg-muted hover:text-primary"}`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.hasMega && (
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setMobileMegaOpen(!mobileMegaOpen);
+                      }}
+                      className="p-3 mr-2 text-foreground hover:text-primary"
+                      aria-label="Toggle Submenu"
+                    >
+                      <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${mobileMegaOpen ? "rotate-180" : ""}`} />
+                    </button>
+                  )}
+                </div>
                 {/* Mobile Mega View */}
-                {item.hasMega && (
-                   <div className="pl-6 pb-2 space-y-4">
+                {item.hasMega && mobileMegaOpen && (
+                   <div className="pl-6 pb-2 pr-4 space-y-4 animate-accordion-down">
                      {services.map((category) => (
                         <div key={category.id} className="pt-2">
                           <Link 

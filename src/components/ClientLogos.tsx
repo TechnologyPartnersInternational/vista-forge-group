@@ -90,7 +90,7 @@ const ParallaxRow = ({ items, baseVelocity = 100 }: { items: string[]; baseVeloc
 
 const ClientLogos = () => {
   return (
-    <section className="py-20 md:py-28 bg-mist overflow-hidden border-t border-border relative z-0">
+    <section className="py-20 md:py-28 bg-white overflow-hidden relative z-0">
       <div className="container-narrow px-6 mb-12">
         <p className="text-[16px] font-semibold text-primary uppercase tracking-[0.3em] text-center mb-3">
           Trusted Partners

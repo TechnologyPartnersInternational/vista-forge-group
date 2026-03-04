@@ -8,7 +8,7 @@ const CtaBand = () => {
   return (
     <section className="bg-white py-24">
       <div className="px-6 md:px-12">
-        <div className="relative w-full overflow-hidden rounded-[2rem] group h-[500px] lg:h-[600px] shadow-2xl">
+        <div className="relative w-full overflow-hidden rounded-[1rem] group h-[500px] lg:h-[600px] shadow-2xl">
           
           {/* Background Image with Slow Hover Scale */}
           <div className="absolute inset-0 z-0 bg-black">

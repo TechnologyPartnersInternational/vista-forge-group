@@ -40,7 +40,7 @@ const FeaturedProjects = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-[800px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-auto lg:h-[800px]">
           {/* Left side: Large featured project */}
           {projects[0] && (
             <motion.div
