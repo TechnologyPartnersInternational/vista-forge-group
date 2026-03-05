@@ -13,12 +13,12 @@ const Index = () => {
     <Layout>
       <HeroCarousel />
       <TrustStrip />
+      <ClientLogos />
       <HowWeWork />
       <FeaturedProjects />
       <InsightsSection />
       <OurPresence />
       <CtaBand />
-      <ClientLogos />
     </Layout>
   );
 };
