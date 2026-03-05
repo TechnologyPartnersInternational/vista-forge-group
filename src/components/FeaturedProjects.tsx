@@ -55,7 +55,7 @@ const FeaturedProjects = () => {
                 className="group relative flex flex-col h-full bg-mist rounded-[1rem] overflow-hidden border border-border/50"
               >
                 {/* Dynamic Image Overlay */}
-                <div className="absolute top-0 left-0 w-full h-[300px] lg:h-[500px] group-hover:h-full transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] z-0 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[300px] lg:h-[500px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                   <img
                     src={projectImages[projects[0].id]}
                     alt={projects[0].title}
@@ -100,7 +100,7 @@ const FeaturedProjects = () => {
                   className="group relative flex flex-col sm:flex-row h-full bg-white border border-border/50 rounded-[1rem] overflow-hidden"
                 >
                   {/* Dynamic Image Overlay */}
-                  <div className="absolute top-0 left-0 w-full h-[250px] sm:h-full sm:w-[50%] group-hover:w-full group-hover:h-full transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] z-0 overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-[250px] sm:h-full sm:w-[50%] group-hover:w-full group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                     <img
                       src={projectImages[p.id]}
                       alt={p.title}

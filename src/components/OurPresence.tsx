@@ -23,13 +23,13 @@ const OfficeCard = ({ city, address, phone, image, heightClass }: OfficeProps) =
       <img 
         src={image} 
         alt={`${city} Office`} 
-        className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" 
+        className="w-full h-full object-cover transition-transform duration-700 ease-custom group-hover:scale-105" 
       />
       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500" />
     </div>
 
     {/* Center Title */}
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-translate-y-8">
+    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none transition-transform duration-500 ease-custom group-hover:-translate-y-8">
       <MapPin className="w-8 h-8 text-primary mb-3 drop-shadow-md" />
       <h3 className="text-2xl font-bold font-sans text-white drop-shadow-md">
         {city}
@@ -37,7 +37,7 @@ const OfficeCard = ({ city, address, phone, image, heightClass }: OfficeProps) =
     </div>
 
     {/* Slide-Up Contact Details */}
-    <div className="absolute bottom-0 left-0 right-0 z-20 p-6 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none text-center">
+    <div className="absolute bottom-0 left-0 right-0 z-20 p-6 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-custom pointer-events-none text-center">
       <div className="bg-white/10 border border-white/20 rounded-lg p-4">
         <p className="text-sm text-gray-200 mb-1">{address}</p>
         <p className="text-sm font-semibold text-white">{phone}</p>

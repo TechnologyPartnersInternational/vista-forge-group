@@ -81,7 +81,7 @@ const InsightsSection = () => {
                   className="group relative flex flex-col h-full rounded-[1rem] overflow-hidden"
                 >
                   {/* Dynamic Image Overlay */}
-                  <div className="absolute top-0 left-0 w-full h-[200px] lg:h-[240px] group-hover:h-full transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] z-0 overflow-hidden rounded-[1rem] group-hover:rounded-[1rem]">
+                  <div className="absolute top-0 left-0 w-full h-[200px] lg:h-[240px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden rounded-[1rem] group-hover:rounded-[1rem]">
                     <img 
                       src={shippingImage} 
                       alt={items[2].title} 

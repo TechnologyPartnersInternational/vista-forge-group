@@ -15,7 +15,7 @@ const CtaBand = () => {
             <img 
               src={heroPlaceholderImg} 
               alt="Partnership Impact" 
-              className="w-full h-full object-cover opacity-80 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform group-hover:scale-105" 
+              className="w-full h-full object-cover opacity-80 transition-transform duration-500 ease-custom will-change-transform group-hover:scale-105" 
             />
           </div>
 
