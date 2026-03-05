@@ -33,7 +33,7 @@ const ServiceDetail = () => {
             <service.icon className="w-12 h-12 text-silver shrink-0 mt-1" />
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">{service.title}</h1>
-              <p className="text-lg text-silver leading-relaxed max-w-3xl">{service.fullDesc}</p>
+              <p className="text-lg text-silver leading-relaxed max-w-3xl">{service.shortDesc}</p>
             </div>
           </div>
         </div>
