@@ -33,26 +33,28 @@ const ServiceDetail = () => {
             <service.icon className="w-12 h-12 text-silver shrink-0 mt-1" />
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">{service.title}</h1>
-              <p className="text-lg text-silver leading-relaxed max-w-3xl">{service.fullDesc}</p>
+              <p className="text-lg text-silver leading-relaxed max-w-3xl">{service.shortDesc}</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Capabilities */}
-      <section className="bg-card">
-        <div className="container-narrow section-padding">
-          <h2 className="text-2xl font-bold text-foreground mb-8">Our Capabilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {service.capabilities.map((cap) => (
-              <div key={cap} className="flex items-start gap-3 p-5 rounded-lg bg-mist border border-border">
-                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm text-foreground font-medium">{cap}</span>
-              </div>
-            ))}
+      {service.subServices && service.subServices.length > 0 && (
+        <section className="bg-card">
+          <div className="container-narrow section-padding">
+            <h2 className="text-2xl font-bold text-foreground mb-8">Sub-Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {service.subServices.map((sub) => (
+                <div key={sub.slug} className="flex items-start gap-3 p-5 rounded-lg bg-mist border border-border">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm text-foreground font-medium">{sub.title}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Next Service + CTA */}
       <section className="bg-mist">
