@@ -7,30 +7,30 @@ import {
 } from "framer-motion";
 
 // Row 1 Imports
-import gacLogo from "@/assets/clientLogos/GAC-LOGO-3.png";
-import image1 from "@/assets/clientLogos/IMAGE-1.png";
-import image10 from "@/assets/clientLogos/IMAGE-10.png";
-import image11 from "@/assets/clientLogos/IMAGE-11.png";
-import image2 from "@/assets/clientLogos/IMAGE-2.png";
-import image3 from "@/assets/clientLogos/IMAGE-3.png";
-import image4 from "@/assets/clientLogos/IMAGE-4.png";
-import image7 from "@/assets/clientLogos/IMAGE-7.png";
-import image8 from "@/assets/clientLogos/IMAGE-8.png";
-import image9 from "@/assets/clientLogos/IMAGE-9.png";
-import imageMain from "@/assets/clientLogos/IMAGE.png";
+import gacLogo from "@/assets/ClientLogos/GAC-LOGO-3.png";
+import image1 from "@/assets/ClientLogos/IMAGE-1.png";
+import image10 from "@/assets/ClientLogos/IMAGE-10.png";
+import image11 from "@/assets/ClientLogos/IMAGE-11.png";
+import image2 from "@/assets/ClientLogos/IMAGE-2.png";
+import image3 from "@/assets/ClientLogos/IMAGE-3.png";
+import image4 from "@/assets/ClientLogos/IMAGE-4.png";
+import image7 from "@/assets/ClientLogos/IMAGE-7.png";
+import image8 from "@/assets/ClientLogos/IMAGE-8.png";
+import image9 from "@/assets/ClientLogos/IMAGE-9.png";
+import imageMain from "@/assets/ClientLogos/IMAGE.png";
 
 // Row 2 Imports
-import conex from "@/assets/clientLogos/conex-1.jpg";
-import energia from "@/assets/clientLogos/energia.png";
-import exonmobile from "@/assets/clientLogos/exonmobile-logo - Copy.png";
-import greenEnergy from "@/assets/clientLogos/green-energy.png";
-import nnpc from "@/assets/clientLogos/nnpc-home-loggo.png";
-import oriental from "@/assets/clientLogos/oriental-energy.png";
-import saipem from "@/assets/clientLogos/saipem-logo.jpg";
-import seepco from "@/assets/clientLogos/seepco.png";
-import seplat from "@/assets/clientLogos/seplat.png";
-import shell from "@/assets/clientLogos/shell-logo.png";
-import totalenergies from "@/assets/clientLogos/totalenergies-logo-2.png";
+import conex from "@/assets/ClientLogos/conex-1.jpg";
+import energia from "@/assets/ClientLogos/energia.png";
+import exonmobile from "@/assets/ClientLogos/exonmobile-logo - Copy.png";
+import greenEnergy from "@/assets/ClientLogos/green-energy.png";
+import nnpc from "@/assets/ClientLogos/nnpc-home-loggo.png";
+import oriental from "@/assets/ClientLogos/oriental-energy.png";
+import saipem from "@/assets/ClientLogos/saipem-logo.jpg";
+import seepco from "@/assets/ClientLogos/seepco.png";
+import seplat from "@/assets/ClientLogos/seplat.png";
+import shell from "@/assets/ClientLogos/shell-logo.png";
+import totalenergies from "@/assets/ClientLogos/totalenergies-logo-2.png";
 
 const row1 = [
   gacLogo, image1, image10, image11, image2, image3, image4, image7, image8, image9, imageMain
