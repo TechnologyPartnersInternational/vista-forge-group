@@ -40,19 +40,21 @@ const ServiceDetail = () => {
       </section>
 
       {/* Capabilities */}
-      <section className="bg-card">
-        <div className="container-narrow section-padding">
-          <h2 className="text-2xl font-bold text-foreground mb-8">Our Capabilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {service.capabilities.map((cap) => (
-              <div key={cap} className="flex items-start gap-3 p-5 rounded-lg bg-mist border border-border">
-                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm text-foreground font-medium">{cap}</span>
-              </div>
-            ))}
+      {service.subServices && service.subServices.length > 0 && (
+        <section className="bg-card">
+          <div className="container-narrow section-padding">
+            <h2 className="text-2xl font-bold text-foreground mb-8">Sub-Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {service.subServices.map((sub) => (
+                <div key={sub.slug} className="flex items-start gap-3 p-5 rounded-lg bg-mist border border-border">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm text-foreground font-medium">{sub.title}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Next Service + CTA */}
       <section className="bg-mist">
