@@ -1,0 +1,22 @@
+﻿node.exe : npm warn 
+Unknown cli config 
+"--noEmit". This will 
+stop working in the 
+next major version of 
+npm.
+At C:\Program Files\nod
+ejs\npm.ps1:29 char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (npm warn Unkn   
+ ow...version of np    
+m.:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
