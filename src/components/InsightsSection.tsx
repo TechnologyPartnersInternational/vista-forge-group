@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { insights } from "@/data/insights";
 
 // Placeholder images styled to match the vibe of the reference image
@@ -14,11 +15,17 @@ const InsightsSection = () => {
     <section className="bg-white">
       <div className="px-6 lg:px-12 section-padding">
         
-        {/* Header section similar to reference */}
-        <div className="mb-10 lg:mb-16">
-          <p className="text-sm font-medium text-primary font-sans ">
+        {/* Header section */}
+        <div className="flex items-center justify-between mb-10 lg:mb-16">
+          <p className="text-sm font-medium text-primary font-sans">
             Our experts are leading the way
           </p>
+          <Link
+            to="/insights"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-foreground transition-colors"
+          >
+            View Insights <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         {/* Masonry Grid Layout */}

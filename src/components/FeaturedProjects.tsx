@@ -3,17 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 
-// Image imports
-import projectRemediation from "@/assets/Featured Projects/20131028_173122-scaled.jpg";
-import projectLng from "@/assets/Featured Projects/IMG-20230620-WA0013.jpg";
-import projectLab from "@/assets/Featured Projects/file-13323803-870x580-1.png";
-
-const projectImages: Record<string, string> = {
-  "niger-delta-remediation": projectRemediation,
-  "lng-terminal-eia": projectLng,
-  "industrial-lab-network": projectLab,
-};
-
 const FeaturedProjects = () => {
   return (
     <section className="bg-white py-24 overflow-hidden">
@@ -57,7 +46,7 @@ const FeaturedProjects = () => {
                 {/* Dynamic Image Overlay */}
                 <div className="absolute top-0 left-0 w-full h-[300px] lg:h-[500px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                   <img
-                    src={projectImages[projects[0].id]}
+                    src={projects[0].heroImage}
                     alt={projects[0].title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -102,7 +91,7 @@ const FeaturedProjects = () => {
                   {/* Dynamic Image Overlay */}
                   <div className="absolute top-0 left-0 w-full h-[250px] sm:h-full sm:w-[50%] group-hover:w-full group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                     <img
-                      src={projectImages[p.id]}
+                      src={p.heroImage}
                       alt={p.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
