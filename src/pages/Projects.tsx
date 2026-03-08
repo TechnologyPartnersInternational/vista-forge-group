@@ -4,6 +4,7 @@ import { ArrowRight, Search, ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProjectCard from "@/components/ProjectCard";
 import InsightsSection from "@/components/InsightsSection";
+import CtaBand from "@/components/CtaBand";
 import { projects } from "@/data/projects";
 import heroBg from "@/assets/Projects/projects-hero-bg.png";
 
@@ -301,9 +302,9 @@ const Projects = () => {
           )}
         </AnimatePresence>
       </section>
-
       {/* ── Insights Section ───────────────────────────────────────────────── */}
       <InsightsSection />
+      <CtaBand />
     </Layout>
   );
 };

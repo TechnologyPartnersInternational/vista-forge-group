@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Search, ChevronDown } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import InsightCard from "@/components/InsightCard";
+import CtaBand from "@/components/CtaBand";
 import { insights } from "@/data/insights";
 import heroBg from "@/assets/Projects/insights-hero-bg.png";
 
@@ -242,7 +243,7 @@ const Insights = () => {
       </section>
 
       {/* ── Featured + Latest Insights ─────────────────────────────────────── */}
-      <section className="bg-white px-4 md:px-10 py-10 border-b border-border/40">
+      <section className="bg-white px-4 md:px-10 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
           {/* Left: Featured big card */}
@@ -317,7 +318,7 @@ const Insights = () => {
       </section>
 
       {/* ── All Insights Grid ──────────────────────────────────────────────── */}
-      <section className="px-4 md:px-10 py-12 bg-mist/30">
+      <section className="px-4 md:px-10 py-12 bg-white">
         <p className="text-sm text-muted-foreground mb-6">
           Showing{" "}
           <span className="font-semibold text-foreground">{filtered.length}</span>{" "}
@@ -372,6 +373,8 @@ const Insights = () => {
           )}
         </AnimatePresence>
       </section>
+
+      <CtaBand />
     </Layout>
   );
 };
