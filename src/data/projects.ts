@@ -13,9 +13,10 @@ import projectLab from "@/assets/Featured Projects/file-13323803-870x580-1.png";
 export interface Project {
   id: string;
   title: string;
+  subtitle?: string;
   client: string;
   service: string;
-  category: string; // For filtering: "Environmental Planning & Management" | "Environmental Compliance Monitoring (ECM)" | etc.
+  category: string;
   industry: string;
   location: string;
   year: string;
@@ -26,6 +27,18 @@ export interface Project {
   approach: string;
   result: string;
   metrics: { label: string; value: string }[];
+  delivered?: string[];
+  collaborators?: string[];
+  mainContent?: {
+    heading: string;
+    text: string;
+  }[];
+  testimonial?: {
+    quote: string;
+    author: string;
+    role: string;
+  };
+  galleryImages?: string[];
 }
 
 export const projects: Project[] = [
@@ -41,6 +54,7 @@ export const projects: Project[] = [
     year: "2023",
     status: "completed",
     heroImage: projectRemediation,
+    subtitle: "Hydrocarbon Contaminated Site Restoration",
     summary:
       "Phased remediation of 14 hydrocarbon-contaminated sites in the Niger Delta, achieving full regulatory closure within 18 months.",
     problem:
@@ -55,6 +69,35 @@ export const projects: Project[] = [
       { label: "Local Jobs Created", value: "120+" },
       { label: "Regulatory Closures", value: "100%" },
     ],
+    delivered: [
+      "Tier-1 and Tier-2 Environmental Site Assessments (ESA)",
+      "Hydrogeological mapping and groundwater plume modelling",
+      "Implementation of RESS (Remediation by Enhanced Sorption and Sequestration)",
+      "Continuous air quality and socio-economic impact monitoring",
+      "Phased community engagement and local content integration",
+    ],
+    collaborators: [
+      "Federal Ministry of Environment (FMEnv)",
+      "National Oil Spill Detection and Response Agency (NOSDRA)",
+      "Rivers State Ministry of Environment",
+      "Local Community Development Committees (CDCs)",
+    ],
+    mainContent: [
+      {
+        heading: "A multi-phased approach to environmental restoration",
+        text: "The Niger Delta remediation project was commissioned to address complex hydrocarbon pollution across sensitive coastal ecosystems. Our study began with a comprehensive risk-based assessment to identify the most critical exposure pathways for local communities. We developed a phased approach to the scheme so that work could proceed on multiple sites simultaneously, reducing the overall timeline without compromising technical rigor.\n\nThe project area is surrounded by over 200 hectares of mangrove forest and traditional fishing grounds. We developed a sensitive technical approach that balanced the need for aggressive remediation with the imperative to preserve the remaining natural biodiversity of the region.",
+      },
+      {
+        heading: "Deploying innovative remediation technologies",
+        text: "TPI utilized advanced bioremediation and soil washing techniques tailored to the specific heavy crude profiles found in the region. By integrating real-time groundwater sensors, we built a comprehensive picture of the contamination plume, allowing for precise injection of remediation agents and minimizing secondary environmental impacts.\n\nOur team conducted extensive research into the site's geology and previous remediation failures. We developed a custom soil treatment strategy that leveraged local organic matter to enhance microbial activity, ensuring a sustainable and cost-effective restoration of the soil's natural productivity.",
+      },
+    ],
+    testimonial: {
+      quote: "This project forms a vital part of the infrastructure for defending the region against long-term environmental degradation and key stakeholders who continue to live, work, and invest in the area will be reassured by the quality of the restoration.",
+      author: "Chief Emeka Okoro",
+      role: "Chairman, Regional Development Council",
+    },
+    galleryImages: [projectRemediation, projectEcm],
   },
   {
     id: "lng-terminal-eia",
@@ -81,6 +124,34 @@ export const projects: Project[] = [
       { label: "Study Team Size", value: "40" },
       { label: "Approval Timeline", value: "On schedule" },
     ],
+    delivered: [
+      "Environmental & Social Impact Assessment (ESIA)",
+      "Marine Ecology and Biodiversity Surveys",
+      "Stakeholder Engagement & Community Investment Plan",
+      "Air Quality and Noise Modelling",
+      "Regulatory Permitting & Permitting Strategy",
+    ],
+    collaborators: [
+      "International Finance Corporation (IFC)",
+      "Federal Ministry of Environment",
+      "Local Host Communities",
+    ],
+    mainContent: [
+      {
+        heading: "A complex study for a multi-billion dollar expansion",
+        text: "The LNG Terminal expansion required a rigorous environmental and social impact assessment to meet both local regulations and international lender standards. TPI led a multidisciplinary team of 40 specialists, conducting extensive marine and terrestrial surveys over a 12-month period.",
+      },
+      {
+        heading: "Setting the standard for stakeholder engagement",
+        text: "We implemented a proprietary community engagement framework that facilitated dialogue with 23 host communities. This approach ensured that the project received broad community acceptance while establishing a sustainable model for long-term stakeholder relations.",
+      },
+    ],
+    testimonial: {
+      quote: "The thoroughness and technical depth of TPI's ESIA was instrumental in securing the necessary international financing for this expansion.",
+      author: "Segun Arinze",
+      role: "Project Director, West African LNG Consortium",
+    },
+    galleryImages: [projectLng, projectEcm],
   },
   {
     id: "industrial-lab-network",
@@ -107,6 +178,20 @@ export const projects: Project[] = [
       { label: "Capacity Increase", value: "300%" },
       { label: "Staff Trained", value: "45" },
     ],
+    delivered: [
+      "Laboratory Design and Infrastructure Fit-out",
+      "Advanced Analytical Instrumentation Procurement",
+      "ISO 17025 Quality Management System implementation",
+      "LIMS System Deployment & Staff Training",
+      "Regulatory Liaison & Accreditation Support",
+    ],
+    mainContent: [
+      {
+        heading: "Modernizing environmental monitoring infrastructure",
+        text: "Tasked with upgrading a regional laboratory network, TPI provided end-to-end consulting, from structural redesign to the commissioning of high-precision GCMS and ICP-OES instrumentation. The goal was to eliminate testing bottlenecks that had plagued regulatory oversight for years.",
+      },
+    ],
+    galleryImages: [projectLab, projectLabGeneral],
   },
 
   // ─── ADDITIONAL MOCK PROJECTS ──────────────────────────────────────────────
