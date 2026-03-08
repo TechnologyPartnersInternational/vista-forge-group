@@ -188,32 +188,26 @@ const Insights = () => {
           </div>
 
           {/* Row 2: Category chips */}
-          <motion.div layout className="flex items-center gap-2 flex-wrap min-h-[32px]">
-            <AnimatePresence mode="popLayout">
-              {activeCat && (
-                <motion.button
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  onClick={() => setActiveCat(null)}
-                  className="text-xs text-muted-foreground hover:text-primary underline underline-offset-2 transition-colors flex-shrink-0"
-                >
-                  Clear
-                </motion.button>
-              )}
+          <div className="flex items-center gap-2 flex-wrap">
+            {activeCat && (
+              <button
+                onClick={() => setActiveCat(null)}
+                className="text-xs text-muted-foreground hover:text-primary underline underline-offset-2 transition-colors flex-shrink-0"
+              >
+                Clear
+              </button>
+            )}
 
-              {visibleCats.map((cat) => (
-                <motion.button
+            {visibleCats.map((cat, i) => {
+              const hiddenOnMobile = i >= 2 && !showMoreMobile;
+              return (
+                <button
                   key={cat}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
                   onClick={() => setActiveCat(activeCat === cat ? null : cat)}
                   title={cat}
                   className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium
                     transition-all duration-200 max-w-[200px] overflow-hidden flex-shrink-0
+                    ${hiddenOnMobile ? "hidden sm:flex" : ""}
                     ${
                       activeCat === cat
                         ? "bg-primary text-white"
@@ -222,32 +216,28 @@ const Insights = () => {
                 >
                   {activeCat === cat && <span className="flex-shrink-0">✓</span>}
                   <span className="truncate">{cat}</span>
-                </motion.button>
-              ))}
+                </button>
+              );
+            })}
 
-              {/* Mobile Show more */}
-              <motion.button
-                layout
-                key="mobile-toggle"
-                onClick={() => setShowMoreMobile((v) => !v)}
-                className="sm:hidden flex items-center gap-1 px-3 py-1 text-xs font-semibold text-primary border border-primary/30 rounded-full hover:bg-primary/5 transition-all duration-200 flex-shrink-0"
-              >
-                {showMoreMobile ? "Less" : `+${visibleCats.length - 2} more`}
-                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${showMoreMobile ? "rotate-180" : ""}`} />
-              </motion.button>
+            {/* Mobile Show more */}
+            <button
+              onClick={() => setShowMoreMobile((v) => !v)}
+              className="sm:hidden flex items-center gap-1 px-3 py-1 text-xs font-semibold text-primary border border-primary/30 rounded-full hover:bg-primary/5 transition-all duration-200 flex-shrink-0"
+            >
+              {showMoreMobile ? "Less" : `+${visibleCats.length - 2} more`}
+              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${showMoreMobile ? "rotate-180" : ""}`} />
+            </button>
 
-              {/* Desktop See all */}
-              <motion.button
-                layout
-                key="desktop-toggle"
-                onClick={() => setShowAllCats((v) => !v)}
-                className="hidden sm:flex items-center gap-1 px-3 py-1 text-xs font-semibold text-primary border border-primary/30 rounded-full hover:bg-primary/5 transition-all duration-200 flex-shrink-0"
-              >
-                {showAllCats ? "Show Less" : "...See all"}
-                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${showAllCats ? "rotate-180" : ""}`} />
-              </motion.button>
-            </AnimatePresence>
-          </motion.div>
+            {/* Desktop See all */}
+            <button
+              onClick={() => setShowAllCats((v) => !v)}
+              className="hidden sm:flex items-center gap-1 px-3 py-1 text-xs font-semibold text-primary border border-primary/30 rounded-full hover:bg-primary/5 transition-all duration-200 flex-shrink-0"
+            >
+              {showAllCats ? "Show Less" : "...See all"}
+              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${showAllCats ? "rotate-180" : ""}`} />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -327,8 +317,8 @@ const Insights = () => {
       </section>
 
       {/* ── All Insights Grid ──────────────────────────────────────────────── */}
-      <section className="bg-white px-4 md:px-10 py-10">
-        <motion.p layout className="text-sm text-muted-foreground mb-6">
+      <section className="px-4 md:px-10 py-12 bg-mist/30">
+        <p className="text-sm text-muted-foreground mb-6">
           Showing{" "}
           <span className="font-semibold text-foreground">{filtered.length}</span>{" "}
           {filtered.length === 1 ? "insight" : "insights"}
@@ -338,18 +328,17 @@ const Insights = () => {
               <span className="font-semibold text-primary">{activeCat}</span>
             </>
           )}
-        </motion.p>
+        </p>
 
         <AnimatePresence mode="popLayout">
           {filtered.length > 0 ? (
             <motion.div
-              layout
+              key="grid"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10"
             >
               {filtered.map((insight, i) => (
                 <motion.div
                   key={insight.id}
-                  layout
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
