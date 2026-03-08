@@ -101,7 +101,7 @@ const Company = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-10 h-full">
             <div className="p-8 rounded-2xl bg-mist border border-border/50 text-center flex flex-col items-center justify-center">
               <span className="text-3xl font-bold text-primary mb-1">200+</span>
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Professionals</span>
