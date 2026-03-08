@@ -10,6 +10,13 @@ export interface Insight {
   readTime: string;
   featured?: boolean;
   content: string;
+  bannerImage?: string;
+  author?: {
+    name: string;
+    role: string;
+    image?: string;
+  };
+  lastUpdated?: string;
 }
 
 export const insights: Insight[] = [
@@ -22,7 +29,14 @@ export const insights: Insight[] = [
     date: "2026-02-10",
     readTime: "6 min",
     featured: true,
-    content: "In Nigeria's upstream sector, the Environmental, Social and Health Impact Assessment is often treated as a regulatory hurdle to clear once engineering is underway. That approach routinely leads to permit delays, costly redesigns, and strained community relations.\n\nTPI's experience across dozens of ESHIA studies for major operators, including field development projects, infill drilling campaigns, and pipeline installations, points to a different model. When environmental and social baseline work begins in parallel with concept selection, the resulting EIA submissions are stronger, regulator queries are fewer, and the path to Federal Ministry approval is significantly shorter.\n\nThree factors drive the difference. First, early ecological and social baseline surveys capture seasonal variation that single-season studies miss, producing datasets regulators trust. Second, stakeholder mapping conducted before land access negotiations gives operators a clearer picture of community expectations. Third, integrating environmental constraints into engineering design from the outset avoids the rework that comes when impact mitigation is bolted on after the fact.\n\nFor operators planning new field developments or facility expansions, the message is clear: ESHIA is not a downstream task. It is a project enabler that, when sequenced correctly, compresses timelines and reduces total project cost.",
+    bannerImage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80",
+    author: {
+      name: "Andrew Went",
+      role: "Former Global High Speed Rail Leader",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80"
+    },
+    lastUpdated: "February 2024",
+    content: "High-speed rail is one of the fastest growing infrastructure sectors in the world, and for good reason.\n\nIt can be used to unlock economic and social benefits for whole regions and even countries and help square the circle of meeting decarbonisation targets while satisfying society's demands for increased mobility.\n\nIn Nigeria's upstream sector, the Environmental, Social and Health Impact Assessment is often treated as a regulatory hurdle to clear once engineering is underway. That approach routinely leads to permit delays, costly redesigns, and strained community relations.\n\nTPI's experience across dozens of ESHIA studies for major operators, including field development projects, infill drilling campaigns, and pipeline installations, points to a different model. When environmental and social baseline work begins in parallel with concept selection, the resulting EIA submissions are stronger, regulator queries are fewer, and the path to Federal Ministry approval is significantly shorter.\n\nThree factors drive the difference. First, early ecological and social baseline surveys capture seasonal variation that single-season studies miss, producing datasets regulators trust. Second, stakeholder mapping conducted before land access negotiations gives operators a clearer picture of community expectations. Third, integrating environmental constraints into engineering design from the outset avoids the rework that comes when impact mitigation is bolted on after the fact.\n\nFor operators planning new field developments or facility expansions, the message is clear: ESHIA is not a downstream task. It is a project enabler that, when sequenced correctly, compresses timelines and reduces total project cost.",
   },
   {
     id: "methane-monitoring-offshore",
