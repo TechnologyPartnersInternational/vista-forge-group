@@ -1,8 +1,11 @@
+export type InsightType = "Article" | "Issues" | "Story" | "News";
+
 export interface Insight {
   id: string;
   title: string;
   excerpt: string;
   category: string;
+  type: InsightType;
   date: string;
   readTime: string;
   featured?: boolean;
@@ -15,6 +18,7 @@ export const insights: Insight[] = [
     title: "Why Early ESHIA Engagement Accelerates Gas Field Development Timelines",
     excerpt: "Operators who commission Environmental, Social and Health Impact Assessments before front-end engineering can shave months off permitting. We share lessons from recent gas field projects in the Niger Delta.",
     category: "Environmental Planning",
+    type: "Article",
     date: "2026-02-10",
     readTime: "6 min",
     featured: true,
@@ -25,6 +29,7 @@ export const insights: Insight[] = [
     title: "Point Source Methane Monitoring: Closing the Gap on Fugitive Emissions Offshore",
     excerpt: "Regulatory pressure and investor scrutiny are pushing operators to quantify methane emissions at source. Here is how continuous monitoring programmes are changing the picture on offshore platforms.",
     category: "Air Quality & Emissions",
+    type: "Issues",
     date: "2026-01-18",
     readTime: "5 min",
     featured: false,
@@ -35,6 +40,7 @@ export const insights: Insight[] = [
     title: "Environmental Compliance at Industrial Scale: Lessons from Refinery and Fertilizer Operations",
     excerpt: "Continuous environmental compliance monitoring for large-scale industrial facilities requires a systems approach. We outline the framework that keeps complex operations ahead of regulatory requirements.",
     category: "Compliance Monitoring",
+    type: "Article",
     date: "2025-11-22",
     readTime: "7 min",
     featured: false,
@@ -45,6 +51,7 @@ export const insights: Insight[] = [
     title: "Bioremediation in the Niger Delta: What Works, What Doesn't, and What's Next",
     excerpt: "After two decades of remediation projects across the Niger Delta, clear patterns have emerged in what drives successful site clean-up outcomes in tropical wetland environments.",
     category: "Remediation",
+    type: "Story",
     date: "2025-09-15",
     readTime: "8 min",
     featured: false,
@@ -55,6 +62,7 @@ export const insights: Insight[] = [
     title: "Biological Monitoring of Offshore Discharges: Building a Regional Evidence Base",
     excerpt: "Toxicity testing and bioaccumulation studies around offshore platforms are producing valuable ecological data. But are we using it effectively to inform discharge management decisions?",
     category: "Laboratory & Marine Science",
+    type: "News",
     date: "2025-07-08",
     readTime: "6 min",
     featured: false,
@@ -65,6 +73,7 @@ export const insights: Insight[] = [
     title: "Environmental Due Diligence in Upstream Asset Transactions: What Buyers Miss",
     excerpt: "As Nigeria's upstream sector sees increased asset divestments and acquisitions, environmental liabilities are emerging as a significant factor in deal valuation. Thorough evaluation studies are essential.",
     category: "Site Assessment",
+    type: "Issues",
     date: "2025-05-20",
     readTime: "5 min",
     featured: false,
@@ -75,6 +84,7 @@ export const insights: Insight[] = [
     title: "GHG Reporting Under Nigeria's Climate Change Act: What Operators Need to Prepare Now",
     excerpt: "With mandatory greenhouse gas reporting requirements taking shape, operators who build emissions inventories today will avoid the compliance scramble tomorrow.",
     category: "Climate & Sustainability",
+    type: "News",
     date: "2025-04-12",
     readTime: "5 min",
     featured: false,
@@ -85,6 +95,7 @@ export const insights: Insight[] = [
     title: "Taking the Lab to the Field: Mobile Laboratory Services for Remote Operations",
     excerpt: "When sample integrity depends on rapid analysis and logistics make laboratory transport impractical, mobile and remote laboratory deployments bridge the gap.",
     category: "Laboratory Services",
+    type: "Story",
     date: "2025-03-05",
     readTime: "4 min",
     featured: false,
@@ -95,6 +106,7 @@ export const insights: Insight[] = [
     title: "From Disposal to Recovery: Rethinking Industrial Waste Streams in Nigeria",
     excerpt: "Thermal desorption, material recovery, and integrated waste management systems are shifting the economics of industrial waste from pure cost to potential value.",
     category: "Waste Management",
+    type: "Article",
     date: "2025-01-28",
     readTime: "6 min",
     featured: false,
@@ -105,6 +117,7 @@ export const insights: Insight[] = [
     title: "Community Engagement in Infrastructure Projects: Moving Beyond the Checkbox",
     excerpt: "Resettlement planning and stakeholder engagement done well can accelerate project delivery. Done poorly, they become the single largest source of delay and reputational risk.",
     category: "Social & Health Impact",
+    type: "Story",
     date: "2024-11-15",
     readTime: "7 min",
     featured: false,
@@ -115,6 +128,7 @@ export const insights: Insight[] = [
     title: "The Path to ISO 17025: What Nigerian Laboratories Should Know Before Starting",
     excerpt: "Laboratory accreditation is a rigorous process with a high abandonment rate. Understanding the common pitfalls before you begin can make the difference between certification and frustration.",
     category: "Laboratory Quality",
+    type: "Issues",
     date: "2024-09-20",
     readTime: "5 min",
     featured: false,
@@ -125,6 +139,7 @@ export const insights: Insight[] = [
     title: "Geophysical Surveys in Pipeline Route Selection: Reducing Risk Below the Surface",
     excerpt: "Subsurface conditions along pipeline corridors can make or break construction timelines. Modern geophysical survey techniques identify risks before the first trench is dug.",
     category: "Geophysical & Engineering",
+    type: "News",
     date: "2024-07-10",
     readTime: "5 min",
     featured: false,
