@@ -67,15 +67,15 @@ const OurPresence = () => {
           <div className="flex flex-col gap-6">
             <OfficeCard 
               city="Lagos" 
-              address="Victoria Island, Lagos, Nigeria"
-              phone="+234 (0) 800 123 4567"
+              address="No, 52/54 Oluwaleimu Street, Ikeja, Lagos State, Nigeria"
+              phone="+234-8033030049"
               image={lagosImg}
               heightClass="h-[500px]"
             />
             <OfficeCard 
               city="Warri" 
-              address="Effurun, Warri, Delta State"
-              phone="+234 (0) 800 123 4568"
+              address="Energy Link Road, Ugbuwangue, Warri, Delta State, Nigeria"
+              phone="+234-8166397755"
               image={warriImg}
               heightClass="h-[200px]"
             />
@@ -85,15 +85,15 @@ const OurPresence = () => {
           <div className="flex flex-col gap-6">
             <OfficeCard 
               city="Lekki" 
-              address="Lekki Phase 1, Lagos, Nigeria"
-              phone="+234 (0) 800 123 4569"
+              address="No 7, Salami Eleku Street, Iraboko- Awoyaya, Lagos State."
+              phone="234-7052588970"
               image={lekkiImg}
               heightClass="h-[200px]"
             />
             <OfficeCard 
               city="Port Harcourt" 
-              address="Trans Amadi, Rivers State"
-              phone="+234 (0) 800 123 4570"
+              address="137/139, Abuloma Road, Abuloma, Rivers State, Nigeria."
+              phone="234-8033419859"
               image={phcImg}
               heightClass="h-[500px]"
             />
@@ -103,8 +103,8 @@ const OurPresence = () => {
           <div className="flex flex-col gap-6 md:col-span-2 lg:col-span-1">
             <OfficeCard 
               city="Conakry" 
-              address="Kaloum, Conakry, Guinea"
-              phone="+224 600 12 34 56"
+              address="Bloc 19 Ratoma Dispensaire, Commune de Ratoma Conakry, Guinea."
+              phone="+224-627121930"
               image={conakryImg}
               heightClass="h-[400px] lg:h-[724px]"
             />

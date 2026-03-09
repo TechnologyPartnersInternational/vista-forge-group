@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Award, Users, Briefcase } from "lucide-react";
+import { ArrowRight, Shield, Award, Users, Briefcase, Target, Eye } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import LeaderCard from "@/components/LeaderCard";
 import OurPresence from "@/components/OurPresence";
@@ -84,19 +84,19 @@ const Company = () => {
             </h2>
             <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
               <p>
-                Founded in 1992, TPI Group has grown from a specialist environmental
-                consultancy into an integrated technical services provider with six core 
-                service lines and five offices across Nigeria and Guinea.
+Welcome to Technology Partners International (TPI). We are a trusted provider of environmental, laboratory, waste management, and advanced asset integrity services. Since 1992, we have been delivering high-quality solutions to clients in Nigeria and across the world.
               </p>
               <p>
-                We combine deep local knowledge with international standards, 
-                delivering solutions that are technically rigorous, commercially 
-                pragmatic, and socially responsible.
+At Technology Partners International Nigeria Limited (TPI), excellence is our standard. We are proud to be both ISO/IEC 17025:2017–accredited and ISO 9001:2015–certified. These certifications reflect our commitment to global best practices in testing, measurement traceability, and quality management.
               </p>
               <p>
-                Our multidisciplinary team includes environmental scientists, 
-                analytical chemists, engineers, digital specialists, and HSE 
-                practitioners, all dedicated to technical excellence.
+Our processes are designed with precision. From sample handling to final reporting, every step follows a strict quality control framework. This ensures that results are accurate, reliable, and transparent.
+              </p>
+              <p>
+                We combine advanced methodologies with calibrated instruments and ongoing staff development. By doing so, we provide results that are reproducible and trustworthy, giving our clients full confidence in every project.
+              </p>
+              <p>
+                At TPI, integrity and precision are not just values. They are the foundation of everything we do.
               </p>
             </div>
           </div>
@@ -118,6 +118,75 @@ const Company = () => {
               <span className="text-3xl font-bold text-primary mb-1">4</span>
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">ISO Certs</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Mission & Vision ──────────────────────────────────────────────── */}
+      <section className="px-4 md:px-10 py-20 bg-mist/30 lg:py-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Mission */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative overflow-hidden group bg-white p-10 md:p-12 rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-500"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20">
+                  <Target className="w-7 h-7 text-primary" />
+                </div>
+                
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Our Mission</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                  "To provide innovative, cost-effective, and high-quality environmental solutions 
+                  within the Sub-Saharan African region, with integrity and timely delivery."
+                </p>
+                
+                <div className="mt-8 pt-8 border-t border-border/50">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    At TPI, we are dedicated to delivering sustainable and affordable solutions 
+                    that address the unique environmental challenges faced by investors and managers. 
+                    Integrity is at the heart of everything we do.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Vision */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative overflow-hidden group navy-gradient p-10 md:p-12 rounded-[2rem] text-white shadow-xl hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-8 border border-white/20 backdrop-blur-sm">
+                  <Eye className="w-7 h-7 text-white" />
+                </div>
+                
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Vision</h2>
+                <p className="text-white/90 leading-relaxed text-sm md:text-base">
+                  "To become the leading environmental consultancy in Sub-Saharan Africa, 
+                  recognized globally for integrity, innovation, and excellence in service delivery."
+                </p>
+                
+                <div className="mt-8 pt-8 border-t border-white/10">
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    We aim to make a lasting positive impact on our clients, the communities 
+                    we serve, and the environment at large through innovative problem-solving 
+                    and a dedication to excellence.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

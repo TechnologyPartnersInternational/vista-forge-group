@@ -45,9 +45,9 @@ export const leadership: TeamMember[] = [
 ];
 
 export const locations = [
-  { city: "Lagos (Head Office)", address: "12 Adeniyi Jones Avenue, Ikeja, Lagos, Nigeria", phone: "+234 1 700 0001" },
-  { city: "Lekki", address: "Plot 5, Admiralty Way, Lekki Phase 1, Lagos, Nigeria", phone: "+234 1 700 0002" },
-  { city: "Port Harcourt", address: "24 Aba Road, GRA Phase 2, Port Harcourt, Rivers State", phone: "+234 84 700 003" },
-  { city: "Warri", address: "15 Effurun-Sapele Road, Effurun, Delta State", phone: "+234 53 700 004" },
-  { city: "Conakry", address: "Quartier Almamya, Commune de Kaloum, Conakry, Guinea", phone: "+224 622 000 005" },
+  { city: "Lagos (Head Office)", address: "52/54 Oluwaleyimu Street, Off Toyin Street, Ikeja, Lagos State, Nigeria", phone: "+234 8033030049" },
+  { city: "Lekki", address: "No 7, Salami Eleku Street, Iraboko- Awoyaya, Lagos State.", phone: "234-7052588970" },
+  { city: "Port Harcourt", address: "137/139, Abuloma Road, Abuloma, Rivers State, Nigeria.", phone: "234-8033419859" },
+  { city: "Warri", address: "Energy Link Road, Ugbuwangue, Warri, Delta State, Nigeria", phone: "+234-8166397755" },
+  { city: "Conakry", address: "Bloc 19 Ratoma Dispensaire, Commune de Ratoma Conakry, Guinea.", phone: "+224-627121930" },
 ];

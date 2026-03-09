@@ -59,7 +59,7 @@ const ProjectDetail = () => {
 
             <div className="max-w-4xl space-y-6">
               <div className="space-y-2">
-                <span className="text-primary text-xs font-bold uppercase tracking-[0.3em]">
+                <span className="text-amber-400 text-xs font-bold uppercase tracking-[0.3em]">
                   {project.category}
                 </span>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]">
