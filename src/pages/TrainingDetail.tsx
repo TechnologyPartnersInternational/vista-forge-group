@@ -1,89 +1,58 @@
-import ServicePage, { ServiceSection } from "@/components/ServicePage";
-import { GraduationCap, Leaf, FlaskConical, ShieldCheck, Settings } from "lucide-react";
-// Replaced broken import with dummy image
-const trainingHero = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
-// Replaced broken import with dummy image
-const trainingEsg = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
-// Replaced broken import with dummy image
-const trainingLab = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
-// Replaced broken import with dummy image
-const trainingHse = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";;
+import { services } from "@/data/services";
+import Layout from "@/components/layout/Layout";
+import ServiceHero from "@/components/service/ServiceHero";
+import SubServiceSection from "@/components/service/SubServiceSection";
+import HowWeWork from "@/components/HowWeWork";
+import CtaBand from "@/components/CtaBand";
+import { motion } from "framer-motion";
 
-const sections: ServiceSection[] = [
-  {
-    id: "esg-training",
-    title: "ESG Training & Sustainability Reporting",
-    description: "Our team provides training on a wide range of ESG topics, including sustainability reporting, stakeholder engagement, and environmental, social, and governance risk management. Programmes are designed to help you implement industry best practices and standards, such as the GRI guidelines and the ISO 26000 social responsibility standard.",
-    highlights: [
-      "GRI guidelines & sustainability reporting",
-      "ISO 26000 social responsibility",
-      "Stakeholder engagement strategies",
-      "ESG risk management frameworks",
-      "Carbon footprint & GHG reporting",
-      "Corporate sustainability planning",
-    ],
-    image: trainingEsg,
-    icon: Leaf,
-  },
-  {
-    id: "lab-training",
-    title: "Environmental Laboratory Training",
-    description: "We offer training programmes specifically tailored to environmental laboratories, covering sample preparation, instrumentation, quality control, and the latest analytical techniques. Our hands-on approach ensures participants develop practical skills that translate directly to improved laboratory performance.",
-    highlights: [
-      "Sample preparation techniques",
-      "Analytical instrumentation operation",
-      "Quality control & QA systems",
-      "ISO 17025 accreditation requirements",
-      "Method validation & uncertainty",
-      "Laboratory safety protocols",
-    ],
-    image: trainingLab,
-    icon: FlaskConical,
-  },
-  {
-    id: "hse-training",
-    title: "HSE & Environmental Awareness",
-    description: "Our HSE training programmes combine classroom instruction with hands-on field exercises, ensuring participants gain practical skills recognised across the industry. From oil spill response to environmental impact assessment methodology, we build competence at every level of your organisation.",
-    highlights: [
-      "HSE awareness & induction training",
-      "Oil spill response & preparedness",
-      "Environmental impact assessment (EIA)",
-      "Waste management & handling",
-      "Emergency response planning",
-      "Regulatory compliance workshops",
-    ],
-    image: trainingHse,
-    icon: ShieldCheck,
-  },
-  {
-    id: "customised-training",
-    title: "Customised Corporate Training",
-    description: "In addition to our standard programmes, we develop tailored training solutions for your organisation. Our team of trainers has expertise across a wide range of environmental and technical topics and works with you to design programmes that meet your specific needs, goals, and operational context.",
-    highlights: [
-      "Needs assessment & gap analysis",
-      "Bespoke curriculum development",
-      "On-site & virtual delivery options",
-      "Competence assessment & certification",
-      "Train-the-trainer programmes",
-      "Ongoing professional development",
-    ],
-    image: trainingEsg,
-    icon: Settings,
-  },
-];
+const service = services.find(s => s.slug === "training");
 
-const TrainingDetail = () => (
-  <ServicePage
-    title="Training"
-    subtitle="Accredited professional development programmes for environmental practitioners, laboratory technicians, and HSE professionals across West Africa."
-    heroImage={trainingHero}
-    heroIcon={GraduationCap}
-    introHeading="Building capability, driving excellence"
-    introText="TPI Academy delivers training programmes that combine classroom instruction with hands-on field and laboratory exercises. Whether you need ESG reporting skills, laboratory quality systems, or HSE awareness, our expert trainers help your team develop practical, industry-recognised competencies."
-    sections={sections}
-    ctaHeading="Invest in your team's development"
-    ctaText="From standard accredited courses to fully customised corporate programmes, TPI Academy builds the capabilities your organisation needs."
-  />
-);
+const TrainingDetail = () => {
+  return (
+    <Layout>
+      <ServiceHero 
+        title={service?.title || "Training"}
+        description={service?.shortDesc || ""}
+        image={service?.subServices[0]?.image || ""}
+      />
+
+      {/* Overview */}
+      <section className="bg-mist py-24 relative overflow-hidden">
+        <div className="px-4 md:px-12">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4 block">Capacity Building</span>
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Empowering professionals for technical excellence.</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                TPI provides accredited training programs in ESG, HSE, laboratory management, and technical compliance, building local capacity to meet global industrial standards.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sub-services */}
+      {service?.subServices.map((sub, index) => (
+        <SubServiceSection 
+          key={sub.id} 
+          subService={sub} 
+          serviceSlug="training"
+          index={index} 
+        />
+      ))}
+
+      {/* How We Work */}
+      <HowWeWork />
+
+      {/* CTA */}
+      <CtaBand />
+    </Layout>
+  );
+};
 
 export default TrainingDetail;

@@ -14,6 +14,7 @@ import WasteManagementDetail from "./pages/WasteManagementDetail";
 import EngineeringDetail from "./pages/EngineeringDetail";
 import DigitalDetail from "./pages/DigitalDetail";
 import TrainingDetail from "./pages/TrainingDetail";
+import SubServiceDetail from "./pages/SubServiceDetail";
 
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/what-we-do/engineering" element={<EngineeringDetail />} />
           <Route path="/what-we-do/digital-solutions" element={<DigitalDetail />} />
           <Route path="/what-we-do/training" element={<TrainingDetail />} />
+          <Route path="/what-we-do/:serviceSlug/:subServiceSlug" element={<SubServiceDetail />} />
           <Route path="/what-we-do/:slug" element={<ServiceDetail />} />
           
           <Route path="/projects" element={<Projects />} />

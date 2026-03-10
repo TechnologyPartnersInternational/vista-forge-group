@@ -150,25 +150,24 @@ const WhatWeDo = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="h-full"
             >
-              <Link
-                to={`/what-we-do/${featuredService.slug}`}
+              <div
                 className="group relative flex flex-col h-full bg-mist rounded-[1.5rem] overflow-hidden border border-border/50 min-h-[420px]"
               >
                 {/* Dynamic Image Overlay */}
-                <div className="absolute top-0 left-0 w-full h-[280px] lg:h-[480px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
+                <Link to={`/what-we-do/${featuredService.slug}`} className="absolute top-0 left-0 w-full h-[280px] lg:h-[480px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                   <img
-                    src={featuredImage}
+                    src={serviceImages[0]}
                     alt={featuredService.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                </div>
+                </Link>
 
                 {/* Spacer */}
                 <div className="relative w-full h-[280px] lg:h-[480px] shrink-0 z-0 pointer-events-none" />
 
                 {/* Content */}
-                <div className="relative z-10 p-8 md:p-10 flex-1 flex flex-col justify-center pointer-events-none">
+                <div className="relative z-10 p-8 md:p-10 flex-1 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                       <featuredService.icon className="w-5 h-5 text-primary group-hover:text-gold transition-colors duration-500" />
@@ -177,18 +176,19 @@ const WhatWeDo = () => {
                       {featuredService.title}
                     </span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-4 pointer-events-none">
                     {featuredService.shortDesc}
                   </h3>
                   {/* Sub-services list */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {featuredService.subServices.slice(0, 4).map((sub) => (
-                      <span
+                      <Link
                         key={sub.slug}
-                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-white/10 group-hover:text-white/80 transition-colors duration-500"
+                        to={`/what-we-do/${featuredService.slug}/${sub.slug}`}
+                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-muted text-muted-foreground hover:bg-primary hover:text-white group-hover:bg-white/10 group-hover:text-white/80 transition-all duration-300 z-20"
                       >
                         {sub.title}
-                      </span>
+                      </Link>
                     ))}
                     {featuredService.subServices.length > 4 && (
                       <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-white/10 group-hover:text-white/80 transition-colors duration-500">
@@ -196,11 +196,11 @@ const WhatWeDo = () => {
                       </span>
                     )}
                   </div>
-                  <span className="inline-flex items-center gap-2 text-sm font-bold text-primary group-hover:text-gold transition-colors duration-500">
+                  <Link to={`/what-we-do/${featuredService.slug}`} className="inline-flex items-center gap-2 text-sm font-bold text-primary group-hover:text-gold transition-colors duration-500 z-20">
                     Explore service <ArrowRight className="w-4 h-4" />
-                  </span>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             </motion.div>
 
             {/* Right: 2×2 Smaller Cards */}
