@@ -1,8 +1,10 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { services } from "@/data/services";
+import { projects } from "@/data/projects";
+import ProjectCard from "@/components/ProjectCard";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight, Download } from "lucide-react";
 import CtaBand from "@/components/CtaBand";
 
 const SubServiceDetail = () => {
@@ -14,9 +16,15 @@ const SubServiceDetail = () => {
   const subService = service.subServices.find((ss) => ss.slug === subServiceSlug);
   if (!subService) return <Navigate to={`/what-we-do/${serviceSlug}`} replace />;
 
+  // Filter related projects based on subservice category or service
+  const relatedProjects = projects.filter(p => 
+    p.category.toLowerCase().includes(subService.title.toLowerCase()) || 
+    p.service.toLowerCase() === service.title.toLowerCase()
+  ).slice(0, 4);
+
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero Section - UNCHANGED as per user request */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -24,7 +32,7 @@ const SubServiceDetail = () => {
             alt={subService.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
         </div>
 
         <div className="relative z-10 w-full px-4 md:px-12">
@@ -56,105 +64,172 @@ const SubServiceDetail = () => {
               transition={{ delay: 0.2 }}
               className="text-xl text-white/80 max-w-2xl leading-relaxed"
             >
-              Deep technical expertise and sustainable solutions tailored for the {service.title.toLowerCase()} sector.
+              {subService.shortDesc || `Deep technical expertise and sustainable solutions tailored for the ${service.title.toLowerCase()} sector.`}
             </motion.p>
           </div>
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* NEW Editorial Content Section */}
       <section className="bg-white py-24">
-        <div className="px-4 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            {/* Main Content */}
-            <div className="lg:col-span-2">
+        <div className="max-w-7xl mx-auto px-4 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            {/* Main Content Column */}
+            <div className="lg:col-span-8">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <div className="inline-block p-1 bg-primary/10 rounded-lg mb-6">
-                  <div className="bg-white p-3 rounded-md shadow-sm">
-                    {subService.icon ? (
-                       <subService.icon className="w-6 h-6 text-primary" />
-                    ) : (
-                      <service.icon className="w-6 h-6 text-primary" />
-                    )}
-                  </div>
-                </div>
-                <h2 className="text-3xl font-bold text-foreground mb-8">Service Overview</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
+                  How we can help you
+                </h2>
+                
+                <p className="text-xl text-muted-foreground leading-relaxed mb-12 font-light">
                   {subService.fullDesc}
                 </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                  <div className="bg-mist p-8 rounded-[2rem] border border-border/50">
-                    <h3 className="text-xl font-bold text-foreground mb-6">Core Capabilities</h3>
-                    <ul className="space-y-4">
+
+                {/* Featured Image with Caption */}
+                <div className="mb-16">
+                  <div className="aspect-[16/9] rounded-2xl overflow-hidden mb-4 shadow-xl">
+                    <img 
+                      src={subService.image} 
+                      alt={subService.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-4 py-1">
+                    {subService.title} — TPI provides comprehensive technical solutions with a focus on sustainable outcomes and regulatory compliance.
+                  </p>
+                </div>
+
+                <div className="space-y-16">
+                  <section>
+                    <h3 className="text-2xl md:text-3xl font-serif text-foreground mb-6">Expertise and capabilities</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                       {subService.highlights.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
+                        <div key={i} className="flex items-start gap-3 py-4 border-b border-border/50">
                           <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground">{item}</span>
-                        </li>
+                          <span className="text-foreground font-medium">{item}</span>
+                        </div>
                       ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="flex flex-col gap-6">
-                    <div className="bg-navy text-white p-8 rounded-[2rem] flex-1">
-                      <h3 className="text-xl font-bold mb-4">Why TPI?</h3>
-                      <p className="text-white/70 leading-relaxed text-sm">
-                        With over 30 years of operational experience across Africa, we combine global best practices with deep local knowledge to deliver results that are both world-class and context-aware.
-                      </p>
                     </div>
-                    <div className="bg-primary/5 border border-primary/20 p-8 rounded-[2rem]">
-                      <h3 className="text-xl font-bold text-primary mb-4">Compliance</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">
-                        All our services are delivered in strict adherence to international standards including ISO, IFC Performance Standards, and local NESREA/EGASPIN regulations.
-                      </p>
-                    </div>
-                  </div>
+                  </section>
+
+                  {/* Why TPI Section - Integrated */}
+                  <section className="bg-mist p-10 rounded-3xl border border-border/50">
+                    <h3 className="text-2xl font-serif text-foreground mb-4">Why TPI?</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      With over 30 years of operational experience across Africa, we combine global best practices with deep local knowledge. Our team of experts delivers results that are both world-class and context-aware, ensuring your projects meet the highest international standards while navigating local complexities with ease.
+                    </p>
+                  </section>
                 </div>
               </motion.div>
             </div>
 
-            {/* Sidebar */}
-            <aside className="lg:col-span-1">
-              <div className="sticky top-24 space-y-8">
-                <div className="bg-mist rounded-[2rem] p-8 border border-border/50">
+            {/* Sidebar / Related Links */}
+            <aside className="lg:col-span-4">
+              <div className="sticky top-24 space-y-12">
+                {/* Download Block */}
+                <div className="bg-mist rounded-3xl p-8 border border-border/50">
+                  <h3 className="text-2xl font-serif text-foreground mb-4">Download</h3>
+                  <p className="text-sm text-muted-foreground mb-8">
+                    Read more about our {subService.title.toLowerCase()} capabilities in our comprehensive service brochure.
+                  </p>
+                  <button className="flex items-center justify-between w-full p-4 bg-navy text-white rounded-xl hover:bg-primary transition-all group">
+                    <span className="font-bold">Capability Statement</span>
+                    <Download className="w-5 h-5 transition-transform group-hover:translate-y-1" />
+                  </button>
+                </div>
+
+                {/* Related Services */}
+                <div>
                   <h3 className="text-xl font-bold text-foreground mb-6">Related Services</h3>
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-4">
                     {service.subServices
                       .filter((ss) => ss.slug !== subServiceSlug)
-                      .slice(0, 5)
+                      .slice(0, 4)
                       .map((ss) => (
                         <Link 
                           key={ss.slug} 
                           to={`/what-we-do/${service.slug}/${ss.slug}`}
-                          className="group flex items-center justify-between p-4 bg-white rounded-xl border border-border/50 hover:border-primary hover:shadow-md transition-all"
+                          className="group flex items-center justify-between py-4 border-b border-border/50 hover:border-primary transition-all"
                         >
-                          <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{ss.title}</span>
-                          <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-all" />
+                          <span className="text-base font-medium text-foreground group-hover:text-primary transition-colors">{ss.title}</span>
+                          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
                         </Link>
                       ))}
                   </div>
                 </div>
 
-                <div className="bg-primary rounded-[2rem] p-8 text-white text-center relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
-                  <h3 className="text-2xl font-bold mb-4">Ready to Start?</h3>
-                  <p className="text-white/80 mb-8 text-sm">
-                    Let's discuss how our {subService.title.toLowerCase()} capabilities can support your project goals.
+                {/* Quick Contact CTA */}
+                <div className="bg-navy text-white rounded-3xl p-8 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                  <h3 className="text-2xl font-serif mb-4">Ready to start?</h3>
+                  <p className="text-white/70 mb-8 text-sm leading-relaxed">
+                    Discuss your project requirements with our specialist consultants.
                   </p>
                   <Link 
                     to="/contact" 
-                    className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-navy hover:text-white transition-all transform hover:-translate-y-1"
+                    className="inline-flex items-center gap-2 text-white font-bold border-b-2 border-primary transition-all pb-1"
                   >
-                    Get in Touch
+                    Contact an expert <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Discovery Section - Latest Work */}
+      {relatedProjects.length > 0 && (
+        <section className="bg-mist py-24 border-y border-border/50">
+          <div className="w-full mx-auto px-4 md:px-12">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <div className="max-w-2xl">
+                <span className="text-sm font-bold text-primary uppercase tracking-widest mb-4 block">Projects</span>
+                <h2 className="text-4xl md:text-5xl font-serif text-foreground">Discover our latest work</h2>
+              </div>
+              <Link to="/projects" className="group flex items-center gap-2 py-3 px-6 bg-white rounded-full border border-border/50 hover:border-primary transition-all">
+                <span className="font-bold text-sm">View all projects</span>
+                <div className="w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {relatedProjects.map((project, i) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <ProjectCard project={project} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Expertise Links - Discovery */}
+      <section className="bg-white py-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 text-center">
+          <span className="text-sm font-light text-muted-foreground mb-4 block italic">Explore more of our expertise:</span>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
+            {services.filter(s => s.slug !== serviceSlug).map(s => (
+              <Link 
+                key={s.slug} 
+                to={`/what-we-do/${s.slug}`}
+                className="text-lg md:text-xl font-serif text-foreground hover:text-primary transition-colors border-b border-border/30 hover:border-primary"
+              >
+                {s.title}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

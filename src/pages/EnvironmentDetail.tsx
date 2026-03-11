@@ -62,28 +62,28 @@ const EnvironmentDetail = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="bg-navy rounded-[3rem] p-10 md:p-14 text-white relative overflow-hidden shadow-2xl">
+              <div className="bg-white rounded-[1rem] p-10 md:p-14 text-black relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
-                <h3 className="text-2xl font-bold mb-10 border-b border-white/10 pb-6">Key Performance Metrics</h3>
+                <h3 className="text-2xl font-bold mb-10 border-b border-black/10 pb-6">Key Performance Metrics</h3>
                 <div className="space-y-8">
                   {[
                     { label: "Permit Approval Success", value: "98%" },
                     { label: "Regulatory Compliance Rate", value: "100%" },
                     { label: "Environmental Risk Mitigation", value: "High" }
                   ].map((stat, i) => (
-                    <div key={i} className="flex justify-between items-end border-b border-white/5 pb-4">
-                      <span className="text-white/60 text-sm font-medium uppercase tracking-wider">{stat.label}</span>
+                    <div key={i} className="flex justify-between items-end border-b border-black/10 pb-4">
+                      <span className="text-black/60 text-sm font-medium uppercase tracking-wider">{stat.label}</span>
                       <span className="text-2xl font-bold text-primary">{stat.value}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-12 flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10">
+                <div className="mt-12 flex items-center gap-4 p-4 bg-black/5 rounded-2xl border border-black/10">
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
                     <Zap className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h5 className="font-bold text-sm">Rapid Turnaround</h5>
-                    <p className="text-xs text-white/50">Permitting process reduced by up to 30%</p>
+                    <p className="text-xs text-black/50">Permitting process reduced by up to 30%</p>
                   </div>
                 </div>
               </div>
