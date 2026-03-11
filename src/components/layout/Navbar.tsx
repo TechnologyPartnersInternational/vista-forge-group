@@ -136,7 +136,7 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                           <Link
-                            to={`/what-we-do/${sub.slug}`}
+                            to={`/what-we-do/${category.slug}/${sub.slug}`}
                             onClick={() => setMegaOpen(false)}
                             className="text-sm text-foreground hover:text-primary relative inline-block group"
                           >
