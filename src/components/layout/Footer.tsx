@@ -24,12 +24,12 @@ const Footer = () => {
                 environmental, laboratory, and engineering solutions across Nigeria and West Africa.
               </p>
               <div className="flex gap-4">
-                <a href="#" className="p-2 rounded-full border border-white/10 text-silver hover:text-white hover:border-primary transition-all duration-300">
+                <Link to="https://www.linkedin.com/company/technology-partners-international-nigeria-limited/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-white/10 text-silver hover:text-white hover:border-primary transition-all duration-300">
                   <Linkedin className="w-4 h-4" />
-                </a>
-                <a href="#" className="p-2 rounded-full border border-white/10 text-silver hover:text-white hover:border-primary transition-all duration-300">
+                </Link>
+                <Link to="https://twitter.com/TPI_Nigeria" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-white/10 text-silver hover:text-white hover:border-primary transition-all duration-300">
                   <Twitter className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -86,11 +86,11 @@ const Footer = () => {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-sm text-silver">
                   <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                  <span>12 Adeniyi Jones Avenue, Ikeja, Lagos, Nigeria</span>
+                  <span>52/54 Oluwaleyimu Street, Off Toyin Street, Ikeja, Lagos State, Nigeria</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-silver">
                   <Phone className="w-4 h-4 text-primary shrink-0" />
-                  <span>+234 1 700 0001</span>
+                  <span>+234 8033030049</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-silver">
                   <Mail className="w-4 h-4 text-primary shrink-0" />

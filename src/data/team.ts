@@ -1,3 +1,8 @@
+import chifum from "../assets/Executive Board/Mr. Chifum Ifeadi.png";
+import chiedu from "../assets/Executive Board/Mr. Chiedu Ifeadi.jpg";
+import franca from "../assets/Executive Board/Mrs. Franca Ezeana.jpg";
+import edebi from "../assets/Executive Board/Dr. Vaikosen Edebi.jpg";
+import omusuku from "../assets/Executive Board/Mrs. Chinyere Omusuku.jpg";
 export interface TeamMember {
   name: string;
   title: string;
@@ -7,40 +12,34 @@ export interface TeamMember {
 
 export const leadership: TeamMember[] = [
   {
-    name: "Dr. Adebayo Ogunlade",
+    name: "MR. CHIFUM IFEADI",
     title: "Managing Director / CEO",
     bio: "Over 30 years of experience in environmental consulting and engineering across West Africa. PhD in Environmental Engineering from the University of Lagos.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
+    image: chifum,
   },
   {
-    name: "Engr. Funke Adeyemi",
-    title: "Director, Engineering & EPC",
-    bio: "Chartered engineer with 25 years in project management and asset integrity for onshore and offshore oil and gas facilities.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+    name: "Mr. Chiedu Ifeadi MBA",
+    title: "Chief Operating Officer (COO)",
+    bio: "Mr. Chiedu Japhet Ifeadi is a distinguished project manager and a member of the Nigeria Institute of Administrators. His comprehensive expertise spans areas such as asset management, good laboratory practices, analytical group management, marketing, and business administration. He has adeptly managed projects valued at over USD 5 million, serving both governmental and extractive sectors. Over the years, Mr. Ifeadi has participated in numerous professional conferences, seminars, and training sessions. He is a proud member of both the Certified Board of Administrators of Nigeria and the Nigerian Environmental Society",
+    image: chiedu,
   },
   {
-    name: "Dr. Chukwuma Eze",
-    title: "Director, Laboratory Services",
-    bio: "Analytical chemist and ISO 17025 lead assessor with extensive experience in environmental and industrial laboratory management.",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800",
+    name: "Mrs. Franca Ezeana",
+    title: "Chief Financial Officer (CFO)",
+    bio: "Mrs. Franca Ezeana, a member of the Nigerian Institute of Chartered Accountants, excels in corporate accounting, financial analysis, and registry administration. She is a dedicated and goal-driven professional with strong supervisory skills. Mrs. Ezeana deeply understands the significance of a company’s financial performance, benchmarking it against internal objectives and competitors’ metrics.",
+    image: franca,
   },
   {
-    name: "Mrs. Amina Bello",
-    title: "Director, Environment & Sustainability",
-    bio: "Environmental scientist specialising in ESIA, contaminated land, and biodiversity management. Former UNEP consultant.",
-    image: "https://images.unsplash.com/photo-1580894732234-8b60289b06d9?auto=format&fit=crop&q=80&w=800",
+    name: "Prof. Vaikosen Edebi",
+    title: "VP, Technology",
+    bio: "Prof. Vaikosen Nicholas Edebi, an Associate Professor, boasts over 39 years of expertise in the oil and gas sector as a distinguished chemist. His extensive skills encompass the creation of standardized operating and analytical procedures, research and development, as well as environmental pollution monitoring. Prof. Edebi is an esteemed member of the Institute of Public Analysts of Nigeria (MIPAN), Nigeria Environmental Society (MNES), and the Chemical Society of Nigeria (MCSN).",
+    image: edebi,
   },
   {
-    name: "Mr. Oluwaseun Akinwale",
-    title: "Director, Digital Solutions",
-    bio: "Technology leader with expertise in IoT, environmental data platforms, and digital transformation for industrial clients.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    name: "Mrs. Ngozi Okafor",
-    title: "Director, QHSE & Training",
-    bio: "NEBOSH-certified HSE professional with 20 years of experience in quality management systems and professional training delivery.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
+    name: "Mrs. Chinyere Omusuku",
+    title: "Head, Laboratory Services",
+    bio: "With over twenty years in the oil and gas sector and a Bachelor of Science in Analytical Chemistry, Mrs. C Omusuku stands out for her acumen in laboratory management, environmental analysis, and regulatory compliance. She has actively contributed to numerous environmental projects, including EIAs, EBS, EMPs, ECMs, PIAs, and various sampling and analytical initiatives.",
+    image: omusuku,
   },
 ];
 
