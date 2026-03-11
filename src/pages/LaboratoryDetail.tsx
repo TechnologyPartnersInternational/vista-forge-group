@@ -14,7 +14,7 @@ const LaboratoryDetail = () => {
       <ServiceHero 
         title={service?.title || "Laboratory"}
         description={service?.shortDesc || ""}
-        image={service?.subServices[0]?.image || ""}
+        image={"/assets/20180627_092149-scaled.jpg"}
       />
 
       {/* Overview */}

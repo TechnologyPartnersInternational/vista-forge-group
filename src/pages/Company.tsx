@@ -3,6 +3,7 @@ import { ArrowRight, Shield, Award, Users, Briefcase, Target, Eye } from "lucide
 import Layout from "@/components/layout/Layout";
 import LeaderCard from "@/components/LeaderCard";
 import OurPresence from "@/components/OurPresence";
+import CertificateCarousel from "@/components/CertificateCarousel";
 import { leadership } from "@/data/team";
 import heroBg from "@/assets/Projects/company-hero-bg.png";
 
@@ -239,6 +240,9 @@ Our processes are designed with precision. From sample handling to final reporti
           </div>
         </div>
       </section>
+
+      {/* ── Certificates Carousel ────────────────────────────────────────── */}
+      <CertificateCarousel />
 
       {/* ── Locations (Our Presence) ────────────────────────────────────────── */}
       <OurPresence />

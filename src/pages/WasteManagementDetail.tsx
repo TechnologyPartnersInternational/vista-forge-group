@@ -14,7 +14,7 @@ const WasteManagementDetail = () => {
       <ServiceHero 
         title={service?.title || "Waste Management"}
         description={service?.shortDesc || ""}
-        image={service?.subServices[0]?.image || ""}
+        image={"/assets/special-inspection-SK1.jpg"}
       />
 
       {/* Overview */}

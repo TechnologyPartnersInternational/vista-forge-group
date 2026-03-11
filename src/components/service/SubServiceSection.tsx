@@ -6,6 +6,7 @@ interface SubService {
   id: string;
   slug: string;
   title: string;
+  shortDesc?: string;
   fullDesc: string;
   highlights: string[];
   image: string;
@@ -60,7 +61,7 @@ const SubServiceSection = ({ subService, serviceSlug, index }: SubServiceSection
               {subService.title}
             </h3>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl">
-              {subService.fullDesc}
+              {subService.shortDesc || subService.fullDesc}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">

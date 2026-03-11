@@ -15,7 +15,7 @@ const EnvironmentDetail = () => {
       <ServiceHero 
         title={service?.title || "Environment"}
         description={service?.shortDesc || "Environmental excellence through science and innovation."}
-        image={service?.subServices[0]?.image || ""}
+        image={"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200"}
       />
 
       {/* Compliance Section */}
