@@ -116,9 +116,14 @@ const CertificateCarousel = () => {
               <img 
                 src={cert.path} 
                 alt={cert.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 select-none pointer-events-none"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+              {/* Security Overlay to prevent direct interaction */}
+              <div className="absolute inset-0 z-10 select-none" onContextMenu={(e) => e.preventDefault()} />
+              
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 z-20">
                 <span className="text-white text-sm font-medium mb-2">{cert.title}</span>
                 <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center text-white">
                   <Maximize2 className="w-5 h-5" />
@@ -155,8 +160,12 @@ const CertificateCarousel = () => {
               <img 
                 src={selectedCert.path} 
                 alt={selectedCert.title}
-                className="max-h-full max-w-full object-contain shadow-2xl rounded-lg"
+                className="max-h-full max-w-full object-contain shadow-2xl rounded-lg select-none pointer-events-none"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
               />
+              {/* Security Overlay for Modal */}
+              <div className="absolute inset-0 z-10" onContextMenu={(e) => e.preventDefault()} />
               <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
                 <p className="text-white text-sm md:text-base font-medium">{selectedCert.title}</p>
               </div>
