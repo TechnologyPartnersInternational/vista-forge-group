@@ -121,7 +121,7 @@ const HeroCarousel = () => {
               <button
                 key={s.id}
                 onClick={() => goToSlide(i)}
-                className={`flex-1 flex flex-col justify-end text-left px-4 md:px-8 pb-8 pt-4 border-t-2 transition-all duration-300 group
+                className={`flex-1 flex flex-col justify-center text-left px-4 md:px-8 pb-8 pt-4 border-t-2 transition-all duration-300 group
                   ${isActive ? "border-white" : "border-white/20 hover:border-white/50"}
                 `}
                 aria-label={`Go to slide ${i + 1}`}
@@ -129,7 +129,7 @@ const HeroCarousel = () => {
                 <div className={`text-xs md:text-sm font-bold mb-1 transition-colors duration-300 ${isActive ? "text-white" : "text-white/50 group-hover:text-white/80"}`}>
                   {s.slideNumber}
                 </div>
-                <div className={`text-xs md:text-base font-medium transition-colors duration-300 truncate hidden sm:block ${isActive ? "text-white" : "text-white/50 group-hover:text-white/80"}`}>
+                <div className={`text-xs md:text-base text-wrap font-medium sm:block transition-colors duration-300 truncate hidden ${isActive ? "text-white" : "text-white/50 group-hover:text-white/80"}`}>
                   {s.navTitle}
                 </div>
               </button>

@@ -10,7 +10,6 @@ import {
 import gacLogo from "@/assets/ClientLogos/GAC-LOGO-3.png";
 import image1 from "@/assets/ClientLogos/IMAGE-1.png";
 import image10 from "@/assets/ClientLogos/IMAGE-10.png";
-import image11 from "@/assets/ClientLogos/IMAGE-11.png";
 import image2 from "@/assets/ClientLogos/IMAGE-2.png";
 import image3 from "@/assets/ClientLogos/IMAGE-3.png";
 import image4 from "@/assets/ClientLogos/IMAGE-4.png";
@@ -38,7 +37,7 @@ import hyprep from "@/assets/ClientLogos/HYPREP.webp";
 import yinka from "@/assets/ClientLogos/yinka-folawiyo.jpg"
 
 const row1 = [
-  gacLogo, image1, image10, image11, image2, image3, image4, image7, image8, image9, imageMain, anthan, heir
+  gacLogo, image1, image10, image2, image3, image4, image7, image8, image9, imageMain, anthan, heir
 ];
 
 const row2 = [
