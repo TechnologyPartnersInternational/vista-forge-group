@@ -6,6 +6,7 @@ import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight, Download } from "lucide-react";
 import CtaBand from "@/components/CtaBand";
+import capabilityStatement from "@/assets/CompanyProfile/TPI-Company-Profile.pdf";
 
 const SubServiceDetail = () => {
   const { serviceSlug, subServiceSlug } = useParams();
@@ -24,7 +25,6 @@ const SubServiceDetail = () => {
 
   return (
     <Layout>
-      {/* Hero Section - UNCHANGED as per user request */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -40,12 +40,12 @@ const SubServiceDetail = () => {
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-2 text-white/60 mb-8 overflow-x-auto no-scrollbar whitespace-nowrap"
+              className="flex md:items-center flex-col md:flex-row gap-2 text-white/60 mb-8 overflow-x-auto no-scrollbar whitespace-nowrap"
             >
               <Link to="/what-we-do" className="hover:text-primary transition-colors">What We Do</Link>
-              <ChevronRight className="w-4 h-4 shrink-0" />
+              <ChevronRight className="w-4 h-4 shrink-0 md:block hidden" />
               <Link to={`/what-we-do/${service.slug}`} className="hover:text-primary transition-colors">{service.title}</Link>
-              <ChevronRight className="w-4 h-4 shrink-0" />
+              <ChevronRight className="w-4 h-4 shrink-0 md:block hidden" />
               <span className="text-primary font-medium">{subService.title}</span>
             </motion.div>
 
@@ -136,10 +136,14 @@ const SubServiceDetail = () => {
                   <p className="text-sm text-muted-foreground mb-8">
                     Read more about our {subService.title.toLowerCase()} capabilities in our comprehensive service brochure.
                   </p>
-                  <button className="flex items-center justify-between w-full p-4 bg-navy text-white rounded-xl hover:bg-primary transition-all group">
+                  <a 
+                    href={capabilityStatement} 
+                    download="TPI-Capability-Statement.pdf"
+                    className="flex items-center justify-between w-full p-4 bg-navy text-white rounded-xl hover:bg-primary transition-all group"
+                  >
                     <span className="font-bold">Capability Statement</span>
                     <Download className="w-5 h-5 transition-transform group-hover:translate-y-1" />
-                  </button>
+                  </a>
                 </div>
 
                 {/* Related Services */}
