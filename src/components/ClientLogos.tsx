@@ -18,6 +18,8 @@ import image7 from "@/assets/ClientLogos/IMAGE-7.png";
 import image8 from "@/assets/ClientLogos/IMAGE-8.png";
 import image9 from "@/assets/ClientLogos/IMAGE-9.png";
 import imageMain from "@/assets/ClientLogos/IMAGE.png";
+import heir from "@/assets/ClientLogos/heir-holdings.jpg";
+import anthan from "@/assets/ClientLogos/Antan.png";
 
 // Row 2 Imports
 import conex from "@/assets/ClientLogos/conex-1.jpg";
@@ -31,21 +33,24 @@ import seepco from "@/assets/ClientLogos/seepco.png";
 import seplat from "@/assets/ClientLogos/seplat.png";
 import shell from "@/assets/ClientLogos/shell-logo.png";
 import totalenergies from "@/assets/ClientLogos/totalenergies-logo-2.png";
+import oando from "@/assets/ClientLogos/Oando-2-1024x346.webp";
+import hyprep from "@/assets/ClientLogos/HYPREP.webp";
+import yinka from "@/assets/ClientLogos/yinka-folawiyo.jpg"
 
 const row1 = [
-  gacLogo, image1, image10, image11, image2, image3, image4, image7, image8, image9, imageMain
+  gacLogo, image1, image10, image11, image2, image3, image4, image7, image8, image9, imageMain, anthan, heir
 ];
 
 const row2 = [
-  conex, energia, exonmobile, greenEnergy, nnpc, oriental, saipem, seepco, seplat, shell, totalenergies
+  conex, energia, exonmobile, greenEnergy, nnpc, oriental, saipem, seepco, seplat, shell, totalenergies, oando, hyprep, yinka
 ];
 
 const LogoCard = ({ src }: { src: string }) => (
-  <div className=" w-18 h-18 md:w-24 md:h-24 flex items-center justify-center mx-3 lg:mx-4 group transition-colors cursor-default">
+  <div className="w-24 h-12 md:w-32 md:h-16 flex items-center justify-center mx-4 md:mx-6 group transition-all cursor-default">
     <img 
       src={src} 
       alt="Partner logo" 
-      className="h-full w-full object-cover transition-all duration-300 transform group-hover:scale-110"
+      className="max-h-full max-w-full object-contain transition-all duration-300 transform group-hover:scale-110"
     />
   </div>
 );
