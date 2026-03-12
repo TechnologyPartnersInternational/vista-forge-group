@@ -1,11 +1,13 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Search, ChevronDown } from "lucide-react";
+import { ArrowRight, Search, ChevronDown, Loader2 } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
 import ProjectCard from "@/components/ProjectCard";
 import InsightsSection from "@/components/InsightsSection";
 import CtaBand from "@/components/CtaBand";
-import { projects } from "@/data/projects";
+import { api } from "@/lib/api";
+import { projects as staticProjects } from "@/data/projects";
 import heroBg from "@/assets/Projects/projects-hero-bg.png";
 
 // ── Filter constants ───────────────────────────────────────────────────────
@@ -41,11 +43,29 @@ const Projects = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
 
+  // Fetch projects from API
+  const { data: apiProjects, isLoading } = useQuery({
+    queryKey: ['projects'],
+    queryFn: api.getProjects,
+    retry: 1,
+  });
+
+  // Blend API data with static data, prioritizing API data
+  const projectsData = useMemo(() => {
+    if (!apiProjects || apiProjects.length === 0) return staticProjects;
+    
+    // Create a map of existing project IDs
+    const apiIds = new Set(apiProjects.map(p => p.id));
+    // Include static projects that are not in API (if you want both)
+    // Or just return API projects if any exist. Let's return API + static ones that aren't replaced.
+    return [...apiProjects, ...staticProjects.filter(p => !apiIds.has(p.id))];
+  }, [apiProjects]);
+
   const visibleCats = showAllCats ? ALL_CATEGORIES : CATEGORY_FILTERS;
 
   const filtered = useMemo(
     () =>
-      projects.filter((p) => {
+      projectsData.filter((p) => {
         const matchStatus =
           statusFilter === "All" ||
           (statusFilter === "Ongoing" && p.status === "ongoing") ||
@@ -58,7 +78,7 @@ const Projects = () => {
           p.location.toLowerCase().includes(searchTerm.toLowerCase());
         return matchStatus && matchCat && matchSearch;
       }),
-    [statusFilter, activeCat, searchTerm]
+    [projectsData, statusFilter, activeCat, searchTerm]
   );
 
   return (
@@ -150,6 +170,7 @@ const Projects = () => {
                   {s}
                 </button>
               ))}
+              {isLoading && <Loader2 className="w-4 h-4 animate-spin text-primary ml-2" />}
             </div>
 
             {/* Search */}

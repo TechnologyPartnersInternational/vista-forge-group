@@ -23,6 +23,15 @@ import InsightDetail from "./pages/InsightDetail";
 import Company from "./pages/Company";
 import Contact from "./pages/Contact";
 
+// Admin Imports
+import AdminLogin from "./pages/AdminLogin";
+import AdminLayout from "./components/layout/AdminLayout";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminProjects from "./pages/admin/Projects";
+import AdminInsights from "./pages/admin/Insights";
+import AdminCompany from "./pages/admin/Company";
+import AuthGuard from "./components/auth/AuthGuard";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -50,6 +59,16 @@ const App = () => (
           <Route path="/insights/:id" element={<InsightDetail />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
+          
+          {/* Admin Routes */}
+          <Route path="/tpi-admin-portal" element={<AdminLogin />} />
+          <Route path="/admin" element={<AuthGuard><AdminLayout /></AuthGuard>}>
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="projects" element={<AdminProjects />} />
+            <Route path="insights" element={<AdminInsights />} />
+            <Route path="company" element={<AdminCompany />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

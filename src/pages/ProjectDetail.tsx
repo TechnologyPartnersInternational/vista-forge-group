@@ -1,19 +1,57 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, Share, MapPin, Briefcase, Users, 
-  Check, Copy, ArrowUpRight, MessageSquare, ArrowRight 
+  Check, MessageSquare, ArrowRight, Loader2 
 } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
-import { projects } from "@/data/projects";
+import { api } from "@/lib/api";
+import { projects as staticProjects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import CtaBand from "@/components/CtaBand";
 
 const ProjectDetail = () => {
   const { id } = useParams();
-  const project = projects.find((p) => p.id === id);
   const [copied, setCopied] = useState(false);
+
+  // Fetch project from API
+  const { data: apiProject, isLoading } = useQuery({
+    queryKey: ['project', id],
+    queryFn: () => api.getProjectById(id!),
+    enabled: !!id,
+    retry: 1,
+  });
+
+  // Fetch all projects for related section
+  const { data: apiAllProjects } = useQuery({
+    queryKey: ['projects'],
+    queryFn: api.getProjects,
+    retry: 1,
+  });
+
+  // Effective project data (API or Static)
+  const project = useMemo(() => {
+    return apiProject || staticProjects.find((p) => p.id === id);
+  }, [apiProject, id]);
+
+  // Effective all projects for related calculations
+  const allProjects = useMemo(() => {
+    if (!apiAllProjects || apiAllProjects.length === 0) return staticProjects;
+    const apiIds = new Set(apiAllProjects.map(p => p.id));
+    return [...apiAllProjects, ...staticProjects.filter(p => !apiIds.has(p.id))];
+  }, [apiAllProjects]);
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        </div>
+      </Layout>
+    );
+  }
 
   if (!project) {
     return (
@@ -32,7 +70,7 @@ const ProjectDetail = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const relatedProjects = projects
+  const relatedProjects = allProjects
     .filter((p) => p.service === project.service && p.id !== project.id)
     .slice(0, 4);
 
@@ -142,7 +180,7 @@ const ProjectDetail = () => {
               </div>
 
               {/* Dynamic Content Blocks */}
-              {project.mainContent?.map((block, idx) => (
+              {project.mainContent?.map((block: any, idx: number) => (
                 <div key={idx} className="space-y-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                     {block.heading}
@@ -154,7 +192,7 @@ const ProjectDetail = () => {
               ))}
 
               {/* Testimonial */}
-              {project.testimonial && (
+              {project.testimonial && project.testimonial.quote && (
                 <div className="p-10 md:p-14 bg-mist rounded-[2rem] border border-border/50 relative overflow-hidden">
                   <span className="absolute top-8 right-10 text-9xl font-serif text-primary/10 select-none">“</span>
                   <blockquote className="relative z-10 space-y-8">
@@ -181,7 +219,7 @@ const ProjectDetail = () => {
               </div>
 
               {/* Collaborators */}
-              {project.collaborators && (
+              {project.collaborators && project.collaborators.length > 0 && (
                 <div className="pt-12 border-t border-border">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground block mb-6">Partners & Collaborators</span>
                   <p className="text-xs font-medium text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 uppercase tracking-wide">
@@ -194,12 +232,12 @@ const ProjectDetail = () => {
             {/* Right Column: Sidebar */}
             <div className="lg:col-span-4 space-y-8 relative">
               
-              {/* Delivered List (Static) */}
-              {project.delivered && (
+              {/* Delivered List */}
+              {project.delivered && project.delivered.length > 0 && (
                 <div className="p-8 rounded-2xl border border-border bg-white shadow-sm space-y-6">
                   <h4 className="text-[11px] font-bold uppercase tracking-widest text-foreground">What we delivered</h4>
                   <ul className="space-y-4">
-                    {project.delivered.map((item, idx) => (
+                    {project.delivered.map((item: string, idx: number) => (
                       <li key={idx} className="flex gap-3 text-sm text-muted-foreground leading-snug">
                         <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                         {item}
@@ -209,7 +247,7 @@ const ProjectDetail = () => {
                 </div>
               )}
 
-              {/* Services Section (Static) */}
+              {/* Services Section */}
               <div className="p-8 rounded-2xl border border-border bg-white shadow-sm space-y-4">
                 <h4 className="text-[11px] font-bold uppercase tracking-widest text-foreground">Industry & Service</h4>
                 <div className="space-y-1">

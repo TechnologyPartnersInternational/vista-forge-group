@@ -1,11 +1,13 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Search, ChevronDown } from "lucide-react";
+import { ArrowRight, Search, ChevronDown, Loader2 } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
 import InsightCard from "@/components/InsightCard";
 import CtaBand from "@/components/CtaBand";
-import { insights } from "@/data/insights";
+import { api } from "@/lib/api";
+import { insights as staticInsights } from "@/data/insights";
 import heroBg from "@/assets/Projects/insights-hero-bg.png";
 
 // ── Filter constants ────────────────────────────────────────────────────────
@@ -48,14 +50,28 @@ const Insights = () => {
   const [searchTerm,    setSearchTerm]    = useState("");
   const [searchOpen,    setSearchOpen]    = useState(false);
 
+  // Fetch insights from API
+  const { data: apiInsights, isLoading } = useQuery({
+    queryKey: ['insights'],
+    queryFn: api.getInsights,
+    retry: 1,
+  });
+
+  // Blend API data with static data
+  const insightsData = useMemo(() => {
+    if (!apiInsights || apiInsights.length === 0) return staticInsights;
+    const apiIds = new Set(apiInsights.map(i => i.id));
+    return [...apiInsights, ...staticInsights.filter(i => !apiIds.has(i.id))];
+  }, [apiInsights]);
+
   const visibleCats = showAllCats ? ALL_CATEGORIES : CATEGORY_CHIPS;
 
-  const featured = insights.find((i) => i.featured);
-  const latestFour = insights.slice(0, 4);
+  const featured = insightsData.find((i) => i.featured) || insightsData[0];
+  const latestFour = insightsData.slice(0, 4);
 
   const filtered = useMemo(
     () =>
-      insights.filter((ins) => {
+      insightsData.filter((ins) => {
         const matchType  = typeFilter === "All" || ins.type === typeFilter;
         const matchCat   = !activeCat || ins.category === activeCat;
         const matchSearch =
@@ -65,7 +81,7 @@ const Insights = () => {
           ins.category.toLowerCase().includes(searchTerm.toLowerCase());
         return matchType && matchCat && matchSearch;
       }),
-    [typeFilter, activeCat, searchTerm]
+    [insightsData, typeFilter, activeCat, searchTerm]
   );
 
   return (
@@ -158,6 +174,7 @@ const Insights = () => {
                   {t}
                 </button>
               ))}
+              {isLoading && <Loader2 className="w-4 h-4 animate-spin text-primary ml-2" />}
             </div>
 
             {/* Search */}
@@ -253,16 +270,18 @@ const Insights = () => {
               className="group relative block rounded-[1.25rem] overflow-hidden min-h-[360px] lg:min-h-[420px] shadow-md hover:shadow-xl transition-shadow duration-500"
             >
               <img
-                src={TYPE_IMAGES[featured.type]}
+                src={featured.bannerImage || TYPE_IMAGES[featured.type]}
                 alt={featured.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
 
               {/* Featured badge */}
-              <span className="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-widest">
-                Featured
-              </span>
+              {featured.featured && (
+                <span className="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-widest">
+                    Featured
+                </span>
+              )}
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">

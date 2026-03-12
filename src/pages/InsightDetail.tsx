@@ -1,19 +1,57 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, Clock, Share, Check, User, 
-  MessageSquare, ArrowRight, Calendar 
+  MessageSquare, ArrowRight, Calendar, Loader2 
 } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
-import { insights } from "@/data/insights";
+import { api } from "@/lib/api";
+import { insights as staticInsights } from "@/data/insights";
 import InsightCard from "@/components/InsightCard";
 import CtaBand from "@/components/CtaBand";
 
 const InsightDetail = () => {
   const { id } = useParams();
-  const insight = insights.find((i) => i.id === id);
   const [copied, setCopied] = useState(false);
+
+  // Fetch insight from API
+  const { data: apiInsight, isLoading } = useQuery({
+    queryKey: ['insight', id],
+    queryFn: () => api.getInsightById(id!),
+    enabled: !!id,
+    retry: 1,
+  });
+
+  // Fetch all insights for related section
+  const { data: apiAllInsights } = useQuery({
+    queryKey: ['insights'],
+    queryFn: api.getInsights,
+    retry: 1,
+  });
+
+  // Effective insight data
+  const insight = useMemo(() => {
+    return apiInsight || staticInsights.find((i) => i.id === id);
+  }, [apiInsight, id]);
+
+  // Effective all insights
+  const allInsights = useMemo(() => {
+    if (!apiAllInsights || apiAllInsights.length === 0) return staticInsights;
+    const apiIds = new Set(apiAllInsights.map(i => i.id));
+    return [...apiAllInsights, ...staticInsights.filter(i => !apiIds.has(i.id))];
+  }, [apiAllInsights]);
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        </div>
+      </Layout>
+    );
+  }
 
   if (!insight) {
     return (
@@ -32,11 +70,11 @@ const InsightDetail = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const categoryRelatedInsights = insights
+  const categoryRelatedInsights = allInsights
     .filter((i) => i.category === insight.category && i.id !== insight.id)
     .slice(0, 4);
 
-  const fallbackInsights = insights
+  const fallbackInsights = allInsights
     .filter((i) => i.id !== insight.id)
     .slice(0, 4);
 
@@ -113,7 +151,7 @@ const InsightDetail = () => {
               <div className="text-right hidden md:block">
                 <span className="text-[10px] uppercase tracking-widest text-muted-foreground block mb-1">Last updated</span>
                 <p className="text-sm font-bold text-foreground">
-                  {insight.lastUpdated || new Date(insight.date).toLocaleDateString("en-US", { month: 'long', year: 'numeric' })}
+                  {insight.lastUpdated || (insight.date ? new Date(insight.date).toLocaleDateString("en-US", { month: 'long', year: 'numeric' }) : 'Recently')}
                 </p>
               </div>
               <button 
@@ -198,7 +236,7 @@ const InsightDetail = () => {
                     <span className="text-[10px] font-bold uppercase tracking-widest">Date Published</span>
                   </div>
                   <p className="text-sm font-bold text-foreground">
-                    {new Date(insight.date).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' })}
+                    {insight.date ? new Date(insight.date).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' }) : 'Recently'}
                   </p>
                 </div>
               </div>
