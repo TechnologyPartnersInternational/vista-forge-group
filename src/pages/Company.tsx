@@ -5,7 +5,7 @@ import LeaderCard from "@/components/LeaderCard";
 import OurPresence from "@/components/OurPresence";
 import CertificateCarousel from "@/components/CertificateCarousel";
 import { leadership } from "@/data/team";
-import heroBg from "@/assets/Projects/company-hero-bg.png";
+import heroBg from "@/assets/More Pictures/CompanyPic.jpg";
 
 const Company = () => {
   return (
@@ -22,7 +22,7 @@ const Company = () => {
           <img
             src={heroBg}
             alt="TPI Company"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-[0_40%]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
 

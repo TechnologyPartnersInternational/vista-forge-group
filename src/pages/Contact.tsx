@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Send, ArrowRight, CheckCircle2 } from "lucide-reac
 import Layout from "@/components/layout/Layout";
 import { locations } from "@/data/team";
 import { services } from "@/data/services";
-import heroBg from "@/assets/Projects/contact-hero-bg.png";
+import heroBg from "@/assets/More Pictures/ContactPic.jpeg";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -36,7 +36,7 @@ const Contact = () => {
           <img
             src={heroBg}
             alt="Contact TPI"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-[0_40%]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
 

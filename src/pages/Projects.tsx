@@ -8,7 +8,7 @@ import InsightsSection from "@/components/InsightsSection";
 import CtaBand from "@/components/CtaBand";
 import { api } from "@/lib/api";
 import { projects as staticProjects } from "@/data/projects";
-import heroBg from "@/assets/Projects/projects-hero-bg.png";
+import heroBg from "@/assets/More Pictures/ProjectPic.jpeg";
 
 // ── Filter constants ───────────────────────────────────────────────────────
 const STATUS_FILTERS = ["All", "Ongoing", "Completed"] as const;
@@ -95,9 +95,9 @@ const Projects = () => {
           <img
             src={heroBg}
             alt="TPI Projects"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-[0_30%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/10" />
 
           <div className="relative z-10 flex flex-col justify-center h-full px-8 md:px-14 py-16 md:py-20 max-w-2xl">
             <motion.span
