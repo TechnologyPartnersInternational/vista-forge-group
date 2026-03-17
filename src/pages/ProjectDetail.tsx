@@ -43,7 +43,9 @@ const ProjectDetail = () => {
     return [...apiAllProjects, ...staticProjects.filter(p => !apiIds.has(p.id))];
   }, [apiAllProjects]);
 
-  if (isLoading) {
+  const staticProject = staticProjects.find((p) => p.id === id);
+
+  if (isLoading && !staticProject) {
     return (
       <Layout>
         <div className="flex items-center justify-center min-h-[60vh]">
@@ -180,7 +182,7 @@ const ProjectDetail = () => {
               </div>
 
               {/* Dynamic Content Blocks */}
-              {project.mainContent?.map((block: any, idx: number) => (
+              {project.mainContent?.map((block, idx: number) => (
                 <div key={idx} className="space-y-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                     {block.heading}

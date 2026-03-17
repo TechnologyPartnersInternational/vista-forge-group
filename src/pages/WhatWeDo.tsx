@@ -4,6 +4,9 @@ import { ArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import HowWeWork from "@/components/HowWeWork";
 import CtaBand from "@/components/CtaBand";
+import oilAndGas from "@/assets/GeneralPictures/Importance-Of-Technology-In-Oil-And-Gas-Industry.jpg";
+import maritime from "@/assets/GeneralPictures/5.jpg";
+import mining from "@/assets/GeneralPictures/Surface_Mining_in_Indonesia_1-1615269.jpg";
 import { services, industries } from "@/data/services";
 
 // Hero background
@@ -22,20 +25,17 @@ const serviceImages = [
 
 // Industry images — keyed by industry.id
 const industryImages: Record<string, string> = {
-  "oil-gas":
-    "https://images.unsplash.com/photo-1518709779341-56cf4535e94a?auto=format&fit=crop&q=80&w=800",
+  "oil-gas": oilAndGas,
   manufacturing:
     "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
   infrastructure:
     "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=800",
   government:
     "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=800",
-  mining:
-    "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80&w=800",
+  mining: mining,
   power:
     "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=800",
-  maritime:
-    "https://images.unsplash.com/photo-1568989411459-f2ef3bfd8f4e?auto=format&fit=crop&q=80&w=800",
+  maritime: maritime,
 };
 
 const WhatWeDo = () => {

@@ -9,6 +9,8 @@ import projectIncinerator from "@/assets/Projects/project-incinerator.png";
 import projectRemediation from "@/assets/Featured Projects/20131028_173122-scaled.jpg";
 import projectLng from "@/assets/Featured Projects/IMG-20230620-WA0013.jpg";
 import projectLab from "@/assets/Featured Projects/file-13323803-870x580-1.png";
+import projectDangote from "@/assets/Featured Projects/dangote-fertilizer.jpg";
+import projectTotalEnergies from "@/assets/Featured Projects/totalenergies.jpg";
 
 export interface Project {
   id: string;
@@ -43,6 +45,87 @@ export interface Project {
 
 export const projects: Project[] = [
   // ─── FEATURED (used in FeaturedProjects component) ────────────────────────
+    {
+    id: "dangote-fertilizer-ees",
+    title: "Environmental Evaluation Study (EES)",
+    subtitle: "Strengthening Sustainable Industrial Development through Environmental Governance",
+    client: "Dangote",
+    service: "Environment",
+    category: "Environmental Evaluation Study",
+    industry: "Oil & Gas",
+    location: "Lekki, Lagos State",
+    year: "2024",
+    status: "completed",
+    heroImage: projectDangote,
+    summary: "Comprehensive Environmental Evaluation Study securing structured environmental governance, regulatory approvals, and embedding sustainability into operations for Nigeria's largest fertilizer facility.",
+    problem: "Navigating a demanding regulatory landscape of strict environmental permitting and compliance while avoiding approval delays and operational interruptions.",
+    approach: "Delivered comprehensive environmental baseline assessments, structured field data collection and sampling, and proactive multi-stakeholder engagement.",
+    result: "Established a robust environmental governance platform securing regulatory approvals, embedding sustainability principles, and lowering perceived risk.",
+    metrics: [
+      { label: "Regulatory Compliance", value: "100%" },
+      { label: "Approval Delays", value: "0" },
+      { label: "Stakeholder Trust", value: "High" },
+      { label: "Risk Reduction", value: "Material" },
+    ],
+    delivered: [
+      "Comprehensive environmental baseline assessments",
+      "Structured field data collection and environmental sampling",
+      "Impact identification, prediction, and evaluation",
+      "Regulatory compliance gap analysis",
+      "Multi-stakeholder engagement and consultation",
+      "Regulatory-aligned documentation and reports",
+    ],
+    mainContent: [
+      {
+        heading: "A Strategic Approach to Environmental Governance",
+        text: "TPI partnered with Dangote as the principal technical consultant for the EES lifecycle. Leveraging deep expertise in Nigerian environmental regulations and international standards, we executed comprehensive baseline assessments and structured field data collection. This disciplined project management ensured scientifically defensible and timely outputs aligned with statutory requirements.",
+      },
+      {
+        heading: "Transforming Compliance into Competitive Advantage",
+        text: "The delivered EES established a robust governance platform that secured approvals and embedded sustainability principles directly into operations. By lowering perceived regulatory risk, the study strengthened project bankability while mitigating community opposition risks and protecting corporate reputation.",
+      },
+    ],
+  },
+  {
+    id: "totalenergies-egina-south-ebs-eia",
+    title: "Environmental Baseline Study (EBS) & EIA",
+    subtitle: "Environmental Intelligence for Ultra-Deep Offshore Appraisal",
+    client: "TotalEnergies Upstream Nigeria Limited",
+    service: "Environment",
+    category: "Environmental Baseline Study (EBS)",
+    industry: "Oil & Gas",
+    location: "Gulf of Guinea, Nigeria",
+    year: "2024",
+    status: "completed",
+    heroImage: projectTotalEnergies,
+    summary: "Dual EBS/EIA execution for ultra-deep offshore operations (1,650–2,000m) in the Gulf of Guinea, delivering a defensible environmental reference dataset and governance framework.",
+    problem: "Navigating extreme environmental complexity in ultra-deep water with sensitive benthic ecosystems requiring dual regulatory oversight (NUPRC & FMEnv) to avoid approval conflicts and delays.",
+    approach: "Delivered DGPS-positioned sampling at 32 stations with multi-domain data collection (CTD, microbiology, air, noise, oceanography), impact prediction, and dual-regulatory SOW submissions.",
+    result: "Established permanent baseline for post-drilling comparisons, secured approvals without schedule disruption, and enabled evidence-based permitting for future wells.",
+    metrics: [
+      { label: "Water Depth", value: "1,650-2,000m" },
+      { label: "DGPS Stations", value: "32" },
+      { label: "Study Timeline", value: "28 weeks" },
+      { label: "Regulatory Approvals", value: "100%" },
+    ],
+    delivered: [
+      "DGPS-positioned sampling at 32 stations",
+      "Multi-domain environmental data collection & analysis (CTD, chemistry, biology)",
+      "Impact prediction, mitigation hierarchy, and Environmental Management Plan (EMP)",
+      "Dual-authority SOW submissions (NUPRC & FMEnv)",
+      "National capacity building for experts in deepwater diagnostics",
+    ],
+    mainContent: [
+      {
+        heading: "Extreme-Depth Operational Excellence",
+        text: "TPI led the full EBS and EIA as TotalEnergies' technical partner, navigating extreme depths of 1,650–2,000m. Leveraging pressure-rated equipment and weather-adaptive sequencing, our team delivered DGPS-positioned sampling at 32 stations across 9 parameter classes for replicable long-term monitoring.",
+      },
+      {
+        heading: "Strategic Alignment & Risk Mitigation",
+        text: "The study provided a defensible reference dataset and governance framework, securing parallel approvals from NUPRC and FMEnv without schedule disruption. This established a permanent baseline that lowers perceived regulatory risk for the Egina FPSO tie-back development.",
+      },
+    ],
+  },
   {
     id: "niger-delta-remediation",
     title: "Niger Delta Soil Remediation Programme",
