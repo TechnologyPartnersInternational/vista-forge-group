@@ -105,7 +105,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-[11px] text-silver font-medium">
               <p>© {new Date().getFullYear()} TPI Group. All rights reserved.</p>
               <div className="flex gap-6">
-                <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+                <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
               </div>
             </div>

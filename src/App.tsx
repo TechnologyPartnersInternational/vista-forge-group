@@ -22,6 +22,7 @@ import Insights from "./pages/Insights";
 import InsightDetail from "./pages/InsightDetail";
 import Company from "./pages/Company";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Admin Imports
 import AdminLogin from "./pages/AdminLogin";
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/insights/:id" element={<InsightDetail />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           
           {/* Admin Routes */}
           <Route path="/tpi-admin-portal" element={<AdminLogin />} />
