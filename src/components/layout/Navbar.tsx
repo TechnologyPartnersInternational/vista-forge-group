@@ -9,6 +9,7 @@ const navItems = [
   { label: "What We Do", path: "/what-we-do", hasMega: true },
   
   { label: "Projects", path: "/projects" },
+  { label: "Gallery", path: "/gallery" },
   { label: "Insights", path: "/insights" },
   { label: "Company", path: "/company" },
   { label: "Contact", path: "/contact" },

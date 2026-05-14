@@ -63,6 +63,7 @@ const Footer = () => {
                   { label: "Leadership", path: "/company#leadership" },
                   { label: "QHSE", path: "/company#qhse" },
                   { label: "Our Projects", path: "/projects" },
+                  { label: "Gallery", path: "/gallery" },
                   { label: "Insights", path: "/insights" },
                   { label: "Contact", path: "/contact" },
                 ].map((item) => (

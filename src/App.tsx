@@ -24,6 +24,8 @@ import Company from "./pages/Company";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
+import Gallery from "./pages/Gallery";
+
 // Admin Imports
 import AdminLogin from "./pages/AdminLogin";
 import AdminLayout from "./components/layout/AdminLayout";
@@ -44,6 +46,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/what-we-do" element={<WhatWeDo />} />
           <Route path="/what-we-do/environment" element={<EnvironmentDetail />} />
           <Route path="/what-we-do/laboratory" element={<LaboratoryDetail />} />

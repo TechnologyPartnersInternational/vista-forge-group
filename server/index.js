@@ -6,9 +6,17 @@ const cors = require('cors');
 
 const Project = require('./models/Project');
 const Insight = require('./models/Insight');
+const cloudinary = require('cloudinary').v2;
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Cloudinary Configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 // Middleware
 app.use(cors());
@@ -112,6 +120,50 @@ app.delete('/api/insights/:id', async (req, res) => {
     res.json({ message: 'Insight deleted' });
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+});
+});
+
+// Routes - Gallery (Cloudinary)
+app.get('/api/gallery', async (req, res) => {
+  const { category, next_cursor } = req.query;
+  
+  try {
+    let searchQueries = [];
+    
+    // If category is not 'all', filter by folder
+    // The user mentioned specific folder names
+    if (category && category !== 'all') {
+      searchQueries.push(`folder:"${category}"`);
+    } else {
+      // Fetch all that have the 'all' tag as requested
+      searchQueries.push('tags:all');
+    }
+
+    const result = await cloudinary.search
+      .expression(searchQueries.join(' AND '))
+      .with_field('context')
+      .with_field('tags')
+      .sort_by('created_at', 'desc')
+      .max_results(15) // Limit to 15 as requested
+      .next_cursor(next_cursor)
+      .execute();
+
+    res.json({
+      resources: result.resources.map(resource => ({
+        id: resource.public_id,
+        title: resource.context?.caption || resource.public_id.split('/').pop(),
+        category: category || 'all',
+        image: resource.secure_url,
+        description: resource.context?.description || '',
+        location: resource.context?.location || ''
+      })),
+      next_cursor: result.next_cursor,
+      total_count: result.total_count
+    });
+  } catch (err) {
+    console.error('Cloudinary Search Error:', err);
+    res.status(500).json({ message: 'Failed to fetch gallery images' });
   }
 });
 
