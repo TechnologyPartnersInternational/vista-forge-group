@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { MapPin, Expand, Search, Loader2, Plus } from "lucide-react";
+import heroBg from "@/assets/Featured Projects/IMG-20230620-WA0013.jpg";
 
 const categories = [
   { id: "all", label: "All" },
@@ -77,43 +78,56 @@ const Gallery = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-[#020617] overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(30,58,138,0.3),transparent_70%)]"></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        </div>
-        
-        <div className="relative z-10 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-primary font-bold tracking-[0.3em] uppercase text-xs mb-4"
-          >
-            Visual Portfolio
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-          >
-            See TPI at <span className="text-primary">Work</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-          >
-            Explore our commitment to excellence through a visual journey of our impactful projects.
-          </motion.p>
-        </div>
+      <section className="px-4 md:px-10 pt-8 pb-6 bg-mist">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative w-full rounded-[2rem] overflow-hidden"
+          style={{ minHeight: "340px" }}
+        >
+          <img
+            src={heroBg}
+            alt="TPI Gallery"
+            className="absolute inset-0 w-full h-full object-cover object-[0_30%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/10" />
+
+          <div className="relative z-10 flex flex-col justify-center h-full px-8 md:px-14 py-16 md:py-20 max-w-2xl">
+            <motion.span
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-1.5 self-start mb-5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold backdrop-blur-sm"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              Visual Portfolio
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4"
+            >
+              See TPI at Work
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-sm md:text-base text-white/80 leading-relaxed max-w-lg"
+            >
+              Explore our commitment to excellence through a visual journey of our impactful projects.
+            </motion.p>
+          </div>
+        </motion.div>
       </section>
 
       {/* Filter Section */}
       <section className="sticky top-16 md:top-20 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 py-6">
-        <div className="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
+        <div className="px-4 md:px-8 lg:px-12 max-w-[1600px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="flex flex-wrap items-center gap-2 md:gap-3">
               {categories.map((cat) => (
@@ -130,18 +144,13 @@ const Gallery = () => {
                 </button>
               ))}
             </div>
-            
-            <div className="flex items-center gap-3 text-sm font-semibold text-gray-500 bg-gray-50 px-4 py-2 rounded-full border border-gray-200">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              Showing {images.length} of {totalCount} Assets
-            </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Grid */}
       <section className="py-20 bg-white min-h-[600px]">
-        <div className="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
+        <div className="px-4 md:px-8 lg:px-12 max-w-[1600px] mx-auto">
           {loading && images.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-40 gap-4">
               <Loader2 className="w-10 h-10 text-primary animate-spin" />
@@ -151,7 +160,7 @@ const Gallery = () => {
             <>
               <motion.div 
                 layout
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"
               >
                 <AnimatePresence mode="popLayout">
                   {images.map((item) => (
@@ -162,7 +171,7 @@ const Gallery = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.4 }}
-                      className="group relative h-[400px] rounded-2xl overflow-hidden bg-gray-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500"
+                      className="group relative h-[280px] rounded-xl overflow-hidden bg-gray-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500"
                       onClick={() => setSelectedImage(item)}
                     >
                       <img
@@ -172,29 +181,9 @@ const Gallery = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500"></div>
                       
-                      <div className="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest mb-2">
-                          <span className="w-8 h-[1px] bg-primary"></span>
-                          {item.category.replace("-", " ")}
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-                          {item.title}
-                        </h3>
-                        {item.description && (
-                          <p className="text-white/70 text-sm line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            {item.description}
-                          </p>
-                        )}
-                        <div className="flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          {item.location && (
-                            <div className="flex items-center gap-1.5 text-white/60 text-xs">
-                              <MapPin className="w-3 h-3" />
-                              {item.location}
-                            </div>
-                          )}
-                          <div className="p-2 rounded-full bg-white/10 backdrop-blur-sm text-white">
-                            <Expand className="w-4 h-4" />
-                          </div>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="p-4 rounded-full bg-black/40 backdrop-blur-sm text-white transform scale-50 group-hover:scale-100 transition-all duration-500">
+                          <Expand className="w-8 h-8" />
                         </div>
                       </div>
                     </motion.div>
@@ -265,26 +254,13 @@ const Gallery = () => {
                   alt={selectedImage.title}
                   className="max-w-full max-h-[85vh] object-contain"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="max-w-2xl">
-                    <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">
-                      {selectedImage.category.replace("-", " ")}
-                    </p>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                      {selectedImage.title}
-                    </h2>
-                    {selectedImage.description && (
-                      <p className="text-white/80 text-base md:text-lg">
-                        {selectedImage.description}
-                      </p>
-                    )}
-                    {selectedImage.location && (
-                      <div className="flex items-center gap-2 text-white/50 text-sm mt-4">
-                        <MapPin className="w-4 h-4" />
-                        {selectedImage.location}
-                      </div>
-                    )}
-                  </div>
+                <div className="absolute bottom-4 left-4 p-4 rounded-xl bg-black/60 backdrop-blur-md max-w-[80%] md:max-w-md border border-white/10 shadow-2xl">
+                  <p className="text-primary font-bold text-[10px] uppercase tracking-widest mb-1">
+                    {selectedImage.category.replace("-", " ")}
+                  </p>
+                  <p className="text-sm font-medium text-white break-words">
+                    {selectedImage.title}
+                  </p>
                 </div>
               </div>
             </motion.div>

@@ -122,9 +122,9 @@ app.delete('/api/insights/:id', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-});
 
 // Routes - Gallery (Cloudinary)
+
 app.get('/api/gallery', async (req, res) => {
   const { category, next_cursor } = req.query;
   
