@@ -129,43 +129,50 @@ app.get('/api/gallery', async (req, res) => {
   const { category, next_cursor } = req.query;
   
   try {
-    let searchQueries = [];
-    
-    // If category is not 'all', filter by folder
-    // The user mentioned specific folder names
+    // Build the search expression:
+    // - If a specific category is selected, filter by asset_folder (the fixed-folder system).
+    // - If "all" is selected, return everything (no folder filter).
+    let expression = '';
     if (category && category !== 'all') {
-      searchQueries.push(`folder:"${category}"`);
-    } else {
-      // Fetch all that have the 'all' tag as requested
-      searchQueries.push('tags:all');
+      // asset_folder: matches images stored in Cloudinary's fixed folder system.
+      // Use double-quotes to handle folder names with spaces (e.g. "waste management").
+      expression = `asset_folder="${category}"`;
     }
+    // For "all", leave expression empty — Cloudinary returns all resources.
 
-    const result = await cloudinary.search
-      .expression(searchQueries.join(' AND '))
-      .with_field('context')
+    let searchBuilder = cloudinary.search
       .with_field('tags')
       .sort_by('created_at', 'desc')
-      .max_results(15) // Limit to 15 as requested
-      .next_cursor(next_cursor)
-      .execute();
+      .max_results(15);
+
+    if (expression) {
+      searchBuilder = searchBuilder.expression(expression);
+    }
+
+    if (next_cursor) {
+      searchBuilder = searchBuilder.next_cursor(next_cursor);
+    }
+
+    const result = await searchBuilder.execute();
 
     res.json({
       resources: result.resources.map(resource => ({
         id: resource.public_id,
-        title: resource.context?.caption || resource.public_id.split('/').pop(),
+        title: resource.context?.caption || resource.public_id.split('/').pop().replace(/_[a-z0-9]{6,}$/i, '').replace(/[-_]/g, ' '),
         category: category || 'all',
         image: resource.secure_url,
         description: resource.context?.description || '',
         location: resource.context?.location || ''
       })),
-      next_cursor: result.next_cursor,
+      next_cursor: result.next_cursor || null,
       total_count: result.total_count
     });
   } catch (err) {
     console.error('Cloudinary Search Error:', err);
-    res.status(500).json({ message: 'Failed to fetch gallery images' });
+    res.status(500).json({ message: 'Failed to fetch gallery images', detail: err.message });
   }
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
