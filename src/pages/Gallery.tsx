@@ -24,8 +24,6 @@ interface GalleryImage {
   location?: string;
 }
 
-const API_URL = import.meta.env.VITE_API_URL || '/api';
-
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [images, setImages] = useState<GalleryImage[]>([]);
@@ -40,11 +38,10 @@ const Gallery = () => {
     else setLoading(true);
 
     try {
-      const url = new URL(`${API_URL}/gallery`);
-      url.searchParams.append('category', category);
-      if (cursor) url.searchParams.append('next_cursor', cursor);
+      const queryParams = new URLSearchParams({ category });
+      if (cursor) queryParams.append('next_cursor', cursor);
 
-      const response = await fetch(url.toString());
+      const response = await fetch(`/api/gallery?${queryParams.toString()}`);
       if (!response.ok) throw new Error('Failed to fetch images');
       
       const data = await response.json();
