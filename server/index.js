@@ -3,10 +3,13 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const { Resend } = require('resend');
 
 const Project = require('./models/Project');
 const Insight = require('./models/Insight');
 const cloudinary = require('cloudinary').v2;
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -173,6 +176,58 @@ app.get('/api/gallery', async (req, res) => {
   }
 });
 
+
+// Routes - Contact Enquiry
+app.post('/api/contact', async (req, res) => {
+  console.log('[contact] Route hit. Body:', req.body);
+  console.log('[contact] RESEND_API_KEY loaded:', !!process.env.RESEND_API_KEY);
+  const { name, email, company, phone, service, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ message: 'Name, email, and message are required.' });
+  }
+
+  try {
+    console.log('[contact] Calling Resend...');
+    const result = await resend.emails.send({
+      from: 'Enquiry Form <enquiry@tpinigeria.com>',
+      to: ['kennedyifeadi@gmail.com'],
+      subject: `New Enquiry from ${name}${service ? ` – ${service}` : ''}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #1a1a2e; border-bottom: 2px solid #e5e7eb; padding-bottom: 12px;">
+            New Enquiry from TPI Website
+          </h2>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+            <tr>
+              <td style="padding: 8px 12px; background: #f9fafb; font-weight: bold; width: 140px; border: 1px solid #e5e7eb;">Full Name</td>
+              <td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 12px; background: #f9fafb; font-weight: bold; border: 1px solid #e5e7eb;">Email</td>
+              <td style="padding: 8px 12px; border: 1px solid #e5e7eb;"><a href="mailto:${email}">${email}</a></td>
+            </tr>
+            ${company ? `<tr><td style="padding: 8px 12px; background: #f9fafb; font-weight: bold; border: 1px solid #e5e7eb;">Company</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${company}</td></tr>` : ''}
+            ${phone ? `<tr><td style="padding: 8px 12px; background: #f9fafb; font-weight: bold; border: 1px solid #e5e7eb;">Phone</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${phone}</td></tr>` : ''}
+            ${service ? `<tr><td style="padding: 8px 12px; background: #f9fafb; font-weight: bold; border: 1px solid #e5e7eb;">Service Interest</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${service}</td></tr>` : ''}
+            <tr>
+              <td style="padding: 8px 12px; background: #f9fafb; font-weight: bold; border: 1px solid #e5e7eb; vertical-align: top;">Message</td>
+              <td style="padding: 8px 12px; border: 1px solid #e5e7eb; white-space: pre-wrap;">${message}</td>
+            </tr>
+          </table>
+          <p style="margin-top: 24px; color: #6b7280; font-size: 12px;">
+            This email was sent from the enquiry form on the TPI website.
+          </p>
+        </div>
+      `,
+    });
+    console.log('[contact] Resend result:', JSON.stringify(result));
+    return res.status(200).json({ message: 'Enquiry sent successfully.' });
+  } catch (error) {
+    console.error('[contact] Resend error:', error.message, error?.response?.data);
+    return res.status(500).json({ message: 'Failed to send enquiry. Please try again.' });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

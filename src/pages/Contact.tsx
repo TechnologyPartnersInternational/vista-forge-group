@@ -8,6 +8,8 @@ import heroBg from "@/assets/More Pictures/ContactPic.jpeg";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,9 +19,25 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Something went wrong.");
+      setSubmitted(true);
+      setForm({ name: "", email: "", company: "", phone: "", service: "", message: "" });
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to send. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -205,12 +223,17 @@ const Contact = () => {
                         />
                       </div>
 
+                      {error && (
+                        <p className="text-sm text-red-500 font-medium">{error}</p>
+                      )}
+
                       <button 
                         type="submit" 
-                        className="w-full md:w-auto px-10 py-4 text-xs font-bold tracking-widest uppercase rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group"
+                        disabled={loading}
+                        className="w-full md:w-auto px-10 py-4 text-xs font-bold tracking-widest uppercase rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        Submit Enquiry 
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        {loading ? "Sending…" : "Submit Enquiry"}
+                        {!loading && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
                       </button>
                     </motion.form>
                   )}
