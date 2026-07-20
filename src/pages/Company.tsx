@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Award, Users, Briefcase, Target, Eye } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import LeaderCard from "@/components/LeaderCard";
-import OurPresence from "@/components/OurPresence";
+// import OurPresence from "@/components/OurPresence";
 import CertificateCarousel from "@/components/CertificateCarousel";
 import { leadership } from "@/data/team";
 import heroBg from "@/assets/More Pictures/CompanyPic.jpg";
@@ -245,7 +245,7 @@ Our processes are designed with precision. From sample handling to final reporti
       <CertificateCarousel />
 
       {/* ── Locations (Our Presence) ────────────────────────────────────────── */}
-      <OurPresence />
+      {/* <OurPresence /> */}
 
       {/* ── Join Our Team (Careers CTA) ─────────────────────────────────────── */}
       <section className="bg-white pt-10 pb-20">

@@ -4,7 +4,7 @@ import TrustStrip from "@/components/TrustStrip";
 import HowWeWork from "@/components/HowWeWork";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import InsightsSection from "@/components/InsightsSection";
-import OurPresence from "@/components/OurPresence";
+//import OurPresence from "@/components/OurPresence";
 import CtaBand from "@/components/CtaBand";
 import ClientLogos from "@/components/ClientLogos";
 
@@ -17,7 +17,7 @@ const Index = () => {
       <HowWeWork />
       <FeaturedProjects />
       <InsightsSection />
-      <OurPresence />
+      {/* <OurPresence /> */}
       <CtaBand />
     </Layout>
   );
