@@ -28,7 +28,7 @@ const SubServiceDetail = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src={subService.image} 
+            src={subService.heroImage || subService.image} 
             alt={subService.title}
             className="w-full h-full object-cover"
           />

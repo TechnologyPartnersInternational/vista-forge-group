@@ -7,6 +7,7 @@ export interface SubService {
   shortDesc?: string;
   fullDesc: string;
   highlights: string[];
+  heroImage?: string;
   image: string;
   icon?: LucideIcon;
 }
@@ -46,6 +47,7 @@ export const services: Service[] = [
           "Regulatory Permitting and Approvals",
           "Environmental risk modeling",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/20190202_103856-scaled - Copy (3).jpg",
       },
       {
@@ -61,6 +63,7 @@ export const services: Service[] = [
           "Bioaccumulated contaminants in organisms",
           "Bundled compliance audits, emergency response & training",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/20180914_100716-scaled - Copy (3).jpg",
       },
       {
@@ -77,6 +80,7 @@ export const services: Service[] = [
           "Detailed reporting with actionable recommendations",
           "ESG risk and liability reduction strategies",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/20171213_135652-scaled - Copy (3).jpg",
       },
       {
@@ -93,6 +97,7 @@ export const services: Service[] = [
           "Energy efficiency and renewable energy implementation",
           "Compliance with international and industry-specific standards",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=1200",
       },
       {
@@ -109,6 +114,7 @@ export const services: Service[] = [
           "Regional network of social and health impact specialists",
           "Utilization of Data and Analytics for informed decision making",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/pexels-photo-8042458.jpeg",
       },
       {
@@ -125,6 +131,7 @@ export const services: Service[] = [
           "Air, Surface Water, and Groundwater Modeling",
           "GIS mapping and 3D visualization of subsurface conditions",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/IMG-20181123-WA0016.jpg",
       },
       {
@@ -141,6 +148,7 @@ export const services: Service[] = [
           "Spill response and containment",
           "Regulatory agency coordination",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/Depositphotos_1845148_s-2015.jpg",
       },
       {
@@ -156,6 +164,7 @@ export const services: Service[] = [
           "Aquifer testing and monitoring",
           "Water quality assessments",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1200",
       },
       {
@@ -172,6 +181,7 @@ export const services: Service[] = [
           "Slope stability analysis",
           "Foundation design",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/20190202_105530-scaled.jpg",
       },
       {
@@ -188,6 +198,7 @@ export const services: Service[] = [
           "GIS training and support",
           "Pipeline route determination & Site Suitability Analysis",
         ],
+        heroImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
         image: "https://images.unsplash.com/photo-1524666643752-b381eb00effb?auto=format&fit=crop&q=80&w=1200",
       },
     ]
@@ -214,6 +225,7 @@ export const services: Service[] = [
           "Organics (PAH, TPH, Volatile & Semi-volatile constituents)",
           "Inter-laboratory comparisons & Proficiency testing",
         ],
+        heroImage: "/assets/20180627_092149-scaled.jpg",
         image: "/assets/IMG-20190314-WA0000-1.jpg",
       },
       {
@@ -229,6 +241,7 @@ export const services: Service[] = [
           "Strict on-site QA/QC procedures",
           "Rapid turnaround in challenging environments",
         ],
+        heroImage: "/assets/20180627_092149-scaled.jpg",
         image: "/assets/Laboratory Services/PB220024-scaled.jpg",
       },
       {
@@ -244,6 +257,7 @@ export const services: Service[] = [
           "EGASPIN, OECD, ISO & EPA compliance",
           "Over 15 years of ecotoxicological test design experience",
         ],
+        heroImage: "/assets/20180627_092149-scaled.jpg",
         image: "/assets/Laboratory Services/IMG-20190314-WA0001.jpg",
       },
       {
@@ -259,6 +273,7 @@ export const services: Service[] = [
           "Gas Chromatography & specialized Titration",
           "Refinery process optimization support",
         ],
+        heroImage: "/assets/20180627_092149-scaled.jpg",
         image: "/assets/PB220040-scaled.jpg",
       },
       {
@@ -274,6 +289,7 @@ export const services: Service[] = [
           "Asphaltenes for refining potential assessment",
           "Spill source identification & attribution",
         ],
+        heroImage: "/assets/20180627_092149-scaled.jpg",
         image: "/assets/WhatsApp Image 2026-03-02 at 19.23.16 (1).jpeg",
       },
     ]
@@ -299,6 +315,7 @@ export const services: Service[] = [
           "Maximizing resource use efficiency",
           "Sustainable management of solid waste",
         ],
+        heroImage: "/assets/special-inspection-SK1.jpg",
         image: "/assets/Waste management/Waste-lined-up-to-be-incinerated-@-escravos-incinerator-scaled.jpg",
       },
       {
@@ -315,6 +332,7 @@ export const services: Service[] = [
           "Municipal solid waste destruction",
           "Emission control and monitoring",
         ],
+        heroImage: "/assets/special-inspection-SK1.jpg",
         image: "/assets/Waste management/Plastic-waste-@-escravos-incinerator-scaled.jpg",
       },
       {
@@ -330,6 +348,7 @@ export const services: Service[] = [
           "Asbestos & PCB material treatment",
           "Oily waste remediation",
         ],
+        heroImage: "/assets/special-inspection-SK1.jpg",
         image: "/assets/Waste management/TDU.png",
       },
       {
@@ -345,6 +364,7 @@ export const services: Service[] = [
           "Industry-specific guideline alignment",
           "Environmental protection strategies",
         ],
+        heroImage: "/assets/special-inspection-SK1.jpg",
         image: "/assets/Waste management/pexels-markus-winkler-1430818-19825346.jpg",
         icon: ShieldCheck,
       },
@@ -370,6 +390,7 @@ export const services: Service[] = [
           "API, ASME, BS code compliance",
           "Value engineering",
         ],
+        heroImage: "/assets/engineering/special-inspection-SK1.jpg",
         image: "/assets/engineering/special-inspection-SK1.jpg",
       },
       {
@@ -384,6 +405,7 @@ export const services: Service[] = [
           "Fitness-for-service assessments",
           "Non-destructive testing (NDT)",
         ],
+        heroImage: "/assets/engineering/special-inspection-SK1.jpg",
         image: "/assets/engineering/Hydrogeology3.jpg",
       },
     ]
@@ -409,6 +431,7 @@ export const services: Service[] = [
           "Custom tailored security solutions",
           "Continuous innovation and global scale",
         ],
+        heroImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
       },
       {
@@ -424,6 +447,7 @@ export const services: Service[] = [
           "Clear and concise stakeholder reporting",
           "Custom reports tailored to industry needs",
         ],
+        heroImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
       },
     ]
@@ -449,6 +473,7 @@ export const services: Service[] = [
           "ISO 26000 social responsibility standards",
           "Industry best practices implementation",
         ],
+        heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200",
       },
       {
@@ -463,6 +488,7 @@ export const services: Service[] = [
           "Hands-on field workshops",
           "Competency certification",
         ],
+        heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/traning/training-resized.jpg",
       },
       {
@@ -478,6 +504,7 @@ export const services: Service[] = [
           "Latest analytical technologies",
           "Laboratory safety standards",
         ],
+        heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200",
         image: "/assets/traning/P2123171-scaled.jpg",
         icon: FlaskIcon,
       },
