@@ -16,7 +16,7 @@ const InsightsSection = () => {
     insights.find(i => i.id === 'supporting-offshore-infrastructure-replacement') || insights[0],
     insights.find(i => i.id === 'enabling-responsible-seismic-exploration-oml-100') || insights[1],
     insights[2],
-    insights[3]
+    insights.find(i => i.id === 'partnership-announcement-weel-sandvig') || insights[3]
   ];
 
   return (

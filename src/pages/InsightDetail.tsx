@@ -246,7 +246,30 @@ const InsightDetail = () => {
                     const url = para.slice(5, -6);
                     return <img key={i} src={url} alt="Article visual" className="w-full rounded-2xl my-8 object-cover shadow-md" />;
                   }
-                  return <p key={i} className="mb-6 last:mb-0">{para}</p>;
+                  
+                  if (para.startsWith("### ")) {
+                    return <h3 key={i} className="text-2xl font-bold text-foreground mt-12 mb-6">{para.replace("### ", "")}</h3>;
+                  }
+
+                  const renderFormattedText = (text: string) => {
+                    return text.split("\n").map((line, lineIdx) => {
+                      const lineParts = line.split(/(\*\*.*?\*\*)/g).map((part, idx) => {
+                        if (part.startsWith("**") && part.endsWith("**")) {
+                          return <strong key={idx} className="font-bold text-foreground">{part.slice(2, -2)}</strong>;
+                        }
+                        return part;
+                      });
+
+                      return (
+                        <span key={lineIdx}>
+                          {lineParts}
+                          {lineIdx !== text.split("\n").length - 1 && <br />}
+                        </span>
+                      );
+                    });
+                  };
+
+                  return <p key={i} className="mb-6 last:mb-0">{renderFormattedText(para)}</p>;
                 })}
               </div>
 

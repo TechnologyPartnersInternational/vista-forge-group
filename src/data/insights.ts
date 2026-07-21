@@ -21,6 +21,46 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: "partnership-announcement-weel-sandvig",
+    title: "Partnership Announcement: TPI and Weel & Sandvig",
+    excerpt: "Technology Partners Int'l Nig. Ltd (TPI) is proud to announce our strategic partnership with Weel & Sandvig, a global leader in Predictive Emission Monitoring Systems (PEMS).",
+    category: "Strategic Partnership",
+    type: "News",
+    date: new Date().toISOString(),
+    readTime: "3 min",
+    featured: true,
+    bannerImage: "/assets/Partnership Announcement (NEWS).jpg",
+    content: `Technology Partners Int'l Nig. Ltd (TPI) is proud to announce our strategic partnership with Weel & Sandvig, a global leader in Predictive Emission Monitoring Systems (PEMS).
+
+### What is PEMS?
+Predictive Emission Monitoring Systems (PEMS) are advanced software-based solutions that use real-time process data, statistical modeling, and machine learning algorithms to calculate and predict emission levels from combustion and industrial equipment, without relying solely on traditional hardware-based Continuous Emission Monitoring Systems (CEMS).
+
+Instead of physically measuring emissions at every point, PEMS analyzes key operational parameters such as temperature, pressure, fuel flow, and load conditions to accurately estimate pollutant concentrations.
+
+These systems monitor critical gases, including:
+• Methane (CH₄)
+• Nitrogen Oxides (NOₓ, including NO and NO₂)
+• Carbon Monoxide (CO)
+• Sulfur Dioxide (SO₂)
+• Carbon Dioxide (CO₂)
+
+By leveraging predictive analytics, PEMS provides operators with real-time insights, improved reliability, and a cost-effective alternative to traditional CEMS installations.
+
+### Bridging Environmental Responsibility and Operational Performance
+Through this partnership, TPI brings world-class PEMS technology to Nigeria and Sub-Saharan Africa, helping operators:
+• Strengthen regulatory compliance
+• Improve operational efficiency
+• Reduce environmental impact
+• Adopt smarter, data-driven emissions management systems
+
+**Innovation. Compliance. Impact.**
+Smarter monitoring. Cleaner operation.`,
+    author: {
+      name: "TPI Insights",
+      role: "Publication Team",
+    },
+  },
+  {
     id: "eshia-gas-field-development",
     title:
       "Why Early ESHIA Engagement Accelerates Gas Field Development Timelines",
