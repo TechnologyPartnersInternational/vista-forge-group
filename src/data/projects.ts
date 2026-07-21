@@ -49,7 +49,7 @@ export const projects: Project[] = [
     id: "dangote-fertilizer-ees",
     title: "Environmental Evaluation Study (EES)",
     subtitle: "Strengthening Sustainable Industrial Development through Environmental Governance",
-    client: "Dangote",
+    client: "Private",
     service: "Environment",
     category: "Environmental Evaluation Study",
     industry: "Oil & Gas",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     mainContent: [
       {
         heading: "A Strategic Approach to Environmental Governance",
-        text: "TPI partnered with Dangote as the principal technical consultant for the EES lifecycle. Leveraging deep expertise in Nigerian environmental regulations and international standards, we executed comprehensive baseline assessments and structured field data collection. This disciplined project management ensured scientifically defensible and timely outputs aligned with statutory requirements.",
+        text: "TPI partnered with Our Client as the principal technical consultant for the EES lifecycle. Leveraging deep expertise in Nigerian environmental regulations and international standards, we executed comprehensive baseline assessments and structured field data collection. This disciplined project management ensured scientifically defensible and timely outputs aligned with statutory requirements.",
       },
       {
         heading: "Transforming Compliance into Competitive Advantage",
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     id: "totalenergies-egina-south-ebs-eia",
     title: "Environmental Baseline Study (EBS) & EIA",
     subtitle: "Environmental Intelligence for Ultra-Deep Offshore Appraisal",
-    client: "TotalEnergies Upstream Nigeria Limited",
+    client: "Private",
     service: "Environment",
     category: "Environmental Baseline Study (EBS)",
     industry: "Oil & Gas",
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     mainContent: [
       {
         heading: "Extreme-Depth Operational Excellence",
-        text: "TPI led the full EBS and EIA as TotalEnergies' technical partner, navigating extreme depths of 1,650–2,000m. Leveraging pressure-rated equipment and weather-adaptive sequencing, our team delivered DGPS-positioned sampling at 32 stations across 9 parameter classes for replicable long-term monitoring.",
+        text: "TPI led the full EBS and EIA as Our Client's technical partner, navigating extreme depths of 1,650–2,000m. Leveraging pressure-rated equipment and weather-adaptive sequencing, our team delivered DGPS-positioned sampling at 32 stations across 9 parameter classes for replicable long-term monitoring.",
       },
       {
         heading: "Strategic Alignment & Risk Mitigation",
@@ -129,7 +129,7 @@ export const projects: Project[] = [
   {
     id: "niger-delta-remediation",
     title: "Niger Delta Soil Remediation Programme",
-    client: "Major International Oil Company",
+    client: "Private",
     service: "Environment",
     category: "Environmental Planning & Management",
     industry: "Oil & Gas",
@@ -185,7 +185,7 @@ export const projects: Project[] = [
   // {
   //   id: "lng-terminal-eia",
   //   title: "LNG Terminal Expansion: Environmental & Social Impact Assessment",
-  //   client: "West African LNG Consortium",
+  //   client: "Private",
   //   service: "Environment",
   //   category: "Environmental Planning & Management",
   //   industry: "Oil & Gas",
@@ -232,14 +232,14 @@ export const projects: Project[] = [
   //   testimonial: {
   //     quote: "The thoroughness and technical depth of TPI's ESIA was instrumental in securing the necessary international financing for this expansion.",
   //     author: "Segun Arinze",
-  //     role: "Project Director, West African LNG Consortium",
+  //     role: "Project Director, Our Client",
   //   },
   //   galleryImages: [projectLng, projectEcm],
   // },
   // {
   //   id: "industrial-lab-network",
   //   title: "Regional Laboratory Network Modernisation",
-  //   client: "Government Environmental Agency",
+  //   client: "Private",
   //   service: "Laboratory Services",
   //   category: "General Laboratory Services",
   //   industry: "Government & Regulators",
@@ -281,7 +281,7 @@ export const projects: Project[] = [
   // {
   //   id: "port-harcourt-ecm",
   //   title: "Port Harcourt Refinery Environmental Compliance Monitoring",
-  //   client: "NNPC Refining Limited",
+  //   client: "Private",
   //   service: "Environment",
   //   category: "Environmental Compliance Monitoring (ECM)",
   //   industry: "Oil & Gas",
@@ -307,7 +307,7 @@ export const projects: Project[] = [
   // {
   //   id: "nda-environmental-planning",
   //   title: "Coastal Infrastructure Environmental Planning Study",
-  //   client: "Nigerian Ports Authority",
+  //   client: "Private",
   //   service: "Environment",
   //   category: "Environmental Planning & Management",
   //   industry: "Infrastructure",
@@ -333,7 +333,7 @@ export const projects: Project[] = [
   // {
   //   id: "remote-lab-niger",
   //   title: "Mobile Laboratory Deployment – Niger Delta Operations",
-  //   client: "Shell Petroleum Development Company",
+  //   client: "Private",
   //   service: "Laboratory Services",
   //   category: "Remote & Mobile Laboratory Services",
   //   industry: "Oil & Gas",
@@ -359,7 +359,7 @@ export const projects: Project[] = [
   // {
   //   id: "waste-management-imo",
   //   title: "Integrated Solid Waste Management System – Imo State",
-  //   client: "Imo State Government",
+  //   client: "Private",
   //   service: "Waste Management Services",
   //   category: "Integrated Solid Waste Management (ISWM) system",
   //   industry: "Government & Regulators",
@@ -385,7 +385,7 @@ export const projects: Project[] = [
   // {
   //   id: "incinerator-abuja",
   //   title: "Medical Waste Incinerator – National Hospital Abuja",
-  //   client: "Federal Ministry of Health",
+  //   client: "Private",
   //   service: "Waste Management Services",
   //   category: "Incinerator",
   //   industry: "Government & Regulators",
@@ -411,7 +411,7 @@ export const projects: Project[] = [
   // {
   //   id: "ecm-petrochemical-warri",
   //   title: "Warri Petrochemical Complex ECM Programme",
-  //   client: "Notore Chemical Industries",
+  //   client: "Private",
   //   service: "Environment",
   //   category: "Environmental Compliance Monitoring (ECM)",
   //   industry: "Manufacturing",
@@ -437,7 +437,7 @@ export const projects: Project[] = [
   // {
   //   id: "lab-petrochemical",
   //   title: "Petrochemical Product Testing Laboratory Setup",
-  //   client: "Dangote Refinery",
+  //   client: "Private",
   //   service: "Laboratory Services",
   //   category: "General Laboratory Services",
   //   industry: "Oil & Gas",
@@ -463,7 +463,7 @@ export const projects: Project[] = [
   // {
   //   id: "iswm-cross-river",
   //   title: "Calabar ISWM System Upgrade",
-  //   client: "Cross River State Waste Management Authority",
+  //   client: "Private",
   //   service: "Waste Management Services",
   //   category: "Integrated Solid Waste Management (ISWM) system",
   //   industry: "Government & Regulators",
