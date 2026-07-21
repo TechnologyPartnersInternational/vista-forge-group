@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -15,6 +15,15 @@ import CtaBand from "@/components/CtaBand";
 const InsightDetail = () => {
   const { id } = useParams();
   const [copied, setCopied] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  // Scroll to top and simulate loading transition on navigation
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setIsTransitioning(true);
+    const timer = setTimeout(() => setIsTransitioning(false), 400);
+    return () => clearTimeout(timer);
+  }, [id]);
 
   // Fetch insight from API
   const { data: apiInsight, isLoading } = useQuery({
@@ -22,6 +31,8 @@ const InsightDetail = () => {
     queryFn: () => api.getInsightById(id!),
     enabled: !!id,
     retry: 1,
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: false,
   });
 
   // Fetch all insights for related section
@@ -29,6 +40,8 @@ const InsightDetail = () => {
     queryKey: ['insights'],
     queryFn: api.getInsights,
     retry: 1,
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: false,
   });
 
   // Effective insight data
@@ -43,17 +56,7 @@ const InsightDetail = () => {
     return [...apiAllInsights, ...staticInsights.filter(i => !apiIds.has(i.id))];
   }, [apiAllInsights]);
 
-  if (isLoading) {
-    return (
-      <Layout>
-        <div className="flex items-center justify-center min-h-[60vh]">
-          <Loader2 className="w-8 h-8 animate-spin text-primary" />
-        </div>
-      </Layout>
-    );
-  }
-
-  if (!insight) {
+  if (!isLoading && !insight) {
     return (
       <Layout>
         <div className="container-narrow section-padding text-center">
@@ -70,12 +73,12 @@ const InsightDetail = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const categoryRelatedInsights = allInsights
+  const categoryRelatedInsights = insight ? allInsights
     .filter((i) => i.category === insight.category && i.id !== insight.id)
-    .slice(0, 4);
+    .slice(0, 4) : [];
 
   const fallbackInsights = allInsights
-    .filter((i) => i.id !== insight.id)
+    .filter((i) => i.id !== id)
     .slice(0, 4);
 
   const hasRelated = categoryRelatedInsights.length > 0;
@@ -94,9 +97,42 @@ const InsightDetail = () => {
             <span className="text-sm font-medium">Back to insights</span>
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left Title Content */}
-            <div className="space-y-8">
+          {!insight || isTransitioning ? (
+            <div className="animate-pulse">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div className="space-y-8">
+                  <div className="flex gap-4">
+                    <div className="w-20 h-6 bg-mist rounded-full"></div>
+                    <div className="w-24 h-6 bg-mist rounded"></div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="w-full h-10 bg-mist rounded"></div>
+                    <div className="w-3/4 h-10 bg-mist rounded"></div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="w-full h-4 bg-mist rounded"></div>
+                    <div className="w-full h-4 bg-mist rounded"></div>
+                    <div className="w-2/3 h-4 bg-mist rounded"></div>
+                  </div>
+                </div>
+                <div className="relative aspect-[16/10] md:aspect-[6/3] rounded-[2rem] bg-mist"></div>
+              </div>
+              <div className="mt-16 pt-10 border-t border-border flex items-center justify-between">
+                <div className="flex items-center gap-5">
+                  <div className="w-16 h-16 rounded-2xl bg-mist"></div>
+                  <div className="space-y-2">
+                    <div className="w-24 h-3 bg-mist rounded"></div>
+                    <div className="w-32 h-5 bg-mist rounded"></div>
+                  </div>
+                </div>
+                <div className="w-24 h-12 rounded-full bg-mist hidden md:block"></div>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                {/* Left Title Content */}
+                <div className="space-y-8">
               <div className="flex flex-wrap items-center gap-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full border border-primary/10">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -178,6 +214,8 @@ const InsightDetail = () => {
               </button>
             </div>
           </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -188,26 +226,52 @@ const InsightDetail = () => {
             
             {/* Left Content Column */}
             <div className="lg:col-span-8">
-              <div className="prose prose-gray max-w-none prose-p:text-lg prose-p:leading-relaxed prose-p:text-foreground/80">
-                {insight.content.split("\n\n").map((para, i) => (
-                  <p key={i} className="mb-6 last:mb-0">{para}</p>
-                ))}
+              {!insight || isTransitioning ? (
+                <div className="animate-pulse space-y-6">
+                  <div className="w-full h-4 bg-mist rounded"></div>
+                  <div className="w-full h-4 bg-mist rounded"></div>
+                  <div className="w-11/12 h-4 bg-mist rounded"></div>
+                  <div className="w-full h-4 bg-mist rounded"></div>
+                  <div className="w-4/5 h-4 bg-mist rounded"></div>
+                  <div className="w-full h-64 bg-mist rounded-2xl my-8"></div>
+                  <div className="w-full h-4 bg-mist rounded"></div>
+                  <div className="w-full h-4 bg-mist rounded"></div>
+                  <div className="w-3/4 h-4 bg-mist rounded"></div>
+                </div>
+              ) : (
+                <>
+                  <div className="prose prose-gray max-w-none prose-p:text-lg prose-p:leading-relaxed prose-p:text-foreground/80">
+                {insight.content.split("\n\n").map((para, i) => {
+                  if (para.startsWith("[IMG]") && para.endsWith("[/IMG]")) {
+                    const url = para.slice(5, -6);
+                    return <img key={i} src={url} alt="Article visual" className="w-full rounded-2xl my-8 object-cover shadow-md" />;
+                  }
+                  return <p key={i} className="mb-6 last:mb-0">{para}</p>;
+                })}
               </div>
 
-              <div className="mt-12 pt-12 border-t border-border">
-                <div className="flex flex-wrap gap-3">
-                  {insight.category.split(",").map((tag, idx) => (
-                    <span key={idx} className="px-4 py-2 bg-mist rounded-full text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                      {tag.trim()}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                  <div className="mt-12 pt-12 border-t border-border">
+                    <div className="flex flex-wrap gap-3">
+                      {insight.category.split(",").map((tag, idx) => (
+                        <span key={idx} className="px-4 py-2 bg-mist rounded-full text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                          {tag.trim()}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Right Sticky Sidebar */}
             <div className="lg:col-span-4 relative">
-              <div className="sticky top-32">
+              {!insight || isTransitioning ? (
+                <div className="animate-pulse space-y-8">
+                  <div className="w-full h-64 bg-mist rounded-2xl"></div>
+                  <div className="w-full h-24 bg-mist rounded-2xl"></div>
+                </div>
+              ) : (
+                <div className="sticky top-32">
                 <div className="p-8 rounded-2xl bg-primary text-white shadow-2xl shadow-primary/20 space-y-6 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl" />
                   <div className="relative z-10 space-y-6">
@@ -230,16 +294,17 @@ const InsightDetail = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8 p-8 rounded-2xl border border-border bg-white shadow-sm space-y-4">
-                  <div className="flex items-center gap-2 text-primary">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest">Date Published</span>
+                  <div className="mt-8 p-8 rounded-2xl border border-border bg-white shadow-sm space-y-4">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-[10px] font-bold uppercase tracking-widest">Date Published</span>
+                    </div>
+                    <p className="text-sm font-bold text-foreground">
+                      {insight.date ? new Date(insight.date).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' }) : 'Recently'}
+                    </p>
                   </div>
-                  <p className="text-sm font-bold text-foreground">
-                    {insight.date ? new Date(insight.date).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' }) : 'Recently'}
-                  </p>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

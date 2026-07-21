@@ -23,7 +23,7 @@ interface InsightCardProps {
 }
 
 const InsightCard = ({ insight }: InsightCardProps) => {
-  const image = TYPE_IMAGES[insight.type] ?? TYPE_IMAGES.Article;
+  const image = insight.bannerImage || TYPE_IMAGES[insight.type] || TYPE_IMAGES.Article;
 
   return (
     <Link
