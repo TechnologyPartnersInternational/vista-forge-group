@@ -14,7 +14,7 @@ export const leadership: TeamMember[] = [
   {
     name: "MR. CHIFUM IFEADI",
     title: "Managing Director / CEO",
-    bio: "Over 30 years of experience in environmental consulting and engineering across West Africa. PhD in Environmental Engineering from the University of Lagos.",
+    bio: "Over 15 years of experience in environmental consulting and engineering across West Africa. PhD in Environmental Engineering from the University of Lagos.",
     image: chifum,
   },
   {
