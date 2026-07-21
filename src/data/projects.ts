@@ -450,7 +450,7 @@ export const projects: Project[] = [
   //   problem:
   //     "Sending samples to external laboratories created delays in quality control, impacting production scheduling and product conformance verification.",
   //   approach:
-  //     "TPI provided end-to-end laboratory consulting — from design to equipment specification to analyst recruitment and ISO 17025 readiness assessment.",
+  //     "TPI provided end-to-end laboratory consulting , from design to equipment specification to analyst recruitment and ISO 17025 readiness assessment.",
   //   result:
   //     "Laboratory passed ISO 17025 audit on first attempt. In-house testing eliminated 3-day delay, saving an estimated $4.2M annually in production efficiency.",
   //   metrics: [

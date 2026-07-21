@@ -168,7 +168,7 @@ const HeroCarousel = () => {
                     : "w-[3px] h-3 bg-white/30 hover:bg-white/65 hover:h-5"
                 }`}
               />
-              {/* Tooltip — appears on hover */}
+              {/* Tooltip , appears on hover */}
               <span className="absolute right-full mr-4 whitespace-nowrap text-xs font-medium text-white/85 bg-black/60 backdrop-blur-sm px-2.5 py-1.5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                 {s.navTitle}
               </span>
@@ -190,7 +190,7 @@ const HeroCarousel = () => {
               {slide.slideNumber}
             </span>
             <span className="hidden md:block text-white/35 text-xs font-normal truncate max-w-[240px]">
-              — {slide.navTitle}
+              , {slide.navTitle}
             </span>
           </div>
           <span className="text-white/25 text-xs tracking-[0.2em] font-medium">

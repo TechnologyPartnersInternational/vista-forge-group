@@ -30,7 +30,7 @@ const InsightCard = ({ insight }: InsightCardProps) => {
       to={`/insights/${insight.id}`}
       className="group relative flex flex-col h-full rounded-[1rem] overflow-hidden bg-white border border-border/50 shadow-sm hover:shadow-xl transition-shadow duration-500"
     >
-      {/* Image — fixed height, expands to fill card on hover */}
+      {/* Image , fixed height, expands to fill card on hover */}
       <div className="absolute top-0 left-0 w-full h-[200px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
         <img
           src={image}
@@ -40,7 +40,7 @@ const InsightCard = ({ insight }: InsightCardProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>
 
-      {/* Spacer — reserves image height */}
+      {/* Spacer , reserves image height */}
       <div className="relative w-full h-[200px] shrink-0 z-0 pointer-events-none" />
 
       {/* Text content */}

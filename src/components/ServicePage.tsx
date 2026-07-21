@@ -54,7 +54,7 @@ const ServicePage = ({
         </div>
       </section>
 
-      {/* Intro — two-column */}
+      {/* Intro , two-column */}
       <section className="bg-mist">
         <div className="container-narrow section-padding">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">

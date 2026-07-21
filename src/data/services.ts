@@ -423,7 +423,7 @@ export const services: Service[] = [
         slug: "security-software-solutions",
         title: "Security & Software Solutions",
         shortDesc: "Innovative, secure environmental data management platforms and automation software designed to streamline compliance reporting.",
-        fullDesc: "TPI Group delivers leading environmental data management services in Nigeria, combining innovative reporting platforms, automation, and secure software systems to streamline operations. Our solutions help collect, manage, and analyze environmental data with clarity and efficiency—whether you’re tracking air and water quality, waste streams, or compliance metrics.\n\nBuilt on integrity and scalability, our systems reduce manual effort, enhance regulatory reporting, and support informed decision-making. We focused on innovation and scale throughout the world, maintaining high standards and achieving blue-chipped status in Security & Software solutions.",
+        fullDesc: "TPI Group delivers leading environmental data management services in Nigeria, combining innovative reporting platforms, automation, and secure software systems to streamline operations. Our solutions help collect, manage, and analyze environmental data with clarity and efficiency,whether you’re tracking air and water quality, waste streams, or compliance metrics.\n\nBuilt on integrity and scalability, our systems reduce manual effort, enhance regulatory reporting, and support informed decision-making. We focused on innovation and scale throughout the world, maintaining high standards and achieving blue-chipped status in Security & Software solutions.",
         highlights: [
           "Innovative environmental reporting platforms",
           "Automated compliance data collection",

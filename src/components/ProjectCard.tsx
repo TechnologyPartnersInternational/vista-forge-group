@@ -25,7 +25,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       {/* Spacer: holds layout so content sits below image */}
       <div className="relative w-full h-[200px] shrink-0 z-0 pointer-events-none" />
 
-      {/* Text content — sits below image normally, becomes overlay on hover */}
+      {/* Text content , sits below image normally, becomes overlay on hover */}
       <div className="relative z-10 flex-1 flex flex-col justify-end p-5 pt-4 pointer-events-none">
         {/* Status badge */}
         <div className="flex items-center gap-2 mb-2">

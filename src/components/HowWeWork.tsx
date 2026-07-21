@@ -19,14 +19,14 @@ const steps = [
   {
     num: "02",
     title: "Strategic Design",
-    desc: "Our specialists engineer the optimal delivery pathway: constructing detailed work programmes, outlining robust media sampling and analytical testing strategies for our ISO 17025-accredited labs, and designing multidisciplinary engineering or digital architecture solutions. We map asset integrity risks, define strict QA/QC protocols, and allocate elite technical resources—from field scientists and design engineers to IoT specialists—to guarantee scalable, compliant solutions.",
+    desc: "Our specialists engineer the optimal delivery pathway: constructing detailed work programmes, outlining robust media sampling and analytical testing strategies for our ISO 17025-accredited labs, and designing multidisciplinary engineering or digital architecture solutions. We map asset integrity risks, define strict QA/QC protocols, and allocate elite technical resources,from field scientists and design engineers to IoT specialists,to guarantee scalable, compliant solutions.",
     icon: Compass,
     image: image2,
   },
   {
     num: "03",
     title: "Disciplined Delivery",
-    desc: "We execute with absolute precision across all streams of work. On-site field teams manage complex site characterizations, compliance monitoring, and remediation, while our laboratory technicians process samples utilizing state-of-the-art instrumentation (AAS, GC). Simultaneously, our engineers deliver robust conceptual/FEED designs and asset inspections, while digital specialists deploy secure reporting platforms—all working seamlessly together to produce high-quality, data-driven outputs.",
+    desc: "We execute with absolute precision across all streams of work. On-site field teams manage complex site characterizations, compliance monitoring, and remediation, while our laboratory technicians process samples utilizing state-of-the-art instrumentation (AAS, GC). Simultaneously, our engineers deliver robust conceptual/FEED designs and asset inspections, while digital specialists deploy secure reporting platforms,all working seamlessly together to produce high-quality, data-driven outputs.",
     icon: Rocket,
     image: image3,
   },

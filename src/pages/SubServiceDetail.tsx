@@ -99,7 +99,7 @@ const SubServiceDetail = () => {
                     />
                   </div>
                   <p className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-4 py-1">
-                    {subService.title} — TPI provides comprehensive technical solutions with a focus on sustainable outcomes and regulatory compliance.
+                    {subService.title} , TPI provides comprehensive technical solutions with a focus on sustainable outcomes and regulatory compliance.
                   </p>
                 </div>
 

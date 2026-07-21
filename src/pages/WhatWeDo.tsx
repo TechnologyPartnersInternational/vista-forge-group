@@ -23,7 +23,7 @@ const serviceImages = [
   "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1200", // EPC
 ];
 
-// Industry images — keyed by industry.id
+// Industry images , keyed by industry.id
 const industryImages: Record<string, string> = {
   "oil-gas": oilAndGas,
   manufacturing:
@@ -209,7 +209,7 @@ const WhatWeDo = () => {
                 const imgSrc = serviceImages[index + 1];
                 const Icon = service.icon;
 
-                // Last card (EPC) — dark navy treatment instead of image
+                // Last card (EPC) , dark navy treatment instead of image
                 const isLastCard = index === otherServices.length - 1;
 
                 return (
@@ -313,7 +313,7 @@ const WhatWeDo = () => {
             </motion.p>
           </div>
 
-          {/* Image card grid — matches OurPresence style */}
+          {/* Image card grid , matches OurPresence style */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {industries.map((industry, index) => {
               const img = industryImages[industry.id];
