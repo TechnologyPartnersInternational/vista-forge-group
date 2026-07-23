@@ -163,57 +163,7 @@ const InsightDetail = () => {
             </div>
           </div>
 
-          {/* Hero Bottom Meta Bar */}
-          <div className="mt-16 pt-10 border-t border-border flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-center gap-5">
-              <div className="w-16 h-16 rounded-2xl overflow-hidden bg-mist border border-border shrink-0 flex items-center justify-center">
-                {insight.author?.image ? (
-                  <img src={insight.author.image} alt={insight.author.name} className="w-full h-full object-cover" />
-                ) : (
-                  <User className="w-8 h-8 text-muted-foreground/40" />
-                )}
-              </div>
-              <div>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground block mb-1">
-                  {insight.author?.role || "Publication Team"}
-                </span>
-                <p className="text-lg font-bold text-foreground">
-                  {insight.author?.name || "TPI Insights"}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-8">
-              <div className="text-right hidden md:block">
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground block mb-1">Last updated</span>
-                <p className="text-sm font-bold text-foreground">
-                  {insight.lastUpdated || (insight.date ? new Date(insight.date).toLocaleDateString("en-US", { month: 'long', year: 'numeric' }) : 'Recently')}
-                </p>
-              </div>
-              <button 
-                onClick={handleShare}
-                className="flex items-center gap-3 px-8 py-3.5 rounded-full bg-white border border-border shadow-sm hover:border-primary transition-all group"
-              >
-                <AnimatePresence mode="wait">
-                  {copied ? (
-                    <motion.div
-                      key="check"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      exit={{ scale: 0 }}
-                    >
-                      <Check className="w-4 h-4 text-green-500" />
-                    </motion.div>
-                  ) : (
-                    <Share className="w-4 h-4 text-muted-foreground group-hover:text-primary" />
-                  )}
-                </AnimatePresence>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-foreground">
-                  {copied ? "Copied" : "Share"}
-                </span>
-              </button>
-            </div>
-          </div>
+          {/* Hero Meta Bar moved to bottom of article */}
             </>
           )}
         </div>
@@ -280,6 +230,58 @@ const InsightDetail = () => {
                           {tag.trim()}
                         </span>
                       ))}
+                    </div>
+                  </div>
+
+                  {/* Article Bottom Meta Bar (Moved from Hero) */}
+                  <div className="mt-16 pt-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div className="flex items-center gap-5">
+                      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-mist border border-border shrink-0 flex items-center justify-center">
+                        {insight.author?.image ? (
+                          <img src={insight.author.image} alt={insight.author.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <User className="w-8 h-8 text-muted-foreground/40" />
+                        )}
+                      </div>
+                      <div>
+                        <span className="text-[10px] uppercase tracking-widest text-muted-foreground block mb-1">
+                          {insight.author?.role || "Publication Team"}
+                        </span>
+                        <p className="text-lg font-bold text-foreground">
+                          {insight.author?.name || "TPI Insights"}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-8">
+                      <div className="text-right hidden md:block">
+                        <span className="text-[10px] uppercase tracking-widest text-muted-foreground block mb-1">Last updated</span>
+                        <p className="text-sm font-bold text-foreground">
+                          {insight.lastUpdated || (insight.date ? new Date(insight.date).toLocaleDateString("en-US", { month: 'long', year: 'numeric' }) : 'Recently')}
+                        </p>
+                      </div>
+                      <button 
+                        onClick={handleShare}
+                        className="flex items-center gap-3 px-8 py-3.5 rounded-full bg-white border border-border shadow-sm hover:border-primary transition-all group"
+                      >
+                        <AnimatePresence mode="wait">
+                          {copied ? (
+                            <motion.div
+                              key="check"
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              exit={{ scale: 0 }}
+                            >
+                              <Check className="w-4 h-4 text-green-500" />
+                            </motion.div>
+                          ) : (
+                            <Share className="w-4 h-4 text-muted-foreground group-hover:text-primary" />
+                          )}
+                        </AnimatePresence>
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-foreground">
+                          {copied ? "Copied" : "Share"}
+                        </span>
+                      </button>
                     </div>
                   </div>
                 </>
