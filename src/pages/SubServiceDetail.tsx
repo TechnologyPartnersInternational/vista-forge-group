@@ -25,47 +25,47 @@ const SubServiceDetail = () => {
 
   return (
     <Layout>
-      <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section className="px-4 md:px-10 pt-8 pb-12 bg-white">
+        <div className="relative w-full rounded-[2rem] overflow-hidden flex items-center group" style={{ minHeight: "440px" }}>
           <img 
             src={subService.heroImage || subService.image} 
             alt={subService.title}
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
-        </div>
 
-        <div className="relative z-10 w-full px-4 md:px-12">
-          <div className="max-w-4xl">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex md:items-center flex-col md:flex-row gap-2 text-white/60 mb-8 overflow-x-auto no-scrollbar whitespace-nowrap"
-            >
-              <Link to="/what-we-do" className="hover:text-primary transition-colors">What We Do</Link>
-              <ChevronRight className="w-4 h-4 shrink-0 md:block hidden" />
-              <Link to={`/what-we-do/${service.slug}`} className="hover:text-primary transition-colors">{service.title}</Link>
-              <ChevronRight className="w-4 h-4 shrink-0 md:block hidden" />
-              <span className="text-primary font-medium">{subService.title}</span>
-            </motion.div>
+          <div className="relative z-10 w-full p-8 md:p-16">
+            <div className="max-w-4xl">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="flex md:items-center flex-col md:flex-row gap-2 text-white/60 mb-8 overflow-x-auto no-scrollbar whitespace-nowrap"
+              >
+                <Link to="/what-we-do" className="hover:text-primary transition-colors">What We Do</Link>
+                <ChevronRight className="w-4 h-4 shrink-0 md:block hidden" />
+                <Link to={`/what-we-do/${service.slug}`} className="hover:text-primary transition-colors">{service.title}</Link>
+                <ChevronRight className="w-4 h-4 shrink-0 md:block hidden" />
+                <span className="text-primary font-medium">{subService.title}</span>
+              </motion.div>
 
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
-            >
-              {subService.title}
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-white/80 max-w-2xl leading-relaxed"
-            >
-              {subService.shortDesc || `Deep technical expertise and sustainable solutions tailored for the ${service.title.toLowerCase()} sector.`}
-            </motion.p>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight"
+              >
+                {subService.title}
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-lg text-white/80 max-w-3xl leading-relaxed"
+              >
+                {subService.shortDesc || `Deep technical expertise and sustainable solutions tailored for the ${service.title.toLowerCase()} sector.`}
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>

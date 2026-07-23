@@ -50,7 +50,7 @@ const ServiceHero = ({ title, description, image, category = "Service Detail" }:
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6"
+            className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
           >
             {title}
           </motion.h1>

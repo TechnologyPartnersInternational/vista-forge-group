@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { insights } from "@/data/insights";
 
 // Placeholder images styled to match the vibe of the reference image
@@ -23,16 +24,31 @@ const InsightsSection = () => {
     <section className="bg-white">
       <div className="px-6 lg:px-12 section-padding">
         {/* Header section */}
-        <div className="flex items-center justify-between mb-10 lg:mb-16">
-          <p className="text-sm font-medium text-primary font-sans">
-            Our experts are leading the way
-          </p>
-          <Link
-            to="/insights"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-foreground transition-colors"
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 lg:mb-16">
+          <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6 }}
           >
-            View Insights <ArrowRight className="w-4 h-4" />
-          </Link>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary mb-3">
+              Our experts are leading the way
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold font-sans text-foreground">Featured Insights</h2>
+          </motion.div>
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <Link
+              to="/insights"
+              className="mt-4 md:mt-0 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-foreground transition-colors"
+            >
+              View all insights <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
 
         {/* Masonry Grid Layout */}
