@@ -9,8 +9,8 @@ import projectEcm from "@/assets/Projects/project-ecm.png";
 import projectRemediation from "@/assets/Featured Projects/20131028_173122-scaled.jpg";
 // import projectLng from "@/assets/Featured Projects/IMG-20230620-WA0013.jpg";
 // import projectLab from "@/assets/Featured Projects/file-13323803-870x580-1.png";
-import projectDangote from "@/assets/Featured Projects/dangote-fertilizer.jpg";
-import projectTotalEnergies from "@/assets/Featured Projects/totalenergies.jpg";
+import projectEes from "@/assets/GeneralPictures/NavPicture.png";
+import projectEbs from "@/assets/GeneralPictures/Importance-Of-Technology-In-Oil-And-Gas-Industry.jpg";
 
 export interface Project {
   id: string;
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     location: "Lekki, Lagos State",
     year: "2024",
     status: "completed",
-    heroImage: projectDangote,
+    heroImage: projectEes,
     summary: "Comprehensive Environmental Evaluation Study securing structured environmental governance, regulatory approvals, and embedding sustainability into operations for Nigeria's largest fertilizer facility.",
     problem: "Navigating a demanding regulatory landscape of strict environmental permitting and compliance while avoiding approval delays and operational interruptions.",
     approach: "Delivered comprehensive environmental baseline assessments, structured field data collection and sampling, and proactive multi-stakeholder engagement.",
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     location: "Gulf of Guinea, Nigeria",
     year: "2024",
     status: "completed",
-    heroImage: projectTotalEnergies,
+    heroImage: projectEbs,
     summary: "Dual EBS/EIA execution for ultra-deep offshore operations (1,650–2,000m) in the Gulf of Guinea, delivering a defensible environmental reference dataset and governance framework.",
     problem: "Navigating extreme environmental complexity in ultra-deep water with sensitive benthic ecosystems requiring dual regulatory oversight (NUPRC & FMEnv) to avoid approval conflicts and delays.",
     approach: "Delivered DGPS-positioned sampling at 32 stations with multi-domain data collection (CTD, microbiology, air, noise, oceanography), impact prediction, and dual-regulatory SOW submissions.",
