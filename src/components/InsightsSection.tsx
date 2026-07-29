@@ -9,9 +9,7 @@ const InsightsSection = () => {
     insights.find(
       (i) => i.id === "supporting-offshore-infrastructure-replacement",
     ) || insights[0],
-    insights.find(
-      (i) => i.id === "methane-monitoring-offshore",
-    ) || insights[1],
+    insights.find((i) => i.id === "methane-monitoring-offshore") || insights[1],
     insights[2],
     insights.find((i) => i.id === "partnership-announcement-weel-sandvig") ||
       insights[3],
@@ -26,7 +24,9 @@ const InsightsSection = () => {
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary mb-3">
               Our experts are leading the way
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold font-sans text-foreground">Featured Insights</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-sans text-foreground">
+              Featured Insights
+            </h2>
           </div>
           <Link
             to="/insights"

@@ -24,8 +24,9 @@ export interface Insight {
 export const insights: Insight[] = [
   {
     id: "partnership-announcement-weel-sandvig",
-    title: "Partnership Announcement: TPI and Weel & Sandvig",
-    excerpt: "Technology Partners Int'l Nig. Ltd (TPI) is proud to announce our strategic partnership with Weel & Sandvig, a global leader in Predictive Emission Monitoring Systems (PEMS).",
+    title: "Announcement: TPI partners with Weel & Sandvig",
+    excerpt:
+      "Technology Partners Int'l Nig. Ltd (TPI) is proud to announce our strategic partnership with Weel & Sandvig, a global leader in Predictive Emission Monitoring Systems (PEMS).",
     category: "Strategic Partnership",
     type: "News",
     date: new Date().toISOString(),
@@ -81,7 +82,8 @@ Smarter monitoring. Cleaner operation.`,
 
   {
     id: "enabling-responsible-seismic-exploration-private-block",
-    title: "Case Study: Enabling Responsible Seismic Exploration in a Private Offshore Block",
+    title:
+      "Case Study: Enabling Responsible Seismic Exploration in a Private Offshore Block",
     excerpt:
       "Supporting a private operator to unlock high-resolution subsurface data while safeguarding Nigeria's offshore environment.",
     category: "Site Assessment",
@@ -90,7 +92,7 @@ Smarter monitoring. Cleaner operation.`,
     readTime: "6 min",
     featured: false,
     bannerImage:
-      "/assets/Article 1 Picture -1.jpg",
+      "https://res.cloudinary.com/dettdsy4j/image/upload/v1784621713/vista_forge_articles/Article_1_Picture_-1.jpg",
     content: `The challenge: Modernizing subsurface imaging without compromising Nigeria's marine environment
 
 OML 100 has been a cornerstone of Nigeria's offshore oil and gas production for decades, but the subsurface picture operators rely on has grown outdated. Existing seismic imaging in the mature field, roughly 55 km off Nigeria's south-eastern coast, no longer provides the resolution needed to accurately map complex geology including salt features, fault zones, and stratigraphic traps that carry the block's remaining hydrocarbon potential.
@@ -99,7 +101,7 @@ A private operator, managing the Joint Venture, needed to acquire new high-resol
 
 The task was to design a seismic acquisition program that could deliver the data quality the client needed while meeting the full weight of Nigerian and international environmental requirements and to prove, transparently, that the two goals were compatible.
 
-[IMG]/assets/Article 1 Picture -1.jpg[/IMG]
+[IMG]https://res.cloudinary.com/dettdsy4j/image/upload/v1784621713/vista_forge_articles/Article_1_Picture_-1.jpg[/IMG]
 
 What we did: Building a rigorous, standards-aligned environmental case for the project
 
