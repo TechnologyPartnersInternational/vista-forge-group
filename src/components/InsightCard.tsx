@@ -60,12 +60,12 @@ const InsightCard = ({ insight }: InsightCardProps) => {
         </span>
 
         {/* Title */}
-        <h3 className="text-base font-bold text-foreground group-hover:text-white leading-snug line-clamp-2 transition-colors duration-500 mb-1">
+        <h3 className="text-base font-bold text-foreground group-hover:text-white leading-snug transition-colors duration-500 mb-1">
           {insight.title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-xs text-muted-foreground group-hover:text-gray-200 leading-relaxed line-clamp-2 transition-colors duration-500 mb-3">
+        <p className="text-xs text-muted-foreground group-hover:text-gray-200 leading-relaxed transition-colors duration-500 mb-3">
           {insight.excerpt}
         </p>
 

@@ -1,3 +1,5 @@
+import pointMethaneImg from "@/assets/GeneralPictures/Point Methane Monitoring.jpg";
+
 export type InsightType = "Article" | "Issues" | "Story" | "News";
 
 export interface Insight {
@@ -72,6 +74,7 @@ Smarter monitoring. Cleaner operation.`,
     date: "2026-01-18",
     readTime: "5 min",
     featured: false,
+    bannerImage: pointMethaneImg,
     content:
       "Methane is responsible for roughly 30% of global warming since pre-industrial times, and the oil and gas sector is one of the largest industrial sources. In Nigeria, the regulatory landscape is shifting. The updated Flare Gas Regulations and commitments under the Global Methane Pledge are moving the industry toward mandatory emissions quantification.\n\nTPI has been deploying point source identification and GHG methane emissions monitoring programmes on offshore and onshore facilities, using optical gas imaging, continuous ambient monitors, and engineering calculations to build facility-level emissions inventories.\n\nThe challenge offshore is practical: platforms are complex, multi-source environments where fugitive emissions from valves, flanges, compressor seals, and storage tanks can be difficult to isolate. Our approach combines top-down screening with bottom-up component surveys, giving operators both the aggregate picture regulators want and the source-level detail maintenance teams need.\n\nOperators investing in structured methane monitoring today are not just meeting compliance requirements. They are building the data foundation for carbon credit eligibility, ESG reporting, and future carbon pricing mechanisms across the West African market.",
   },

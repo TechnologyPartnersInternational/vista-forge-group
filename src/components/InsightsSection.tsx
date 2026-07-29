@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { insights } from "@/data/insights";
-
-
-const shippingImage =
-  "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&q=80&w=1000";
+import pointMethaneImg from "@/assets/GeneralPictures/Point Methane Monitoring.jpg";
 
 const InsightsSection = () => {
   // Grab specific insights for the featured section
@@ -13,7 +10,7 @@ const InsightsSection = () => {
       (i) => i.id === "supporting-offshore-infrastructure-replacement",
     ) || insights[0],
     insights.find(
-      (i) => i.id === "enabling-responsible-seismic-exploration-oml-100",
+      (i) => i.id === "methane-monitoring-offshore",
     ) || insights[1],
     insights[2],
     insights.find((i) => i.id === "partnership-announcement-weel-sandvig") ||
@@ -104,7 +101,7 @@ const InsightsSection = () => {
                   {/* Dynamic Image Overlay */}
                   <div className="absolute top-0 left-0 w-full h-[200px] lg:h-[240px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden rounded-[1rem] group-hover:rounded-[1rem]">
                     <img
-                      src={shippingImage}
+                      src={items[1].bannerImage || pointMethaneImg}
                       alt={items[1].title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -119,8 +116,8 @@ const InsightsSection = () => {
                     <span className="text-xs font-semibold text-muted-foreground group-hover:text-gold uppercase tracking-widest font-sans mb-3 block transition-colors duration-500">
                       Issue
                     </span>
-                    <h3 className="text-lg lg:text-xl font-semibold font-sans text-foreground group-hover:text-white leading-snug transition-colors duration-500 line-clamp-3">
-                      {items[2].title}
+                    <h3 className="text-lg lg:text-xl font-semibold font-sans text-foreground group-hover:text-white leading-snug transition-colors duration-500">
+                      {items[1].title}
                     </h3>
                   </div>
                 </Link>

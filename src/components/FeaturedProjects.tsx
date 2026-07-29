@@ -65,7 +65,7 @@ const FeaturedProjects = () => {
                   <h3 className="text-2xl md:text-3xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-4">
                     {projects[0].title}
                   </h3>
-                  <p className="text-base text-muted-foreground group-hover:text-gray-200 leading-relaxed line-clamp-3 transition-colors duration-500">
+                  <p className="text-base text-muted-foreground group-hover:text-gray-200 leading-relaxed transition-colors duration-500">
                     {projects[0].summary}
                   </p>
                 </div>
@@ -104,13 +104,13 @@ const FeaturedProjects = () => {
 
                   {/* Content */}
                   <div className="relative z-10 p-6 sm:p-8 flex-1 flex flex-col justify-center pointer-events-none">
-                    <div className="text-[10px] font-bold tracking-widest uppercase text-primary group-hover:text-gold transition-colors duration-500 mb-2 line-clamp-1">
+                    <div className="text-[10px] font-bold tracking-widest uppercase text-primary group-hover:text-gold transition-colors duration-500 mb-2">
                       {p.service}
                     </div>
-                    <h3 className="text-xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-3 line-clamp-2">
+                    <h3 className="text-xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-3">
                       {p.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground group-hover:text-gray-200 leading-relaxed line-clamp-2 transition-colors duration-500">
+                    <p className="text-sm text-muted-foreground group-hover:text-gray-200 leading-relaxed transition-colors duration-500">
                       {p.summary}
                     </p>
                   </div>
