@@ -13,6 +13,9 @@ const InsightsSection = () => {
     insights[2],
     insights.find((i) => i.id === "partnership-announcement-weel-sandvig") ||
       insights[3],
+    insights.find(
+      (i) => i.id === "intersection-eia-sustainable-project-development",
+    ) || insights[4] || insights[0],
   ];
 
   return (
@@ -38,31 +41,68 @@ const InsightsSection = () => {
 
         {/* Masonry Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-12 lg:gap-y-0">
-          {/* LEFT COLUMN: 1 Large Article */}
-          {items[0] && (
-            <div className="flex flex-col h-full">
-              <div className="mb-6">
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest font-sans mb-4 block">
-                  Article
-                </span>
-                <Link to={`/insights/${items[0].id}`} className="group block">
-                  <h3 className="text-3xl lg:text-5xl font-semibold font-sans text-foreground leading-tight group-hover:text-primary transition-colors pr-8">
-                    {items[0].title}
-                  </h3>
+          {/* LEFT COLUMN: 1 Large Article + Interactive Horizontal Card */}
+          <div className="flex flex-col justify-between gap-8 h-full">
+            {items[0] && (
+              <div className="flex flex-col">
+                <div className="mb-6">
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest font-sans mb-4 block">
+                    Article
+                  </span>
+                  <Link to={`/insights/${items[0].id}`} className="group block">
+                    <h3 className="text-3xl lg:text-5xl font-semibold font-sans text-foreground leading-tight group-hover:text-primary transition-colors pr-8">
+                      {items[0].title}
+                    </h3>
+                  </Link>
+                </div>
+                <Link
+                  to={`/insights/${items[0].id}`}
+                  className="block w-full overflow-hidden rounded-[1rem] group bg-[#021622] shadow-sm hover:shadow-xl transition-all duration-500"
+                >
+                  <img
+                    src={items[0].bannerImage}
+                    alt={items[0].title}
+                    className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                  />
                 </Link>
               </div>
-              <Link
-                to={`/insights/${items[0].id}`}
-                className="block w-full overflow-hidden rounded-[1rem] flex-1 min-h-[400px] lg:min-h-[600px] group"
-              >
-                <img
-                  src={items[0].bannerImage}
-                  alt={items[0].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </Link>
-            </div>
-          )}
+            )}
+
+            {items[4] && (
+              <div className="w-full ">
+                <Link
+                  to={`/insights/${items[4].id}`}
+                  className="group relative flex flex-col sm:flex-row bg-white rounded-[1rem] overflow-hidden transition-all duration-500 min-h-[220px]"
+                >
+                  <div className="absolute top-0 left-0 w-full h-[200px] sm:h-full sm:w-[48%] group-hover:w-full group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
+                    <img
+                      src={items[4].bannerImage}
+                      alt={items[4].title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {/* Dark gradient overlay for text readability when image expands */}
+                    <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-l from-black/95 via-black/75 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  </div>
+
+                  {/* Spacer to preserve natural height in normal state */}
+                  <div className="relative w-full h-[200px] sm:h-auto sm:w-[48%] shrink-0 z-0 pointer-events-none" />
+
+                  {/* Content */}
+                  <div className="relative z-10 p-6 lg:p-7 flex-1 flex flex-col justify-center pointer-events-none">
+                    <span className="text-[10px] lg:text-xs font-semibold text-primary group-hover:text-gold uppercase tracking-widest font-sans mb-2 block transition-colors duration-500">
+                      {items[4].type} · {items[4].category}
+                    </span>
+                    <h3 className="text-base lg:text-lg font-bold font-sans text-foreground group-hover:text-white leading-snug transition-colors duration-500 mb-2 line-clamp-2">
+                      {items[4].title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground group-hover:text-gray-200 leading-relaxed transition-colors duration-500 line-clamp-3">
+                      {items[4].excerpt}
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
 
           {/* RIGHT COLUMN: Stack of 3 items */}
           <div className="flex flex-col gap-12">

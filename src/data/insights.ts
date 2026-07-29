@@ -1,4 +1,4 @@
-import pointMethaneImg from "@/assets/GeneralPictures/Point Methane Monitoring.jpg";
+import pointMethaneImg from "@/assets/GeneralPictures/Digital-Methane-Monitoring-Strategy-Improves.jpg";
 
 export type InsightType = "Article" | "Issues" | "Story" | "News";
 
