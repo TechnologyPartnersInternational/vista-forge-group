@@ -123,18 +123,30 @@ const InsightsSection = () => {
                 </Link>
               )}
 
-              {/* Bottom Right (Item 4) - Solid Background */}
+              {/* Bottom Right (Item 4) - News with Banner Background */}
               {items[3] && (
                 <Link
                   to={`/insights/${items[3].id}`}
-                  className="w-full aspect-[4/3] md:aspect-auto h-full rounded-[1rem] bg-[#A3A690] p-6 lg:p-8 flex flex-col justify-between group hover:-translate-y-1 transition-transform duration-300"
+                  className="group relative w-full aspect-[4/3] md:aspect-auto h-full rounded-[1rem] overflow-hidden p-6 lg:p-8 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
                 >
-                  <span className="text-xs font-semibold text-black/70 uppercase tracking-widest font-sans mb-4 block">
-                    News
-                  </span>
-                  <h3 className="text-lg lg:text-xl font-semibold font-sans text-black leading-snug">
-                    {items[3].title}
-                  </h3>
+                  {/* Banner Image Background */}
+                  <img
+                    src={items[3].bannerImage || "/assets/Partnership Announcement (NEWS).jpg"}
+                    alt={items[3].title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"
+                  />
+                  {/* Dark gradient overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 z-0 transition-opacity duration-500 group-hover:opacity-90" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col justify-between h-full pointer-events-none">
+                    <span className="text-xs font-semibold text-white/80 group-hover:text-gold uppercase tracking-widest font-sans mb-4 block transition-colors duration-500">
+                      News
+                    </span>
+                    <h3 className="text-lg lg:text-xl font-semibold font-sans text-white leading-snug group-hover:text-gray-100 transition-colors duration-300">
+                      {items[3].title}
+                    </h3>
+                  </div>
                 </Link>
               )}
             </div>

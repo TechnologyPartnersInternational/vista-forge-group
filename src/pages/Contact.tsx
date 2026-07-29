@@ -286,12 +286,20 @@ const Contact = () => {
                     <p className="text-silver text-xs mb-4">
                       For general enquiries or partnership opportunities.
                     </p>
-                    <a 
-                      href="mailto:info@tpigrp.com" 
-                      className="text-base font-bold text-white hover:text-primary transition-colors"
-                    >
-                      info@tpigrp.com
-                    </a>
+                    <div className="flex flex-col gap-1">
+                      <a 
+                        href="mailto:info@tpinigeria.com" 
+                        className="text-base font-bold text-white hover:text-primary transition-colors"
+                      >
+                        info@tpinigeria.com
+                      </a>
+                      <a 
+                        href="mailto:info@tpigrp.com" 
+                        className="text-base font-bold text-white hover:text-primary transition-colors"
+                      >
+                        info@tpigrp.com
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

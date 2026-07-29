@@ -95,6 +95,10 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-3 text-sm text-silver">
                   <Mail className="w-4 h-4 text-primary shrink-0" />
+                  <span>info@tpinigeria.com</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-silver">
+                  <Mail className="w-4 h-4 text-primary shrink-0" />
                   <span>info@tpigrp.com</span>
                 </li>
               </ul>
