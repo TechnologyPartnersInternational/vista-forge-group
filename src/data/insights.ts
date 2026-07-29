@@ -90,7 +90,7 @@ Smarter monitoring. Cleaner operation.`,
     readTime: "6 min",
     featured: false,
     bannerImage:
-      "https://res.cloudinary.com/dettdsy4j/image/upload/v1784621713/vista_forge_articles/Article_1_Picture_-1.jpg",
+      "/assets/Article 1 Picture -1.jpg",
     content: `The challenge: Modernizing subsurface imaging without compromising Nigeria's marine environment
 
 OML 100 has been a cornerstone of Nigeria's offshore oil and gas production for decades, but the subsurface picture operators rely on has grown outdated. Existing seismic imaging in the mature field, roughly 55 km off Nigeria's south-eastern coast, no longer provides the resolution needed to accurately map complex geology including salt features, fault zones, and stratigraphic traps that carry the block's remaining hydrocarbon potential.
@@ -99,7 +99,7 @@ A private operator, managing the Joint Venture, needed to acquire new high-resol
 
 The task was to design a seismic acquisition program that could deliver the data quality the client needed while meeting the full weight of Nigerian and international environmental requirements and to prove, transparently, that the two goals were compatible.
 
-[IMG]https://res.cloudinary.com/dettdsy4j/image/upload/v1784621713/vista_forge_articles/Article_1_Picture_-1.jpg[/IMG]
+[IMG]/assets/Article 1 Picture -1.jpg[/IMG]
 
 What we did: Building a rigorous, standards-aligned environmental case for the project
 
