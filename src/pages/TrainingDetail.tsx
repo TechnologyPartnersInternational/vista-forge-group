@@ -5,12 +5,40 @@ import SubServiceSection from "@/components/service/SubServiceSection";
 import HowWeWork from "@/components/HowWeWork";
 import CtaBand from "@/components/CtaBand";
 import { motion } from "framer-motion";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
+import FAQSection from "@/seo/FAQSection";
+import { trainingFAQs } from "@/seo/faqData";
 
 const service = services.find(s => s.slug === "training");
 
 const TrainingDetail = () => {
+  const seo = PAGE_SEO.training;
+
   return (
     <Layout>
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        canonicalPath={seo.canonicalPath}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'What We Do', path: '/what-we-do' },
+          { label: 'Training', path: '/what-we-do/training' },
+        ]}
+      />
+      <JsonLd
+        data={serviceSchema(
+          'Professional Environmental & HSE Training',
+          seo.description,
+          `${SITE_URL}/what-we-do/training`
+        )}
+      />
+
       <ServiceHero 
         title={service?.title || "Training"}
         description={service?.shortDesc || ""}
@@ -45,6 +73,13 @@ const TrainingDetail = () => {
           index={index} 
         />
       ))}
+
+      {/* FAQ Section */}
+      <FAQSection
+        title="Training FAQ"
+        subtitle="Common questions about our professional development and HSE training programs."
+        faqs={trainingFAQs}
+      />
 
       {/* How We Work */}
       <HowWeWork />

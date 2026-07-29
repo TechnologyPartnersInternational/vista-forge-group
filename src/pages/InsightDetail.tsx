@@ -11,6 +11,10 @@ import { api } from "@/lib/api";
 import { insights as staticInsights } from "@/data/insights";
 import InsightCard from "@/components/InsightCard";
 import CtaBand from "@/components/CtaBand";
+import PageSEO from "@/seo/PageSEO";
+import { SITE_NAME, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd } from "@/seo/JsonLd";
 
 const InsightDetail = () => {
   const { id } = useParams();
@@ -59,6 +63,7 @@ const InsightDetail = () => {
   if (!isLoading && !insight) {
     return (
       <Layout>
+        <PageSEO title={`Article Not Found | ${SITE_NAME}`} description="Article not found." noindex={true} />
         <div className="container-narrow section-padding text-center">
           <h1 className="text-2xl font-bold">Article not found</h1>
           <Link to="/insights" className="text-primary mt-4 inline-block underline">Back to insights</Link>
@@ -86,6 +91,50 @@ const InsightDetail = () => {
 
   return (
     <Layout>
+      {insight && (
+        <>
+          <PageSEO
+            title={`${insight.title} | ${SITE_NAME} Insights`}
+            description={insight.excerpt || `${insight.title} - Environmental insights and articles by Technology Partners International in Nigeria.`}
+            keywords={`${insight.category}, environmental news Nigeria, TPI insights, ${insight.author || 'TPI'}`}
+            canonicalPath={`/insights/${insight.id}`}
+            ogImage={insight.image}
+            ogType="article"
+          />
+          <Breadcrumbs
+            items={[
+              { label: 'Insights', path: '/insights' },
+              { label: insight.title, path: `/insights/${insight.id}` },
+            ]}
+          />
+          <JsonLd
+            data={{
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: insight.title,
+              description: insight.excerpt,
+              image: insight.image ? [insight.image] : undefined,
+              datePublished: insight.date,
+              author: {
+                '@type': 'Organization',
+                name: insight.author || SITE_NAME,
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: SITE_NAME,
+                logo: {
+                  '@type': 'ImageObject',
+                  url: `${SITE_URL}/og-image.jpg`,
+                },
+              },
+              mainEntityOfPage: {
+                '@type': 'WebPage',
+                '@id': `${SITE_URL}/insights/${insight.id}`,
+              },
+            }}
+          />
+        </>
+      )}
       {/* ── Hero Section ─────────────────────────────────────────────────── */}
       <section className="bg-white pt-8 pb-12 px-4 md:px-10">
         <div className="w-full">

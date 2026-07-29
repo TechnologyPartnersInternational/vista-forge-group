@@ -6,12 +6,40 @@ import HowWeWork from "@/components/HowWeWork";
 import CtaBand from "@/components/CtaBand";
 import { motion } from "framer-motion";
 import { Shield, CheckCircle2, Award, Zap } from "lucide-react";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
+import FAQSection from "@/seo/FAQSection";
+import { environmentFAQs, complianceFAQs } from "@/seo/faqData";
 
 const service = services.find(s => s.slug === "environment");
 
 const EnvironmentDetail = () => {
+  const seo = PAGE_SEO.environment;
+
   return (
     <Layout>
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        canonicalPath={seo.canonicalPath}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'What We Do', path: '/what-we-do' },
+          { label: 'Environment', path: '/what-we-do/environment' },
+        ]}
+      />
+      <JsonLd
+        data={serviceSchema(
+          'Environmental Consultancy Services',
+          seo.description,
+          `${SITE_URL}/what-we-do/environment`
+        )}
+      />
+
       <ServiceHero 
         title={service?.title || "Environment"}
         description={service?.shortDesc || "Environmental excellence through science and innovation."}
@@ -101,6 +129,13 @@ const EnvironmentDetail = () => {
           index={index} 
         />
       ))}
+
+      {/* FAQ Section */}
+      <FAQSection
+        title="Environmental Compliance FAQ"
+        subtitle="Common questions about environmental compliance and regulatory requirements in Nigeria."
+        faqs={complianceFAQs}
+      />
 
       {/* How We Work */}
       <HowWeWork />

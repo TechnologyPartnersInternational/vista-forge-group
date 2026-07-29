@@ -6,6 +6,8 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lock, User } from 'lucide-react';
 import { toast } from 'sonner';
+import PageSEO from "@/seo/PageSEO";
+import { SITE_NAME } from "@/seo/seo.config";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -29,8 +31,10 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-mist px-4">
-      <Card className="w-full max-w-md shadow-lg border-navy/10 animate-fade-in">
+    <>
+      <PageSEO title={`Admin Portal | ${SITE_NAME}`} noindex={true} />
+      <div className="min-h-screen flex items-center justify-center bg-mist px-4">
+        <Card className="w-full max-w-md shadow-lg border-navy/10 animate-fade-in">
         <CardHeader className="space-y-1 text-center">
           <div className="flex justify-center mb-4">
             <div className="w-12 h-12 navy-gradient rounded-xl flex items-center justify-center">
@@ -82,6 +86,7 @@ const AdminLogin = () => {
         </CardFooter>
       </Card>
     </div>
+    </>
   );
 };
 

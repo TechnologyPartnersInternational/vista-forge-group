@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight, Download } from "lucide-react";
 import CtaBand from "@/components/CtaBand";
 import capabilityStatement from "@/assets/CompanyProfile/TPI-Company-Profile.pdf";
+import PageSEO from "@/seo/PageSEO";
+import { SITE_URL, SITE_NAME } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 
 const SubServiceDetail = () => {
   const { serviceSlug, subServiceSlug } = useParams();
@@ -25,6 +29,27 @@ const SubServiceDetail = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={`${subService.title} | ${service.title} | ${SITE_NAME}`}
+        description={(subService.shortDesc || subService.fullDesc || `${subService.title} services by TPI Nigeria. ${service.shortDesc}`).substring(0, 160)}
+        keywords={`${subService.title}, ${service.title}, Nigeria, environmental services, TPI`}
+        canonicalPath={`/what-we-do/${serviceSlug}/${subServiceSlug}`}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'What We Do', path: '/what-we-do' },
+          { label: service.title, path: `/what-we-do/${service.slug}` },
+          { label: subService.title, path: `/what-we-do/${serviceSlug}/${subServiceSlug}` },
+        ]}
+      />
+      <JsonLd
+        data={serviceSchema(
+          subService.title,
+          subService.shortDesc || subService.fullDesc || `${subService.title} services provided by Technology Partners International in Nigeria.`,
+          `${SITE_URL}/what-we-do/${serviceSlug}/${subServiceSlug}`
+        )}
+      />
+
       <section className="px-4 md:px-10 pt-8 pb-12 bg-white">
         <div className="relative w-full rounded-[2rem] overflow-hidden flex items-center group" style={{ minHeight: "440px" }}>
           <img 

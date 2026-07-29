@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { MapPin, Expand, Search, Loader2, Plus } from "lucide-react";
 import heroBg from "@/assets/Featured Projects/IMG-20230620-WA0013.jpg";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
 
 const categories = [
   { id: "all", label: "All" },
@@ -74,6 +77,13 @@ const Gallery = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={PAGE_SEO.gallery.title}
+        description={PAGE_SEO.gallery.description}
+        keywords={PAGE_SEO.gallery.keywords}
+        canonicalPath={PAGE_SEO.gallery.canonicalPath}
+      />
+      <Breadcrumbs items={[{ label: 'Gallery', path: '/gallery' }]} />
       {/* Hero Section */}
       <section className="px-4 md:px-10 pt-8 pb-6 bg-mist">
         <motion.div

@@ -5,6 +5,9 @@ import Layout from "@/components/layout/Layout";
 import { locations } from "@/data/team";
 import { services } from "@/data/services";
 import heroBg from "@/assets/More Pictures/ContactPic.jpeg";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -42,6 +45,14 @@ const Contact = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={PAGE_SEO.contact.title}
+        description={PAGE_SEO.contact.description}
+        keywords={PAGE_SEO.contact.keywords}
+        canonicalPath={PAGE_SEO.contact.canonicalPath}
+      />
+      <Breadcrumbs items={[{ label: 'Contact', path: '/contact' }]} />
+
       {/* ── Hero ───────────────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 pt-8 pb-6 bg-mist">
         <motion.div

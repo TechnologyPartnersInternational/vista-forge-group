@@ -1,9 +1,20 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
 
 const PrivacyPolicy = () => {
   return (
     <Layout>
+      <PageSEO
+        title={PAGE_SEO.privacyPolicy.title}
+        description={PAGE_SEO.privacyPolicy.description}
+        keywords={PAGE_SEO.privacyPolicy.keywords}
+        canonicalPath={PAGE_SEO.privacyPolicy.canonicalPath}
+        noindex={true}
+      />
+      <Breadcrumbs items={[{ label: 'Privacy Policy', path: '/privacy-policy' }]} />
       {/* ── Hero ───────────────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 pt-8 pb-6 bg-mist">
         <motion.div

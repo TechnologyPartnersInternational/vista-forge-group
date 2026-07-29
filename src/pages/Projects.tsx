@@ -9,6 +9,9 @@ import CtaBand from "@/components/CtaBand";
 import { api } from "@/lib/api";
 import { projects as staticProjects } from "@/data/projects";
 import heroBg from "@/assets/More Pictures/ProjectPic.jpeg";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
 
 // ── Filter constants ───────────────────────────────────────────────────────
 const STATUS_FILTERS = ["All", "Ongoing", "Completed"] as const;
@@ -83,6 +86,13 @@ const Projects = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={PAGE_SEO.projects.title}
+        description={PAGE_SEO.projects.description}
+        keywords={PAGE_SEO.projects.keywords}
+        canonicalPath={PAGE_SEO.projects.canonicalPath}
+      />
+      <Breadcrumbs items={[{ label: 'Projects', path: '/projects' }]} />
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 pt-8 pb-6 bg-mist">
         <motion.div

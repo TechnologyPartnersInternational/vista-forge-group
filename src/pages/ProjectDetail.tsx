@@ -11,6 +11,10 @@ import { api } from "@/lib/api";
 import { projects as staticProjects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import CtaBand from "@/components/CtaBand";
+import PageSEO from "@/seo/PageSEO";
+import { SITE_NAME, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, webPageSchema } from "@/seo/JsonLd";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -58,6 +62,7 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <Layout>
+        <PageSEO title={`Project Not Found | ${SITE_NAME}`} description="Project not found." noindex={true} />
         <div className="container-narrow section-padding text-center">
           <h1 className="text-2xl font-bold">Project not found</h1>
           <Link to="/projects" className="text-primary mt-4 inline-block underline">Back to projects</Link>
@@ -78,6 +83,26 @@ const ProjectDetail = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={`${project.title} | Environmental Projects | ${SITE_NAME}`}
+        description={project.summary || `View details about ${project.title}, an environmental project executed by TPI Nigeria in ${project.location}.`}
+        keywords={`${project.title}, ${project.category}, ${project.service}, environmental project Nigeria, TPI Nigeria`}
+        canonicalPath={`/projects/${project.id}`}
+        ogImage={project.heroImage}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'Projects', path: '/projects' },
+          { label: project.title, path: `/projects/${project.id}` },
+        ]}
+      />
+      <JsonLd
+        data={webPageSchema(
+          project.title,
+          project.summary || `Environmental project by TPI Nigeria: ${project.title}`,
+          `${SITE_URL}/projects/${project.id}`
+        )}
+      />
       {/* ── Hero Section ─────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 pt-8 pb-12 bg-white">
         <div className="relative w-full rounded-[2rem] overflow-hidden min-h-[500px] md:min-h-[600px] group">

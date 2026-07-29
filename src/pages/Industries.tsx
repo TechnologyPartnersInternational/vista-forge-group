@@ -2,10 +2,28 @@ import Layout from "@/components/layout/Layout";
 import { industries } from "@/data/services";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import PageSEO from "@/seo/PageSEO";
+import { SITE_NAME, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, webPageSchema } from "@/seo/JsonLd";
 
 const Industries = () => {
   return (
     <Layout>
+      <PageSEO
+        title={`Industries & Sectors We Serve | ${SITE_NAME}`}
+        description="Deep environmental consultancy and engineering expertise across Oil & Gas, Maritime, Mining, Agriculture, Construction, and Industrial sectors in Nigeria."
+        keywords="environmental solutions oil and gas Nigeria, environmental consultancy industries Nigeria, maritime environmental services, TPI Nigeria industries"
+        canonicalPath="/industries"
+      />
+      <Breadcrumbs items={[{ label: 'Industries', path: '/industries' }]} />
+      <JsonLd
+        data={webPageSchema(
+          "Industries & Sectors Served by TPI Nigeria",
+          "Sector-specific environmental engineering, compliance monitoring, and consultancy for leading industries in Nigeria.",
+          `${SITE_URL}/industries`
+        )}
+      />
       <section className="navy-gradient">
         <div className="container-narrow section-padding">
           <div className="max-w-2xl">

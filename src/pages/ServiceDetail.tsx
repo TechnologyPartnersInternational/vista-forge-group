@@ -2,6 +2,10 @@ import Layout from "@/components/layout/Layout";
 import { useParams, Link } from "react-router-dom";
 import { services } from "@/data/services";
 import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import PageSEO from "@/seo/PageSEO";
+import { SITE_NAME, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -10,6 +14,7 @@ const ServiceDetail = () => {
   if (!service) {
     return (
       <Layout>
+        <PageSEO title={`Service Not Found | ${SITE_NAME}`} description="Service not found." noindex={true} />
         <div className="container-narrow section-padding text-center">
           <h1 className="text-2xl font-bold text-foreground">Service not found</h1>
           <Link to="/what-we-do" className="text-primary mt-4 inline-block">Back to services</Link>
@@ -23,6 +28,25 @@ const ServiceDetail = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={`${service.title} Services | ${SITE_NAME}`}
+        description={service.shortDesc || `Environmental consultancy and engineering services for ${service.title} in Nigeria.`}
+        keywords={`${service.title} Nigeria, environmental consultancy services, TPI Nigeria`}
+        canonicalPath={`/what-we-do/${service.slug}`}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'What We Do', path: '/what-we-do' },
+          { label: service.title, path: `/what-we-do/${service.slug}` },
+        ]}
+      />
+      <JsonLd
+        data={serviceSchema(
+          service.title,
+          service.shortDesc,
+          `${SITE_URL}/what-we-do/${service.slug}`
+        )}
+      />
       {/* Hero */}
       <section className="navy-gradient">
         <div className="container-narrow section-padding">

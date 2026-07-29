@@ -9,6 +9,9 @@ import CtaBand from "@/components/CtaBand";
 import { api } from "@/lib/api";
 import { insights as staticInsights } from "@/data/insights";
 import heroBg from "@/assets/Projects/insights-hero-bg.png";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
 
 // ── Filter constants ────────────────────────────────────────────────────────
 const TYPE_FILTERS = ["All", "Article", "Issues", "Story", "News"] as const;
@@ -86,6 +89,13 @@ const Insights = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={PAGE_SEO.insights.title}
+        description={PAGE_SEO.insights.description}
+        keywords={PAGE_SEO.insights.keywords}
+        canonicalPath={PAGE_SEO.insights.canonicalPath}
+      />
+      <Breadcrumbs items={[{ label: 'Insights', path: '/insights' }]} />
       {/* ── Hero ───────────────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 pt-8 pb-6 bg-mist">
         <motion.div

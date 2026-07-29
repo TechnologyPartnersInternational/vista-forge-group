@@ -5,12 +5,38 @@ import SubServiceSection from "@/components/service/SubServiceSection";
 import HowWeWork from "@/components/HowWeWork";
 import CtaBand from "@/components/CtaBand";
 import { motion } from "framer-motion";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 
 const service = services.find(s => s.slug === "engineering");
 
 const EngineeringDetail = () => {
+  const seo = PAGE_SEO.engineering;
+
   return (
     <Layout>
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        canonicalPath={seo.canonicalPath}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'What We Do', path: '/what-we-do' },
+          { label: 'Engineering', path: '/what-we-do/engineering' },
+        ]}
+      />
+      <JsonLd
+        data={serviceSchema(
+          'Engineering, EPC & Asset Integrity',
+          seo.description,
+          `${SITE_URL}/what-we-do/engineering`
+        )}
+      />
+
       <ServiceHero 
         title={service?.title || "Engineering"}
         description={service?.shortDesc || ""}

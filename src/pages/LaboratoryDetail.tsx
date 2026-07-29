@@ -5,12 +5,40 @@ import SubServiceSection from "@/components/service/SubServiceSection";
 import HowWeWork from "@/components/HowWeWork";
 import CtaBand from "@/components/CtaBand";
 import { motion } from "framer-motion";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
+import FAQSection from "@/seo/FAQSection";
+import { laboratoryFAQs } from "@/seo/faqData";
 
 const service = services.find(s => s.slug === "laboratory");
 
 const LaboratoryDetail = () => {
+  const seo = PAGE_SEO.laboratory;
+
   return (
     <Layout>
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        canonicalPath={seo.canonicalPath}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'What We Do', path: '/what-we-do' },
+          { label: 'Laboratory Services', path: '/what-we-do/laboratory' },
+        ]}
+      />
+      <JsonLd
+        data={serviceSchema(
+          'Environmental Laboratory Services',
+          seo.description,
+          `${SITE_URL}/what-we-do/laboratory`
+        )}
+      />
+
       <ServiceHero 
         title={service?.title || "Laboratory"}
         description={service?.shortDesc || ""}
@@ -45,6 +73,13 @@ const LaboratoryDetail = () => {
           index={index} 
         />
       ))}
+
+      {/* FAQ Section */}
+      <FAQSection
+        title="Laboratory Services FAQ"
+        subtitle="Common questions about our ISO-accredited environmental testing laboratory."
+        faqs={laboratoryFAQs}
+      />
 
       {/* How We Work */}
       <HowWeWork />

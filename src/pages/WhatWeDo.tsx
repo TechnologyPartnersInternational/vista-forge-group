@@ -8,6 +8,10 @@ import oilAndGas from "@/assets/GeneralPictures/Importance-Of-Technology-In-Oil-
 import maritime from "@/assets/GeneralPictures/5.jpg";
 import mining from "@/assets/GeneralPictures/Surface_Mining_in_Indonesia_1-1615269.jpg";
 import { services, industries } from "@/data/services";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 
 // Hero background
 const heroImage =
@@ -44,6 +48,20 @@ const WhatWeDo = () => {
 
   return (
     <Layout>
+      <PageSEO
+        title={PAGE_SEO.whatWeDo.title}
+        description={PAGE_SEO.whatWeDo.description}
+        keywords={PAGE_SEO.whatWeDo.keywords}
+        canonicalPath={PAGE_SEO.whatWeDo.canonicalPath}
+      />
+      <Breadcrumbs items={[{ label: 'What We Do', path: '/what-we-do' }]} />
+      {services.map((s) => (
+        <JsonLd
+          key={s.id}
+          data={serviceSchema(s.title, s.shortDesc, `${SITE_URL}/what-we-do/${s.slug}`)}
+        />
+      ))}
+
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 pt-8 pb-6 bg-mist">
         <motion.div

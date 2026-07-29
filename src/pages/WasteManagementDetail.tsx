@@ -5,12 +5,40 @@ import SubServiceSection from "@/components/service/SubServiceSection";
 import HowWeWork from "@/components/HowWeWork";
 import CtaBand from "@/components/CtaBand";
 import { motion } from "framer-motion";
+import PageSEO from "@/seo/PageSEO";
+import { PAGE_SEO, SITE_URL } from "@/seo/seo.config";
+import Breadcrumbs from "@/seo/Breadcrumbs";
+import { JsonLd, serviceSchema } from "@/seo/JsonLd";
+import FAQSection from "@/seo/FAQSection";
+import { wasteManagementFAQs } from "@/seo/faqData";
 
 const service = services.find(s => s.slug === "waste-management");
 
 const WasteManagementDetail = () => {
+  const seo = PAGE_SEO.wasteManagement;
+
   return (
     <Layout>
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        canonicalPath={seo.canonicalPath}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'What We Do', path: '/what-we-do' },
+          { label: 'Waste Management', path: '/what-we-do/waste-management' },
+        ]}
+      />
+      <JsonLd
+        data={serviceSchema(
+          'Waste Management Services',
+          seo.description,
+          `${SITE_URL}/what-we-do/waste-management`
+        )}
+      />
+
       <ServiceHero 
         title={service?.title || "Waste Management"}
         description={service?.shortDesc || ""}
@@ -45,6 +73,13 @@ const WasteManagementDetail = () => {
           index={index} 
         />
       ))}
+
+      {/* FAQ Section */}
+      <FAQSection
+        title="Waste Management FAQ"
+        subtitle="Common questions about waste management and disposal services in Nigeria."
+        faqs={wasteManagementFAQs}
+      />
 
       {/* How We Work */}
       <HowWeWork />
