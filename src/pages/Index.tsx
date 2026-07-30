@@ -10,8 +10,7 @@ import ClientLogos from "@/components/ClientLogos";
 import PageSEO from "@/seo/PageSEO";
 import { PAGE_SEO } from "@/seo/seo.config";
 import { JsonLd, localBusinessSchema, professionalServiceSchema } from "@/seo/JsonLd";
-import FAQSection from "@/seo/FAQSection";
-import { environmentFAQs } from "@/seo/faqData";
+
 
 const Index = () => {
   const seo = PAGE_SEO.home;
@@ -36,12 +35,6 @@ const Index = () => {
       <InsightsSection />
       {/* <OurPresence /> */}
       <CtaBand />
-
-      <FAQSection
-        title="Environmental Consultancy FAQ"
-        subtitle="Answers to common questions about environmental services in Nigeria."
-        faqs={environmentFAQs}
-      />
     </Layout>
   );
 };

@@ -176,8 +176,8 @@ By combining historical environmental trends with current environmental conditio
     readTime: "5 min",
     featured: false,
     bannerImage:
-      "https://res.cloudinary.com/dettdsy4j/image/upload/v1784621721/vista_forge_articles/Article_3_Picture.jpg",
-    content: `[IMG]https://res.cloudinary.com/dettdsy4j/image/upload/v1784621721/vista_forge_articles/Article_3_Picture.jpg[/IMG]
+      "https://res.cloudinary.com/dettdsy4j/image/upload/c_crop,g_north,h_0.62/v1784621721/vista_forge_articles/Article_3_Picture.jpg",
+    content: `[IMG]https://res.cloudinary.com/dettdsy4j/image/upload/c_crop,g_north,h_0.62/v1784621721/vista_forge_articles/Article_3_Picture.jpg[/IMG]
 
 The opportunity: Preparing critical offshore infrastructure for the future
 

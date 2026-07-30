@@ -8,6 +8,7 @@ import heroBg from "@/assets/More Pictures/ContactPic.jpeg";
 import PageSEO from "@/seo/PageSEO";
 import { PAGE_SEO } from "@/seo/seo.config";
 import Breadcrumbs from "@/seo/Breadcrumbs";
+import ContactFAQSection from "@/seo/ContactFAQSection";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -319,6 +320,9 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Frequently Asked Questions ───────────────────────────────────── */}
+      <ContactFAQSection />
     </Layout>
   );
 };
