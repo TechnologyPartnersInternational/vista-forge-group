@@ -49,10 +49,15 @@ const Gallery = () => {
       
       const data = await response.json();
       
+      const cleanResources = (data.resources || []).filter((item: GalleryImage) => {
+        const id = item.id || '';
+        return !id.startsWith('sample') && !id.startsWith('cld-sample') && !id.startsWith('samples/');
+      });
+
       if (isLoadMore) {
-        setImages(prev => [...prev, ...data.resources]);
+        setImages(prev => [...prev, ...cleanResources]);
       } else {
-        setImages(data.resources);
+        setImages(cleanResources);
       }
       
       setNextCursor(data.next_cursor || null);

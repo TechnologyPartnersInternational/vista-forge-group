@@ -96,9 +96,9 @@ const InsightDetail = () => {
           <PageSEO
             title={`${insight.title} | ${SITE_NAME} Insights`}
             description={insight.excerpt || `${insight.title} - Environmental insights and articles by Technology Partners International in Nigeria.`}
-            keywords={`${insight.category}, environmental news Nigeria, TPI insights, ${insight.author || 'TPI'}`}
+            keywords={`${insight.category}, environmental news Nigeria, TPI insights, ${insight.author?.name || 'TPI'}`}
             canonicalPath={`/insights/${insight.id}`}
-            ogImage={insight.image}
+            ogImage={insight.bannerImage}
             ogType="article"
           />
           <Breadcrumbs
@@ -113,11 +113,11 @@ const InsightDetail = () => {
               '@type': 'Article',
               headline: insight.title,
               description: insight.excerpt,
-              image: insight.image ? [insight.image] : undefined,
+              image: insight.bannerImage ? [insight.bannerImage] : undefined,
               datePublished: insight.date,
               author: {
                 '@type': 'Organization',
-                name: insight.author || SITE_NAME,
+                name: insight.author?.name || SITE_NAME,
               },
               publisher: {
                 '@type': 'Organization',

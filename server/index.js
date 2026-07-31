@@ -133,18 +133,21 @@ app.get('/api/gallery', async (req, res) => {
   
   try {
     // Build the search expression:
+    // - Always exclude Cloudinary default demo/sample pictures (sample, cld-sample-*, samples/*).
     // - If a specific category is selected, filter by asset_folder (the fixed-folder system).
-    // - If "all" is selected, return everything (no folder filter).
-    let expression = '';
+    // - If "all" is selected, return all non-sample resources.
+    const sampleExclusions = '-public_id:sample* AND -public_id:cld-sample* AND -asset_folder="samples" AND -folder="samples"';
+    let expression = sampleExclusions;
     if (category && category !== 'all') {
       // asset_folder: matches images stored in Cloudinary's fixed folder system.
       // Use double-quotes to handle folder names with spaces (e.g. "waste management").
-      expression = `asset_folder="${category}"`;
+      expression = `asset_folder="${category}" AND (${sampleExclusions})`;
     }
-    // For "all", leave expression empty — Cloudinary returns all resources.
 
     let searchBuilder = cloudinary.search
       .with_field('tags')
+      .with_field('folder')
+      .with_field('asset_folder')
       .sort_by('created_at', 'desc')
       .max_results(15);
 
@@ -159,8 +162,14 @@ app.get('/api/gallery', async (req, res) => {
     const result = await searchBuilder.execute();
 
     res.json({
-      resources: result.resources.map(resource => ({
-        id: resource.public_id,
+      resources: result.resources
+        .filter((resource) => {
+          const id = resource.public_id || '';
+          const folder = resource.asset_folder || resource.folder || '';
+          return !id.startsWith('sample') && !id.startsWith('cld-sample') && !folder.startsWith('samples');
+        })
+        .map(resource => ({
+          id: resource.public_id,
         title: resource.context?.caption || resource.public_id.split('/').pop().replace(/_[a-z0-9]{6,}$/i, '').replace(/[-_]/g, ' '),
         category: category || 'all',
         image: resource.secure_url,

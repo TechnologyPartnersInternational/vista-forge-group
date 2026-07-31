@@ -19,15 +19,19 @@ export default async function handler(req, res) {
 
   try {
     // Build search expression:
+    // - Always exclude Cloudinary default demo/sample pictures (sample, cld-sample-*, samples/*).
     // - Specific category → filter by asset_folder (fixed-folder system).
-    // - "all" / no category → return everything (no filter).
-    let expression = '';
+    // - "all" / no category → return all non-sample resources.
+    const sampleExclusions = '-public_id:sample* AND -public_id:cld-sample* AND -asset_folder="samples" AND -folder="samples"';
+    let expression = sampleExclusions;
     if (category && category !== 'all') {
-      expression = `asset_folder="${category}"`;
+      expression = `asset_folder="${category}" AND (${sampleExclusions})`;
     }
 
     let searchBuilder = cloudinary.search
       .with_field('tags')
+      .with_field('folder')
+      .with_field('asset_folder')
       .sort_by('created_at', 'desc')
       .max_results(15);
 
@@ -37,8 +41,14 @@ export default async function handler(req, res) {
     const result = await searchBuilder.execute();
 
     return res.status(200).json({
-      resources: result.resources.map((resource) => ({
-        id:          resource.public_id,
+      resources: result.resources
+        .filter((resource) => {
+          const id = resource.public_id || '';
+          const folder = resource.asset_folder || resource.folder || '';
+          return !id.startsWith('sample') && !id.startsWith('cld-sample') && !folder.startsWith('samples');
+        })
+        .map((resource) => ({
+          id:          resource.public_id,
         title:       resource.context?.caption ||
                      resource.public_id
                        .split('/')
