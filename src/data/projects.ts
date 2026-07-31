@@ -88,7 +88,7 @@ export const projects: Project[] = [
   },
   {
     id: "totalenergies-egina-south-ebs-eia",
-    title: "Environmental Baseline Study (EBS) & EIA",
+    title: "Environmental Baseline Study (EBS) & Environmental Impact Assessment (EIA)",
     subtitle: "Environmental Intelligence for Ultra-Deep Offshore Appraisal",
     client: "Private",
     service: "Environment",
