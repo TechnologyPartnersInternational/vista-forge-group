@@ -133,33 +133,18 @@ app.get('/api/gallery', async (req, res) => {
   
   try {
     // Build the search expression:
-    // - Specific category → filter cleanly by asset_folder.
-    // - "all" / no category → match all known gallery category folders to avoid returning root Cloudinary demo samples.
+    // - Specific category → filter by asset_folder.
+    // - "all" / no category → leave expression empty so Cloudinary returns everything,
+    //   then filter out default sample images from the results.
     let expression = '';
     if (category && category !== 'all') {
       expression = `asset_folder="${category}"`;
-    } else {
-      const validFolders = [
-        'environments',
-        'environmental',
-        'laboratory',
-        'remediation',
-        'waste management',
-        'waste-management',
-        'training',
-        'digital solutions',
-        'digital-solutions',
-        'gallery'
-      ];
-      expression = validFolders.map(folder => `asset_folder="${folder}"`).join(' OR ');
     }
 
     let searchBuilder = cloudinary.search
       .with_field('tags')
-      .with_field('folder')
-      .with_field('asset_folder')
       .sort_by('created_at', 'desc')
-      .max_results(15);
+      .max_results(30);
 
     if (expression) {
       searchBuilder = searchBuilder.expression(expression);
@@ -171,15 +156,18 @@ app.get('/api/gallery', async (req, res) => {
 
     const result = await searchBuilder.execute();
 
+    // Filter out Cloudinary default demo/sample images
+    const filtered = result.resources.filter((resource) => {
+      const id = (resource.public_id || '').toLowerCase();
+      const folder = (resource.asset_folder || resource.folder || '').toLowerCase();
+      if (id === 'sample' || id.startsWith('samples/') || id.startsWith('cld-sample')) return false;
+      if (folder === 'samples') return false;
+      return true;
+    });
+
     res.json({
-      resources: result.resources
-        .filter((resource) => {
-          const id = resource.public_id || '';
-          const folder = resource.asset_folder || resource.folder || '';
-          return !id.startsWith('sample') && !id.startsWith('cld-sample') && !folder.startsWith('samples');
-        })
-        .map(resource => ({
-          id: resource.public_id,
+      resources: filtered.map(resource => ({
+        id: resource.public_id,
         title: resource.context?.caption || resource.public_id.split('/').pop().replace(/_[a-z0-9]{6,}$/i, '').replace(/[-_]/g, ' '),
         category: category || 'all',
         image: resource.secure_url,
