@@ -133,15 +133,25 @@ app.get('/api/gallery', async (req, res) => {
   
   try {
     // Build the search expression:
-    // - Always exclude Cloudinary default demo/sample pictures (sample, cld-sample-*, samples/*).
-    // - If a specific category is selected, filter by asset_folder (the fixed-folder system).
-    // - If "all" is selected, return all non-sample resources.
-    const sampleExclusions = '-public_id:sample* AND -public_id:cld-sample* AND -asset_folder="samples" AND -folder="samples"';
-    let expression = sampleExclusions;
+    // - Specific category → filter cleanly by asset_folder.
+    // - "all" / no category → match all known gallery category folders to avoid returning root Cloudinary demo samples.
+    let expression = '';
     if (category && category !== 'all') {
-      // asset_folder: matches images stored in Cloudinary's fixed folder system.
-      // Use double-quotes to handle folder names with spaces (e.g. "waste management").
-      expression = `asset_folder="${category}" AND (${sampleExclusions})`;
+      expression = `asset_folder="${category}"`;
+    } else {
+      const validFolders = [
+        'environments',
+        'environmental',
+        'laboratory',
+        'remediation',
+        'waste management',
+        'waste-management',
+        'training',
+        'digital solutions',
+        'digital-solutions',
+        'gallery'
+      ];
+      expression = validFolders.map(folder => `asset_folder="${folder}"`).join(' OR ');
     }
 
     let searchBuilder = cloudinary.search
