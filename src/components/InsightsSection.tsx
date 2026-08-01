@@ -24,7 +24,7 @@ const InsightsSection = () => {
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary mb-3">
               Our experts are leading the way
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold font-sans text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               Featured Insights
             </h2>
           </div>
@@ -43,11 +43,11 @@ const InsightsSection = () => {
             {items[0] && (
               <div className="flex flex-col flex-1 w-full h-full">
                 <div className="mb-6 shrink-0">
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest font-sans mb-4 block">
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4 block">
                     Article
                   </span>
                   <Link to={`/insights/${items[0].id}`} className="group block">
-                    <h3 className="text-3xl lg:text-5xl font-semibold font-sans text-foreground leading-tight group-hover:text-primary transition-colors pr-8">
+                    <h3 className="text-3xl lg:text-5xl font-semibold text-foreground leading-tight group-hover:text-primary transition-colors pr-8">
                       {items[0].title}
                     </h3>
                   </Link>
@@ -81,11 +81,11 @@ const InsightsSection = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </Link>
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest font-sans mb-3 block">
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3 block">
                   Article
                 </span>
                 <Link to={`/insights/${items[2].id}`} className="group block">
-                  <h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground leading-snug group-hover:text-primary transition-colors">
+                  <h3 className="text-xl lg:text-2xl font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
                     {items[2].title}
                   </h3>
                 </Link>
@@ -115,10 +115,10 @@ const InsightsSection = () => {
 
                   {/* Content */}
                   <div className="relative z-10 flex-1 flex flex-col justify-end pointer-events-none p-6 pt-8">
-                    <span className="text-xs font-semibold text-muted-foreground group-hover:text-gold uppercase tracking-widest font-sans mb-3 block transition-colors duration-500">
+                    <span className="text-xs font-semibold text-muted-foreground group-hover:text-gold uppercase tracking-widest mb-3 block transition-colors duration-500">
                       Issue
                     </span>
-                    <h3 className="text-lg lg:text-xl font-semibold font-sans text-foreground group-hover:text-white leading-snug transition-colors duration-500">
+                    <h3 className="text-lg lg:text-xl font-semibold text-foreground group-hover:text-white leading-snug transition-colors duration-500">
                       {items[1].title}
                     </h3>
                   </div>
@@ -142,10 +142,10 @@ const InsightsSection = () => {
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col justify-between h-full pointer-events-none">
-                    <span className="text-xs font-semibold text-white/80 group-hover:text-gold uppercase tracking-widest font-sans mb-4 block transition-colors duration-500">
+                    <span className="text-xs font-semibold text-white/80 group-hover:text-gold uppercase tracking-widest mb-4 block transition-colors duration-500">
                       News
                     </span>
-                    <h3 className="text-lg lg:text-xl font-semibold font-sans text-white leading-snug group-hover:text-gray-100 transition-colors duration-300">
+                    <h3 className="text-lg lg:text-xl font-semibold text-white leading-snug group-hover:text-gray-100 transition-colors duration-300">
                       {items[3].title}
                     </h3>
                   </div>

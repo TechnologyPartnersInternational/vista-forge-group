@@ -15,7 +15,7 @@ const FeaturedProjects = () => {
              transition={{ duration: 0.6 }}
           >
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary mb-3">Case Studies</p>
-            <h2 className="text-4xl md:text-5xl font-bold font-sans text-foreground">Featured Projects</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">Featured Projects</h2>
           </motion.div>
           <motion.div
              initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ const FeaturedProjects = () => {
                   <div className="text-[10px] font-bold tracking-widest uppercase text-primary group-hover:text-gold transition-colors duration-500 mb-3">
                     {projects[0].service}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-white transition-colors duration-500 mb-4">
                     {projects[0].title}
                   </h3>
                   <p className="text-base text-muted-foreground group-hover:text-gray-200 leading-relaxed transition-colors duration-500">
@@ -107,7 +107,7 @@ const FeaturedProjects = () => {
                     <div className="text-[10px] font-bold tracking-widest uppercase text-primary group-hover:text-gold transition-colors duration-500 mb-2">
                       {p.service}
                     </div>
-                    <h3 className="text-xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-3">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-white transition-colors duration-500 mb-3">
                       {p.title}
                     </h3>
                     <p className="text-sm text-muted-foreground group-hover:text-gray-200 leading-relaxed transition-colors duration-500">

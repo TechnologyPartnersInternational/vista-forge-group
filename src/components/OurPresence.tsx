@@ -31,7 +31,7 @@ const OfficeCard = ({ city, address, phone, image, heightClass }: OfficeProps) =
     {/* Center Title */}
     <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none transition-transform duration-500 ease-custom group-hover:-translate-y-8">
       <MapPin className="w-8 h-8 text-primary mb-3 drop-shadow-md" />
-      <h3 className="text-2xl font-bold font-sans text-white drop-shadow-md">
+      <h3 className="text-2xl font-bold text-white drop-shadow-md">
         {city}
       </h3>
     </div>
@@ -54,7 +54,7 @@ const OurPresence = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Our Presence</p>
-          <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground mb-6">Offices across West Africa</h2>
+          <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">Offices across West Africa</h2>
           <p className="text-muted-foreground text-lg">
             With five offices spanning Nigeria and Guinea, we deliver local expertise with international standards.
           </p>

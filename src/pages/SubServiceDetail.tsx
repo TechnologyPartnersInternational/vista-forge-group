@@ -106,7 +106,7 @@ const SubServiceDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 leading-tight">
                   How we can help you
                 </h2>
                 
@@ -130,7 +130,7 @@ const SubServiceDetail = () => {
 
                 <div className="space-y-16">
                   <section>
-                    <h3 className="text-2xl md:text-3xl font-serif text-foreground mb-6">Expertise and capabilities</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Expertise and capabilities</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                       {subService.highlights.map((item, i) => (
                         <div key={i} className="flex items-start gap-3 py-4 border-b border-border/50">
@@ -143,7 +143,7 @@ const SubServiceDetail = () => {
 
                   {/* Why TPI Section - Integrated */}
                   <section className="bg-mist p-10 rounded-3xl border border-border/50">
-                    <h3 className="text-2xl font-serif text-foreground mb-4">Why TPI?</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">Why TPI?</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       With over 30 years of operational experience across Africa, we combine global best practices with deep local knowledge. Our team of experts delivers results that are both world-class and context-aware, ensuring your projects meet the highest international standards while navigating local complexities with ease.
                     </p>
@@ -157,7 +157,7 @@ const SubServiceDetail = () => {
               <div className="sticky top-24 space-y-12">
                 {/* Download Block */}
                 <div className="bg-mist rounded-3xl p-8 border border-border/50">
-                  <h3 className="text-2xl font-serif text-foreground mb-4">Download</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Download</h3>
                   <p className="text-sm text-muted-foreground mb-8">
                     Read more about our {subService.title.toLowerCase()} capabilities in our comprehensive service brochure.
                   </p>
@@ -195,7 +195,7 @@ const SubServiceDetail = () => {
                 {/* Quick Contact CTA */}
                 <div className="bg-navy text-white rounded-3xl p-8 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-                  <h3 className="text-2xl font-serif mb-4">Ready to start?</h3>
+                  <h3 className="text-2xl font-bold mb-4">Ready to start?</h3>
                   <p className="text-white/70 mb-8 text-sm leading-relaxed">
                     Discuss your project requirements with our specialist consultants.
                   </p>
@@ -219,7 +219,7 @@ const SubServiceDetail = () => {
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
               <div className="max-w-2xl">
                 <span className="text-sm font-bold text-primary uppercase tracking-widest mb-4 block">Projects</span>
-                <h2 className="text-4xl md:text-5xl font-serif text-foreground">Discover our latest work</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground">Discover our latest work</h2>
               </div>
               <Link to="/projects" className="group flex items-center gap-2 py-3 px-6 bg-white rounded-full border border-border/50 hover:border-primary transition-all">
                 <span className="font-bold text-sm">View all projects</span>
@@ -255,7 +255,7 @@ const SubServiceDetail = () => {
               <Link 
                 key={s.slug} 
                 to={`/what-we-do/${s.slug}`}
-                className="text-lg md:text-xl font-serif text-foreground hover:text-primary transition-colors border-b border-border/30 hover:border-primary"
+                className="text-lg md:text-xl font-medium text-foreground hover:text-primary transition-colors border-b border-border/30 hover:border-primary"
               >
                 {s.title}
               </Link>

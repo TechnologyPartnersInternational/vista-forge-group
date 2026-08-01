@@ -121,7 +121,7 @@ const HeroCarousel = () => {
           <div>
             <h1
               key={`title-${headingKey}`}
-              className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-serif font-bold text-white leading-[1.1] mb-5 hero-heading-slide whitespace-pre-line drop-shadow-lg"
+              className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-bold text-white leading-[1.1] mb-5 hero-heading-slide whitespace-pre-line drop-shadow-lg"
             >
               {slide.heading}
             </h1>

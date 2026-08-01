@@ -390,7 +390,7 @@ const InsightDetail = () => {
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
             <div className="space-y-4">
               <span className="text-[10px] font-bold uppercase tracking-widest text-primary block">Related Analysis</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground font-serif">
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                 {hasRelated ? "Explore more insights" : "More from TPI Insights"}
               </h2>
               {!hasRelated && (

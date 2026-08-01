@@ -97,7 +97,7 @@ const Navbar = () => {
               className="absolute w-full h-full object-cover opacity-[0.4]"
             />
             <div className="relative z-10 p-8 flex flex-col items-start justify-center h-full">
-              <h2 className="text-3xl lg:text-4xl font-serif text-white leading-tight mb-4">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
                 Nigeria's trusted<br className="hidden lg:block"/> environmental<br className="hidden lg:block"/> consultancy firm
               </h2>
               <p className="text-base lg:text-lg text-white/90 font-medium mb-8 max-w-sm">

@@ -24,7 +24,7 @@ const CtaBand = () => {
 
           {/* Content Block Aligned Bottom-Left */}
           <div className="relative z-20 h-full flex flex-col justify-end p-8 md:p-16 lg:p-24 pb-12 md:pb-20 max-w-4xl">
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-bold font-serif text-white leading-[1.2] mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-5xl font-bold text-white leading-[1.2] mb-6">
               Ready to partner with Africa's leading technical consultancy?
             </h2>
             

@@ -47,7 +47,7 @@ const HowWeWork = () => {
           <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4">
             Our Methodology
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-serif text-foreground mb-6 leading-tight md:text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight md:text-center">
             How We Deliver Excellence
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl md:text-center">
@@ -79,7 +79,7 @@ const HowWeWork = () => {
                     `}>
                       Step {step.num}
                     </span>
-                    <h3 className={`text-lg font-bold font-serif transition-colors duration-300
+                    <h3 className={`text-lg font-bold transition-colors duration-300
                       ${isActive ? 'text-foreground' : 'text-foreground/70'}
                     `}>
                       {step.title}
@@ -111,7 +111,7 @@ const HowWeWork = () => {
                 </div>
                 
                 <div className="flex-1 flex flex-col justify-center max-w-3xl">
-                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                     {steps[activeStepIndex].title}
                   </h3>
                   <p className="text-base md:text-lg text-muted-foreground leading-relaxed">

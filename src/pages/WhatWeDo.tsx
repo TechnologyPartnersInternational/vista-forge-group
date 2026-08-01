@@ -141,7 +141,7 @@ const WhatWeDo = () => {
               <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">
                 What We Do
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold font-sans text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
                 Our Service Lines
               </h2>
             </motion.div>
@@ -194,7 +194,7 @@ const WhatWeDo = () => {
                       {featuredService.title}
                     </span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold font-sans text-foreground group-hover:text-white transition-colors duration-500 mb-4 pointer-events-none">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-white transition-colors duration-500 mb-4 pointer-events-none">
                     {featuredService.shortDesc}
                   </h3>
                   {/* Sub-services list */}
@@ -254,7 +254,7 @@ const WhatWeDo = () => {
                         <span className="text-[10px] font-bold tracking-widest uppercase text-primary-foreground/60 mb-2 block">
                           {service.title}
                         </span>
-                        <h3 className="text-lg font-bold font-sans text-white leading-snug flex-1">
+                        <h3 className="text-lg font-bold text-white leading-snug flex-1">
                           {service.shortDesc}
                         </h3>
                         <span className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 group-hover:text-white transition-colors mt-4">
@@ -285,7 +285,7 @@ const WhatWeDo = () => {
                           <span className="text-[10px] font-bold tracking-widest uppercase text-primary group-hover:text-gold transition-colors duration-500 mb-1 block">
                             {service.title}
                           </span>
-                          <h3 className="text-base font-bold font-sans text-white leading-snug line-clamp-2">
+                          <h3 className="text-base font-bold text-white leading-snug line-clamp-2">
                             {service.shortDesc}
                           </h3>
                           <span className="inline-flex items-center gap-1 text-xs font-bold text-white/60 group-hover:text-white transition-colors duration-300 mt-3">
@@ -316,7 +316,7 @@ const WhatWeDo = () => {
               <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">
                 Sectors
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold font-sans text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
                 Industries We Serve
               </h2>
             </motion.div>

@@ -131,7 +131,7 @@ const ProjectDetail = () => {
                   {project.title}
                 </h1>
                 {project.subtitle && (
-                  <p className="text-xl md:text-2xl text-silver/90 font-medium font-serif italic">
+                  <p className="text-xl md:text-2xl text-silver/90 font-medium italic">
                     {project.subtitle}
                   </p>
                 )}
@@ -221,9 +221,9 @@ const ProjectDetail = () => {
               {/* Testimonial */}
               {project.testimonial && project.testimonial.quote && (
                 <div className="p-10 md:p-14 bg-mist rounded-[2rem] border border-border/50 relative overflow-hidden">
-                  <span className="absolute top-8 right-10 text-9xl font-serif text-primary/10 select-none">“</span>
+                  <span className="absolute top-8 right-10 text-9xl text-primary/10 select-none">“</span>
                   <blockquote className="relative z-10 space-y-8">
-                    <p className="text-xl md:text-2xl font-serif italic text-foreground leading-relaxed">
+                    <p className="text-xl md:text-2xl italic text-foreground leading-relaxed">
                       {project.testimonial.quote}
                     </p>
                     <footer className="flex items-center gap-4">
@@ -320,7 +320,7 @@ const ProjectDetail = () => {
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
             <div className="space-y-4">
               <span className="text-[10px] font-bold uppercase tracking-widest text-primary block">Case Studies</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground font-serif">Explore more {project.service.toLowerCase()} projects</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground">Explore more {project.service.toLowerCase()} projects</h2>
             </div>
             <Link 
               to="/projects" 
