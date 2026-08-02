@@ -54,7 +54,7 @@ const InsightsSection = () => {
                 </div>
                 <Link
                   to={`/insights/${items[0].id}`}
-                  className="relative flex-1 w-full block overflow-hidden rounded-[1rem] group bg-[#011B24] shadow-sm hover:shadow-xl transition-all duration-500 min-h-[380px]"
+                  className="relative flex-1 w-full block overflow-hidden rounded-[1rem] group bg-[#011B24] shadow-sm hover:shadow-xl transition-all duration-500 min-h-[280px] sm:min-h-[380px]"
                 >
                   <img
                     src={items[0].bannerImage}

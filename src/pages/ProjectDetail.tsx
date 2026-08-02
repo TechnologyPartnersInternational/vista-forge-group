@@ -90,12 +90,7 @@ const ProjectDetail = () => {
         canonicalPath={`/projects/${project.id}`}
         ogImage={project.heroImage}
       />
-      <Breadcrumbs
-        items={[
-          { label: 'Projects', path: '/projects' },
-          { label: project.title, path: `/projects/${project.id}` },
-        ]}
-      />
+
       <JsonLd
         data={webPageSchema(
           project.title,
@@ -105,7 +100,7 @@ const ProjectDetail = () => {
       />
       {/* ── Hero Section ─────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 pt-8 pb-12 bg-white">
-        <div className="relative w-full rounded-[2rem] overflow-hidden min-h-[500px] md:min-h-[600px] group">
+        <div className="relative w-full rounded-[1.5rem] md:rounded-[2rem] overflow-hidden min-h-[580px] md:min-h-[600px] group">
           <img 
             src={project.heroImage} 
             alt={project.title} 
@@ -113,7 +108,7 @@ const ProjectDetail = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
           
-          <div className="absolute inset-0 z-10 p-8 md:p-16 flex flex-col justify-between">
+          <div className="absolute inset-0 z-10 p-5 sm:p-8 md:p-16 flex flex-col justify-between">
             <Link 
               to="/projects" 
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors group/back"
@@ -122,48 +117,50 @@ const ProjectDetail = () => {
               <span className="text-sm font-medium">Back to projects</span>
             </Link>
 
-            <div className="max-w-4xl space-y-6">
+            <div className="max-w-4xl space-y-4 md:space-y-6">
               <div className="space-y-2">
                 <span className="text-amber-400 text-xs font-bold uppercase tracking-[0.3em]">
                   {project.category}
                 </span>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]">
                   {project.title}
                 </h1>
                 {project.subtitle && (
-                  <p className="text-xl md:text-2xl text-silver/90 font-medium italic">
+                  <p className="text-base sm:text-xl md:text-2xl text-silver/90 font-medium italic leading-snug">
                     {project.subtitle}
                   </p>
                 )}
               </div>
 
               {/* Meta Stats Bar */}
-              <div className="pt-8 flex flex-wrap items-center gap-x-12 gap-y-6 border-t border-white/10">
-                <div className="space-y-1">
-                  <span className="text-[10px] uppercase tracking-widest text-white/50 block">Location</span>
-                  <div className="flex items-center gap-2 text-white font-medium">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    {project.location}
+              <div className="pt-4 md:pt-8 border-t border-white/10 space-y-4 md:space-y-0">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 md:flex md:flex-wrap md:items-center md:gap-x-12 md:gap-y-6">
+                  <div className="space-y-1">
+                    <span className="text-[10px] uppercase tracking-widest text-white/50 block">Location</span>
+                    <div className="flex items-center gap-2 text-white font-medium text-sm md:text-base">
+                      <MapPin className="w-4 h-4 text-primary shrink-0" />
+                      <span className="truncate">{project.location}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] uppercase tracking-widest text-white/50 block">Industry</span>
-                  <div className="flex items-center gap-2 text-white font-medium">
-                    <Briefcase className="w-4 h-4 text-primary" />
-                    {project.industry}
+                  <div className="space-y-1">
+                    <span className="text-[10px] uppercase tracking-widest text-white/50 block">Industry</span>
+                    <div className="flex items-center gap-2 text-white font-medium text-sm md:text-base">
+                      <Briefcase className="w-4 h-4 text-primary shrink-0" />
+                      <span className="truncate">{project.industry}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] uppercase tracking-widest text-white/50 block">Client</span>
-                  <div className="flex items-center gap-2 text-white font-medium">
-                    <Users className="w-4 h-4 text-primary" />
-                    {project.client}
+                  <div className="space-y-1">
+                    <span className="text-[10px] uppercase tracking-widest text-white/50 block">Client</span>
+                    <div className="flex items-center gap-2 text-white font-medium text-sm md:text-base">
+                      <Users className="w-4 h-4 text-primary shrink-0" />
+                      <span className="truncate">{project.client}</span>
+                    </div>
                   </div>
                 </div>
                 
                 <button 
                   onClick={handleShare}
-                  className="ml-auto flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all group/share"
+                  className="mt-4 md:mt-0 md:ml-auto flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all group/share w-fit"
                 >
                   {copied ? <Check className="w-4 h-4 text-green-400" /> : <Share className="w-4 h-4 text-white" />}
                   <span className="text-xs font-bold uppercase tracking-widest text-white">
@@ -329,7 +326,7 @@ const ProjectDetail = () => {
               See all projects
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {relatedProjects.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}

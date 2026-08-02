@@ -210,7 +210,7 @@ const Navbar = () => {
                             {category.subServices.map((sub, idx) => (
                                <li key={idx}>
                                   <Link
-                                    to={`/what-we-do/${sub.slug}`}
+                                    to={`/what-we-do/${category.slug}/${sub.slug}`}
                                     onClick={() => setMobileOpen(false)}
                                     className="text-xs text-foreground hover:text-primary block"
                                   >

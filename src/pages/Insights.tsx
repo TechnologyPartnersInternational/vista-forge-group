@@ -60,11 +60,16 @@ const Insights = () => {
     retry: 1,
   });
 
-  // Blend API data with static data
+  // Blend API data with static data, sorted by date (newest first)
   const insightsData = useMemo(() => {
-    if (!apiInsights || apiInsights.length === 0) return staticInsights;
-    const apiIds = new Set(apiInsights.map(i => i.id));
-    return [...apiInsights, ...staticInsights.filter(i => !apiIds.has(i.id))];
+    let combined;
+    if (!apiInsights || apiInsights.length === 0) {
+      combined = [...staticInsights];
+    } else {
+      const apiIds = new Set(apiInsights.map(i => i.id));
+      combined = [...apiInsights, ...staticInsights.filter(i => !apiIds.has(i.id))];
+    }
+    return combined.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, [apiInsights]);
 
   const visibleCats = showAllCats ? ALL_CATEGORIES : CATEGORY_CHIPS;
@@ -74,16 +79,18 @@ const Insights = () => {
 
   const filtered = useMemo(
     () =>
-      insightsData.filter((ins) => {
-        const matchType  = typeFilter === "All" || ins.type === typeFilter;
-        const matchCat   = !activeCat || ins.category === activeCat;
-        const matchSearch =
-          !searchTerm ||
-          ins.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          ins.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          ins.category.toLowerCase().includes(searchTerm.toLowerCase());
-        return matchType && matchCat && matchSearch;
-      }),
+      insightsData
+        .filter((ins) => {
+          const matchType  = typeFilter === "All" || ins.type === typeFilter;
+          const matchCat   = !activeCat || ins.category === activeCat;
+          const matchSearch =
+            !searchTerm ||
+            ins.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            ins.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            ins.category.toLowerCase().includes(searchTerm.toLowerCase());
+          return matchType && matchCat && matchSearch;
+        })
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
     [insightsData, typeFilter, activeCat, searchTerm]
   );
 
@@ -373,7 +380,7 @@ const Insights = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
-                  className="h-[420px]"
+                  className="h-auto min-h-[380px] sm:h-[420px]"
                 >
                   <InsightCard insight={insight} />
                 </motion.div>

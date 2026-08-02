@@ -124,7 +124,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="bg-mist/30 p-8 md:p-10 rounded-[2rem] border border-border/40 relative overflow-hidden">
+              <div className="bg-mist/30 p-5 sm:p-8 md:p-10 rounded-[2rem] border border-border/40 relative overflow-hidden">
                 <AnimatePresence mode="wait">
                   {submitted ? (
                     <motion.div

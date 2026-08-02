@@ -91,7 +91,7 @@ const HowWeWork = () => {
           </div>
 
           {/* Right Column: Active Content (Image + Text) */}
-          <div className="lg:col-span-8 relative min-h-[500px]">
+          <div className="lg:col-span-8 relative min-h-[350px] md:min-h-[500px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStepIndex}

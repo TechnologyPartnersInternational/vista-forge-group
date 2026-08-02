@@ -44,7 +44,7 @@ const FeaturedProjects = () => {
                 className="group relative flex flex-col h-full bg-mist rounded-[1rem] overflow-hidden border border-border/50"
               >
                 {/* Dynamic Image Overlay */}
-                <div className="absolute top-0 left-0 w-full h-[300px] lg:h-[500px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[240px] sm:h-[300px] lg:h-[500px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                   <img
                     src={projects[0].heroImage}
                     alt={projects[0].title}
@@ -55,7 +55,7 @@ const FeaturedProjects = () => {
                 </div>
                 
                 {/* Spacer for natural height */}
-                <div className="relative w-full h-[300px] lg:h-[500px] shrink-0 z-0 pointer-events-none" />
+                <div className="relative w-full h-[240px] sm:h-[300px] lg:h-[500px] shrink-0 z-0 pointer-events-none" />
                 
                 {/* Content overlay */}
                 <div className="relative z-10 p-8 md:p-10 flex-1 flex flex-col justify-center pointer-events-none">
@@ -89,7 +89,7 @@ const FeaturedProjects = () => {
                   className="group relative flex flex-col sm:flex-row h-full bg-white border border-border/50 rounded-[1rem] overflow-hidden"
                 >
                   {/* Dynamic Image Overlay */}
-                  <div className="absolute top-0 left-0 w-full h-[250px] sm:h-full sm:w-[50%] group-hover:w-full group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-[200px] sm:h-[250px] sm:h-full sm:w-[50%] group-hover:w-full group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                     <img
                       src={p.heroImage}
                       alt={p.title}
@@ -100,7 +100,7 @@ const FeaturedProjects = () => {
                   </div>
                   
                   {/* Spacer for natural height */}
-                  <div className="relative w-full h-[250px] sm:h-auto sm:w-[50%] shrink-0 z-0 pointer-events-none" />
+                  <div className="relative w-full h-[200px] sm:h-auto sm:w-[50%] shrink-0 z-0 pointer-events-none" />
 
                   {/* Content */}
                   <div className="relative z-10 p-6 sm:p-8 flex-1 flex flex-col justify-center pointer-events-none">

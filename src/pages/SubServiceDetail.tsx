@@ -51,7 +51,7 @@ const SubServiceDetail = () => {
       />
 
       <section className="px-4 md:px-10 pt-8 pb-12 bg-white">
-        <div className="relative w-full rounded-[2rem] overflow-hidden flex items-center group" style={{ minHeight: "440px" }}>
+        <div className="relative w-full rounded-[2rem] overflow-hidden flex items-center group" style={{ minHeight: "360px" }}>
           <img 
             src={subService.heroImage || subService.image} 
             alt={subService.title}
@@ -77,7 +77,7 @@ const SubServiceDetail = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight"
               >
                 {subService.title}
               </motion.h1>

@@ -96,7 +96,7 @@ const HeroCarousel = () => {
       ))}
 
       {/* ── Content Layer ───────────────────────────────────────────── */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-center px-10 md:px-16 lg:px-24">
+      <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24">
 
         {/* Brand label above heading */}
         <div className="flex items-center gap-3 mb-8 animate-fade-in">
@@ -121,7 +121,7 @@ const HeroCarousel = () => {
           <div>
             <h1
               key={`title-${headingKey}`}
-              className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-bold text-white leading-[1.1] mb-5 hero-heading-slide whitespace-pre-line drop-shadow-lg"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-bold text-white leading-[1.1] mb-5 hero-heading-slide whitespace-pre-line drop-shadow-lg"
             >
               {slide.heading}
             </h1>
@@ -151,7 +151,7 @@ const HeroCarousel = () => {
       </div>
 
       {/* ── Right-side Vertical Dot Navigation ──────────────────────── */}
-      <div className="absolute right-8 md:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-3.5">
+      <div className="absolute right-4 sm:right-8 md:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-3.5">
         {carouselData.map((s, i) => {
           const isActive = i === currentSlide;
           return (
@@ -178,13 +178,13 @@ const HeroCarousel = () => {
       </div>
 
       {/* ── Scroll Cue ──────────────────────────────────────────────── */}
-      <div className="absolute bottom-14 left-10 md:left-16 lg:left-24 z-20 hero-bounce-down opacity-40">
+      <div className="absolute bottom-14 left-6 sm:left-10 md:left-16 lg:left-24 z-20 hero-bounce-down opacity-40">
         <ChevronDown className="w-4 h-4 text-white" />
       </div>
 
       {/* ── Bottom Info Row + Progress Bar ──────────────────────────── */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        <div className="flex items-center justify-between px-10 md:px-16 lg:px-24 pb-3 pt-1.5">
+        <div className="flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 pb-3 pt-1.5">
           <div className="flex items-center gap-3">
             <span className="text-white font-bold text-xs tracking-[0.2em] tabular-nums">
               {slide.slideNumber}

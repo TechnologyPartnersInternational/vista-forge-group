@@ -101,12 +101,6 @@ const InsightDetail = () => {
             ogImage={insight.bannerImage}
             ogType="article"
           />
-          <Breadcrumbs
-            items={[
-              { label: 'Insights', path: '/insights' },
-              { label: insight.title, path: `/insights/${insight.id}` },
-            ]}
-          />
           <JsonLd
             data={{
               '@context': 'https://schema.org',
@@ -246,10 +240,6 @@ const InsightDetail = () => {
                     return <img key={i} src={url} alt="Article visual" className="w-full rounded-2xl my-8 object-cover shadow-md" />;
                   }
                   
-                  if (para.startsWith("### ")) {
-                    return <h3 key={i} className="text-2xl font-bold text-foreground mt-12 mb-6">{para.replace("### ", "")}</h3>;
-                  }
-
                   const renderFormattedText = (text: string) => {
                     return text.split("\n").map((line, lineIdx) => {
                       const lineParts = line.split(/(\*\*.*?\*\*)/g).map((part, idx) => {
@@ -259,14 +249,28 @@ const InsightDetail = () => {
                         return part;
                       });
 
+                      const isBullet = line.trim().startsWith("•") || line.trim().startsWith("- ");
+
                       return (
-                        <span key={lineIdx}>
+                        <span key={lineIdx} className={isBullet ? "block pl-2 py-0.5" : ""}>
                           {lineParts}
-                          {lineIdx !== text.split("\n").length - 1 && <br />}
+                          {!isBullet && lineIdx !== text.split("\n").length - 1 && <br />}
                         </span>
                       );
                     });
                   };
+
+                  if (para.startsWith("### ")) {
+                    const lines = para.split("\n");
+                    const headingText = lines[0].replace("### ", "");
+                    const bodyText = lines.slice(1).join("\n");
+                    return (
+                      <div key={i}>
+                        <h3 className="text-2xl font-bold text-foreground mt-12 mb-6">{headingText}</h3>
+                        {bodyText && <p className="mb-6 last:mb-0">{renderFormattedText(bodyText)}</p>}
+                      </div>
+                    );
+                  }
 
                   return <p key={i} className="mb-6 last:mb-0">{renderFormattedText(para)}</p>;
                 })}
