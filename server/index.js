@@ -238,6 +238,43 @@ app.post('/api/contact', async (req, res) => {
   return res.status(200).json({ message: 'Enquiry sent successfully.' });
 });
 
+// Routes - Certificate Verification
+const Certificate = require('./models/Certificate');
+
+app.get('/api/certificates/verify', async (req, res) => {
+  const { certNumber } = req.query;
+
+  if (!certNumber || !certNumber.trim()) {
+    return res.status(400).json({ message: 'certNumber query parameter is required.' });
+  }
+
+  try {
+    const cert = await Certificate.findOne({
+      certNumber: { $regex: new RegExp(`^${certNumber.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') },
+    });
+
+    if (!cert) {
+      return res.status(404).json({ found: false, message: 'Certificate not found.' });
+    }
+
+    return res.status(200).json({
+      found: true,
+      certificate: {
+        certNumber: cert.certNumber,
+        name: cert.name,
+        role: cert.role,
+        training: cert.training,
+        location: cert.location,
+        duration: cert.duration,
+        dates: cert.dates,
+      },
+    });
+  } catch (err) {
+    console.error('[/api/certificates/verify]', err);
+    return res.status(500).json({ message: err.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

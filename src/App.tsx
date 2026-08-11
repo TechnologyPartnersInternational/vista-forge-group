@@ -28,6 +28,7 @@ const Company = lazy(() => import("./pages/Company"));
 const Contact = lazy(() => import("./pages/Contact"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+const Verify = lazy(() => import("./pages/Verify"));
 
 // Admin Imports (not lazy — behind auth guard, small bundle)
 import AdminLogin from "./pages/AdminLogin";
@@ -82,6 +83,7 @@ const App = () => (
             <Route path="/company" element={<Company />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/verify" element={<Verify />} />
             
             {/* Admin Routes */}
             <Route path="/tpi-admin-portal" element={<AdminLogin />} />

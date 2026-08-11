@@ -170,6 +170,15 @@ export const PAGE_SEO: Record<string, PageSEOData> = {
     canonicalPath: '/privacy-policy',
   },
 
+  verify: {
+    title: 'Certificate Verification | Technology Partners International',
+    description:
+      'Verify the authenticity of certificates issued by Technology Partners International (TPI). Enter your certificate ID to confirm its validity and view details.',
+    keywords:
+      'TPI certificate verification, verify TPI certificate, certificate lookup, ISO certification verification, TPI Nigeria certificate',
+    canonicalPath: '/verify',
+  },
+
   notFound: {
     title: 'Page Not Found | TPI Nigeria',
     description: 'The page you are looking for does not exist. Return to the TPI homepage.',

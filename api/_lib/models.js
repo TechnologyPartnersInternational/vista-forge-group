@@ -73,6 +73,23 @@ const InsightSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// ── Certificate ────────────────────────────────────────────────────────────
+
+const CertificateSchema = new mongoose.Schema(
+  {
+    certNumber: { type: String, required: true, unique: true },
+    name:       { type: String, required: true },
+    role:       { type: String, default: 'Participant' },
+    training:   { type: String, required: true },
+    location:   { type: String, required: true },
+    duration:   { type: String, required: true },
+    dates:      { type: String, required: true },
+  },
+  { timestamps: true }
+);
+
 // Guard against model re-registration on warm containers
 export const Project = mongoose.models.Project || mongoose.model('Project', ProjectSchema);
 export const Insight = mongoose.models.Insight || mongoose.model('Insight', InsightSchema);
+export const Certificate = mongoose.models.Certificate || mongoose.model('Certificate', CertificateSchema);
+
