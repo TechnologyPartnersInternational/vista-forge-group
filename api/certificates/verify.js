@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
     // Case-insensitive lookup
     const cert = await Certificate.findOne({
-      certNumber: { $regex: new RegExp(`^${certNumber.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') },
+      certNumber: new RegExp(`^${certNumber.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i'),
     });
 
     if (!cert) {

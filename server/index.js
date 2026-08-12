@@ -250,7 +250,7 @@ app.get('/api/certificates/verify', async (req, res) => {
 
   try {
     const cert = await Certificate.findOne({
-      certNumber: { $regex: new RegExp(`^${certNumber.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') },
+      certNumber: new RegExp(`^${certNumber.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i'),
     });
 
     if (!cert) {
