@@ -49,53 +49,53 @@ export const PAGE_SEO: Record<string, PageSEOData> = {
     description:
       'TPI is Nigeria\'s leading environmental consultancy and engineering firm. ISO-certified services in EIA, laboratory testing, waste management, and compliance since 1992.',
     keywords:
-      'environmental consultancy Nigeria, environmental engineering Nigeria, EIA consultant Nigeria, environmental impact assessment, TPI Nigeria, environmental monitoring, laboratory services Nigeria',
+      'environmental consultancy companies in Nigeria, environmental impact assessment companies in Nigeria, EIA consultant Nigeria, environmental consulting firms Lagos, environmental management company Nigeria, top environmental companies in Nigeria, environmental engineering Nigeria, environmental monitoring company Nigeria, laboratory services Nigeria, waste management company Nigeria, ISO certified environmental firm Nigeria, environmental compliance Nigeria, TPI Nigeria, environmental consultancy Lagos, environmental services Nigeria',
     canonicalPath: '/',
     ogType: 'website',
   },
 
   company: {
-    title: 'About TPI | Environmental Experts & Engineers in Nigeria Since 1992',
+    title: 'About TPI | Leading Environmental Consultancy Company in Nigeria Since 1992',
     description:
       'Learn about Technology Partners International — 30+ years of environmental consultancy excellence in Nigeria. ISO 9001, ISO 14001, ISO 45001 & ISO 17025 certified.',
     keywords:
-      'about TPI Nigeria, environmental consultancy company, ISO certified environmental firm, environmental experts Nigeria, TPI leadership team',
+      'about TPI Nigeria, environmental consultancy company Nigeria, ISO certified environmental firm Nigeria, environmental experts Nigeria, TPI leadership team, leading environmental company Nigeria, top environmental consulting firms Nigeria, environmental engineering company Lagos',
     canonicalPath: '/company',
   },
 
   whatWeDo: {
-    title: 'Environmental Consultancy Services | TPI Nigeria',
+    title: 'Environmental Consultancy Services in Nigeria | TPI Nigeria',
     description:
       'Explore TPI\'s six integrated service lines: environment, laboratory, waste management, engineering, digital solutions, and professional training across Nigeria.',
     keywords:
-      'environmental services Nigeria, environmental consultancy services, waste management services, laboratory services, engineering services Nigeria, HSE training',
+      'environmental consultancy services Nigeria, environmental services Nigeria, environmental consulting firms Nigeria, waste management services Nigeria, laboratory services Nigeria, engineering services Nigeria, HSE training Nigeria, environmental management services, EIA services Nigeria, top environmental companies Nigeria',
     canonicalPath: '/what-we-do',
   },
 
   environment: {
-    title: 'Environmental Impact Assessment & Compliance Services | TPI Nigeria',
+    title: 'Environmental Impact Assessment Companies in Nigeria | EIA Services | TPI',
     description:
-      'Expert environmental impact assessments, compliance monitoring, site remediation, and GIS mapping services in Nigeria. ISO 14001 certified with 98% permit success rate.',
+      'TPI is a leading environmental impact assessment company in Nigeria. Expert EIA, compliance monitoring, site remediation, and GIS mapping. ISO 14001 certified with 98% permit success rate.',
     keywords:
-      'environmental impact assessment Nigeria, EIA consultant, environmental compliance monitoring, environmental audit, oil spill remediation Nigeria, air quality monitoring',
+      'environmental impact assessment companies in Nigeria, EIA companies Nigeria, environmental impact assessment Nigeria, EIA consultant Nigeria, environmental compliance monitoring Nigeria, environmental audit Nigeria, oil spill remediation Nigeria, air quality monitoring Nigeria, environmental consultancy companies in Nigeria, ESHIA Nigeria, environmental site assessment Nigeria, environmental management company Nigeria',
     canonicalPath: '/what-we-do/environment',
   },
 
   laboratory: {
-    title: 'Environmental Laboratory Services | Water, Soil & Air Testing | TPI',
+    title: 'Environmental Laboratory Services in Nigeria | Water, Soil & Air Testing | TPI',
     description:
       'ISO 17025 accredited environmental laboratory in Nigeria. Water quality testing, soil analysis, air monitoring, crude oil assays, and eco-toxicity studies.',
     keywords:
-      'environmental laboratory Nigeria, water testing laboratory, soil analysis Nigeria, ISO 17025 lab, crude oil assay, eco-toxicity testing, mobile laboratory',
+      'environmental laboratory Nigeria, environmental testing laboratory Lagos, water testing laboratory Nigeria, soil analysis Nigeria, ISO 17025 lab Nigeria, crude oil assay Nigeria, eco-toxicity testing, mobile laboratory Nigeria, accredited laboratory Nigeria, water quality testing Nigeria',
     canonicalPath: '/what-we-do/laboratory',
   },
 
   wasteManagement: {
-    title: 'Waste Management Services in Nigeria | Hazardous & Solid Waste | TPI',
+    title: 'Waste Management Companies in Nigeria | Hazardous & Solid Waste | TPI',
     description:
       'End-to-end waste management solutions in Nigeria — integrated solid waste, incineration, thermal desorption, and policy compliance for oil & gas and industrial sectors.',
     keywords:
-      'waste management Nigeria, hazardous waste management, solid waste management, incineration services, thermal desorption, waste policy compliance Nigeria',
+      'waste management companies in Nigeria, waste management Nigeria, hazardous waste management Nigeria, solid waste management Nigeria, incineration services Nigeria, thermal desorption Nigeria, waste policy compliance Nigeria, waste management company Lagos, industrial waste management Nigeria',
     canonicalPath: '/what-we-do/waste-management',
   },
 

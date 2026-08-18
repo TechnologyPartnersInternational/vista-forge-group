@@ -4,6 +4,7 @@
   <!-- Home -->
   <url>
     <loc>https://www.tpinigeria.com/</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,6 +12,7 @@
   <!-- Services Overview -->
   <url>
     <loc>https://www.tpinigeria.com/what-we-do</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -18,56 +20,67 @@
   <!-- Environment -->
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/environmental-planning-management</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/environmental-compliance-monitoring</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/environmental-site-assessment</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/climate-change-sustainability</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/health-social-engagement</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/air-quality-acoustics</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/cleanup-remediation</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/hydrological-services</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/geophysical-services</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/environment/gis-services</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -75,31 +88,37 @@
   <!-- Laboratory -->
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/laboratory</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/laboratory/general-laboratory-services</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/laboratory/remote-mobile-laboratory</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/laboratory/eco-toxicity</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/laboratory/production-chemistry</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/laboratory/geochemical-fingerprinting</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -107,26 +126,31 @@
   <!-- Waste Management -->
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/waste-management</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/waste-management/integrated-solid-waste</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/waste-management/incinerator</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/waste-management/thermal-desorption</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/waste-management/waste-policy-formulation</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -134,16 +158,19 @@
   <!-- Engineering -->
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/engineering</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/engineering/engineering-design</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/engineering/asset-integrity-management</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -151,16 +178,19 @@
   <!-- Digital Solutions -->
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/digital-solutions</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/digital-solutions/security-software-solutions</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/digital-solutions/data-management-reporting</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -168,21 +198,25 @@
   <!-- Training -->
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/training</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/training/esg-training</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/training/customised-training</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tpinigeria.com/what-we-do/training/environmental-laboratory-training</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -190,34 +224,47 @@
   <!-- Company -->
   <url>
     <loc>https://www.tpinigeria.com/company</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Contact -->
   <url>
     <loc>https://www.tpinigeria.com/contact</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Projects -->
   <url>
     <loc>https://www.tpinigeria.com/projects</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Insights -->
   <url>
     <loc>https://www.tpinigeria.com/insights</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Verify -->
+  <url>
+    <loc>https://www.tpinigeria.com/verify</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Gallery -->
   <url>
     <loc>https://www.tpinigeria.com/gallery</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -225,6 +272,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://www.tpinigeria.com/privacy-policy</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

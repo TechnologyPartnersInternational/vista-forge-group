@@ -1,5 +1,6 @@
 # ─── TPI Nigeria — robots.txt ─────────────────────────────────────────────────
 
+# ─── Search Engine Crawlers ───────────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
 
@@ -18,11 +19,63 @@ Allow: /
 User-agent: WhatsApp
 Allow: /
 
+# ─── AI & LLM Crawlers ───────────────────────────────────────────────────────
+# Google AI (Gemini, AI Overviews, SGE)
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI (ChatGPT, GPT plugins)
+User-agent: GPTBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Microsoft Copilot / Bing AI
+User-agent: Bingbot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Apple Siri / Applebot
+User-agent: Applebot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Common Crawl (used by many AI systems)
+User-agent: CCBot
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# ─── Default ─────────────────────────────────────────────────────────────────
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /tpi-admin-portal
 Disallow: /api/
 
-# Sitemap
+# ─── Sitemap & AI-Friendly Descriptions ──────────────────────────────────────
 Sitemap: https://www.tpinigeria.com/sitemap.xml
+
+# LLM-friendly site description
+# See: https://www.tpinigeria.com/llms.txt
+# See: https://www.tpinigeria.com/llms-full.txt
