@@ -74,8 +74,8 @@ Disallow: /tpi-admin-portal
 Disallow: /api/
 
 # ─── Sitemap & AI-Friendly Descriptions ──────────────────────────────────────
-Sitemap: https://www.tpinigeria.com/sitemap.xml
+Sitemap: https://www.tpigrp.com/sitemap.xml
 
 # LLM-friendly site description
-# See: https://www.tpinigeria.com/llms.txt
-# See: https://www.tpinigeria.com/llms-full.txt
+# See: https://www.tpigrp.com/llms.txt
+# See: https://www.tpigrp.com/llms-full.txt

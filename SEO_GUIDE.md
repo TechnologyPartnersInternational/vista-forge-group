@@ -1,6 +1,6 @@
 # TPI Nigeria - Enterprise Technical SEO Guide (2026 Edition)
 
-Welcome to the Enterprise SEO Documentation for **Technology Partners International (TPI Nigeria)** (`https://www.tpinigeria.com`). This document outlines the comprehensive technical SEO architecture, structured data schemas, Core Web Vitals optimizations, and ongoing maintenance practices implemented across the React SPA application.
+Welcome to the Enterprise SEO Documentation for **Technology Partners International (TPI Nigeria)** (`https://www.tpigrp.com`). This document outlines the comprehensive technical SEO architecture, structured data schemas, Core Web Vitals optimizations, and ongoing maintenance practices implemented across the React SPA application.
 
 ---
 
@@ -19,7 +19,7 @@ While this application is a standard client-side Single Page Application (SPA) p
 All site-wide SEO defaults, social profiles, domain settings, and Google Analytics tracking IDs are stored in a single centralized file: `src/seo/seo.config.ts`.
 
 ### Key Variables to Manage:
-- **`SITE_URL`**: Currently set to `https://www.tpinigeria.com`. If you deploy under a staging subdomain or alternate domain, update this constant to prevent canonical URL mismatch.
+- **`SITE_URL`**: Currently set to `https://www.tpigrp.com`. If you deploy under a staging subdomain or alternate domain, update this constant to prevent canonical URL mismatch.
 - **`GA4_TRACKING_ID`**: Set to `G-Q3TKLPXBSZ`. The Analytics tracking script is cleanly integrated in `src/seo/AnalyticsScripts.tsx` and loads automatically in production.
 - **`PAGE_SEO` Dictionary**: Contains the pre-researched titles, meta descriptions (under 160 chars), targeted keyword strings, and canonical paths for every core page on the platform.
 
@@ -126,7 +126,7 @@ Whenever updating site content or running periodic SEO audits:
 
 1. **Google Search Console (GSC):**
    - Inspect domain via GSC URL Inspection tool to confirm rendered HTML displays all meta descriptions and JSON-LD scripts correctly.
-   - Resubmit `https://www.tpinigeria.com/sitemap.xml` whenever bulk page changes occur.
+   - Resubmit `https://www.tpigrp.com/sitemap.xml` whenever bulk page changes occur.
 2. **Schema Validation:**
    - Paste URL or page HTML into the [Google Rich Results Test](https://search.google.com/test/rich-results) and Schema.org Validator to verify zero syntax errors in structured data blocks.
 3. **Core Web Vitals Monitoring:**

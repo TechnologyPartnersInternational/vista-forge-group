@@ -43,8 +43,8 @@ export default async function handler(req, res) {
 
   // Resend SDK v2 returns { data, error } — it does NOT throw on failure.
   const { data, error } = await resend.emails.send({
-    from: 'Enquiry Form <noreply@enquiry.tpinigeria.com>',
-    to: ['info@tpinigeria.com'],
+    from: 'Enquiry Form <noreply@enquiry.tpigrp.com>',
+    to: ['info@tpigrp.com'],
     subject: `New Enquiry from ${name}${service ? ` – ${service}` : ''}`,
     html: emailHtml({ name, email, company, phone, service, message }),
   });

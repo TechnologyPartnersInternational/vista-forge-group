@@ -197,8 +197,8 @@ app.post('/api/contact', async (req, res) => {
 
   // Resend SDK v2 returns { data, error } — it does NOT throw on failure.
   const { data, error } = await resend.emails.send({
-    from: 'Enquiry Form <noreply@enquiry.tpinigeria.com>',
-    to: ['info@tpinigeria.com'],
+    from: 'Enquiry Form <noreply@enquiry.tpigrp.com>',
+    to: ['info@tpigrp.com'],
     subject: `New Enquiry from ${name}${service ? ` – ${service}` : ''}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

@@ -7,8 +7,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 async function test() {
   console.log("Using API key:", process.env.RESEND_API_KEY ? "YES" : "NO");
   const { data, error } = await resend.emails.send({
-    from: 'Enquiry Form <enquiry@tpinigeria.com>',
-    to: ['chiedu.ifeadi@tpinigeria.com'],
+    from: 'Enquiry Form <enquiry@tpigrp.com>',
+    to: ['chiedu.ifeadi@tpigrp.com'],
     subject: 'Test Enquiry',
     html: '<p>Test</p>'
   });

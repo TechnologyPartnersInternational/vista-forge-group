@@ -2,7 +2,7 @@
 // Single source of truth for all SEO metadata across the TPI website.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const SITE_URL = 'https://www.tpinigeria.com';
+export const SITE_URL = 'https://www.tpigrp.com';
 export const SITE_NAME = 'Technology Partners International';
 export const SITE_SHORT_NAME = 'TPI Nigeria';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -20,7 +20,7 @@ export const SOCIAL_PROFILES = {
 // ─── Contact Info ───────────────────────────────────────────────────────────
 export const CONTACT = {
   phone: '+234 8033030049',
-  email: 'info@tpinigeria.com',
+  email: 'info@tpigrp.com',
   emailAlt: 'info@tpigrp.com',
   address: {
     street: '52/54 Oluwaleyimu Street, Off Toyin Street',
