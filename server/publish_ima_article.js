@@ -73,7 +73,7 @@ With FID taken, Ima now moves into construction on the way to first gas in 2028.
 
 **Ifeadi Chifum**, Managing Director, Technology Partners International Nigeria Limited
 
-Cover photo: Bonny Island. Credits to KIAGreenPhotography.`;
+Cover photo: Bonny Island. Credits to KINGgreenphotography.`;
 
 const article = {
   id: 'ima-gas-field-reaches-final-investment-decision',
