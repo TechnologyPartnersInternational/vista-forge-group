@@ -5,6 +5,15 @@ import { methodNotAllowed } from './_lib/http.js';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// The sender MUST use a domain verified in Resend (Domains page), otherwise
+// every send is rejected. The verified domain is enquiry.tpinigeria.com.
+// Both can be overridden in Vercel env vars without a code change.
+const FROM = process.env.CONTACT_FROM_EMAIL || 'TPI Website Enquiry <noreply@enquiry.tpinigeria.com>';
+const TO = (process.env.CONTACT_TO_EMAIL || 'info@tpigrp.com')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+
 const LIMITS = { name: 200, email: 254, company: 200, phone: 50, service: 200, message: 5000 };
 const EMAIL_RE = /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/;
 
@@ -69,8 +78,8 @@ export default async function handler(req, res) {
   try {
     // Resend SDK returns { data, error } — it does NOT throw on API failure.
     const { data, error } = await resend.emails.send({
-      from: 'Enquiry Form <noreply@enquiry.tpigrp.com>',
-      to: ['info@tpigrp.com'],
+      from: FROM,
+      to: TO,
       replyTo: fields.email,
       subject: oneLine(`New Enquiry from ${fields.name}${fields.service ? ` – ${fields.service}` : ''}`),
       html: emailHtml(fields),
