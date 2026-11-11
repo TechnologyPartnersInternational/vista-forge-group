@@ -32,6 +32,7 @@ Set these in Vercel (Settings → Environment Variables) for production, and in 
 | --- | --- |
 | `MONGODB_URI` | Projects, insights, certificates |
 | `RESEND_API_KEY` | Contact form email |
+| `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` | Optional: enquiry sender (must be a Resend-verified domain) and recipient(s) |
 | `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` | Gallery |
 | `ADMIN_USERNAME`, `ADMIN_PASSWORD` | Admin portal login (checked server-side) |
 | `ADMIN_TOKEN_SECRET` | Signs admin session tokens; random, 32+ chars |
