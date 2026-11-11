@@ -3,31 +3,31 @@
 
 import { connectDB } from '../_lib/db.js';
 import { Certificate } from '../_lib/models.js';
+import { handleError, methodNotAllowed, setCors } from '../_lib/http.js';
+
+const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
+  setCors(res, ['GET']);
   if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'GET') return methodNotAllowed(res, ['GET']);
 
-  if (req.method !== 'GET') {
-    res.setHeader('Allow', ['GET']);
-    return res.status(405).json({ message: `Method ${req.method} not allowed` });
-  }
+  // A repeated query param arrives as an array; only accept a single string.
+  const raw = req.query.certNumber;
+  const certNumber = typeof raw === 'string' ? raw.trim() : '';
 
-  const { certNumber } = req.query;
-
-  if (!certNumber || !certNumber.trim()) {
+  if (!certNumber) {
     return res.status(400).json({ message: 'certNumber query parameter is required.' });
+  }
+  if (certNumber.length > 64) {
+    return res.status(400).json({ message: 'certNumber is too long.' });
   }
 
   try {
     await connectDB();
 
-    // Case-insensitive lookup
     const cert = await Certificate.findOne({
-      certNumber: new RegExp(`^${certNumber.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i'),
+      certNumber: new RegExp(`^${escapeRegex(certNumber)}$`, 'i'),
     });
 
     if (!cert) {
@@ -47,7 +47,6 @@ export default async function handler(req, res) {
       },
     });
   } catch (err) {
-    console.error('[/api/certificates/verify]', err);
-    return res.status(500).json({ message: err.message });
+    return handleError(res, err, '/api/certificates/verify');
   }
 }

@@ -1,3 +1,5 @@
+import { adminSession } from "./adminSession";
+
 const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 export type InsightType = "Article" | "Issues" | "Story" | "News";
@@ -54,75 +56,73 @@ export interface InsightData {
   lastUpdated?: string;
 }
 
+export class ApiError extends Error {
+  constructor(message: string, public status: number) {
+    super(message);
+    this.name = "ApiError";
+  }
+}
+
+/** Turn a title into a URL-safe slug that the API accepts as an id. */
+export const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/[\s-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 200);
+
+async function request<T>(path: string, init: RequestInit = {}, fallbackError: string): Promise<T> {
+  const headers = new Headers(init.headers);
+  if (init.body) headers.set("Content-Type", "application/json");
+
+  // Attach the admin token for writes.
+  const method = (init.method || "GET").toUpperCase();
+  if (method !== "GET") {
+    const token = adminSession.getToken();
+    if (token) headers.set("Authorization", `Bearer ${token}`);
+  }
+
+  const res = await fetch(`${API_URL}${path}`, { ...init, headers });
+  const data = await res.json().catch(() => null);
+
+  if (!res.ok) {
+    if (res.status === 401 && method !== "GET") adminSession.clear();
+    throw new ApiError(data?.message || fallbackError, res.status);
+  }
+  return data as T;
+}
+
+const encode = encodeURIComponent;
+
 export const api = {
-  getProjects: async (): Promise<ProjectData[]> => {
-    const res = await fetch(`${API_URL}/projects`);
-    if (!res.ok) throw new Error('Failed to fetch projects');
-    return res.json();
-  },
-  getProjectById: async (id: string): Promise<ProjectData> => {
-    const res = await fetch(`${API_URL}/projects/${id}`);
-    if (!res.ok) throw new Error('Failed to fetch project');
-    return res.json();
-  },
-  createProject: async (data: Partial<ProjectData>) => {
-    const res = await fetch(`${API_URL}/projects`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    if (!res.ok) throw new Error('Failed to create project');
-    return res.json();
-  },
-  updateProject: async (id: string, data: Partial<ProjectData>) => {
-    const res = await fetch(`${API_URL}/projects/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    if (!res.ok) throw new Error('Failed to update project');
-    return res.json();
-  },
-  deleteProject: async (id: string) => {
-    const res = await fetch(`${API_URL}/projects/${id}`, {
-      method: 'DELETE',
-    });
-    if (!res.ok) throw new Error('Failed to delete project');
-    return res.json();
-  },
-  getInsights: async (): Promise<InsightData[]> => {
-    const res = await fetch(`${API_URL}/insights`);
-    if (!res.ok) throw new Error('Failed to fetch insights');
-    return res.json();
-  },
-  getInsightById: async (id: string): Promise<InsightData> => {
-    const res = await fetch(`${API_URL}/insights/${id}`);
-    if (!res.ok) throw new Error('Failed to fetch insight');
-    return res.json();
-  },
-  createInsight: async (data: Partial<InsightData>) => {
-    const res = await fetch(`${API_URL}/insights`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    if (!res.ok) throw new Error('Failed to create insight');
-    return res.json();
-  },
-  updateInsight: async (id: string, data: Partial<InsightData>) => {
-    const res = await fetch(`${API_URL}/insights/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    if (!res.ok) throw new Error('Failed to update insight');
-    return res.json();
-  },
-  deleteInsight: async (id: string) => {
-    const res = await fetch(`${API_URL}/insights/${id}`, {
-      method: 'DELETE',
-    });
-    if (!res.ok) throw new Error('Failed to delete insight');
-    return res.json();
-  },
+  login: (username: string, password: string) =>
+    request<{ token: string; expiresAt: number }>(
+      "/auth/login",
+      { method: "POST", body: JSON.stringify({ username, password }) },
+      "Login failed",
+    ),
+
+  getProjects: () => request<ProjectData[]>("/projects", {}, "Failed to fetch projects"),
+  getProjectById: (id: string) =>
+    request<ProjectData>(`/projects/${encode(id)}`, {}, "Failed to fetch project"),
+  createProject: (data: Partial<ProjectData>) =>
+    request<ProjectData>("/projects", { method: "POST", body: JSON.stringify(data) }, "Failed to create project"),
+  updateProject: (id: string, data: Partial<ProjectData>) =>
+    request<ProjectData>(`/projects/${encode(id)}`, { method: "PUT", body: JSON.stringify(data) }, "Failed to update project"),
+  deleteProject: (id: string) =>
+    request<{ message: string }>(`/projects/${encode(id)}`, { method: "DELETE" }, "Failed to delete project"),
+
+  getInsights: () => request<InsightData[]>("/insights", {}, "Failed to fetch insights"),
+  getInsightById: (id: string) =>
+    request<InsightData>(`/insights/${encode(id)}`, {}, "Failed to fetch insight"),
+  createInsight: (data: Partial<InsightData>) =>
+    request<InsightData>("/insights", { method: "POST", body: JSON.stringify(data) }, "Failed to create insight"),
+  updateInsight: (id: string, data: Partial<InsightData>) =>
+    request<InsightData>(`/insights/${encode(id)}`, { method: "PUT", body: JSON.stringify(data) }, "Failed to update insight"),
+  deleteInsight: (id: string) =>
+    request<{ message: string }>(`/insights/${encode(id)}`, { method: "DELETE" }, "Failed to delete insight"),
 };

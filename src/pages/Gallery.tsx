@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { MapPin, Expand, Search, Loader2, Plus } from "lucide-react";
@@ -36,7 +36,11 @@ const Gallery = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
+  // Guards against a slow response for a previous category overwriting the current one.
+  const latestRequest = useRef(0);
+
   const fetchImages = useCallback(async (category: string, cursor: string | null = null, isLoadMore = false) => {
+    const requestId = ++latestRequest.current;
     if (isLoadMore) setLoadingMore(true);
     else setLoading(true);
 
@@ -48,6 +52,7 @@ const Gallery = () => {
       if (!response.ok) throw new Error('Failed to fetch images');
       
       const data = await response.json();
+      if (requestId !== latestRequest.current) return;
       
       const cleanResources = (data.resources || []).filter((item: GalleryImage) => {
         const id = item.id || '';
@@ -65,8 +70,10 @@ const Gallery = () => {
     } catch (error) {
       console.error('Error fetching gallery:', error);
     } finally {
-      setLoading(false);
-      setLoadingMore(false);
+      if (requestId === latestRequest.current) {
+        setLoading(false);
+        setLoadingMore(false);
+      }
     }
   }, []);
 

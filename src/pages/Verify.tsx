@@ -23,10 +23,13 @@ async function lookupCertificate(
 ): Promise<CertificateData | null> {
   const encoded = encodeURIComponent(certNumber.trim());
   const res = await fetch(`/api/certificates/verify?certNumber=${encoded}`);
-  const data = await res.json();
+  // 404 means "no such certificate"; any other failure is a server problem and
+  // must not be reported to the user as an invalid certificate.
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`Verification failed (${res.status})`);
 
-  if (!res.ok || !data.found) return null;
-  return data.certificate as CertificateData;
+  const data = await res.json();
+  return data.found ? (data.certificate as CertificateData) : null;
 }
 
 // ── Certificate badge tags shown in the hero ─────────────────────────────────

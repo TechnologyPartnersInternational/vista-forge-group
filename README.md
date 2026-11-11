@@ -2,26 +2,48 @@
 
 TPI Group delivers integrated environmental, laboratory, engineering, and digital solutions across West Africa.
 
-## Getting Started
+## Architecture
 
-### Prerequisites
+- `src/` — Vite + React + TypeScript frontend (shadcn/ui, Tailwind).
+- `api/` — Vercel serverless functions. **This is the only backend code.** Production runs these directly.
+- `server/` — local dev server that mounts the same `api/` handlers on Express, plus one-off seed/maintenance scripts.
 
-- Node.js & npm installed
-
-### Local Development
+## Local Development
 
 ```sh
-# Step 1: Install the necessary dependencies.
 npm i
+(cd server && npm i)
 
-# Step 2: Start the development server with auto-reloading and an instant preview.
+# Configure secrets for the API (see server/.env.example)
+cp server/.env.example server/.env
+
+# Terminal 1 — API on http://localhost:5000
+cd server && npm run dev
+
+# Terminal 2 — frontend on http://localhost:8080 (proxies /api to :5000)
 npm run dev
 ```
 
-## Technologies
+## Environment variables
 
-- [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [React](https://reactjs.org/)
-- [Shadcn UI](https://ui.shadcn.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
+Set these in Vercel (Settings → Environment Variables) for production, and in `server/.env` locally:
+
+| Variable | Purpose |
+| --- | --- |
+| `MONGODB_URI` | Projects, insights, certificates |
+| `RESEND_API_KEY` | Contact form email |
+| `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` | Gallery |
+| `ADMIN_USERNAME`, `ADMIN_PASSWORD` | Admin portal login (checked server-side) |
+| `ADMIN_TOKEN_SECRET` | Signs admin session tokens; random, 32+ chars |
+
+Never put secrets in `VITE_*` variables — those are bundled into the public JavaScript.
+
+## Admin portal
+
+Sign in at `/tpi-admin-portal`. Sessions last 8 hours. All create/update/delete API calls require the admin token; reads stay public.
+
+## Scripts
+
+- `npm run build` — production build
+- `npm run lint` / `npm test`
+- `npm run build:seo` — build, then prerender pages with Puppeteer (requires `npm i -D puppeteer` first)

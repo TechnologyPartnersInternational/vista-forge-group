@@ -8,6 +8,8 @@ import { Lock, User } from 'lucide-react';
 import { toast } from 'sonner';
 import PageSEO from "@/seo/PageSEO";
 import { SITE_NAME } from "@/seo/seo.config";
+import { api } from '@/lib/api';
+import { adminSession } from '@/lib/adminSession';
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -15,24 +17,26 @@ const AdminLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Hardcoded credentials as requested
-    if (username === 'TPIadmin' && password === 'TPI16341lagos') {
-      sessionStorage.setItem('tpi_admin_auth', 'true');
+    // Credentials are checked server-side; nothing secret ships in the bundle.
+    try {
+      const session = await api.login(username, password);
+      adminSession.save(session);
       toast.success('Login successful');
       navigate('/admin/dashboard');
-    } else {
-      toast.error('Invalid credentials');
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Login failed');
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (
     <>
-      <PageSEO title={`Admin Portal | ${SITE_NAME}`} noindex={true} />
+      <PageSEO title={`Admin Portal | ${SITE_NAME}`} description="TPI administration portal." noindex={true} />
       <div className="min-h-screen flex items-center justify-center bg-mist px-4">
         <Card className="w-full max-w-md shadow-lg border-navy/10 animate-fade-in">
         <CardHeader className="space-y-1 text-center">
