@@ -83,7 +83,7 @@ const article = {
   type: 'News',
   date: '2026-10-09',
   readTime: '6 min',
-  featured: false,
+  featured: true,
   bannerImage: COVER_IMAGE,
   content,
   author: { name: 'TPI Insights', role: 'Publication Team' },

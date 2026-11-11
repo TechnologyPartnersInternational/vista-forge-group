@@ -7,7 +7,7 @@ const Insight = require('./models/Insight');
 const initialProjects = [
   {
     id: "niger-delta-remediation",
-    title: "Niger Delta Soil Remediation Programme",
+    title: "Restoring 14 Contaminated Niger Delta Sites to Full Regulatory Closure in 18 Months",
     client: "Major International Oil Company",
     service: "Environment",
     category: "Environmental Planning & Management",

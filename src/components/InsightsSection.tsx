@@ -4,16 +4,25 @@ import { insights } from "@/data/insights";
 import pointMethaneImg from "@/assets/GeneralPictures/Point Methane Monitoring.jpg";
 
 const InsightsSection = () => {
-  // Grab specific insights for the featured section
-  const items = [
-    insights.find(
-      (i) => i.id === "supporting-offshore-infrastructure-replacement",
-    ) || insights[0],
-    insights.find((i) => i.id === "methane-monitoring-offshore") || insights[1],
-    insights[2],
-    insights.find((i) => i.id === "partnership-announcement-weel-sandvig") ||
-      insights[3],
+  // Preferred article for each slot in the layout. If one is missing, the slot
+  // falls back to the newest article not already shown, so nothing repeats.
+  const slotIds = [
+    "supporting-offshore-infrastructure-replacement", // large left feature
+    "methane-monitoring-offshore", // bottom-left "Issue" card
+    "ima-gas-field-reaches-final-investment-decision", // top-right card
+    "partnership-announcement-weel-sandvig", // bottom-right "News" card
   ];
+  const used = new Set<string>();
+  const byNewest = [...insights].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+  const items = slotIds.map((id) => {
+    const pick =
+      insights.find((i) => i.id === id && !used.has(i.id)) ??
+      byNewest.find((i) => !used.has(i.id));
+    if (pick) used.add(pick.id);
+    return pick;
+  });
 
   return (
     <section className="bg-white">
@@ -82,7 +91,7 @@ const InsightsSection = () => {
                   />
                 </Link>
                 <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3 block">
-                  Article
+                  {items[2].type}
                 </span>
                 <Link to={`/insights/${items[2].id}`} className="group block">
                   <h3 className="text-xl lg:text-2xl font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">

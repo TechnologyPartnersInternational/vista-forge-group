@@ -31,7 +31,7 @@ export const insights: Insight[] = [
     type: "News",
     date: "2026-10-09",
     readTime: "6 min",
-    featured: false,
+    featured: true,
     bannerImage:
       "https://res.cloudinary.com/dettdsy4j/image/upload/v1792400103/vista_forge_articles/Ima_Gas_FID_Cover_Bonny_Island.jpg",
     content: `On 23 September 2026, TotalEnergies and AMNI International took the Final Investment Decision (FID) on the Ima gas field, a US$800 million development in the shallow waters off Bonny Island, Rivers State. After 53 years in waiting, Ima will now deliver gas to Nigeria LNG and play a central part in the Train 7 expansion.
@@ -114,7 +114,7 @@ Cover photo: Bonny Island. Credits to KINGgreenphotography.`,
       "Technology Partners Int'l Nig. Ltd (TPI) is proud to announce our strategic partnership with Weel & Sandvig, a global leader in Predictive Emission Monitoring Systems (PEMS).",
     category: "Strategic Partnership",
     type: "News",
-    date: new Date().toISOString(),
+    date: "2026-07-21",
     readTime: "3 min",
     featured: true,
     bannerImage: "/assets/Partnership Announcement (NEWS).jpg",
@@ -173,7 +173,7 @@ Smarter monitoring. Cleaner operation.`,
       "Supporting a private operator to unlock high-resolution subsurface data while safeguarding Nigeria's offshore environment.",
     category: "Site Assessment",
     type: "Article",
-    date: new Date().toISOString(),
+    date: "2026-07-27",
     readTime: "6 min",
     featured: false,
     bannerImage:
@@ -224,7 +224,7 @@ Looking ahead, the client will carry the ESR/PIAR's recommendations into project
       "Supporting informed environmental management throughout an asset's lifecycle.",
     category: "Environmental Planning",
     type: "Article",
-    date: new Date().toISOString(),
+    date: "2026-07-21",
     readTime: "5 min",
     featured: false,
     content: `The Challenge: Understanding how years of operations have shaped the surrounding environment
@@ -257,7 +257,7 @@ By combining historical environmental trends with current environmental conditio
       "Supporting the transition to modern offshore infrastructure in Akwa Ibom State, Nigeria.",
     category: "Environmental Planning",
     type: "Article",
-    date: new Date().toISOString(),
+    date: "2026-07-21",
     readTime: "5 min",
     featured: false,
     bannerImage:
@@ -300,7 +300,7 @@ By identifying potential risks early and incorporating mitigation measures into 
       "Every major project starts with a vision,a new estate, a processing plant, a road... But behind every one of these visions sits a quieter, less glamorous question: what happens to the environment?",
     category: "Environmental Planning",
     type: "Article",
-    date: new Date().toISOString(),
+    date: "2026-07-21",
     readTime: "8 min",
     featured: false,
     bannerImage:
