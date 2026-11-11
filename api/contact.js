@@ -9,7 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // every send is rejected. The verified domain is enquiry.tpinigeria.com.
 // Both can be overridden in Vercel env vars without a code change.
 const FROM = process.env.CONTACT_FROM_EMAIL || 'TPI Website Enquiry <noreply@enquiry.tpinigeria.com>';
-const TO = (process.env.CONTACT_TO_EMAIL || 'info@tpigrp.com')
+const TO = (process.env.CONTACT_TO_EMAIL || 'info@tpinigeria.com')
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean);
