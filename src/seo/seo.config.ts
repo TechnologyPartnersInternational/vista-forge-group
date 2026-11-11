@@ -20,8 +20,7 @@ export const SOCIAL_PROFILES = {
 // ─── Contact Info ───────────────────────────────────────────────────────────
 export const CONTACT = {
   phone: '+234 8033030049',
-  email: 'info@tpigrp.com',
-  emailAlt: 'info@tpigrp.com',
+  email: 'info@tpinigeria.com',
   address: {
     street: '52/54 Oluwaleyimu Street, Off Toyin Street',
     locality: 'Ikeja',

@@ -305,12 +305,6 @@ const Contact = () => {
                       >
                         info@tpinigeria.com
                       </a>
-                      <a 
-                        href="mailto:info@tpigrp.com" 
-                        className="text-base font-bold text-white hover:text-primary transition-colors"
-                      >
-                        info@tpigrp.com
-                      </a>
                     </div>
                   </div>
                 </div>
