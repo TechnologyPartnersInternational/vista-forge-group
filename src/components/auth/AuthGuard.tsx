@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import { adminSession } from '@/lib/adminSession';
 
 interface AuthGuardProps {
   children: React.ReactNode;
 }
 
+// UI gate only: it hides admin screens from signed-out visitors. The real
+// protection is the server, which rejects any write without a valid token.
 const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const location = useLocation();
 
-  useEffect(() => {
-    const authStatus = sessionStorage.getItem('tpi_admin_auth');
-    setIsAuthenticated(authStatus === 'true');
-  }, []);
-
-  if (isAuthenticated === null) return null; // Or a loading spinner
-
-  if (!isAuthenticated) {
+  if (!adminSession.isActive()) {
     return <Navigate to="/tpi-admin-portal" state={{ from: location }} replace />;
   }
 

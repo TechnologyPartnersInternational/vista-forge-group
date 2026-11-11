@@ -72,10 +72,20 @@ const InsightDetail = () => {
     );
   }
 
-  const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleShare = async () => {
+    // Clipboard access can be denied (or missing on non-HTTPS); only show
+    // "Copied" when it actually worked.
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: document.title, url: window.location.href });
+        return;
+      }
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* user cancelled the share sheet or clipboard is unavailable */
+    }
   };
 
   const categoryRelatedInsights = insight ? allInsights

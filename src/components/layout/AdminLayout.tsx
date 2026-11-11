@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
+import { adminSession } from '@/lib/adminSession';
 
 const AdminLayout = () => {
   const location = useLocation();
@@ -28,7 +29,7 @@ const AdminLayout = () => {
   ];
 
   const handleLogout = () => {
-    sessionStorage.removeItem('tpi_admin_auth');
+    adminSession.clear();
     navigate('/tpi-admin-portal');
   };
 

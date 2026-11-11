@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '@/lib/api';
+import { api, slugify, type InsightType } from '@/lib/api';
+import { useAdminErrorHandler } from '@/hooks/use-admin-error';
 import { 
   Plus, 
   Search, 
@@ -52,6 +53,7 @@ import { toast } from 'sonner';
 
 const AdminInsights = () => {
   const queryClient = useQueryClient();
+  const onAdminError = useAdminErrorHandler();
   const [searchTerm, setSearchTerm] = useState('');
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   
@@ -60,7 +62,7 @@ const AdminInsights = () => {
     title: '',
     excerpt: '',
     category: '',
-    type: 'Article',
+    type: 'Article' as InsightType,
     featured: false,
     content: '',
     bannerImage: '',
@@ -88,7 +90,7 @@ const AdminInsights = () => {
       toast.success('Insight published successfully');
       setFormData(initialFormState);
     },
-    onError: () => toast.error('Failed to publish insight'),
+    onError: onAdminError('Failed to publish insight'),
   });
 
   const deleteMutation = useMutation({
@@ -97,9 +99,10 @@ const AdminInsights = () => {
       queryClient.invalidateQueries({ queryKey: ['insights'] });
       toast.success('Insight deleted');
     },
+    onError: onAdminError('Failed to delete insight'),
   });
 
-  const filteredInsights = insights?.filter((i: any) => 
+  const filteredInsights = insights?.filter((i) => 
     i.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     i.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -110,7 +113,11 @@ const AdminInsights = () => {
         toast.error('Title is required');
         return;
     }
-    const id = formData.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const id = slugify(formData.title);
+    if (!id) {
+        toast.error('Title must contain letters or numbers');
+        return;
+    }
     const date = new Date().toISOString().split('T')[0];
     const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
     createMutation.mutate({ ...formData, id, date, lastUpdated });
@@ -163,7 +170,7 @@ const AdminInsights = () => {
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="type">Insight Type</Label>
-                    <Select defaultValue="Article" onValueChange={v => setFormData({...formData, type: v as any})}>
+                    <Select defaultValue="Article" onValueChange={v => setFormData({...formData, type: v as InsightType})}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select Type" />
                       </SelectTrigger>
@@ -317,7 +324,7 @@ const AdminInsights = () => {
                 </TableCell>
               </TableRow>
             ) : (
-              filteredInsights?.map((insight: any) => (
+              filteredInsights?.map((insight) => (
                 <TableRow key={insight.id} className="hover:bg-mist/30">
                   <TableCell className="font-medium text-navy">
                     <div className="flex items-center gap-2">

@@ -3,19 +3,30 @@
 // Supports cursor-based pagination via next_cursor query param.
 
 import cloudinary from './_lib/cloudinary.js';
+import { methodNotAllowed, setCors } from './_lib/http.js';
+
+// Folder names are interpolated into a Cloudinary search expression, so only
+// allow plain names — no quotes or operators that could rewrite the query.
+const CATEGORY_RE = /^[a-z0-9 _-]{1,60}$/i;
+const CURSOR_RE = /^[A-Za-z0-9+/=_-]{1,512}$/;
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
+  setCors(res, ['GET']);
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'GET') {
-    res.setHeader('Allow', ['GET']);
-    return res.status(405).json({ message: 'Method not allowed' });
+  if (req.method !== 'GET') return methodNotAllowed(res, ['GET']);
+
+  const category = typeof req.query.category === 'string' ? req.query.category : undefined;
+  const next_cursor = typeof req.query.next_cursor === 'string' ? req.query.next_cursor : undefined;
+
+  if (category && !CATEGORY_RE.test(category)) {
+    return res.status(400).json({ message: 'Invalid category.' });
+  }
+  if (next_cursor && !CURSOR_RE.test(next_cursor)) {
+    return res.status(400).json({ message: 'Invalid cursor.' });
   }
 
-  const { category, next_cursor } = req.query;
+  // Gallery changes rarely; let the CDN cache briefly to save Cloudinary Admin API quota.
+  res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
 
   try {
     // Build search expression:
@@ -67,6 +78,6 @@ export default async function handler(req, res) {
 
   } catch (err) {
     console.error('[/api/gallery]', err);
-    return res.status(500).json({ message: 'Failed to fetch gallery images', detail: err.message });
+    return res.status(500).json({ message: 'Failed to fetch gallery images' });
   }
 }

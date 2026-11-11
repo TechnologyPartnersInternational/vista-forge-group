@@ -14,13 +14,21 @@ interface JsonLdProps {
   data: Record<string, unknown> | Record<string, unknown>[];
 }
 
+// JSON.stringify does not escape "<", so CMS content containing "</script>"
+// could break out of the tag and inject HTML. Escape the risky characters.
+const serializeJsonLd = (data: JsonLdProps['data']) =>
+  JSON.stringify(data)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026');
+
 /**
  * Renders a <script type="application/ld+json"> tag with the given structured data.
  */
 export const JsonLd = ({ data }: JsonLdProps) => (
   <script
     type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
   />
 );
 

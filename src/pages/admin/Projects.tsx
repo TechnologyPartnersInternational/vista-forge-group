@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '@/lib/api';
+import { api, slugify, type ProjectData } from '@/lib/api';
+import { useAdminErrorHandler } from '@/hooks/use-admin-error';
 import { 
   Plus, 
   Search, 
@@ -51,6 +52,7 @@ import { toast } from 'sonner';
 
 const AdminProjects = () => {
   const queryClient = useQueryClient();
+  const onAdminError = useAdminErrorHandler();
   const [searchTerm, setSearchTerm] = useState('');
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   
@@ -64,7 +66,7 @@ const AdminProjects = () => {
     industry: '',
     location: '',
     year: '',
-    status: 'completed',
+    status: 'completed' as ProjectData['status'],
     heroImage: '',
     summary: '',
     problem: '',
@@ -97,7 +99,7 @@ const AdminProjects = () => {
       toast.success('Project created successfully');
       setFormData(initialFormState);
     },
-    onError: () => toast.error('Failed to create project'),
+    onError: onAdminError('Failed to create project'),
   });
 
   const deleteMutation = useMutation({
@@ -106,9 +108,10 @@ const AdminProjects = () => {
       queryClient.invalidateQueries({ queryKey: ['projects'] });
       toast.success('Project deleted');
     },
+    onError: onAdminError('Failed to delete project'),
   });
 
-  const filteredProjects = projects?.filter((p: any) => 
+  const filteredProjects = projects?.filter((p) => 
     p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     p.client.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -119,7 +122,11 @@ const AdminProjects = () => {
         toast.error('Title is required');
         return;
     }
-    const id = formData.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const id = slugify(formData.title);
+    if (!id) {
+        toast.error('Title must contain letters or numbers');
+        return;
+    }
     createMutation.mutate({ ...formData, id });
   };
 
@@ -286,7 +293,7 @@ const AdminProjects = () => {
                     <div className="grid grid-cols-2 gap-4">
                       <div className="grid gap-2">
                         <Label htmlFor="status">Status</Label>
-                        <Select defaultValue="completed" onValueChange={v => setFormData({...formData, status: v as any})}>
+                        <Select defaultValue="completed" onValueChange={v => setFormData({...formData, status: v as ProjectData['status']})}>
                           <SelectTrigger>
                             <SelectValue placeholder="Select Status" />
                           </SelectTrigger>
@@ -534,7 +541,7 @@ const AdminProjects = () => {
                 </TableCell>
               </TableRow>
             ) : (
-              filteredProjects?.map((project: any) => (
+              filteredProjects?.map((project) => (
                 <TableRow key={project.id} className="hover:bg-mist/30">
                   <TableCell className="font-medium text-navy">{project.title}</TableCell>
                   <TableCell>{project.client}</TableCell>
