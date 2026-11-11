@@ -47,7 +47,7 @@ export const projects: Project[] = [
   // ─── FEATURED (used in FeaturedProjects component) ────────────────────────
     {
     id: "dangote-fertilizer-ees",
-    title: "Environmental Evaluation Study (EES)",
+    title: "Securing Full Regulatory Approval with Zero Delays for Nigeria's Largest Fertilizer Facility",
     subtitle: "Strengthening Sustainable Industrial Development through Environmental Governance",
     client: "Private",
     service: "Environment",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
   },
   {
     id: "totalenergies-egina-south-ebs-eia",
-    title: "Environmental Baseline Study (EBS) & Environmental Impact Assessment (EIA)",
+    title: "Securing Dual Regulatory Approval for Ultra-Deep Offshore Drilling Without Schedule Disruption",
     subtitle: "Environmental Intelligence for Ultra-Deep Offshore Appraisal",
     client: "Private",
     service: "Environment",
@@ -128,7 +128,7 @@ export const projects: Project[] = [
   },
   {
     id: "niger-delta-remediation",
-    title: "Niger Delta Soil Remediation Programme",
+    title: "Restoring 14 Contaminated Niger Delta Sites to Full Regulatory Closure in 18 Months",
     client: "Private",
     service: "Environment",
     category: "Environmental Planning & Management",

@@ -75,7 +75,8 @@ const Insights = () => {
   const visibleCats = showAllCats ? ALL_CATEGORIES : CATEGORY_CHIPS;
 
   const featured = insightsData.find((i) => i.featured) || insightsData[0];
-  const latestFour = insightsData.slice(0, 4);
+  // Exclude the featured article so it isn't shown twice side by side.
+  const latestFour = insightsData.filter((i) => i.id !== featured?.id).slice(0, 4);
 
   const filtered = useMemo(
     () =>
