@@ -6,10 +6,10 @@ import projectEcm from "@/assets/Projects/project-ecm.png";
 // import projectIswm from "@/assets/Projects/project-iswm.png";
 // import projectIncinerator from "@/assets/Projects/project-incinerator.png";
 // Featured project images (re-export for FeaturedProjects component)
-import projectRemediation from "@/assets/Featured Projects/20131028_173122-scaled.jpg";
+import projectRemediation from "@/assets/Featured Projects/niger-delta-field-site.jpg";
 // import projectLng from "@/assets/Featured Projects/IMG-20230620-WA0013.jpg";
 // import projectLab from "@/assets/Featured Projects/file-13323803-870x580-1.png";
-import projectEes from "@/assets/GeneralPictures/NavPicture.png";
+import projectEes from "@/assets/Featured Projects/dangote-fertilizer-plant.jpg";
 import projectEbs from "@/assets/GeneralPictures/Importance-Of-Technology-In-Oil-And-Gas-Industry.jpg";
 
 export interface Project {
@@ -88,7 +88,7 @@ export const projects: Project[] = [
   },
   {
     id: "totalenergies-egina-south-ebs-eia",
-    title: "Securing Dual Regulatory Approval for Ultra-Deep Offshore Drilling Without Schedule Disruption",
+    title: "Securing Dual Regulatory Approval for Ultra-Deep Offshore Drilling",
     subtitle: "Environmental Intelligence for Ultra-Deep Offshore Appraisal",
     client: "Private",
     service: "Environment",
