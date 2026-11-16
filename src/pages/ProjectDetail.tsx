@@ -12,7 +12,7 @@ import { projects as staticProjects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import CtaBand from "@/components/CtaBand";
 import PageSEO from "@/seo/PageSEO";
-import { SITE_NAME, SITE_URL } from "@/seo/seo.config";
+import { SITE_NAME, SITE_URL, clampDescription } from "@/seo/seo.config";
 import Breadcrumbs from "@/seo/Breadcrumbs";
 import { JsonLd, webPageSchema } from "@/seo/JsonLd";
 
@@ -94,8 +94,8 @@ const ProjectDetail = () => {
   return (
     <Layout>
       <PageSEO
-        title={`${project.title} | Environmental Projects | ${SITE_NAME}`}
-        description={project.summary || `View details about ${project.title}, an environmental project executed by TPI Nigeria in ${project.location}.`}
+        title={`${project.title} | TPI`}
+        description={clampDescription(project.summary || `${project.title}: an environmental project delivered by TPI in ${project.location}.`)}
         keywords={`${project.title}, ${project.category}, ${project.service}, environmental project Nigeria, TPI Nigeria`}
         canonicalPath={`/projects/${project.id}`}
         ogImage={project.heroImage}

@@ -12,7 +12,7 @@ import { insights as staticInsights } from "@/data/insights";
 import InsightCard from "@/components/InsightCard";
 import CtaBand from "@/components/CtaBand";
 import PageSEO from "@/seo/PageSEO";
-import { SITE_NAME, SITE_URL } from "@/seo/seo.config";
+import { SITE_NAME, SITE_URL, clampDescription } from "@/seo/seo.config";
 import Breadcrumbs from "@/seo/Breadcrumbs";
 import { JsonLd } from "@/seo/JsonLd";
 
@@ -104,8 +104,8 @@ const InsightDetail = () => {
       {insight && (
         <>
           <PageSEO
-            title={`${insight.title} | ${SITE_NAME} Insights`}
-            description={insight.excerpt || `${insight.title} - Environmental insights and articles by Technology Partners International in Nigeria.`}
+            title={`${insight.title} | TPI`}
+            description={clampDescription(insight.excerpt || `${insight.title}: environmental insight from Technology Partners International (TPI), Nigeria.`)}
             keywords={`${insight.category}, environmental news Nigeria, TPI insights, ${insight.author?.name || 'TPI'}`}
             canonicalPath={`/insights/${insight.id}`}
             ogImage={insight.bannerImage}
