@@ -101,6 +101,7 @@ export function organizationSchema() {
       { '@type': 'Country', name: 'Guinea' },
       { '@type': 'Country', name: 'Ghana' },
       { '@type': 'GeoShape', name: 'West Africa' },
+      { '@type': 'Continent', name: 'Africa' },
     ],
     iso6523Code: 'ISO 9001:2015, ISO 14001:2015, ISO 45001:2018, ISO/IEC 17025:2017',
   };
@@ -179,6 +180,7 @@ export function professionalServiceSchema() {
       { '@type': 'Country', name: 'Guinea' },
       { '@type': 'Country', name: 'Ghana' },
       { '@type': 'GeoShape', name: 'West Africa' },
+      { '@type': 'Continent', name: 'Africa' },
     ],
     providerMobility: 'dynamic',
     hasOfferCatalog: {
@@ -239,6 +241,7 @@ export function serviceSchema(name: string, description: string, url: string) {
     areaServed: [
       { '@type': 'Country', name: 'Nigeria' },
       { '@type': 'GeoShape', name: 'West Africa' },
+      { '@type': 'Continent', name: 'Africa' },
     ],
     providerMobility: 'dynamic',
     serviceType: name,

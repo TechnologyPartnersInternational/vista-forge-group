@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { services } from "@/data/services";
 import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 import PageSEO from "@/seo/PageSEO";
-import { SITE_NAME, SITE_URL } from "@/seo/seo.config";
+import { SITE_NAME, SITE_URL, localTitle, localDescription } from "@/seo/seo.config";
 import Breadcrumbs from "@/seo/Breadcrumbs";
 import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 
@@ -29,8 +29,8 @@ const ServiceDetail = () => {
   return (
     <Layout>
       <PageSEO
-        title={`${service.title} Services | ${SITE_NAME}`}
-        description={service.shortDesc || `Environmental consultancy and engineering services for ${service.title} in Nigeria.`}
+        title={localTitle(`${service.title} Services`)}
+        description={localDescription(service.shortDesc || `${service.title} services from TPI, an environmental consultancy and engineering firm serving Nigeria and Africa since 1992.`)}
         keywords={`${service.title} Nigeria, environmental consultancy services, TPI Nigeria`}
         canonicalPath={`/what-we-do/${service.slug}`}
       />

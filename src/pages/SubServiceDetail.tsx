@@ -8,7 +8,7 @@ import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight, Download } from "luc
 import CtaBand from "@/components/CtaBand";
 import capabilityStatement from "@/assets/CompanyProfile/TPI-Company-Profile.pdf";
 import PageSEO from "@/seo/PageSEO";
-import { SITE_URL, SITE_NAME } from "@/seo/seo.config";
+import { SITE_URL, SITE_NAME, localTitle, localDescription } from "@/seo/seo.config";
 import Breadcrumbs from "@/seo/Breadcrumbs";
 import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 
@@ -30,8 +30,8 @@ const SubServiceDetail = () => {
   return (
     <Layout>
       <PageSEO
-        title={`${subService.title} | ${service.title} | ${SITE_NAME}`}
-        description={(subService.shortDesc || subService.fullDesc || `${subService.title} services by TPI Nigeria. ${service.shortDesc}`).substring(0, 160)}
+        title={localTitle(subService.title)}
+        description={localDescription(subService.shortDesc || subService.fullDesc || `${subService.title} services by TPI in Nigeria and Africa. ${service.shortDesc}`)}
         keywords={`${subService.title}, ${service.title}, Nigeria, environmental services, TPI`}
         canonicalPath={`/what-we-do/${serviceSlug}/${subServiceSlug}`}
       />
