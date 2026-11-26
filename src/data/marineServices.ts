@@ -3,9 +3,10 @@ import type { Service } from "./services";
 
 // ─── Marine & Underwater Services ────────────────────────────────────────────
 // Content adapted from TPI's six ROV & underwater service brochures (2026).
-// Gallery frames under /assets/marine/ are ROV inspection outputs taken from
-// those brochures. Hero photographs marked "stand-in" in MARINE_PHOTO_CREDITS
-// are licensed Wikimedia Commons images to be replaced with TPI's own footage.
+// Gallery frames under /assets/marine/ and photo-jacket-underwater are TPI's own
+// brochure imagery. Photographs listed in MARINE_PHOTO_CREDITS are licensed
+// Wikimedia Commons stand-ins. Client direction: show no third-party ROVs and
+// no visible company names in any photograph.
 
 const M = "/assets/marine";
 
@@ -74,8 +75,8 @@ export const marineService: Service = {
       ],
       enquiryPrompt:
         "Send the asset locations, water depths, drawings where available, the coverage you need and your preferred mobilisation window.",
-      heroImage: `${M}/photo-north-sea-platform.webp`,
-      image: `${M}/photo-rov-deployment.webp`,
+      heroImage: `${M}/photo-offshore-platform.webp`,
+      image: `${M}/photo-offshore-field-dusk.webp`,
       gallery: [
         { src: `${M}/rov-marked-jacket-member.webp`, alt: "Painted identification number on a submerged jacket member, filmed by ROV" },
         { src: `${M}/rov-mooring-chain.webp`, alt: "Marine growth on an accessible section of mooring chain" },
@@ -137,7 +138,7 @@ export const marineService: Service = {
       ],
       enquiryPrompt:
         "Send asset drawings, materials, nominal thicknesses, coating details, water depths, previous results and the testing scope you need.",
-      heroImage: `${M}/photo-rov-manipulator.webp`,
+      heroImage: `${M}/photo-sacrificial-anode.webp`,
       image: `${M}/coating-defect-measure.webp`,
       gallery: [
         { src: `${M}/anode-length-scale.webp`, alt: "Sacrificial anode measured against an on-screen scale" },
@@ -333,9 +334,9 @@ export const marineService: Service = {
       heroImage: `${M}/photo-multibeam-seabed.webp`,
       image: `${M}/bathymetry-terrain-model.webp`,
       gallery: [
-        { src: `${M}/photo-multibeam-wreck.webp`, alt: "Multibeam bathymetry image of a wreck lying on the seabed" },
         { src: `${M}/bathymetry-terrain-contours.webp`, alt: "3D terrain surface with depth contours draped over the surveyed bed" },
-        { src: `${M}/rov-imaging-sonar.webp`, alt: "Imaging sonar sweep used to locate seabed features" },
+        { src: `${M}/photo-multibeam-wreck.webp`, alt: "Multibeam bathymetry image of a wreck lying on the seabed" },
+        { src: `${M}/bathymetry-depth-contours.webp`, alt: "Depth contour plan of a surveyed basin, coloured by depth band" },
       ],
     },
     {
@@ -395,7 +396,7 @@ export const marineService: Service = {
       ],
       enquiryPrompt:
         "Send the project location, study objectives, water depths, existing data, target season, required parameters and any monitoring or reporting commitments.",
-      heroImage: `${M}/photo-rov-coral.webp`,
+      heroImage: `${M}/photo-healthy-reef.webp`,
       image: `${M}/reef-transect.webp`,
       gallery: [
         { src: `${M}/structure-colonisation.webp`, alt: "Sponges, tunicates and other organisms colonising a submerged structure" },
@@ -412,16 +413,15 @@ export const marineService: Service = {
  */
 export const MARINE_PHOTO_CREDITS: Record<string, { by: string; licence: string; page: string }> = {
   "photo-offshore-platform": { by: "GuavaTrain", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Holstein_at_Dusk.jpg" },
-  "photo-north-sea-platform": { by: "Gary Bembridge", licence: "CC BY 2.0", page: "https://commons.wikimedia.org/wiki/File:North_Sea_Oil_Rig_(7573694644).jpg" },
-  "photo-rov-deployment": { by: "Olivier Dugornay, Ifremer", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Enqu%C3%AAte_du_BEA_-_Mise_%C3%A0_l%27eau_du_ROV_Victor_6000_depuis_le_Pourquoi_Pas_%3F_(Ifremer_00572-68399_-_50750).jpg" },
-  "photo-rov-manipulator": { by: "BPLINFO", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Underwater_ROV_Manipulator_Arm.jpg" },
+  "photo-offshore-field-dusk": { by: "Genghiskhanviet", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:An_oil_rig_offshore_Vungtau.jpg" },
+  "photo-sacrificial-anode": { by: "Zwergelstern", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Sacrificial_anode.jpg" },
+  "photo-healthy-reef": { by: "Laszlo Ilyes", licence: "CC BY 2.0", page: "https://commons.wikimedia.org/wiki/File:Healthy_Reef_(2067197055).jpg" },
   "photo-platform-risers": { by: "FrogsLegs71", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Risers_going_below_a_offshore_oil_platform.jpg" },
   "photo-pipeline-mattresses": { by: "Ciacho5", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Pipeline_matrasses_on_barge1.jpg" },
   "photo-drydock-propeller": { by: "AlfvanBeem", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Union_5_in_dry-dock_of_Antwerp_pic4.JPG" },
   "photo-structure-inspection-diver": { by: "Idmer34", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Idmer_underwater_inspection.jpg" },
   "photo-multibeam-seabed": { by: "Ifremer", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Crat%C3%A8res_sous-marins_en_baie_de_Concarneau_(Ifremer_00705-81751_-_34709).jpg" },
   "photo-multibeam-wreck": { by: "U.S. Navy", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:US_Navy_030411-N-0000X-001_A_detailed_multibeam_image_for_the_survey_of_USS_Susan_B._Anthony_(AP-72).jpg" },
-  "photo-rov-coral": { by: "NOAA Office of Ocean Exploration and Research", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:ROV_and_coral_-_Retriever_Seamount.jpg" },
   "photo-diver-transect": { by: "Peter Southwood", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Diver_swimming_a_transect_for_Reef_Life_Survey_PB164699.JPG" },
 };
 
@@ -434,7 +434,7 @@ export const creditsFor = (paths: (string | undefined)[]) =>
 /** Overview content for the Marine & Underwater service line page. */
 export const marineOverview = {
   brochure: "/brochures/TPI-Underwater-Inspection-and-Survey-Services.pdf",
-  heroImage: `${M}/photo-offshore-platform.webp`,
+  heroImage: `${M}/photo-jacket-underwater.webp`,
   intro:
     "Remotely operated vehicles take our cameras, imaging sonar and measurement tools to submerged steel, concrete and seabed. Every finding is referenced to a component, route section, hull zone or survey station, so your team can find it again, plan the work and compare it at the next campaign.",
   record: [
@@ -443,6 +443,5 @@ export const marineOverview = {
     { title: "Survey and monitoring data", desc: "Depth plans, terrain models, transect logs and environmental field records." },
     { title: "Technical report", desc: "Methods, coverage, data quality, limitations and findings for follow-up." },
   ],
-  enquiry:
-    "Share the asset or survey area, its location, water depth and what you need to find out. Drawings, earlier findings and your mobilisation window help us scope the work quickly.",
+  enquiryShort: "Tell us the asset, its location and water depth. We'll scope the survey.",
 };

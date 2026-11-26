@@ -12,14 +12,14 @@ export const contacts = {
 export const general = {
   title: "Underwater Inspection & Survey Services",
   coverLine: "ROV inspection, testing and seabed survey for offshore, coastal and inland water assets.",
-  cover: "cover-offshore-platform",
+  cover: "cover-jacket-underwater",
 
   introHeading: "Every finding tied to the place it came from.",
   intro: [
     "Our remotely operated vehicles carry cameras, imaging sonar and measurement tools to submerged steel, concrete and seabed. Pilots hold position for close work, mark each observation against a component, route section, hull zone or survey station, and log anything that could not be reached.",
     "You get a record your team can act on now, and a baseline to compare against at the next campaign.",
   ],
-  introImage: "photo-rov-deployment",
+  introImage: "photo-offshore-field-dusk",
   onEveryDive: [
     { title: "Cleaning at up to 500 bar", desc: "A cavitation water jet clears marine growth from test points and connections, at a pressure suited to the coating." },
     { title: "Sizing on screen", desc: "Scaled images and a live on-screen ruler let us measure a feature during the dive or mark it for later." },
@@ -58,11 +58,11 @@ export const general = {
 /** Cover images and lines for each service brochure, keyed by sub-service id. */
 export const serviceCovers = {
   "offshore-subsea-inspection": {
-    cover: "cover-north-sea-platform",
+    cover: "cover-offshore-platform",
     line: "Condition evidence for jackets, subsea equipment, risers and moorings, tied to the component it came from.",
   },
   "underwater-ndt-corrosion": {
-    cover: "cover-rov-manipulator",
+    cover: "cover-sacrificial-anode",
     line: "Thickness, protection potential and coating condition, measured at the test points that matter.",
   },
   "pipeline-cable-inspection": {
@@ -78,7 +78,7 @@ export const serviceCovers = {
     line: "Depth, terrain and seabed change, measured on a datum you can compare against.",
   },
   "underwater-environmental-surveys": {
-    cover: "cover-rov-coral",
+    cover: "cover-healthy-reef",
     line: "Underwater baselines and monitoring you can repeat, station by station and season by season.",
   },
 };

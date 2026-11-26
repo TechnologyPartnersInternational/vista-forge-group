@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowDown, Download } from "lucide-react";
+import { ArrowRight, ArrowDown, Download, CheckCircle2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ServiceHero from "@/components/service/ServiceHero";
 import SubServiceSection from "@/components/service/SubServiceSection";
@@ -78,32 +78,28 @@ const MarineDetail = () => {
       ))}
 
       {/* What every survey delivers */}
-      <section className="navy-gradient py-20 md:py-28">
-        <div className="px-4 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 mb-16">
+      <section className="bg-white px-4 md:px-10 py-12 md:py-16">
+        <div className="navy-gradient rounded-[2rem] px-6 sm:px-10 md:px-14 py-12 md:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <h2 className="lg:col-span-5 text-3xl md:text-5xl font-bold text-white leading-[1.1] text-balance">
               A record your team can act on.
             </h2>
-            <p className="lg:col-span-7 text-lg text-white/80 leading-relaxed max-w-[62ch] self-end">
-              Deliverables follow the agreed asset list, survey coverage and measurement requirements, and every report states what was covered and what was not.
-            </p>
+            <ul className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10">
+              {marineOverview.record.map((item) => (
+                <li key={item.title} className="flex items-center gap-3 border-t border-white/20 py-4 text-base md:text-lg font-semibold text-white">
+                  <CheckCircle2 className="w-5 h-5 shrink-0 text-white/70" />
+                  {item.title}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
-            {marineOverview.record.map((item) => (
-              <div key={item.title} className="border-t border-white/25 pt-6">
-                <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-sm text-white/75 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-20 pt-10 border-t border-white/15 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <p className="text-base md:text-lg text-white/85 leading-relaxed max-w-[60ch]">{marineOverview.enquiry}</p>
+          <div className="mt-12 pt-8 border-t border-white/15 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <p className="text-base md:text-lg text-white/85 text-balance max-w-[46ch]">{marineOverview.enquiryShort}</p>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-navy-deep font-bold hover:bg-white/90 active:scale-[0.98] transition-all group"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-navy-deep font-bold hover:bg-white/90 active:scale-[0.98] transition-all group"
               >
                 Discuss your survey
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -111,9 +107,9 @@ const MarineDetail = () => {
               <a
                 href={marineOverview.brochure}
                 download
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/40 text-white font-bold hover:bg-white/10 active:scale-[0.98] transition-all group"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/40 text-white font-bold hover:bg-white/10 active:scale-[0.98] transition-all group"
               >
-                Download brochure
+                Download full brochure
                 <Download className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
               </a>
             </div>
