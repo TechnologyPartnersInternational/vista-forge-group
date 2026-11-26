@@ -125,7 +125,7 @@ function buildGeneral() {
   const p1 = cover({ image: use(general.cover), series, title: general.title, line: general.coverLine });
 
   const p2 = `
-<section class="page">
+<section class="page flow">
   <div class="inner">
     <div class="grid intro-top">
       <h2>${esc(general.introHeading)}</h2>
@@ -138,7 +138,7 @@ function buildGeneral() {
       ${general.onEveryDive.map((d) => `<div><h3>${esc(d.title)}</h3><p class="small">${esc(d.desc)}</p></div>`).join("")}
     </div>
   </div>
-  <div class="foot-photo" style="height:128mm">${img(use(general.introImage), "Work-class ROV being lowered from a survey vessel")}</div>
+  <div class="fill" style="margin-top:12mm">${img(use(general.introImage), "Offshore platforms at dusk")}</div>
 </section>`;
 
   const p3 = `
@@ -185,7 +185,7 @@ function buildGeneral() {
 </section>`).join("");
 
   const p7 = `
-<section class="page">
+<section class="page flow">
   <div class="inner">
     <div class="grid" style="align-items:end">
       <h2 style="grid-column:1 / span 6">${esc(general.receiveHeading)}</h2>
@@ -194,9 +194,9 @@ function buildGeneral() {
     <div class="receive-grid rules">
       ${marineOverview.record.map((r) => `<div><h3>${esc(r.title)}</h3><p>${esc(r.desc)}</p></div>`).join("")}
     </div>
-    <div class="outputs">
-      ${general.outputs.map((o) => `<div class="frame">${img(use(o), "Inspection output")}</div>`).join("")}
-    </div>
+  </div>
+  <div class="fill outputs">
+    ${general.outputs.map((o) => `<div class="frame">${img(use(o), "Inspection output")}</div>`).join("")}
   </div>
   <div class="sectors">
     <h2>${esc(general.sectorsHeading)}</h2>
@@ -235,11 +235,14 @@ function buildService(s) {
   const p1 = cover({ image: use(meta.cover), series: "Marine & Underwater Services", title: s.title, line: meta.line });
 
   const p2 = `
-<section class="page ov">
-  <div class="inner col">
+<section class="page ov flow">
+  <div class="ov-top">
     <p class="lede">${esc(lede)}</p>
     ${second ? `<p class="second">${esc(second)}</p>` : ""}
-    <div class="caps-head"><h2>What we cover</h2></div>
+  </div>
+  <div class="fill">${img(use(s.image), s.title)}</div>
+  <div class="ov-caps">
+    <h2>What we cover</h2>
     <div class="caps rules">
       ${s.capabilities.map((c) => `<div><h3>${esc(c.title)}</h3><p>${esc(c.desc)}</p></div>`).join("")}
     </div>
@@ -249,13 +252,15 @@ function buildService(s) {
 
   const left = { h: "Where it is used", p: s.applications };
   const right = s.addOns ? { h: "Measurement and follow-up", p: s.addOns } : { h: "Scope and limits", p: s.limits };
+  const [g0, g1, g2] = s.gallery;
   const p3 = `
-<section class="page ev">
-  <div class="hero">${img(use(s.image), s.title)}</div>
+<section class="page ev flow">
+  <div class="fill mosaic">
+    <div class="a">${img(use(g0.src), g0.alt)}</div>
+    <div class="b">${img(use(g1.src), g1.alt)}</div>
+    <div class="c">${img(use(g2.src), g2.alt)}</div>
+  </div>
   <div class="body">
-    <div class="strip">
-      ${s.gallery.map((g) => `<div class="frame">${img(use(g.src), g.alt)}</div>`).join("")}
-    </div>
     <div class="cols">
       <div><h3>${left.h}</h3><p>${esc(left.p)}</p></div>
       <div><h3>${right.h}</h3><p>${esc(right.p)}</p></div>
@@ -267,7 +272,7 @@ function buildService(s) {
 
   const others = subs.filter((o) => o.id !== s.id);
   const p4 = `
-<section class="page dl">
+<section class="page dl flow">
   <div class="inner">
     <h2>What you receive</h2>
     <div class="grid2 rules">
@@ -278,6 +283,7 @@ function buildService(s) {
       <ul>${sendList(s.enquiryPrompt).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
     </div>
   </div>
+  <div class="fill">${img(use("photo-jacket-underwater"), "Jacket leg, braces and pipeline on the seabed")}</div>
   <div class="panel">
     <div class="row">
       <div>

@@ -46,6 +46,13 @@ img { display: block; }
 }
 .page:last-child { break-after: auto; }
 
+/* Flow pages: a column where the .fill photo takes whatever height the text
+   leaves, so no page ends in empty white space. */
+.page.flow { display: flex; flex-direction: column; }
+.flow > .fill { flex: 1 1 auto; min-height: 40mm; position: relative; overflow: hidden; }
+.flow > .fill > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dl .fill > img { object-position: 50% 78%; }
+
 /* ── Type ─────────────────────────────────────────────────────────────── */
 
 h1 { font-size: 38pt; line-height: 1.04; letter-spacing: -0.028em; font-weight: 700; text-wrap: balance; }
@@ -145,9 +152,12 @@ p { text-wrap: pretty; }
 /* ── General: deliverables and sectors ────────────────────────────────── */
 
 .receive-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; row-gap: 6mm; margin-top: 10mm; }
-.outputs { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 4mm; height: 54mm; margin-top: 11mm; }
+.outputs { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-rows: 1fr 1fr; gap: 3mm; margin: 10mm var(--m) 10mm; }
+.outputs > .frame:first-child { grid-row: 1 / span 2; }
+.flow > .fill.outputs > .frame { position: relative; }
+.flow > .fill.outputs img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .sectors {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 84mm;
+  flex: none; height: 78mm;
   background: var(--mist); padding: 13mm var(--m) 0;
   display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 6mm;
 }
@@ -181,32 +191,36 @@ p { text-wrap: pretty; }
 
 /* ── Service brochure: overview page ──────────────────────────────────── */
 
-.ov .col { display: flex; flex-direction: column; height: 272mm; padding-top: 22mm; }
-.ov .lede { font-size: 17pt; line-height: 1.38; max-width: 172mm; letter-spacing: -0.012em; }
-.ov .second { margin-top: 9mm; margin-left: auto; width: 112mm; color: var(--muted); font-size: 10.5pt; line-height: 1.55; }
-.ov .caps-head { margin-top: auto; margin-bottom: 7mm; }
-.caps { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10mm; row-gap: 6.5mm; }
+.ov-top { padding: 20mm var(--m) 9mm; }
+.ov .lede { font-size: 16pt; line-height: 1.4; max-width: 174mm; letter-spacing: -0.012em; }
+.ov .second { margin-top: 6mm; margin-left: auto; width: 116mm; color: var(--muted); font-size: 10.5pt; line-height: 1.55; }
+.ov-caps { padding: 10mm var(--m) 19mm; }
+.ov-caps h2 { margin-bottom: 6mm; }
+.caps { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10mm; row-gap: 5mm; }
 .caps h3 { font-size: 11.5pt; }
-.caps p { font-size: 9.6pt; line-height: 1.52; }
+.caps p { font-size: 9.8pt; line-height: 1.5; }
 
 /* ── Service brochure: evidence page ──────────────────────────────────── */
 
-.ev .hero { position: absolute; top: 0; left: 0; right: 0; height: 112mm; }
-.ev .hero img { width: 100%; height: 100%; object-fit: cover; }
-.ev .body { position: absolute; top: 120mm; left: var(--m); right: var(--m); }
-.ev .strip { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 4mm; height: 42mm; }
-.ev .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 9mm; margin-top: 10mm; }
-.ev .cols h3 { font-size: 11pt; margin-bottom: 2mm; }
-.ev .cols p { color: var(--muted); }
-.ev .limits { margin-top: 9mm; background: var(--mist); border-radius: 2.5mm; padding: 6mm 7mm; }
-.ev .limits h3 { margin-bottom: 1.6mm; }
-.ev .limits p { color: var(--muted); font-size: 9pt; }
+.mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1.25fr 1fr; gap: 1.5mm; background: #fff; }
+.flow > .fill.mosaic > div { position: relative; overflow: hidden; background: var(--deep); }
+.flow > .fill.mosaic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.mosaic .a { grid-column: 1 / span 2; }
+.ev .body { padding: 10mm var(--m) 19mm; }
+.ev .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10mm; }
+.ev .cols h3 { font-size: 12pt; margin-bottom: 2.5mm; }
+.ev .cols p { color: var(--muted); font-size: 10.3pt; line-height: 1.55; }
+.ev .limits { margin-top: 8mm; background: var(--mist); border-radius: 2.5mm; padding: 6mm 7mm; }
+.ev .limits h3 { margin-bottom: 1.8mm; font-size: 11pt; }
+.ev .limits p { color: var(--muted); font-size: 9.8pt; line-height: 1.55; }
 
 /* ── Service brochure: deliverables + contact ─────────────────────────── */
 
-.dl .grid2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 9mm; row-gap: 5mm; margin-top: 9mm; }
-.dl .grid2 h3 { font-size: 11pt; }
-.dl .send { margin-top: 13mm; display: grid; grid-template-columns: 52mm 1fr; column-gap: 8mm; }
+.dl .inner { padding-bottom: 10mm; }
+.dl .grid2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10mm; row-gap: 5mm; margin-top: 8mm; }
+.dl .grid2 h3 { font-size: 11.5pt; }
+.dl .grid2 p { font-size: 9.8pt; }
+.dl .send { margin-top: 10mm; display: grid; grid-template-columns: 52mm 1fr; column-gap: 8mm; }
 .dl .send h3 { font-size: 13pt; line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; max-width: 44mm; }
 .dl .send ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 6mm; }
 .dl .send li { border-top: 0.3mm solid var(--rule); padding: 2.2mm 0 2.2mm 5mm; position: relative; }
@@ -215,7 +229,7 @@ p { text-wrap: pretty; }
   border-radius: 50%; background: var(--blue);
 }
 .dl .panel {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 112mm;
+  flex: none; position: relative; height: 104mm;
   background: var(--deep); color: #fff; padding: 13mm var(--m) 0;
 }
 .dl .panel .row { display: grid; grid-template-columns: 1fr 64mm; column-gap: 12mm; }
