@@ -19,6 +19,7 @@ export const marineService: Service = {
   subServices: [
     {
       id: "offshore-subsea-inspection",
+      brochure: "/brochures/TPI-Offshore-Subsea-Asset-Inspection.pdf",
       slug: "offshore-subsea-asset-inspection",
       title: "Offshore & Subsea Asset Inspection",
       shortDesc:
@@ -83,6 +84,7 @@ export const marineService: Service = {
     },
     {
       id: "underwater-ndt-corrosion",
+      brochure: "/brochures/TPI-Underwater-NDT-Corrosion-Assessment.pdf",
       slug: "underwater-ndt-corrosion-assessment",
       title: "Underwater NDT & Corrosion Assessment",
       shortDesc:
@@ -145,6 +147,7 @@ export const marineService: Service = {
     },
     {
       id: "pipeline-cable-inspection",
+      brochure: "/brochures/TPI-Pipeline-Subsea-Cable-Inspection.pdf",
       slug: "pipeline-subsea-cable-inspection",
       title: "Pipeline & Subsea Cable Inspection",
       shortDesc:
@@ -209,6 +212,7 @@ export const marineService: Service = {
     },
     {
       id: "hull-marine-structure-inspection",
+      brochure: "/brochures/TPI-Vessel-Hull-Marine-Structure-Inspection.pdf",
       slug: "vessel-hull-marine-structure-inspection",
       title: "Vessel Hull & Marine Structure Inspection",
       shortDesc:
@@ -273,6 +277,7 @@ export const marineService: Service = {
     },
     {
       id: "bathymetric-seabed-surveys",
+      brochure: "/brochures/TPI-Bathymetric-Seabed-Surveys.pdf",
       slug: "bathymetric-seabed-surveys",
       title: "Bathymetric & Seabed Surveys",
       shortDesc:
@@ -335,6 +340,7 @@ export const marineService: Service = {
     },
     {
       id: "underwater-environmental-surveys",
+      brochure: "/brochures/TPI-Underwater-Environmental-Ecological-Surveys.pdf",
       slug: "underwater-environmental-ecological-surveys",
       title: "Underwater Environmental & Ecological Surveys",
       shortDesc:
@@ -427,6 +433,7 @@ export const creditsFor = (paths: (string | undefined)[]) =>
 
 /** Overview content for the Marine & Underwater service line page. */
 export const marineOverview = {
+  brochure: "/brochures/TPI-Underwater-Inspection-and-Survey-Services.pdf",
   heroImage: `${M}/photo-offshore-platform.webp`,
   intro:
     "Remotely operated vehicles take our cameras, imaging sonar and measurement tools to submerged steel, concrete and seabed. Every finding is referenced to a component, route section, hull zone or survey station, so your team can find it again, plan the work and compare it at the next campaign.",

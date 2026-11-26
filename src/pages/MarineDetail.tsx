@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowDown, Download } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ServiceHero from "@/components/service/ServiceHero";
 import SubServiceSection from "@/components/service/SubServiceSection";
@@ -100,13 +100,23 @@ const MarineDetail = () => {
 
           <div className="mt-20 pt-10 border-t border-white/15 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <p className="text-base md:text-lg text-white/85 leading-relaxed max-w-[60ch]">{marineOverview.enquiry}</p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 shrink-0 px-8 py-4 rounded-full bg-white text-navy-deep font-bold hover:bg-white/90 active:scale-[0.98] transition-all group"
-            >
-              Discuss your survey
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-navy-deep font-bold hover:bg-white/90 active:scale-[0.98] transition-all group"
+              >
+                Discuss your survey
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href={marineOverview.brochure}
+                download
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/40 text-white font-bold hover:bg-white/10 active:scale-[0.98] transition-all group"
+              >
+                Download brochure
+                <Download className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

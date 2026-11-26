@@ -29,6 +29,8 @@ export interface SubService {
   deliverables?: SubServiceItem[];
   enquiryPrompt?: string;
   gallery?: SubServiceImage[];
+  /** Downloadable PDF brochure, served from public/ (e.g. /brochures/x.pdf). */
+  brochure?: string;
 }
 
 export interface Service {
