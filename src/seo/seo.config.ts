@@ -107,6 +107,15 @@ export const PAGE_SEO: Record<string, PageSEOData> = {
     canonicalPath: '/what-we-do/engineering',
   },
 
+  marine: {
+    title: 'ROV Underwater Inspection & Seabed Surveys in Nigeria | TPI',
+    description:
+      'ROV inspection of offshore assets, pipelines, cables and hulls, plus underwater NDT, bathymetric surveys and underwater environmental surveys in Nigeria.',
+    keywords:
+      'ROV inspection Nigeria, underwater inspection Nigeria, subsea inspection services, pipeline inspection Nigeria, subsea cable inspection, hull inspection Nigeria, underwater NDT, cathodic protection survey, ultrasonic thickness gauging, bathymetric survey Nigeria, seabed survey, scour survey, underwater environmental survey, EIA marine survey Nigeria',
+    canonicalPath: '/what-we-do/marine-underwater',
+  },
+
   digital: {
     title: 'Environmental Data & Monitoring Solutions in Nigeria | TPI',
     description:

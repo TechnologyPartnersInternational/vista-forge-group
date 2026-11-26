@@ -1,16 +1,94 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { services } from "@/data/services";
+import { services, type SubService } from "@/data/services";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight, Download } from "lucide-react";
 import CtaBand from "@/components/CtaBand";
+import PhotoCredits from "@/components/service/PhotoCredits";
 import capabilityStatement from "@/assets/CompanyProfile/TPI-Company-Profile.pdf";
 import PageSEO from "@/seo/PageSEO";
 import { SITE_URL, SITE_NAME, localTitle, localDescription } from "@/seo/seo.config";
 import Breadcrumbs from "@/seo/Breadcrumbs";
 import { JsonLd, serviceSchema } from "@/seo/JsonLd";
+
+/** Capabilities, inspection frames, deliverables and scope for brochure-based services. */
+const DetailedSubServiceContent = ({ subService }: { subService: SubService }) => (
+  <div className="space-y-20">
+    <section>
+      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">What we cover</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+        {subService.capabilities!.map((item) => (
+          <div key={item.title} className="py-6 border-t border-border">
+            <h4 className="text-lg font-bold text-foreground mb-2">{item.title}</h4>
+            <p className="text-base text-muted-foreground leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {subService.gallery && subService.gallery.length > 0 && (
+      <section>
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Inspection and survey outputs</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {subService.gallery.map((img) => (
+            <div key={img.src} className="aspect-[4/3] rounded-xl overflow-hidden bg-navy-deep">
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.03]"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {(subService.applications || subService.addOns) && (
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {subService.applications && (
+          <div>
+            <h3 className="text-xl font-bold text-foreground mb-4">Where we use it</h3>
+            <p className="text-base text-muted-foreground leading-relaxed">{subService.applications}</p>
+          </div>
+        )}
+        {subService.addOns && (
+          <div>
+            <h3 className="text-xl font-bold text-foreground mb-4">Measurement and follow-up</h3>
+            <p className="text-base text-muted-foreground leading-relaxed">{subService.addOns}</p>
+          </div>
+        )}
+      </section>
+    )}
+
+    {subService.deliverables && subService.deliverables.length > 0 && (
+      <section>
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">What you receive</h3>
+        <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+          {subService.deliverables.map((item) => (
+            <li key={item.title} className="flex gap-4 py-6 border-t border-border">
+              <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+              <div>
+                <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
+                <p className="text-base text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    {subService.limits && (
+      <section className="bg-mist p-8 md:p-10 rounded-3xl border border-border/50">
+        <h3 className="text-xl font-bold text-foreground mb-4">Scope and limits</h3>
+        <p className="text-base text-muted-foreground leading-relaxed max-w-[68ch]">{subService.limits}</p>
+      </section>
+    )}
+  </div>
+);
 
 const SubServiceDetail = () => {
   const { serviceSlug, subServiceSlug } = useParams();
@@ -20,6 +98,8 @@ const SubServiceDetail = () => {
 
   const subService = service.subServices.find((ss) => ss.slug === subServiceSlug);
   if (!subService) return <Navigate to={`/what-we-do/${serviceSlug}`} replace />;
+
+  const isDetailed = Boolean(subService.capabilities?.length);
 
   // Filter related projects based on subservice category or service
   const relatedProjects = projects.filter(p => 
@@ -110,24 +190,33 @@ const SubServiceDetail = () => {
                   How we can help you
                 </h2>
                 
-                <p className="text-xl text-muted-foreground leading-relaxed mb-12 font-light">
-                  {subService.fullDesc}
-                </p>
+                <div className="mb-12 space-y-6 max-w-[68ch]">
+                  {subService.fullDesc.split("\n\n").map((para, i) => (
+                    <p key={i} className="text-xl text-muted-foreground leading-relaxed font-light">
+                      {para}
+                    </p>
+                  ))}
+                </div>
 
-                {/* Featured Image with Caption */}
+                {/* Featured Image */}
                 <div className="mb-16">
                   <div className="aspect-[16/9] rounded-2xl overflow-hidden mb-4 shadow-xl">
-                    <img 
-                      src={subService.image} 
+                    <img
+                      src={subService.image}
                       alt={subService.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <p className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-4 py-1">
-                    {subService.title} , TPI provides comprehensive technical solutions with a focus on sustainable outcomes and regulatory compliance.
-                  </p>
+                  {!isDetailed && (
+                    <p className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-4 py-1">
+                      {subService.title} , TPI provides comprehensive technical solutions with a focus on sustainable outcomes and regulatory compliance.
+                    </p>
+                  )}
                 </div>
 
+                {isDetailed ? (
+                  <DetailedSubServiceContent subService={subService} />
+                ) : (
                 <div className="space-y-16">
                   <section>
                     <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Expertise and capabilities</h3>
@@ -149,6 +238,7 @@ const SubServiceDetail = () => {
                     </p>
                   </section>
                 </div>
+                )}
               </motion.div>
             </div>
 
@@ -195,9 +285,9 @@ const SubServiceDetail = () => {
                 {/* Quick Contact CTA */}
                 <div className="bg-navy text-white rounded-3xl p-8 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-                  <h3 className="text-2xl font-bold mb-4">Ready to start?</h3>
-                  <p className="text-white/70 mb-8 text-sm leading-relaxed">
-                    Discuss your project requirements with our specialist consultants.
+                  <h3 className="text-2xl font-bold mb-4">{subService.enquiryPrompt ? "Scoping the work" : "Ready to start?"}</h3>
+                  <p className="text-white/80 mb-8 text-sm leading-relaxed">
+                    {subService.enquiryPrompt || "Discuss your project requirements with our specialist consultants."}
                   </p>
                   <Link 
                     to="/contact" 
@@ -265,6 +355,9 @@ const SubServiceDetail = () => {
       </section>
 
       <CtaBand />
+      {isDetailed && (
+        <PhotoCredits images={[subService.heroImage, subService.image, ...(subService.gallery?.map((g) => g.src) ?? [])]} />
+      )}
     </Layout>
   );
 };

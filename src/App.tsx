@@ -18,6 +18,7 @@ const LaboratoryDetail = lazy(() => import("./pages/LaboratoryDetail"));
 const WasteManagementDetail = lazy(() => import("./pages/WasteManagementDetail"));
 const EngineeringDetail = lazy(() => import("./pages/EngineeringDetail"));
 const DigitalDetail = lazy(() => import("./pages/DigitalDetail"));
+const MarineDetail = lazy(() => import("./pages/MarineDetail"));
 const TrainingDetail = lazy(() => import("./pages/TrainingDetail"));
 const SubServiceDetail = lazy(() => import("./pages/SubServiceDetail"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -72,6 +73,7 @@ const App = () => (
             <Route path="/what-we-do/waste-management" element={<WasteManagementDetail />} />
             <Route path="/what-we-do/engineering" element={<EngineeringDetail />} />
             <Route path="/what-we-do/digital-solutions" element={<DigitalDetail />} />
+            <Route path="/what-we-do/marine-underwater" element={<MarineDetail />} />
             <Route path="/what-we-do/training" element={<TrainingDetail />} />
             <Route path="/what-we-do/:serviceSlug/:subServiceSlug" element={<SubServiceDetail />} />
             <Route path="/what-we-do/:slug" element={<ServiceDetail />} />
