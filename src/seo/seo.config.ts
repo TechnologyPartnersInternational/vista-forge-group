@@ -15,6 +15,7 @@ export const GA4_MEASUREMENT_ID = 'G-Q3TKLPXBSZ';
 export const SOCIAL_PROFILES = {
   linkedin: 'https://www.linkedin.com/company/technology-partners-international-nigeria-limited/',
   twitter: 'https://twitter.com/TPI_Nigeria',
+  instagram: 'https://www.instagram.com/tpi_grp/',
 };
 
 // ─── Contact Info ───────────────────────────────────────────────────────────

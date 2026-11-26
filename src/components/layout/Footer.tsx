@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
-import { MapPin, Phone, Mail, Linkedin, Twitter, ArrowUp } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Instagram, Twitter, ArrowUp } from "lucide-react";
+import { SOCIAL_PROFILES } from "@/seo/seo.config";
 import TPILogo from "@/components/TPILogo";
 
 const Footer = () => {
@@ -24,12 +25,22 @@ const Footer = () => {
                 environmental, laboratory, and engineering solutions across Nigeria and West Africa.
               </p>
               <div className="flex gap-4">
-                <Link to="https://www.linkedin.com/company/technology-partners-international-nigeria-limited/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-white/10 text-silver hover:text-white hover:border-primary transition-all duration-300">
-                  <Linkedin className="w-4 h-4" />
-                </Link>
-                <Link to="https://twitter.com/TPI_Nigeria" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-white/10 text-silver hover:text-white hover:border-primary transition-all duration-300">
-                  <Twitter className="w-4 h-4" />
-                </Link>
+                {[
+                  { href: SOCIAL_PROFILES.linkedin, label: "TPI on LinkedIn", Icon: Linkedin },
+                  { href: SOCIAL_PROFILES.instagram, label: "TPI on Instagram", Icon: Instagram },
+                  { href: SOCIAL_PROFILES.twitter, label: "TPI on X (Twitter)", Icon: Twitter },
+                ].map(({ href, label, Icon }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="p-2 rounded-full border border-white/10 text-silver hover:text-white hover:border-primary transition-all duration-300"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
               </div>
             </div>
 

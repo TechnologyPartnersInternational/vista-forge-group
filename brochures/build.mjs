@@ -59,8 +59,22 @@ function sendList(prompt) {
 }
 
 const img = (p, alt = "", cls = "photo") => `<img class="${cls}" src="${src(p)}" alt="${esc(alt)}">`;
-const folio = (label, n) =>
-  `<div class="folio"><span>${esc(label)}</span><span class="num">${String(n).padStart(2, "0")}</span></div>`;
+// LinkedIn and Instagram glyphs from Lucide, the website's icon set.
+const ICONS = {
+  LinkedIn: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
+  Instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
+};
+const icon = (name) =>
+  `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name]}</svg>`;
+/** Clickable LinkedIn and Instagram links: page name and handle when `full`, short labels otherwise. */
+const SHORT = { LinkedIn: "LinkedIn", Instagram: "@tpi_grp" };
+const socialLinks = (full = false) =>
+  contacts.socials
+    .map((s) => `<a class="social" href="${s.url}">${icon(s.name)}<span>${esc(full ? s.handle : SHORT[s.name])}</span></a>`)
+    .join("");
+
+const folio = (label, n, cls = "") =>
+  `<div class="folio ${cls}"><span>${esc(label)}</span><span class="socials">${socialLinks(true)}</span><span class="num">${String(n).padStart(2, "0")}</span></div>`;
 
 function cover({ image, series, title, line }) {
   return `
@@ -76,11 +90,11 @@ function cover({ image, series, title, line }) {
     <h1>${esc(title)}</h1>
     <p class="line">${esc(line)}</p>
   </div>
-  <div class="foot"><span>${contacts.web}</span><span>${contacts.emails.join("  ·  ")}</span></div>
+  <div class="foot"><span class="socials">${contacts.web}${socialLinks(true)}</span><span>${contacts.emails.join("  ·  ")}</span></div>
 </section>`;
 }
 
-const contactGrid = (cols = 3) => `
+const contactGrid = (cols = 3, follow = true) => `
   <div class="contact-grid">
     <div><div class="k">Email</div><div class="v">${contacts.emails.join("<br>")}</div></div>
     <div><div class="k">Phone</div><div class="v">${contacts.phones.join("<br>")}</div></div>
@@ -88,6 +102,7 @@ const contactGrid = (cols = 3) => `
       ? `<div><div class="k">Head office</div><div class="v sm">${esc(contacts.address)}<br>${contacts.web}</div></div>`
       : `<div><div class="k">Head office</div><div class="v sm">${esc(contacts.address)}</div></div>
          <div><div class="k">Offices</div><div class="v sm">${esc(contacts.offices)}<br>${contacts.web}</div></div>`}
+    ${follow ? `<div><div class="k">Follow us</div><div class="v sm follow">${socialLinks()}</div></div>` : ""}
   </div>`;
 
 function page(title, body) {
@@ -140,6 +155,7 @@ function buildGeneral() {
     </div>
   </div>
   <div class="fill" style="margin-top:12mm">${img(use(general.introImage), "Offshore platforms at dusk")}</div>
+  ${folio(label, 2, "light")}
 </section>`;
 
   const p3 = `
@@ -280,7 +296,7 @@ function buildService(s) {
     <div class="row">
       <div>
         <h2>Talk to our marine team</h2>
-        ${contactGrid(4)}
+        ${contactGrid(4, false)}
       </div>
       <div class="also">
         <h3>Also from TPI</h3>
@@ -289,6 +305,7 @@ function buildService(s) {
     </div>
     <div class="end">
       <img src="../assets/logo-white.png" alt="TPI Group">
+      <span class="socials">${socialLinks(true)}</span>
       <p class="credits">${credits(used)}</p>
     </div>
   </div>

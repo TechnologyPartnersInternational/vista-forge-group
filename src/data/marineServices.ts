@@ -206,7 +206,7 @@ export const marineService: Service = {
       heroImage: `${M}/photo-platform-risers.webp`,
       image: `${M}/rov-exposed-flowline.webp`,
       gallery: [
-        { src: `${M}/photo-pipeline-mattresses.webp`, alt: "Concrete protection mattresses stacked on a barge before installation over a pipeline" },
+        { src: `${M}/photo-subsea-cable-reef.webp`, alt: "Two submarine telephone cables lying across a reef on the seabed" },
         { src: `${M}/rov-seabed-detail.webp`, alt: "Seabed surface beside an exposed flowline, recorded for context" },
         { src: `${M}/coating-defect-measure.webp`, alt: "Coating defect on steel pipe sized on a scaled inspection image" },
       ],
@@ -349,7 +349,7 @@ export const marineService: Service = {
       fullDesc:
         "We combine structured underwater observation with selected measurements and sampling support. The study design ties survey stations, field records and specialist interpretation to the environmental questions you need answered.\n\nPilots follow defined transects at a planned height above the bed. Station, survey effort, altitude and visibility are logged with the imagery, so seasonal surveys can be compared like for like. The work connects directly to our EIA practice and laboratory.",
       highlights: [
-        "EIA and EES video transects",
+        "Environmental studies video transects",
         "Seabed habitat observations",
         "Fish and biodiversity surveys",
         "Water-quality profiling",
@@ -358,7 +358,7 @@ export const marineService: Service = {
       ],
       capabilities: [
         {
-          title: "EIA and EES video transects",
+          title: "Environmental studies video transects",
           desc: "We film defined transects at project and reference stations, at a consistent camera height where conditions permit, so habitats can be compared between surveys.",
         },
         {
@@ -419,7 +419,7 @@ export const MARINE_PHOTO_CREDITS: Record<string, { by: string; licence: string;
   "photo-reef-stetson": { by: "NOAA National Marine Sanctuaries", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:Stetson_Bank_(41373085831).jpg" },
   "photo-healthy-reef": { by: "Laszlo Ilyes", licence: "CC BY 2.0", page: "https://commons.wikimedia.org/wiki/File:Healthy_Reef_(2067197055).jpg" },
   "photo-platform-risers": { by: "FrogsLegs71", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Risers_going_below_a_offshore_oil_platform.jpg" },
-  "photo-pipeline-mattresses": { by: "Ciacho5", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Pipeline_matrasses_on_barge1.jpg" },
+  "photo-subsea-cable-reef": { by: "Collinpetty", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:HAW-1_Submarine_Telephone_Cable_in_Hanauma_Bay_June_2021.jpg" },
   "photo-drydock-propeller": { by: "AlfvanBeem", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Union_5_in_dry-dock_of_Antwerp_pic4.JPG" },
   "photo-multibeam-seabed": { by: "Ifremer", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Crat%C3%A8res_sous-marins_en_baie_de_Concarneau_(Ifremer_00705-81751_-_34709).jpg" },
   "photo-multibeam-wreck": { by: "U.S. Navy", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:US_Navy_030411-N-0000X-001_A_detailed_multibeam_image_for_the_survey_of_USS_Susan_B._Anthony_(AP-72).jpg" },
