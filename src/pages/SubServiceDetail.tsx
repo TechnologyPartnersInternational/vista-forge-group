@@ -249,12 +249,31 @@ const SubServiceDetail = () => {
                 <div className="bg-mist rounded-3xl p-8 border border-border/50">
                   <h3 className="text-2xl font-bold text-foreground mb-4">Download</h3>
                   <p className="text-sm text-muted-foreground mb-8">
-                    Read more about our {subService.title.toLowerCase()} capabilities in our comprehensive service brochure.
+                    {subService.brochure
+                      ? "Scope, deliverables and limits for this service in a four-page PDF you can share with your team."
+                      : `Read more about our ${subService.title.toLowerCase()} capabilities in our comprehensive service brochure.`}
                   </p>
+                  {subService.brochure && (
+                    <a
+                      href={subService.brochure}
+                      download
+                      className="flex items-center justify-between gap-4 w-full p-4 mb-3 bg-navy text-white rounded-xl hover:bg-primary active:scale-[0.98] transition-all group"
+                    >
+                      <span className="flex flex-col text-left">
+                        <span className="font-bold leading-snug">Service brochure</span>
+                        <span className="text-xs font-medium text-white/80">PDF, 4 pages</span>
+                      </span>
+                      <Download className="w-5 h-5 shrink-0 transition-transform group-hover:translate-y-1" />
+                    </a>
+                  )}
                   <a 
                     href={capabilityStatement} 
                     download="TPI-Capability-Statement.pdf"
-                    className="flex items-center justify-between w-full p-4 bg-navy text-white rounded-xl hover:bg-primary transition-all group"
+                    className={`flex items-center justify-between w-full p-4 rounded-xl transition-all group ${
+                      subService.brochure
+                        ? "bg-white text-foreground border border-border hover:border-primary hover:text-primary"
+                        : "bg-navy text-white hover:bg-primary"
+                    }`}
                   >
                     <span className="font-bold">Capability Statement</span>
                     <Download className="w-5 h-5 transition-transform group-hover:translate-y-1" />
