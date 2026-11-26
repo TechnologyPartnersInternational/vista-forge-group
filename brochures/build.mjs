@@ -121,6 +121,7 @@ function buildGeneral() {
     "underwater-environmental-surveys": "reef-transect",
   };
   const pageOf = (i) => 4 + Math.floor(i / 2);
+  const nameOf = (s) => general.shortTitles[s.id] || s.title;
 
   const p1 = cover({ image: use(general.cover), series, title: general.title, line: general.coverLine });
 
@@ -152,7 +153,7 @@ function buildGeneral() {
       ${subs.map((s, i) => `
       <div class="index-row">
         <div class="frame thumb">${img(use(thumbs[s.id]), s.title)}</div>
-        <div><h3>${esc(s.title)}</h3><p>${esc(s.shortDesc)}</p></div>
+        <div><h3>${esc(nameOf(s))}</h3><p>${esc(s.shortDesc)}</p></div>
         <div class="pg">p. ${pageOf(i)}</div>
       </div>`).join("")}
     </div>
@@ -165,13 +166,11 @@ function buildGeneral() {
       <div class="frame">${img(use(s.heroImage), s.title)}</div>
       <div class="text">
         <div>
-          <h2>${esc(s.title)}</h2>
+          <h2>${esc(nameOf(s))}</h2>
           <p class="short">${esc(s.shortDesc)}</p>
-        </div>
-        <div>
-          <ul>${s.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>
           <p class="use"><b>Used for</b> ${esc(s.applications.replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()))}.</p>
         </div>
+        <ul>${s.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>
       </div>
     </article>`;
 
@@ -206,19 +205,12 @@ function buildGeneral() {
 </section>`;
 
   const p8 = `
-<section class="page back">
-  <h2>${esc(general.processHeading)}</h2>
-  <div class="steps">
-    ${general.process.map((p, i) => `<div><div class="n">${i + 1}</div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p></div>`).join("")}
-  </div>
-  <div class="band">${img(use("structure-colonisation"), "Marine growth on a submerged structure")}</div>
+<section class="page back flow">
+  <div class="fill">${img(use(general.backImage), "Reef fish over a coral bank")}</div>
   <div class="contact-block">
-    <h2>Tell us about the asset. We&#8217;ll scope the survey.</h2>
+    <img class="logo" src="../assets/logo-white.png" alt="TPI Group, Technology Partners International">
     ${contactGrid(3)}
-  </div>
-  <div class="end">
-    <img src="../assets/logo-white.png" alt="TPI Group">
-    <p class="credits">${esc(contacts.offices)}<br>${credits(used)}</p>
+    <p class="credits">${esc(contacts.offices)}${credits(used) ? `<br>${credits(used)}` : ""}</p>
   </div>
 </section>`;
 

@@ -138,7 +138,7 @@ export const marineService: Service = {
       ],
       enquiryPrompt:
         "Send asset drawings, materials, nominal thicknesses, coating details, water depths, previous results and the testing scope you need.",
-      heroImage: `${M}/photo-sacrificial-anode.webp`,
+      heroImage: `${M}/photo-corroded-wreck-steel.webp`,
       image: `${M}/coating-defect-measure.webp`,
       gallery: [
         { src: `${M}/anode-length-scale.webp`, alt: "Sacrificial anode measured against an on-screen scale" },
@@ -273,7 +273,7 @@ export const marineService: Service = {
       gallery: [
         { src: `${M}/hull-coating-condition.webp`, alt: "Close-up of hull coating condition and fouling" },
         { src: `${M}/hull-plate-seam.webp`, alt: "Hull plate seam and the surrounding surface, filmed at a controlled stand-off" },
-        { src: `${M}/photo-structure-inspection-diver.webp`, alt: "Close inspection of submerged concrete armour units" },
+        { src: `${M}/rov-marked-jacket-member.webp`, alt: "Identification marking on a submerged structural member" },
       ],
     },
     {
@@ -401,7 +401,7 @@ export const marineService: Service = {
       gallery: [
         { src: `${M}/structure-colonisation.webp`, alt: "Sponges, tunicates and other organisms colonising a submerged structure" },
         { src: `${M}/colonisation-area-measure.webp`, alt: "Patch of colonisation measured within a laser-scaled frame" },
-        { src: `${M}/photo-diver-transect.webp`, alt: "Survey transect line laid across a reef for repeat observation" },
+        { src: `${M}/photo-kelp-anemone.webp`, alt: "Anemone on a rocky bed in a kelp forest" },
       ],
     },
   ],
@@ -414,15 +414,15 @@ export const marineService: Service = {
 export const MARINE_PHOTO_CREDITS: Record<string, { by: string; licence: string; page: string }> = {
   "photo-offshore-platform": { by: "GuavaTrain", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Holstein_at_Dusk.jpg" },
   "photo-offshore-field-dusk": { by: "Genghiskhanviet", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:An_oil_rig_offshore_Vungtau.jpg" },
-  "photo-sacrificial-anode": { by: "Zwergelstern", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Sacrificial_anode.jpg" },
+  "photo-corroded-wreck-steel": { by: "USFWS Pacific Region", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:Disingtegration_of_shipwreck_on_Palmyra_Atoll_(12197448566).jpg" },
+  "photo-kelp-anemone": { by: "NOAA National Marine Sanctuaries", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:MBNMS_-_Anemone_in_Kelp_(27225664213).jpg" },
+  "photo-reef-stetson": { by: "NOAA National Marine Sanctuaries", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:Stetson_Bank_(41373085831).jpg" },
   "photo-healthy-reef": { by: "Laszlo Ilyes", licence: "CC BY 2.0", page: "https://commons.wikimedia.org/wiki/File:Healthy_Reef_(2067197055).jpg" },
   "photo-platform-risers": { by: "FrogsLegs71", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Risers_going_below_a_offshore_oil_platform.jpg" },
   "photo-pipeline-mattresses": { by: "Ciacho5", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Pipeline_matrasses_on_barge1.jpg" },
   "photo-drydock-propeller": { by: "AlfvanBeem", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Union_5_in_dry-dock_of_Antwerp_pic4.JPG" },
-  "photo-structure-inspection-diver": { by: "Idmer34", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Idmer_underwater_inspection.jpg" },
   "photo-multibeam-seabed": { by: "Ifremer", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Crat%C3%A8res_sous-marins_en_baie_de_Concarneau_(Ifremer_00705-81751_-_34709).jpg" },
   "photo-multibeam-wreck": { by: "U.S. Navy", licence: "Public domain", page: "https://commons.wikimedia.org/wiki/File:US_Navy_030411-N-0000X-001_A_detailed_multibeam_image_for_the_survey_of_USS_Susan_B._Anthony_(AP-72).jpg" },
-  "photo-diver-transect": { by: "Peter Southwood", licence: "CC BY-SA 3.0", page: "https://commons.wikimedia.org/wiki/File:Diver_swimming_a_transect_for_Reef_Life_Survey_PB164699.JPG" },
 };
 
 /** Credits for the stand-in photographs a set of image paths uses. */

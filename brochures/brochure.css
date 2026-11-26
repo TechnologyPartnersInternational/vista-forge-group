@@ -139,14 +139,18 @@ p { text-wrap: pretty; }
 
 /* ── General: two services per page ───────────────────────────────────── */
 
-.duo { display: grid; grid-template-rows: 1fr 1fr; height: 253mm; row-gap: 10mm; }
-.svc { display: grid; grid-template-rows: 58mm 1fr; row-gap: 6mm; }
+.duo { display: flex; flex-direction: column; gap: 9mm; }
+/* Each block is exactly half the usable page; the photo row takes what the
+   text leaves, so blocks never end in white space. */
+.svc { height: 124mm; display: grid; grid-template-rows: minmax(50mm, 1fr) auto; row-gap: 6mm; }
+.svc > .frame { position: relative; }
+.svc > .frame > img { position: absolute; inset: 0; }
 .svc .text { display: grid; grid-template-columns: 1fr 1fr; column-gap: 9mm; }
 .svc h2 { font-size: 16pt; margin-bottom: 3mm; }
 .svc .short { font-size: 10.5pt; line-height: 1.45; color: var(--ink); }
-.svc ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 5mm; }
+.svc ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 5mm; align-content: start; }
 .svc li { border-top: 0.3mm solid var(--rule); padding: 2mm 0; font-weight: 500; font-size: 8.6pt; line-height: 1.35; }
-.svc .use { margin-top: 4mm; font-size: 8.4pt; color: var(--muted); }
+.svc .use { margin-top: 4mm; font-size: 8.6pt; line-height: 1.5; color: var(--muted); }
 .svc .use b { color: var(--ink); font-weight: 600; }
 
 /* ── General: deliverables and sectors ────────────────────────────────── */
@@ -165,29 +169,20 @@ p { text-wrap: pretty; }
 .sectors ul { grid-column: 5 / span 8; list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 6mm; align-content: start; }
 .sectors li { border-top: 0.3mm solid var(--rule); padding: 2.6mm 0; font-weight: 500; }
 
-/* ── Back page (navy) ─────────────────────────────────────────────────── */
+/* ── Back page (navy): photo above, contacts below ──────────────────────── */
 
-.back { background: var(--deep); color: #fff; padding: 20mm var(--m) 0; }
-.back h2 { color: #fff; }
-.back .steps { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 6mm; margin-top: 10mm; }
-.back .steps > div { border-top: 0.3mm solid rgba(255, 255, 255, 0.28); padding-top: 3.5mm; }
-.back .steps .n { font-size: 9pt; font-weight: 700; color: #8fb0ff; font-variant-numeric: tabular-nums; margin-bottom: 2.5mm; }
-.back .steps h3 { color: #fff; margin-bottom: 1.5mm; }
-.back .steps p { color: rgba(255, 255, 255, 0.76); font-size: 8.8pt; }
-.back .band { position: absolute; left: 0; right: 0; top: 98mm; height: 82mm; }
-.back .band img { width: 100%; height: 100%; object-fit: cover; }
-.contact-block { position: absolute; left: var(--m); right: var(--m); bottom: 30mm; }
-.contact-block h2 { font-size: 26pt; max-width: 150mm; margin-bottom: 9mm; }
+.back { background: var(--deep); color: #fff; }
+.back .contact-block { flex: none; padding: 13mm var(--m) 11mm; }
+.back .contact-block .logo { height: 12mm; width: auto; margin-bottom: 9mm; }
 .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6mm; border-top: 0.3mm solid rgba(255, 255, 255, 0.28); padding-top: 5mm; }
 .contact-grid .k { font-size: 7.5pt; color: rgba(255, 255, 255, 0.6); margin-bottom: 1.8mm; }
 .contact-grid .v { font-size: 10.5pt; font-weight: 600; line-height: 1.55; color: #fff; font-variant-numeric: tabular-nums; }
 .contact-grid .v.sm { font-size: 9pt; font-weight: 500; }
-.back .end {
-  position: absolute; left: var(--m); right: var(--m); bottom: 10mm;
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm;
-}
-.back .end img { height: 10mm; width: auto; }
-.credits { font-size: 6.3pt; line-height: 1.45; color: rgba(255, 255, 255, 0.5); max-width: 140mm; text-align: right; }
+.back .contact-grid .v { font-size: 12pt; }
+.back .contact-grid .v.sm { font-size: 10pt; }
+.credits { font-size: 6.3pt; line-height: 1.45; color: rgba(255, 255, 255, 0.5); max-width: 150mm; }
+.back .credits { margin-top: 9mm; }
+.dl .credits { text-align: right; }
 
 /* ── Service brochure: overview page ──────────────────────────────────── */
 
