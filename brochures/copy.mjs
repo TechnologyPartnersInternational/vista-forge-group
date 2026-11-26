@@ -27,6 +27,13 @@ export const general = {
     { title: "Long, steady runs", desc: "Surface-supplied power and position holding keep the vehicle on station for close-ups." },
   ],
 
+  // The overview is all underwater work, so it drops the word from service names.
+  shortTitles: {
+    "underwater-ndt-corrosion": "NDT & Corrosion Assessment",
+    "underwater-environmental-surveys": "Environmental & Ecological Surveys",
+  },
+  backImage: "photo-reef-stetson",
+
   indexHeading: "Six services, one way of recording.",
   indexLine: "Each service has its own brochure with full scope, deliverables and limits.",
 
@@ -46,13 +53,6 @@ export const general = {
     "EIA, EES and marine monitoring",
   ],
 
-  processHeading: "How a job runs",
-  process: [
-    { title: "You share what you know", desc: "Asset or survey area, location, water depth and what you need to find out. Drawings and earlier findings help." },
-    { title: "We fix the scope", desc: "Coverage, measurements, methods and report format are agreed before we mobilise." },
-    { title: "We inspect and record", desc: "Every observation is referenced to its location, with gaps in coverage logged as we go." },
-    { title: "You receive the record", desc: "Imagery, registers, measurements and a technical report, ready for maintenance planning or engineering review." },
-  ],
 };
 
 /** Cover images and lines for each service brochure, keyed by sub-service id. */
@@ -62,7 +62,7 @@ export const serviceCovers = {
     line: "Condition evidence for jackets, subsea equipment, risers and moorings, tied to the component it came from.",
   },
   "underwater-ndt-corrosion": {
-    cover: "cover-sacrificial-anode",
+    cover: "cover-corroded-wreck-steel",
     line: "Thickness, protection potential and coating condition, measured at the test points that matter.",
   },
   "pipeline-cable-inspection": {
