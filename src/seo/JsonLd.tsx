@@ -91,7 +91,7 @@ export function organizationSchema() {
         availableLanguage: ['English'],
       },
     ],
-    sameAs: [SOCIAL_PROFILES.linkedin, SOCIAL_PROFILES.twitter],
+    sameAs: [SOCIAL_PROFILES.linkedin, SOCIAL_PROFILES.instagram, SOCIAL_PROFILES.twitter],
     numberOfEmployees: {
       '@type': 'QuantitativeValue',
       minValue: 200,

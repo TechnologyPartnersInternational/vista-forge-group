@@ -7,6 +7,10 @@ export const contacts = {
   web: "www.tpigrp.com",
   address: "52/54 Oluwaleyimu Street, Off Toyin Street, Ikeja, Lagos, Nigeria",
   offices: "Lagos · Port Harcourt · Warri · Conakry",
+  socials: [
+    { name: "LinkedIn", handle: "Technology Partners International", url: "https://www.linkedin.com/company/technology-partners-international-nigeria-limited/" },
+    { name: "Instagram", handle: "@tpi_grp", url: "https://www.instagram.com/tpi_grp/" },
+  ],
 };
 
 export const general = {
