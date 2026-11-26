@@ -179,3 +179,28 @@ export const complianceFAQs: FAQItem[] = [
       'Yes. TPI has extensive experience aligning projects with IFC Performance Standards, World Bank Environmental and Social Framework (ESF), and Equator Principles. We help clients prepare Environmental and Social Impact Assessments (ESIA), Environmental and Social Management Plans (ESMP), and Resettlement Action Plans (RAP) that meet international financing requirements.',
   },
 ];
+
+// ─── Marine & Underwater Services FAQs ───────────────────────────────────────
+
+export const marineFAQs: FAQItem[] = [
+  {
+    question: 'What underwater inspection and survey services does TPI offer?',
+    answer:
+      'TPI carries out ROV-based offshore and subsea asset inspection, underwater NDT and corrosion assessment, pipeline and subsea cable inspection, vessel hull and marine structure inspection, bathymetric and seabed surveys, and underwater environmental and ecological surveys for EIA, EES and monitoring programmes.',
+  },
+  {
+    question: 'Can marine growth be removed before an inspection or thickness reading?',
+    answer:
+      'Yes. We clear selected test points and connections with a cavitation water jet rated up to 500 bar, using a working pressure suited to the coating and test surface.',
+  },
+  {
+    question: 'Does a visual ROV inspection confirm the integrity of a pipeline or structure?',
+    answer:
+      'No. Visual observation documents the external condition of the sections inspected. Ultrasonic thickness readings describe the tested points only. Buried-asset location, depth of cover, internal inspection and fitness-for-service assessment each need a separately specified method or engineering scope, which we can define with you.',
+  },
+  {
+    question: 'What should we send TPI to scope an underwater survey?',
+    answer:
+      'The asset or survey area, its location and water depth, and what you need to find out. Drawings, nominal thicknesses or survey datum, earlier findings and your mobilisation window help us propose the right method and deliverables.',
+  },
+];

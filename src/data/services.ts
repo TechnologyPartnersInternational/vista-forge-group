@@ -1,4 +1,15 @@
 import { LucideIcon, Leaf, FlaskConical, Trash2, Wrench, Monitor, GraduationCap, TreePine, ShieldCheck, Microscope, CloudSun, Users, Wind, Droplets, Mountain, Map, Beaker, Truck, Bug, Fuel, Fingerprint, PenTool, ShoppingCart, Shield, Cable, ClipboardList, Monitor as MonitorIcon, ShieldCheck as ShieldCheckIcon, Database, Wifi, GraduationCap as GradIcon, Leaf as LeafIcon, FlaskConical as FlaskIcon, Settings } from "lucide-react";
+import { marineService } from "./marineServices";
+
+export interface SubServiceItem {
+  title: string;
+  desc: string;
+}
+
+export interface SubServiceImage {
+  src: string;
+  alt: string;
+}
 
 export interface SubService {
   id: string;
@@ -10,6 +21,14 @@ export interface SubService {
   heroImage?: string;
   image: string;
   icon?: LucideIcon;
+  /** Optional richer content, used by service lines built from technical brochures. */
+  capabilities?: SubServiceItem[];
+  applications?: string;
+  addOns?: string;
+  limits?: string;
+  deliverables?: SubServiceItem[];
+  enquiryPrompt?: string;
+  gallery?: SubServiceImage[];
 }
 
 export interface Service {
@@ -410,6 +429,7 @@ export const services: Service[] = [
       },
     ]
   },
+  marineService,
   {
     id: "digital",
     title: "Digital Solutions",
@@ -519,5 +539,5 @@ export const industries = [
   { id: "government", title: "Government & Regulators", desc: "Technical advisory, monitoring programmes, and capacity building for public sector agencies." },
   { id: "mining", title: "Mining", desc: "Mine-site environmental management, closure planning, and remediation services." },
   { id: "power", title: "Power & Energy", desc: "Environmental compliance and engineering for power generation and renewable energy projects." },
-  { id: "maritime", title: "Maritime", desc: "Ballast water management, port environmental assessments, and coastal monitoring." },
+  { id: "maritime", title: "Maritime", desc: "Underwater hull and structure inspection, seabed surveys, port environmental assessments and coastal monitoring." },
 ];

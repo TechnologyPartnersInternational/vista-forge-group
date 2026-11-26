@@ -17,15 +17,16 @@ import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 const heroImage =
   "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000";
 
-// Curated Unsplash images per service (order matches services array)
-const serviceImages = [
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200", // Environment
-  "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=1200", // Laboratory
-  "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&q=80&w=1200", // Waste Management
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200", // Digital
-  "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200", // Training
-  "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1200", // EPC
-];
+// Card images, keyed by service id
+const serviceImages: Record<string, string> = {
+  environment: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200",
+  laboratory: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=1200",
+  "waste-management": "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&q=80&w=1200",
+  engineering: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1200",
+  marine: "/assets/marine/rov-mooring-chain.webp",
+  digital: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
+  training: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200",
+};
 
 // Industry images , keyed by industry.id
 const industryImages: Record<string, string> = {
@@ -44,7 +45,6 @@ const industryImages: Record<string, string> = {
 
 const WhatWeDo = () => {
   const [featuredService, ...otherServices] = services;
-  const featuredImage = serviceImages[0];
 
   return (
     <Layout>
@@ -95,7 +95,7 @@ const WhatWeDo = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4"
             >
-              Six Integrated{" "}
+              Seven Integrated{" "}
               <br className="hidden md:block" />
               Service Lines
             </motion.h1>
@@ -153,7 +153,7 @@ const WhatWeDo = () => {
               className="mt-4 md:mt-0 text-base text-muted-foreground max-w-sm leading-relaxed"
             >
               Integrated expertise spanning environment, laboratory, engineering,
-              digital, and beyond.
+              marine inspection, digital and training.
             </motion.p>
           </div>
 
@@ -174,7 +174,7 @@ const WhatWeDo = () => {
                 {/* Dynamic Image Overlay */}
                 <Link to={`/what-we-do/${featuredService.slug}`} className="absolute top-0 left-0 w-full h-[280px] lg:h-[480px] group-hover:h-full transition-all duration-700 ease-custom z-0 overflow-hidden">
                   <img
-                    src={serviceImages[0]}
+                    src={serviceImages[featuredService.id]}
                     alt={featuredService.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -224,10 +224,10 @@ const WhatWeDo = () => {
             {/* Right: 2×2 Smaller Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {otherServices.map((service, index) => {
-                const imgSrc = serviceImages[index + 1];
+                const imgSrc = serviceImages[service.id];
                 const Icon = service.icon;
 
-                // Last card (EPC) , dark navy treatment instead of image
+                // Last card , dark navy treatment instead of image
                 const isLastCard = index === otherServices.length - 1;
 
                 return (
@@ -240,13 +240,13 @@ const WhatWeDo = () => {
                     className="flex-1"
                   >
                     {isLastCard ? (
-                      // Dark navy card for EPC
+                      // Dark navy card
                       <Link
                         to={`/what-we-do/${service.slug}`}
                         className="group relative flex flex-col h-full min-h-[180px] lg:min-h-0 rounded-[1.25rem] overflow-hidden navy-gradient p-6 lg:p-7 hover:-translate-y-1 transition-transform duration-300"
                       >
                         <div className="absolute top-3 right-4 text-[4rem] font-black text-white/5 leading-none select-none pointer-events-none">
-                          06
+                          {String(services.length).padStart(2, "0")}
                         </div>
                         <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center mb-4">
                           <Icon className="w-5 h-5 text-white" />
