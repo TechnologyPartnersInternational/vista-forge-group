@@ -110,7 +110,7 @@ function page(title, body) {
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>${esc(title)} | TPI Group</title>
+<title>${esc(title)} in Nigeria | TPI Group</title>
 <meta name="author" content="Technology Partners International (TPI Group)">
 <link rel="stylesheet" href="../brochure.css">
 </head>

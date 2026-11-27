@@ -31,6 +31,8 @@ export interface SubService {
   gallery?: SubServiceImage[];
   /** Downloadable PDF brochure, served from public/ (e.g. /brochures/x.pdf). */
   brochure?: string;
+  /** Search metadata; when absent, titles and descriptions derive from the copy. */
+  seo?: { title: string; description: string; keywords: string; image?: string };
 }
 
 export interface Service {
@@ -284,6 +286,11 @@ export const services: Service[] = [
       {
         id: "petroleum-testing",
         slug: "production-chemistry",
+        seo: {
+          title: "Production Chemistry & Crude Oil Assays in Nigeria | TPI",
+          description: "Comprehensive refined product testing, crude assays, and production chemistry troubleshooting to optimize processes and ensure fuel quality.",
+          keywords: "production chemistry Nigeria, petroleum product testing Nigeria, crude oil assay Nigeria, fuel quality testing, oilfield chemistry laboratory, TPI",
+        },
         title: "Production Chemistry, Petroleum Product Testing & Crude Oil Assays",
         shortDesc: "Comprehensive refined product testing, crude assays, and production chemistry troubleshooting to optimize processes and ensure fuel quality.",
         fullDesc: "As a leading regional provider, TPI specializes in production chemistry, petroleum product testing, and crude oil assays. In production chemistry, we offer process optimization, scale-up support, and troubleshooting with techniques like titration and gas chromatography.\n\nOur petroleum product testing ensures quality for everything from gasoline and diesel to lubricants and additives, assessing flash point, viscosity, and corrosion. Our crude oil assay services provide critical data on API gravity, sulfur content, and distillation to optimize refining processes and business decisions.",

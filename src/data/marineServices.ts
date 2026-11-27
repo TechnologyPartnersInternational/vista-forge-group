@@ -12,14 +12,20 @@ const M = "/assets/marine";
 
 export const marineService: Service = {
   id: "marine",
-  title: "Marine & Underwater Services",
+  title: "Underwater Inspection & Survey",
   slug: "marine-underwater",
   icon: Anchor,
-  shortDesc: "ROV inspection, underwater testing and seabed survey for submerged assets and environments.",
+  shortDesc: "ROV inspection, underwater testing and seabed survey for offshore, coastal and inland water assets in Nigeria and across Africa.",
   hasDetailedPage: true,
   subServices: [
     {
       id: "offshore-subsea-inspection",
+      seo: {
+        title: "Subsea & Offshore Inspection Services in Nigeria | TPI",
+        description: "ROV inspection of offshore platforms, jackets, risers, moorings and subsea equipment in Nigeria and Africa, with referenced video, anomaly registers and reports.",
+        keywords: "subsea inspection Nigeria, offshore inspection services Nigeria, ROV inspection Nigeria, offshore platform inspection, jacket inspection, riser inspection, mooring inspection, subsea asset inspection Africa, underwater inspection company Nigeria, Niger Delta offshore inspection",
+        image: `${M}/og/og-offshore-subsea-inspection.jpg`,
+      },
       brochure: "/brochures/TPI-Offshore-Subsea-Asset-Inspection.pdf",
       slug: "offshore-subsea-asset-inspection",
       title: "Offshore & Subsea Asset Inspection",
@@ -85,6 +91,12 @@ export const marineService: Service = {
     },
     {
       id: "underwater-ndt-corrosion",
+      seo: {
+        title: "Underwater NDT & Corrosion Assessment in Nigeria | TPI",
+        description: "Underwater ultrasonic thickness gauging, cathodic protection surveys and corrosion assessment for subsea pipelines, hulls, piles and platforms in Nigeria and Africa.",
+        keywords: "underwater NDT Nigeria, underwater ultrasonic thickness gauging, UT thickness measurement subsea, cathodic protection survey Nigeria, CP survey offshore, corrosion assessment Nigeria, sacrificial anode inspection, subsea corrosion inspection Africa",
+        image: `${M}/og/og-underwater-ndt-corrosion.jpg`,
+      },
       brochure: "/brochures/TPI-Underwater-NDT-Corrosion-Assessment.pdf",
       slug: "underwater-ndt-corrosion-assessment",
       title: "Underwater NDT & Corrosion Assessment",
@@ -148,6 +160,12 @@ export const marineService: Service = {
     },
     {
       id: "pipeline-cable-inspection",
+      seo: {
+        title: "Subsea Pipeline & Cable Inspection in Nigeria | TPI",
+        description: "ROV inspection of subsea pipelines, flowlines, power and telecom cables, free spans and crossings in Nigeria and Africa, with route-referenced findings and reports.",
+        keywords: "subsea pipeline inspection Nigeria, pipeline inspection Nigeria, subsea cable inspection, submarine cable survey Africa, flowline inspection, free span survey, river crossing inspection Niger Delta, ROV pipeline survey",
+        image: `${M}/og/og-pipeline-cable-inspection.jpg`,
+      },
       brochure: "/brochures/TPI-Pipeline-Subsea-Cable-Inspection.pdf",
       slug: "pipeline-subsea-cable-inspection",
       title: "Pipeline & Subsea Cable Inspection",
@@ -213,6 +231,12 @@ export const marineService: Service = {
     },
     {
       id: "hull-marine-structure-inspection",
+      seo: {
+        title: "Underwater Hull & Marine Structure Inspection, Nigeria | TPI",
+        description: "In-water ROV inspection of ship hulls, propellers, sea chests, jetties, quay walls, bridge piers and dam intakes in Nigeria and West Africa, zone by zone.",
+        keywords: "underwater hull inspection Nigeria, ship hull inspection Lagos, in-water survey, UWILD support Nigeria, jetty inspection, quay wall inspection, bridge pier underwater inspection, dam intake inspection, marine structure inspection Africa",
+        image: `${M}/og/og-hull-marine-structure-inspection.jpg`,
+      },
       brochure: "/brochures/TPI-Vessel-Hull-Marine-Structure-Inspection.pdf",
       slug: "vessel-hull-marine-structure-inspection",
       title: "Vessel Hull & Marine Structure Inspection",
@@ -278,6 +302,12 @@ export const marineService: Service = {
     },
     {
       id: "bathymetric-seabed-surveys",
+      seo: {
+        title: "Bathymetric & Seabed Survey Services in Nigeria | TPI",
+        description: "Bathymetric surveys, seabed mapping, scour and dredging surveys and reservoir capacity studies in Nigeria and Africa, with contours, terrain models and reports.",
+        keywords: "bathymetric survey Nigeria, hydrographic survey Nigeria, seabed survey Nigeria, seabed mapping, scour survey, dredging survey Lagos, reservoir capacity survey, river bathymetry Africa, depth survey",
+        image: `${M}/og/og-bathymetric-seabed-surveys.jpg`,
+      },
       brochure: "/brochures/TPI-Bathymetric-Seabed-Surveys.pdf",
       slug: "bathymetric-seabed-surveys",
       title: "Bathymetric & Seabed Surveys",
@@ -341,6 +371,12 @@ export const marineService: Service = {
     },
     {
       id: "underwater-environmental-surveys",
+      seo: {
+        title: "Underwater Environmental & Ecological Surveys, Nigeria | TPI",
+        description: "Underwater video transects, marine habitat and biodiversity surveys, water-quality profiling and sampling for EIA, EES and marine monitoring in Nigeria and Africa.",
+        keywords: "underwater environmental survey Nigeria, marine ecological survey, marine habitat survey Africa, benthic survey Nigeria, marine EIA survey, underwater video transect, marine biodiversity survey, water quality profiling Nigeria",
+        image: `${M}/og/og-underwater-environmental-surveys.jpg`,
+      },
       brochure: "/brochures/TPI-Underwater-Environmental-Ecological-Surveys.pdf",
       slug: "underwater-environmental-ecological-surveys",
       title: "Underwater Environmental & Ecological Surveys",
@@ -433,6 +469,7 @@ export const creditsFor = (paths: (string | undefined)[]) =>
 
 /** Overview content for the Marine & Underwater service line page. */
 export const marineOverview = {
+  ogImage: `${M}/og/og-underwater-inspection-survey.jpg`,
   brochure: "/brochures/TPI-Underwater-Inspection-and-Survey-Services.pdf",
   heroImage: `${M}/photo-jacket-underwater.webp`,
   intro:

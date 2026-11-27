@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.tpigrp.com/</loc>
     <lastmod>2026-11-16</lastmod>
@@ -164,45 +164,105 @@
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/marine-underwater</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-jacket-underwater.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/og/og-underwater-inspection-survey.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/marine-underwater/offshore-subsea-asset-inspection</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-offshore-platform.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/rov-marked-jacket-member.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/rov-mooring-chain.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/marine-underwater/underwater-ndt-corrosion-assessment</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-corroded-wreck-steel.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/coating-defect-measure.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/anode-length-scale.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/marine-underwater/pipeline-subsea-cable-inspection</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-platform-risers.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-subsea-cable-reef.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/rov-exposed-flowline.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/marine-underwater/vessel-hull-marine-structure-inspection</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-drydock-propeller.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/hull-propeller-rudder.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/hull-coating-condition.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/marine-underwater/bathymetric-seabed-surveys</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-multibeam-seabed.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/bathymetry-terrain-model.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/bathymetry-depth-contours.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/marine-underwater/underwater-environmental-ecological-surveys</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/photo-healthy-reef.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/reef-transect.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tpigrp.com/assets/marine/structure-colonisation.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.tpigrp.com/what-we-do/digital-solutions</loc>
@@ -340,6 +400,48 @@
     <loc>https://www.tpigrp.com/insights/methane-monitoring-offshore</loc>
     <lastmod>2026-01-18</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tpigrp.com/brochures/TPI-Underwater-Inspection-and-Survey-Services.pdf</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tpigrp.com/brochures/TPI-Offshore-Subsea-Asset-Inspection.pdf</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tpigrp.com/brochures/TPI-Underwater-NDT-Corrosion-Assessment.pdf</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tpigrp.com/brochures/TPI-Pipeline-Subsea-Cable-Inspection.pdf</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tpigrp.com/brochures/TPI-Vessel-Hull-Marine-Structure-Inspection.pdf</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tpigrp.com/brochures/TPI-Bathymetric-Seabed-Surveys.pdf</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tpigrp.com/brochures/TPI-Underwater-Environmental-Ecological-Surveys.pdf</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>

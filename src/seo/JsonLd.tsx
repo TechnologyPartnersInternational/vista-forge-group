@@ -45,7 +45,7 @@ export function organizationSchema() {
     logo: `${SITE_URL}/og-image.jpg`,
     foundingDate: FOUNDING_YEAR,
     description:
-      'Technology Partners International (TPI) is Nigeria\'s leading environmental consultancy and engineering company. Established in 1992, TPI provides ISO-certified environmental impact assessment (EIA), environmental compliance monitoring, laboratory testing, waste management, engineering, digital solutions, and professional training services across Nigeria and West Africa.',
+      'Technology Partners International (TPI) is Nigeria\'s leading environmental consultancy and engineering company. Established in 1992, TPI provides ISO-certified environmental impact assessment (EIA), environmental compliance monitoring, laboratory testing, waste management, engineering, ROV underwater inspection and survey, digital solutions, and professional training services across Nigeria and West Africa.',
     slogan: 'Building Africa\'s Technical Capacity Since 1992',
     knowsAbout: [
       'Environmental Impact Assessment',
@@ -68,6 +68,15 @@ export function organizationSchema() {
       'Oil Spill Remediation',
       'Geophysical Services',
       'Hydrological Services',
+      'Underwater Inspection',
+      'ROV Inspection',
+      'Subsea Asset Inspection',
+      'Subsea Pipeline and Cable Inspection',
+      'Underwater NDT and Corrosion Assessment',
+      'Cathodic Protection Surveys',
+      'Hull and Marine Structure Inspection',
+      'Bathymetric and Seabed Surveys',
+      'Underwater Environmental and Ecological Surveys',
     ],
     address: {
       '@type': 'PostalAddress',
@@ -174,6 +183,9 @@ export function professionalServiceSchema() {
       'GIS Mapping',
       'Geophysical Services',
       'Digital Environmental Solutions',
+      'Underwater Inspection and Survey',
+      'ROV Inspection',
+      'Bathymetric Survey',
     ],
     areaServed: [
       { '@type': 'Country', name: 'Nigeria' },
@@ -192,6 +204,7 @@ export function professionalServiceSchema() {
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Environmental Laboratory Services', description: 'ISO 17025 accredited laboratory for water, soil, air testing, crude oil assays, and eco-toxicity studies.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Waste Management Services', description: 'Integrated solid waste management, incineration, thermal desorption, and hazardous waste disposal.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Engineering & EPC Services', description: 'Multidisciplinary engineering design, procurement, construction management, and asset integrity.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Underwater Inspection & Survey', url: `${SITE_URL}/what-we-do/marine-underwater`, description: 'ROV inspection of offshore and subsea assets, pipelines, cables and hulls, underwater NDT, bathymetric and seabed surveys, and underwater environmental surveys in Nigeria and Africa.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Environmental Solutions', description: 'IoT monitoring, environmental data management, and automated compliance reporting platforms.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Professional Environmental Training', description: 'Accredited ESG, HSE, and environmental laboratory training programs in Nigeria.' } },
       ],
