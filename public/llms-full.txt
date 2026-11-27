@@ -186,6 +186,53 @@ Specialized instrumentation and quality control training including sample prepar
 
 ---
 
+### 7. Underwater Inspection & Survey
+ROV inspection, underwater testing and seabed survey for offshore, coastal and inland water assets in Nigeria and across Africa. Service line page: https://www.tpigrp.com/what-we-do/marine-underwater
+
+Overview brochure (PDF): https://www.tpigrp.com/brochures/TPI-Underwater-Inspection-and-Survey-Services.pdf
+
+#### Offshore & Subsea Asset Inspection
+We survey the condition of accessible offshore structures and subsea equipment for maintenance planning, incident review and integrity programmes. Each scope follows the asset configuration and your inspection priorities.
+- Page: https://www.tpigrp.com/what-we-do/marine-underwater/offshore-subsea-asset-inspection
+- Brochure (PDF): https://www.tpigrp.com/brochures/TPI-Offshore-Subsea-Asset-Inspection.pdf
+- Covers: Platforms and jackets; Wellheads and subsea systems; Risers and jumpers; Buoys and moorings; Umbilicals and control lines; Anodes and protective systems
+- Used for: Routine condition monitoring, maintenance campaigns, post-storm or post-incident assessment, pre-work and post-work verification, and decommissioning planning.
+
+#### Underwater NDT & Corrosion Assessment
+We combine underwater visual inspection with selected measurements to document metal loss, coating condition and corrosion-protection performance on submerged steel. The inspection plan fixes the test locations, methods and reporting format before we mobilise.
+- Page: https://www.tpigrp.com/what-we-do/marine-underwater/underwater-ndt-corrosion-assessment
+- Brochure (PDF): https://www.tpigrp.com/brochures/TPI-Underwater-NDT-Corrosion-Assessment.pdf
+- Covers: Ultrasonic thickness gauging; Cathodic protection surveys; Sacrificial anode inspection; Coating condition assessment; Corrosion defect documentation; Pre-NDT water-jet cleaning
+- Used for: Exposed steel pipelines, vessel hulls, platform members, risers, manifolds, steel piles and other accessible submerged components. What we can test depends on material, geometry and surface condition.
+
+#### Pipeline & Subsea Cable Inspection
+We inspect accessible pipeline and cable sections to document external condition, supports and visible interaction with the seabed. Each scope defines the route sections, coverage and measurements your assessment needs.
+- Page: https://www.tpigrp.com/what-we-do/marine-underwater/pipeline-subsea-cable-inspection
+- Brochure (PDF): https://www.tpigrp.com/brochures/TPI-Pipeline-Subsea-Cable-Inspection.pdf
+- Covers: Exposed pipeline inspection; Free spans and supports; Crossings and interfaces; Subsea cable inspection; Cable and pipeline protection; Incident and installation checks
+- Used for: Offshore flowlines, exposed export pipelines, power and telecom cables, river and creek crossings, and coastal approaches.
+
+#### Vessel Hull & Marine Structure Inspection
+We examine accessible submerged surfaces and components to document damage, deterioration, fouling and obstruction. Each inspection follows an agreed asset list, coverage plan and reporting format.
+- Page: https://www.tpigrp.com/what-we-do/marine-underwater/vessel-hull-marine-structure-inspection
+- Brochure (PDF): https://www.tpigrp.com/brochures/TPI-Vessel-Hull-Marine-Structure-Inspection.pdf
+- Covers: Hull and coating surveys; Propellers, rudders and thrusters; Sea chests and external fittings; Jetties, quays and marine piles; Bridges and coastal structures; Dams, reservoirs and water assets
+- Used for: Routine condition surveys, maintenance planning, grounding or collision assessment, pre-purchase and charter survey support, post-flood inspection, and pre-work or post-work verification.
+
+#### Bathymetric & Seabed Surveys
+We plan local bathymetric and seabed surveys around the coverage, resolution and accuracy the work needs, then select depth sensors, positioning and processing to suit. Underwater imagery adds context to the depth data.
+- Page: https://www.tpigrp.com/what-we-do/marine-underwater/bathymetric-seabed-surveys
+- Brochure (PDF): https://www.tpigrp.com/brochures/TPI-Bathymetric-Seabed-Surveys.pdf
+- Covers: Local bathymetric surveys; Profiles and terrain models; Scour and erosion surveys; Reservoir capacity and sedimentation; Dredging assessment support; Seabed features and obstructions
+- Used for: Offshore structures, ports and berths, intakes and outfalls, bridge foundations, reservoirs, pipeline crossings and coastal works.
+
+#### Underwater Environmental & Ecological Surveys
+We combine structured underwater observation with selected measurements and sampling support. The study design ties survey stations, field records and specialist interpretation to the environmental questions you need answered.
+- Page: https://www.tpigrp.com/what-we-do/marine-underwater/underwater-environmental-ecological-surveys
+- Brochure (PDF): https://www.tpigrp.com/brochures/TPI-Underwater-Environmental-Ecological-Surveys.pdf
+- Covers: Environmental studies video transects; Seabed habitat observations; Fish and biodiversity surveys; Water-quality profiling; Targeted sampling support; Impact and restoration monitoring
+- Used for: Offshore energy facilities, ports and dredging projects, coastal developments, intakes and outfalls, aquaculture sites and restoration areas, for baseline studies and operational or seasonal monitoring.
+
 ## Industries Served
 
 1. **Oil & Gas** — Upstream, midstream, and downstream environmental and engineering services for Africa's petroleum sector

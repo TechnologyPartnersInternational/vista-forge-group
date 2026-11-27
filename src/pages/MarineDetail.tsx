@@ -7,9 +7,10 @@ import CtaBand from "@/components/CtaBand";
 import PhotoCredits from "@/components/service/PhotoCredits";
 import { marineService, marineOverview } from "@/data/marineServices";
 import PageSEO from "@/seo/PageSEO";
-import { PAGE_SEO, SITE_URL } from "@/seo/seo.config";
+import { PAGE_SEO } from "@/seo/seo.config";
 import Breadcrumbs from "@/seo/Breadcrumbs";
-import { JsonLd, serviceSchema } from "@/seo/JsonLd";
+import { JsonLd } from "@/seo/JsonLd";
+import { serviceLineSchema, absoluteUrl } from "@/seo/routeMeta";
 import FAQSection from "@/seo/FAQSection";
 import { marineFAQs } from "@/seo/faqData";
 
@@ -24,6 +25,7 @@ const MarineDetail = () => {
         title={seo.title}
         description={seo.description}
         keywords={seo.keywords}
+        ogImage={absoluteUrl(marineOverview.ogImage)}
         canonicalPath={seo.canonicalPath}
       />
       <Breadcrumbs
@@ -32,7 +34,7 @@ const MarineDetail = () => {
           { label: service.title, path: `/what-we-do/${service.slug}` },
         ]}
       />
-      <JsonLd data={serviceSchema(service.title, seo.description, `${SITE_URL}/what-we-do/${service.slug}`)} />
+      <JsonLd data={serviceLineSchema(service, seo.description)} />
 
       <ServiceHero
         title={service.title}

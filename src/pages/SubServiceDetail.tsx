@@ -9,7 +9,8 @@ import CtaBand from "@/components/CtaBand";
 import PhotoCredits from "@/components/service/PhotoCredits";
 import capabilityStatement from "@/assets/CompanyProfile/TPI-Company-Profile.pdf";
 import PageSEO from "@/seo/PageSEO";
-import { SITE_URL, SITE_NAME, localTitle, localDescription } from "@/seo/seo.config";
+import { SITE_URL } from "@/seo/seo.config";
+import { subServiceMeta, absoluteUrl } from "@/seo/routeMeta";
 import Breadcrumbs from "@/seo/Breadcrumbs";
 import { JsonLd, serviceSchema } from "@/seo/JsonLd";
 
@@ -100,6 +101,7 @@ const SubServiceDetail = () => {
   if (!subService) return <Navigate to={`/what-we-do/${serviceSlug}`} replace />;
 
   const isDetailed = Boolean(subService.capabilities?.length);
+  const meta = subServiceMeta(service, subService);
 
   // Filter related projects based on subservice category or service
   const relatedProjects = projects.filter(p => 
@@ -110,9 +112,10 @@ const SubServiceDetail = () => {
   return (
     <Layout>
       <PageSEO
-        title={localTitle(subService.title)}
-        description={localDescription(subService.shortDesc || subService.fullDesc || `${subService.title} services by TPI in Nigeria and Africa. ${service.shortDesc}`)}
-        keywords={`${subService.title}, ${service.title}, Nigeria, environmental services, TPI`}
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        ogImage={absoluteUrl(meta.image)}
         canonicalPath={`/what-we-do/${serviceSlug}/${subServiceSlug}`}
       />
       <Breadcrumbs
@@ -123,11 +126,7 @@ const SubServiceDetail = () => {
         ]}
       />
       <JsonLd
-        data={serviceSchema(
-          subService.title,
-          subService.shortDesc || subService.fullDesc || `${subService.title} services provided by Technology Partners International in Nigeria.`,
-          `${SITE_URL}/what-we-do/${serviceSlug}/${subServiceSlug}`
-        )}
+        data={serviceSchema(subService.title, meta.description, `${SITE_URL}/what-we-do/${serviceSlug}/${subServiceSlug}`)}
       />
 
       <section className="px-4 md:px-10 pt-8 pb-12 bg-white">
